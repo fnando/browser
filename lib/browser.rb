@@ -21,7 +21,8 @@ class Browser
     :iphone     => "iPhone",
     :ipod       => "iPod Touch",
     :opera      => "Opera",
-    :other      => "Other"
+    :other      => "Other",
+    :safari     => "Safari"
   }
 
   LANGUAGES = {
@@ -173,6 +174,7 @@ class Browser
     when firefox?     then :firefox
     when android?     then :android
     when blackberry?  then :blackberry
+    when safari?      then :safari
     else
       :other
     end
@@ -197,6 +199,11 @@ class Browser
   # Return true if browser supports some CSS 3 (Safari, Firefox, Opera & IE7+).
   def capable?
     safari? || firefox? || opera? || (ie? && version >= "7")
+  end
+
+  # Detect if browser is WebKit-based.
+  def webkit?
+    !!(ua =~ /AppleWebKit/i)
   end
 
   # Detect if browser is mobile.
@@ -304,7 +311,7 @@ class Browser
   def meta
     Array.new.tap do |m|
       m << id
-      m << "safari safari#{version}" if safari?
+      m << "webkit safari safari#{version}" if safari?
       m << "#{id}#{version}" unless safari?
       m << platform
       m << "capable" if capable?
