@@ -22,7 +22,8 @@ class Browser
     :ipod       => "iPod Touch",
     :opera      => "Opera",
     :other      => "Other",
-    :safari     => "Safari"
+    :safari     => "Safari",
+    :psp        => "PlayStation Portable"
   }
 
   LANGUAGES = {
@@ -175,6 +176,7 @@ class Browser
     when android?     then :android
     when blackberry?  then :blackberry
     when safari?      then :safari
+    when psp?         then :psp
     else
       :other
     end
@@ -208,7 +210,7 @@ class Browser
 
   # Detect if browser is mobile.
   def mobile?
-    !!(ua =~ /(Mobile|Symbian|MIDP|Windows CE)/) || blackberry?
+    !!(ua =~ /(Mobile|Symbian|MIDP|Windows CE)/) || blackberry? || psp?
   end
 
   # Detect if browser is BlackBerry
@@ -274,6 +276,11 @@ class Browser
   # Detect if browser is Internet Explorer 9.
   def ie9?
     ie? && version == "9"
+  end
+
+  # Detect if browser is running from PSP.
+  def psp?
+    !!(ua =~ /PSP/)
   end
 
   # Detect if browser is Opera.

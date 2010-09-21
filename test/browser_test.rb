@@ -24,6 +24,7 @@ class BrowserTest < Test::Unit::TestCase
   CHROME     = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4"
   ANDROID    = "Android SDK 1.5r3: Mozilla/5.0 (Linux; U; Android 1.5; de-; sdk Build/CUPCAKE) AppleWebkit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
   BLACKBERRY = "BlackBerry7100i/4.1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/103"
+  PSP        = "Mozilla/4.0 (PSP (PlayStation Portable); 2.00)"
 
   def setup
     @browser = Browser.new
@@ -208,6 +209,14 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.capable? == false
     assert_equal "4.1.0", @browser.full_version
     assert_equal "4", @browser.version
+  end
+
+  def test_detect_psp
+    @browser.ua = PSP
+
+    assert_equal "PlayStation Portable", @browser.name
+    assert @browser.psp?
+    assert @browser.mobile?
   end
 
   def test_detect_other_mobiles
