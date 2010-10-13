@@ -7,8 +7,8 @@ class Browser
     private
     def browser
       @browser ||= Browser.new(
-        :accept_language => request.headers["ACCEPT_LANGUAGE"],
-        :ua => request.headers["USER_AGENT"]
+        :accept_language => request.headers["Accept-Language"],
+        :ua => request.headers["User-Agent"]
       )
     end
   end
