@@ -23,7 +23,8 @@ class Browser
     :opera      => "Opera",
     :other      => "Other",
     :safari     => "Safari",
-    :psp        => "PlayStation Portable"
+    :psp        => "PlayStation Portable",
+    :quicktime  => "QuickTime"
   }
 
   LANGUAGES = {
@@ -177,6 +178,7 @@ class Browser
     when blackberry?  then :blackberry
     when safari?      then :safari
     when psp?         then :psp
+    when quicktime?   then :quicktime
     else
       :other
     end
@@ -194,7 +196,7 @@ class Browser
 
   # Return the full version.
   def full_version
-    _, v = *ua.match(/(?:Version|MSIE|Opera|Firefox|Chrome|BlackBerry[^\/]+)[\/ ]([\d.]+)/)
+    _, v = *ua.match(/(?:Version|MSIE|Opera|Firefox|Chrome|QuickTime|BlackBerry[^\/]+)[\/ ]([\d.]+)/)
     v || "0.0"
   end
 
@@ -211,6 +213,11 @@ class Browser
   # Detect if browser is mobile.
   def mobile?
     !!(ua =~ /(Mobile|Symbian|MIDP|Windows CE)/) || blackberry? || psp?
+  end
+
+  # Detect if browser is QuickTime
+  def quicktime?
+    !!(ua =~ /QuickTime/i)
   end
 
   # Detect if browser is BlackBerry
