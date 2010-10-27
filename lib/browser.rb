@@ -24,8 +24,11 @@ class Browser
     :other      => "Other",
     :safari     => "Safari",
     :psp        => "PlayStation Portable",
-    :quicktime  => "QuickTime"
+    :quicktime  => "QuickTime",
+    :core_media => "Apple CoreMedia"
   }
+
+  VERSION_REGEX = /(?:Version|MSIE|Opera|Firefox|Chrome|QuickTime|BlackBerry[^\/]+|CoreMedia v)[\/ ]?([a-z0-9.]+)/i
 
   LANGUAGES = {
     "af"    => "Afrikaans",
@@ -179,6 +182,7 @@ class Browser
     when safari?      then :safari
     when psp?         then :psp
     when quicktime?   then :quicktime
+    when core_media?  then :core_media
     else
       :other
     end
@@ -196,7 +200,7 @@ class Browser
 
   # Return the full version.
   def full_version
-    _, v = *ua.match(/(?:Version|MSIE|Opera|Firefox|Chrome|QuickTime|BlackBerry[^\/]+)[\/ ]([\d.]+)/)
+    _, v = *ua.match(VERSION_REGEX)
     v || "0.0"
   end
 
@@ -228,6 +232,11 @@ class Browser
   # Detect if browser is Android.
   def android?
     !!(ua =~ /Android/)
+  end
+
+  # Detect if browser is Apple CoreMedia.
+  def core_media?
+    !!(ua =~ /CoreMedia/)
   end
 
   # Detect if browser is iPhone.

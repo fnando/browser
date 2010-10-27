@@ -26,6 +26,7 @@ class BrowserTest < Test::Unit::TestCase
   BLACKBERRY = "BlackBerry7100i/4.1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/103"
   PSP        = "Mozilla/4.0 (PSP (PlayStation Portable); 2.00)"
   QUICKTIME  = "QuickTime/7.6.8 (qtver=7.6.8;os=Windows NT 5.1Service Pack 3)"
+  COREMEDIA  = "Apple Mac OS X v10.6.4 CoreMedia v1.0.0.10F569"
 
   def setup
     @browser = Browser.new
@@ -219,6 +220,15 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.quicktime?
     assert_equal "7.6.8", @browser.full_version
     assert_equal "7", @browser.version
+  end
+
+  def test_detect_core_media
+    @browser.ua = COREMEDIA
+
+    assert_equal "Apple CoreMedia", @browser.name
+    assert @browser.core_media?
+    assert_equal "1.0.0.10F569", @browser.full_version
+    assert_equal "1", @browser.version
   end
 
   def test_detect_psp
