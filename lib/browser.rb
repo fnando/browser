@@ -214,6 +214,11 @@ class Browser
     !!(ua =~ /AppleWebKit/i)
   end
 
+  # Detect if browser is ios?.
+  def ios?
+    ipod? || ipad? || iphone?
+  end
+
   # Detect if browser is mobile.
   def mobile?
     !!(ua =~ /(Mobile|Symbian|MIDP|Windows CE)/) || blackberry? || psp?
@@ -335,6 +340,7 @@ class Browser
     Array.new.tap do |m|
       m << id
       m << "webkit" if webkit?
+      m << "ios" if ios?
       m << "safari safari#{version}" if safari?
       m << "#{id}#{version}" unless safari? || chrome?
       m << platform

@@ -73,6 +73,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.webkit?
     assert @browser.mobile?
     assert @browser.capable?
+    assert @browser.ios?
     assert_equal "3.0", @browser.full_version
     assert_equal "3", @browser.version
   end
@@ -97,6 +98,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.webkit?
     assert @browser.mobile?
     assert @browser.capable?
+    assert @browser.ios?
     assert_equal "3.0", @browser.full_version
     assert_equal "3", @browser.version
   end
@@ -109,6 +111,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.safari?
     assert @browser.webkit?
     assert @browser.capable?
+    assert @browser.ios?
     assert_equal "4.0.4", @browser.full_version
     assert_equal "4", @browser.version
   end
@@ -266,9 +269,14 @@ class BrowserTest < Test::Unit::TestCase
     assert_equal "chrome webkit mac capable", @browser.to_s
   end
 
-  def test_return_string_representation_for_mobile
+  def test_return_string_representation_for_ios
     @browser.ua = IPHONE
-    assert_equal "iphone webkit safari safari3 mac capable mobile", @browser.to_s
+    assert_equal "iphone webkit ios safari safari3 mac capable mobile", @browser.to_s
+  end
+
+  def test_return_string_representation_for_mobile
+    @browser.ua = BLACKBERRY
+    assert_equal "blackberry blackberry4 other mobile", @browser.to_s
   end
 
   def test_return_string_representation_for_handcap
