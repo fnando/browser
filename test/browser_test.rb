@@ -181,7 +181,7 @@ class BrowserTest < Test::Unit::TestCase
 
     assert_equal "Chrome", @browser.name
     assert @browser.chrome?
-    assert @browser.safari?
+    assert !@browser.safari?
     assert @browser.webkit?
     assert @browser.capable?
     assert_equal "5.0.375.99", @browser.full_version
@@ -253,7 +253,7 @@ class BrowserTest < Test::Unit::TestCase
 
   def test_return_string_representation
     @browser.ua = CHROME
-    assert_equal "chrome webkit safari safari5 mac capable", @browser.to_s
+    assert_equal "chrome webkit mac capable", @browser.to_s
   end
 
   def test_return_string_representation_for_mobile
