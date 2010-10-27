@@ -45,6 +45,10 @@ This adds a helper method called `browser`, that inspects your current user agen
 
 * Nando Vieira - http://nandovieira.com.br
 
+== Contributors
+
+* http://github.com/chrisyour/browser
+
 == License
 
 (The MIT License)
