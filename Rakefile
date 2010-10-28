@@ -1,16 +1,6 @@
-require "rcov/rcovtask"
 require "rake/testtask"
 require "rake/rdoctask"
 require "./lib/browser/version"
-
-Rcov::RcovTask.new do |t|
-  t.test_files = FileList["test/**/*_test.rb"]
-  t.rcov_opts = ["--sort coverage", "--exclude .gem"]
-
-  t.output_dir = "coverage"
-  t.libs << "test"
-  t.verbose = true
-end
 
 Rake::TestTask.new do |t|
   t.libs << "lib"
