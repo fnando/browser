@@ -18,7 +18,9 @@ class BrowserTest < Test::Unit::TestCase
   IE6        = "Mozilla/5.0 (Windows; U; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)"
   IE7        = "Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)"
   IE8        = "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.2; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)"
+  IE8_COMPAT = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/4.0; SLCC1; Media Center PC 5.0; .NET CLR 3.5.21022)"
   IE9        = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)"
+  IE9_COMPAT = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/5.0)"
   OPERA      = "Opera/9.99 (Windows NT 5.1; U; pl) Presto/9.9.9"
   FIREFOX    = "Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8"
   CHROME     = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4"
@@ -149,6 +151,18 @@ class BrowserTest < Test::Unit::TestCase
     assert_equal "8", @browser.version
   end
 
+  def test_detect_ie8_in_compatibility_view
+    @browser.ua = IE8_COMPAT
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert @browser.ie8?
+    assert @browser.capable?
+    assert @browser.compatibility_view?
+    assert_equal "8.0", @browser.full_version
+    assert_equal "8", @browser.version
+  end
+
   def test_detect_ie9
     @browser.ua = IE9
 
@@ -156,6 +170,18 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.ie?
     assert @browser.ie9?
     assert @browser.capable?
+    assert_equal "9.0", @browser.full_version
+    assert_equal "9", @browser.version
+  end
+
+  def test_detect_ie9_in_compatibility_view
+    @browser.ua = IE9_COMPAT
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert @browser.ie9?
+    assert @browser.capable?
+    assert @browser.compatibility_view?
     assert_equal "9.0", @browser.full_version
     assert_equal "9", @browser.version
   end
