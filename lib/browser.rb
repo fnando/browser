@@ -29,6 +29,8 @@ class Browser
   }
 
   VERSION_REGEX = /(?:Version|MSIE|Opera|Firefox|Chrome|QuickTime|BlackBerry[^\/]+|CoreMedia v)[\/ ]?([a-z0-9.]+)/i
+  
+  COMPATABILITY_VIEW_REGEXP = /Trident\/([0-9.]+)/
 
   LANGUAGES = {
     "af"    => "Afrikaans",
@@ -200,13 +202,23 @@ class Browser
 
   # Return the full version.
   def full_version
-    _, v = *ua.match(VERSION_REGEX)
+    if compatability_view?
+      _, v = *ua.match(COMPATABILITY_VIEW_REGEXP)
+      v.gsub!(/^([0-9])/) { $1.to_i + 4 }
+    else
+      _, v = *ua.match(VERSION_REGEX)
+    end
+    
     v || "0.0"
   end
 
   # Return true if browser supports some CSS 3 (Safari, Firefox, Opera & IE7+).
   def capable?
     webkit? || firefox? || opera? || (ie? && version >= "7")
+  end
+  
+  def compatability_view?
+    ie? && ua.match(COMPATABILITY_VIEW_REGEXP)
   end
 
   # Detect if browser is WebKit-based.
