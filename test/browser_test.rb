@@ -1,14 +1,4 @@
-require "test/unit"
-
-begin
-  require "action_controller"
-rescue LoadError => e
-  require "rubygems"
-  require "action_controller"
-end
-
-require "browser"
-
+require "test_helper"
 
 class BrowserTest < Test::Unit::TestCase
   IPHONE     = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/1A542a Safari/419.3"
