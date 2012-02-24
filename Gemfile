@@ -1,2 +1,2 @@
-source "http://gems.simplesideias.com.br"
+source "http://rubygems.org"
 gemspec
