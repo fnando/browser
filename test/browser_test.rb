@@ -15,6 +15,7 @@ class BrowserTest < Test::Unit::TestCase
   FIREFOX    = "Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8"
   CHROME     = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4"
   ANDROID    = "Android SDK 1.5r3: Mozilla/5.0 (Linux; U; Android 1.5; de-; sdk Build/CUPCAKE) AppleWebkit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
+  TABLOID    = "Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13"
   BLACKBERRY = "BlackBerry7100i/4.1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/103"
   PSP        = "Mozilla/4.0 (PSP (PlayStation Portable); 2.00)"
   QUICKTIME  = "QuickTime/7.6.8 (qtver=7.6.8;os=Windows NT 5.1Service Pack 3)"
@@ -66,6 +67,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.mobile?
     assert @browser.capable?
     assert @browser.ios?
+    assert @browser.tablet? == false
     assert_equal "3.0", @browser.full_version
     assert_equal "3", @browser.version
   end
@@ -91,6 +93,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.mobile?
     assert @browser.capable?
     assert @browser.ios?
+    assert @browser.tablet? == false
     assert_equal "3.0", @browser.full_version
     assert_equal "3", @browser.version
   end
@@ -104,6 +107,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.webkit?
     assert @browser.capable?
     assert @browser.ios?
+    assert @browser.tablet?
     assert_equal "4.0.4", @browser.full_version
     assert_equal "4", @browser.version
   end
@@ -220,9 +224,24 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.safari?
     assert @browser.webkit?
     assert @browser.mobile?
+    assert @browser.tablet? == false
     assert @browser.capable?
     assert_equal "3.1.2", @browser.full_version
     assert_equal "3", @browser.version
+  end
+
+  def test_detect_android_tablet
+    @browser.ua = TABLOID
+
+    assert_equal "Android", @browser.name
+    assert @browser.android?
+    assert @browser.safari?
+    assert @browser.webkit?
+    assert @browser.mobile? == false
+    assert @browser.tablet?
+    assert @browser.capable?
+    assert_equal "4.0", @browser.full_version
+    assert_equal "4", @browser.version
   end
 
   def test_detect_blackberry
@@ -230,6 +249,7 @@ class BrowserTest < Test::Unit::TestCase
 
     assert_equal "BlackBerry", @browser.name
     assert @browser.blackberry?
+    assert @browser.tablet? == false
     assert @browser.mobile?
     assert @browser.capable? == false
     assert_equal "4.1.0", @browser.full_version
@@ -265,12 +285,16 @@ class BrowserTest < Test::Unit::TestCase
   def test_detect_other_mobiles
     @browser.ua = "Symbian OS"
     assert @browser.mobile?
+    assert @browser.tablet? == false
 
     @browser.ua = "MIDP-2.0"
     assert @browser.mobile?
+    assert @browser.tablet? == false
 
     @browser.ua = "Windows CE"
     assert @browser.mobile?
+    assert @browser.tablet? == false
+
   end
 
   def test_return_a_zero_version

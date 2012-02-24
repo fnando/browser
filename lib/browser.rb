@@ -334,6 +334,11 @@ class Browser
     !!(ua =~ /Linux/)
   end
 
+  # Detect if browser is tablet (currently just iPad or Android).
+  def tablet?
+    ipad? || (android? && !mobile?)
+  end
+
   # Return the platform.
   def platform
     case
