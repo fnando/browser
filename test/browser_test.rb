@@ -65,6 +65,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.webkit?
     assert @browser.mobile?
     assert @browser.capable?
+    assert @browser.full_capable? == false
     assert @browser.ios?
     assert_equal "3.0", @browser.full_version
     assert_equal "3", @browser.version
@@ -77,6 +78,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.safari?
     assert @browser.webkit?
     assert @browser.capable?
+    assert @browser.full_capable?
     assert_equal "5.0.1", @browser.full_version
     assert_equal "5", @browser.version
   end
@@ -90,6 +92,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.webkit?
     assert @browser.mobile?
     assert @browser.capable?
+    assert @browser.full_capable? == false
     assert @browser.ios?
     assert_equal "3.0", @browser.full_version
     assert_equal "3", @browser.version
@@ -103,6 +106,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.safari?
     assert @browser.webkit?
     assert @browser.capable?
+    assert @browser.full_capable?
     assert @browser.ios?
     assert_equal "4.0.4", @browser.full_version
     assert_equal "4", @browser.version
@@ -115,6 +119,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.ie?
     assert @browser.ie6?
     assert @browser.capable? == false
+    assert @browser.full_capable? == false
     assert_equal "6.0", @browser.full_version
     assert_equal "6", @browser.version
   end
@@ -126,6 +131,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.ie?
     assert @browser.ie7?
     assert @browser.capable?
+    assert @browser.full_capable? == false
     assert_equal "7.0", @browser.full_version
     assert_equal "7", @browser.version
   end
@@ -137,6 +143,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.ie?
     assert @browser.ie8?
     assert @browser.capable?
+    assert @browser.full_capable? == false
     assert_equal "8.0", @browser.full_version
     assert_equal "8", @browser.version
   end
@@ -148,6 +155,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.ie?
     assert @browser.ie8?
     assert @browser.capable?
+    assert @browser.full_capable? == false
     assert @browser.compatibility_view?
     assert_equal "8.0", @browser.full_version
     assert_equal "8", @browser.version
@@ -160,6 +168,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.ie?
     assert @browser.ie9?
     assert @browser.capable?
+    assert @browser.full_capable? == false
     assert_equal "9.0", @browser.full_version
     assert_equal "9", @browser.version
   end
@@ -171,6 +180,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.ie?
     assert @browser.ie9?
     assert @browser.capable?
+    assert @browser.full_capable? == false
     assert @browser.compatibility_view?
     assert_equal "9.0", @browser.full_version
     assert_equal "9", @browser.version
@@ -182,6 +192,7 @@ class BrowserTest < Test::Unit::TestCase
     assert_equal "Opera", @browser.name
     assert @browser.opera?
     assert @browser.capable?
+    assert @browser.full_capable? == false
     assert_equal "9.99", @browser.full_version
     assert_equal "9", @browser.version
   end
@@ -192,6 +203,7 @@ class BrowserTest < Test::Unit::TestCase
     assert_equal "Firefox", @browser.name
     assert @browser.firefox?
     assert @browser.capable?
+    assert @browser.full_capable?
     assert_equal "3.8", @browser.full_version
     assert_equal "3", @browser.version
   end
@@ -204,6 +216,7 @@ class BrowserTest < Test::Unit::TestCase
     assert !@browser.safari?
     assert @browser.webkit?
     assert @browser.capable?
+    assert @browser.full_capable?
     assert_equal "5.0.375.99", @browser.full_version
     assert_equal "5", @browser.version
   end
@@ -217,6 +230,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.webkit?
     assert @browser.mobile?
     assert @browser.capable?
+    assert @browser.full_capable?
     assert_equal "3.1.2", @browser.full_version
     assert_equal "3", @browser.version
   end
@@ -228,6 +242,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.blackberry?
     assert @browser.mobile?
     assert @browser.capable? == false
+    assert @browser.full_capable? == false
     assert_equal "4.1.0", @browser.full_version
     assert_equal "4", @browser.version
   end

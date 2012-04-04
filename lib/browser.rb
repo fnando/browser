@@ -216,6 +216,12 @@ class Browser
   def capable?
     webkit? || firefox? || opera? || (ie? && version >= "7")
   end
+  
+  def full_capable?
+    v = full_version.to_f
+    !(!capable? || (chrome? && v <= 4) || (firefox? && v <= 3.5) || 
+        (ie? && v <= 9) || (safari? && v <= 3) || (opera? && v <= 11))
+  end
 
   def compatibility_view?
     ie? && ua.match(COMPATIBILITY_VIEW_REGEXP)
