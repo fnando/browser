@@ -1,3 +1,7 @@
+= Fork Note
+
+This fork adds helpers to see if a user is navigating using IE with chromeframe installed.
+
 = Browser
 
 Do some browser detection with Ruby. Includes ActionController integration.
