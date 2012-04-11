@@ -137,6 +137,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.ie?
     assert @browser.ie8?
     assert @browser.capable?
+    assert !@browser.compatibility_view?
     assert_equal "8.0", @browser.full_version
     assert_equal "8", @browser.version
   end
@@ -146,11 +147,12 @@ class BrowserTest < Test::Unit::TestCase
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie8?
+    assert @browser.ie7?
+    assert !@browser.ie8?
     assert @browser.capable?
     assert @browser.compatibility_view?
-    assert_equal "8.0", @browser.full_version
-    assert_equal "8", @browser.version
+    assert_equal "7.0", @browser.full_version
+    assert_equal "7", @browser.version
   end
 
   def test_detect_ie9
@@ -160,6 +162,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.ie?
     assert @browser.ie9?
     assert @browser.capable?
+    assert !@browser.compatibility_view?
     assert_equal "9.0", @browser.full_version
     assert_equal "9", @browser.version
   end
@@ -169,11 +172,12 @@ class BrowserTest < Test::Unit::TestCase
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie9?
+    assert @browser.ie7?
+    assert !@browser.ie9?
     assert @browser.capable?
     assert @browser.compatibility_view?
-    assert_equal "9.0", @browser.full_version
-    assert_equal "9", @browser.version
+    assert_equal "7.0", @browser.full_version
+    assert_equal "7", @browser.version
   end
 
   def test_detect_opera

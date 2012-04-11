@@ -30,7 +30,7 @@ class Browser
 
   VERSION_REGEX = /(?:Version|MSIE|Opera|Firefox|Chrome|QuickTime|BlackBerry[^\/]+|CoreMedia v)[\/ ]?([a-z0-9.]+)/i
 
-  COMPATIBILITY_VIEW_REGEXP = /Trident\/([0-9.]+)/
+  TRIDENT_VERSION_REGEX = /Trident\/([0-9.]+)/
 
   LANGUAGES = {
     "af"    => "Afrikaans",
@@ -202,13 +202,7 @@ class Browser
 
   # Return the full version.
   def full_version
-    if compatibility_view?
-      _, v = *ua.match(COMPATIBILITY_VIEW_REGEXP)
-      v.gsub!(/^([0-9])/) { $1.to_i + 4 }
-    else
-      _, v = *ua.match(VERSION_REGEX)
-    end
-
+    _, v = *ua.match(VERSION_REGEX)
     v || "0.0"
   end
 
@@ -218,7 +212,11 @@ class Browser
   end
 
   def compatibility_view?
-    ie? && ua.match(COMPATIBILITY_VIEW_REGEXP)
+    if ie? && ua.match(TRIDENT_VERSION_REGEX)
+      version.to_i < ($1.to_i + 4)
+    else
+      false
+    end
   end
 
   # Detect if browser is WebKit-based.
