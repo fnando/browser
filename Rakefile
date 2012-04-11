@@ -12,12 +12,13 @@ Rake::TestTask.new do |t|
   t.ruby_opts = %w[-rubygems]
 end
 
-require "rdoc/task"
-Rake::RDocTask.new do |rdoc|
+require 'rdoc/task'
+RDoc::Task.new do |rdoc|
   rdoc.main = "README.rdoc"
   rdoc.rdoc_dir = "doc"
   rdoc.title = "Browser API"
-  rdoc.options += %w[ --line-numbers --inline-source --charset utf-8 ]
-  rdoc.rdoc_files.include("README.rdoc")
-  rdoc.rdoc_files.include("lib/**/*.rb")
+  rdoc.options += %w[ --line-numbers --charset utf-8 ]
+  rdoc.rdoc_files.include("README.rdoc", "lib/**/*.rb")
 end
+
+task :default => :test
