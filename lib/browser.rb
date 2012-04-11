@@ -212,11 +212,7 @@ class Browser
   end
 
   def compatibility_view?
-    if ie? && ua.match(TRIDENT_VERSION_REGEX)
-      version.to_i < ($1.to_i + 4)
-    else
-      false
-    end
+    ie? && ua.match(TRIDENT_VERSION_REGEX) && version.to_i < ($1.to_i + 4)
   end
 
   # Detect if browser is WebKit-based.
