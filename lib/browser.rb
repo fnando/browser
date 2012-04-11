@@ -12,20 +12,21 @@ class Browser
   alias :ua= :user_agent=
 
   NAMES = {
-    :android    => "Android",
-    :blackberry => "BlackBerry",
-    :chrome     => "Chrome",
-    :firefox    => "Firefox",
-    :ie         => "Internet Explorer",
-    :ipad       => "iPad",
-    :iphone     => "iPhone",
-    :ipod       => "iPod Touch",
-    :opera      => "Opera",
-    :other      => "Other",
-    :safari     => "Safari",
-    :psp        => "PlayStation Portable",
-    :quicktime  => "QuickTime",
-    :core_media => "Apple CoreMedia"
+    :android     => "Android",
+    :blackberry  => "BlackBerry",
+    :chrome      => "Chrome",
+    :chromeframe => "IE+Chromeframe",
+    :firefox     => "Firefox",
+    :ie          => "Internet Explorer",
+    :ipad        => "iPad",
+    :iphone      => "iPhone",
+    :ipod        => "iPod Touch",
+    :opera       => "Opera",
+    :other       => "Other",
+    :safari      => "Safari",
+    :psp         => "PlayStation Portable",
+    :quicktime   => "QuickTime",
+    :core_media  => "Apple CoreMedia"
   }
 
   VERSION_REGEX = /(?:Version|MSIE|Opera|Firefox|Chrome|QuickTime|BlackBerry[^\/]+|CoreMedia v)[\/ ]?([a-z0-9.]+)/i
@@ -173,6 +174,7 @@ class Browser
   def id
     case
     when chrome?      then :chrome
+    when chromeframe? then :chromeframe
     when iphone?      then :iphone
     when ipad?        then :ipad
     when ipod?        then :ipod
@@ -286,6 +288,11 @@ class Browser
     !!(ua =~ /Chrome/)
   end
 
+  # Detect if browser is IE running Chrome Frame
+  def chromeframe?
+    !!(ua =~ /chromeframe/)    
+  end
+
   # Detect if browser is Internet Explorer.
   def ie?
     !!(ua =~ /MSIE/ && ua !~ /Opera/)
@@ -358,6 +365,7 @@ class Browser
       m << platform
       m << "capable" if capable?
       m << "mobile" if mobile?
+      m << "chromeframe" if chromeframe?
     end
   end
 
