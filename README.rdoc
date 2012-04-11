@@ -17,14 +17,15 @@ Do some browser detection with Ruby. Includes ActionController integration.
   browser.mobile?
   browser.firefox?
   browser.ie?
-  browser.ie6?        # this goes up to 9
-  browser.capable?    # supports some CSS 3
-  browser.platform    # return :mac, :windows, :linux or :other
+  browser.ie6?              # this goes up to 9
+  browser.capable?          # supports some CSS 3
+  browser.full_capable?     # supports more CSS 3
+  browser.platform          # return :mac, :windows, :linux or :other
   browser.mac?
   browser.windows?
   browser.linux?
-  browser.meta        # an array with several attributes
-  browser.to_s        # the meta info joined by space
+  browser.meta              # an array with several attributes
+  browser.to_s              # the meta info joined by space
 
 See the tests for more examples.
 
