@@ -141,7 +141,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.ie?
     assert @browser.ie8?
     assert @browser.capable?
-    assert !@browser.compatibility_view?
+    assert @browser.compatibility_view? == false
     assert_equal "8.0", @browser.full_version
     assert_equal "8", @browser.version
   end
