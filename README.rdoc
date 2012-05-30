@@ -14,6 +14,7 @@ Do some browser detection with Ruby. Includes ActionController integration.
   browser = Browser.new(:ua => "some string", :accept_language => "en-us")
   browser.safari?
   browser.opera?
+  browser.chrome?
   browser.mobile?
   browser.firefox?
   browser.ie?
