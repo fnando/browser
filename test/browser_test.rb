@@ -11,7 +11,7 @@ class BrowserTest < Test::Unit::TestCase
   IE8_COMPAT = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/4.0; SLCC1; Media Center PC 5.0; .NET CLR 3.5.21022)"
   IE9        = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)"
   IE9_COMPAT = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/5.0)"
-  OPERA      = "Opera/9.99 (Windows NT 5.1; U; pl) Presto/9.9.9"
+  OPERA      = "Opera/9.80 (Macintosh; Intel Mac OS X 10.7.4; U; en) Presto/2.10.229 Version/11.64"
   FIREFOX    = "Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8"
   CHROME     = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4"
   ANDROID    = "Android SDK 1.5r3: Mozilla/5.0 (Linux; U; Android 1.5; de-; sdk Build/CUPCAKE) AppleWebkit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
@@ -190,8 +190,8 @@ class BrowserTest < Test::Unit::TestCase
     assert_equal "Opera", @browser.name
     assert @browser.opera?
     assert @browser.capable?
-    assert_equal "9.99", @browser.full_version
-    assert_equal "9", @browser.version
+    assert_equal "11.64", @browser.full_version
+    assert_equal "11", @browser.version
   end
 
   def test_detect_firefox

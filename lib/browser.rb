@@ -28,7 +28,10 @@ class Browser
     :core_media => "Apple CoreMedia"
   }
 
-  VERSION_REGEX = /(?:Version|MSIE|Opera|Firefox|Chrome|QuickTime|BlackBerry[^\/]+|CoreMedia v)[\/ ]?([a-z0-9.]+)/i
+  VERSIONS = {
+    :default => /(?:Version|MSIE|Firefox|Chrome|QuickTime|BlackBerry[^\/]+|CoreMedia v)[\/ ]?([a-z0-9.]+)/i,
+    :opera => /Opera\/.*? Version\/([\d.]+)/
+  }
 
   TRIDENT_VERSION_REGEX = /Trident\/([0-9.]+)/
 
@@ -202,7 +205,7 @@ class Browser
 
   # Return the full version.
   def full_version
-    _, v = *ua.match(VERSION_REGEX)
+    _, v = *ua.match(VERSIONS.fetch(id, VERSIONS[:default]))
     v || "0.0"
   end
 
