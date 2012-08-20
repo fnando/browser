@@ -12,6 +12,7 @@ Do some browser detection with Ruby. Includes ActionController integration.
   require "browser"
 
   browser = Browser.new(:ua => "some string", :accept_language => "en-us")
+  browser.name        # readable browser name
   browser.safari?
   browser.opera?
   browser.chrome?
@@ -39,7 +40,7 @@ Just add it to the Gemfile or `environment.rb`, depending of your Rails version.
 This adds a helper method called `browser`, that inspects your current user agent.
 
   <% if browser.ie6? %>
-    <p class="disclaimer">Your're running an older IE version. Please update it!</p>
+    <p class="disclaimer">You're running an older IE version. Please update it!</p>
   <% end %>
 
 == Maintainer
