@@ -230,7 +230,7 @@ class Browser
 
   # Detect if browser is mobile.
   def mobile?
-    !!(ua =~ /(Mobile|Symbian|MIDP|Windows CE)/) || blackberry? || psp? || opera_mini?
+    !!(ua =~ /(Mobi(le)?|Symbian|MIDP|Windows CE)/) || blackberry? || psp? || opera_mini?
   end
 
   # Detect if browser is QuickTime
