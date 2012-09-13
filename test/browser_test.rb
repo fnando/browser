@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 require "test_helper"
 
 class BrowserTest < Test::Unit::TestCase
@@ -25,6 +26,8 @@ class BrowserTest < Test::Unit::TestCase
   OPERA_MINI    = "Opera/9.80 (Android; Opera Mini/7.029952/28.2359;u; fr) Presto/2.8.119 Version/11.10"
   OPERA_MOBI    = "Opera/9.8 (Android 2.3.5; Linux; Opera Mobi/ADR-1205181138; U; en) Presto/2.10.254 Version/12.00"
   WINDOWS_PHONE = "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; DELL; Venue Pro)"
+  KINDLE        = "Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600×800; rotate)"
+  KINDLE_FIRE   = "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Kindle Fire Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
 
   def setup
     @browser = Browser.new
@@ -412,5 +415,19 @@ class BrowserTest < Test::Unit::TestCase
     assert_equal "7", @browser.version
     assert @browser.mobile?
     assert !@browser.tablet?
+  end
+
+  def test_kindle_monochrome
+    @browser.ua = KINDLE
+
+    assert @browser.kindle?
+    assert @browser.webkit?
+  end
+
+  def test_kindle_fire
+    @browser.ua = KINDLE_FIRE
+
+    assert @browser.kindle?
+    assert @browser.webkit?
   end
 end

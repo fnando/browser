@@ -343,6 +343,11 @@ class Browser
     !!(ipad? || (android? && !mobile?))
   end
 
+  # Detect if browser is Kindle.
+  def kindle?
+    !!(ua =~ /Kindle/)
+  end
+
   # Return the platform.
   def platform
     case
