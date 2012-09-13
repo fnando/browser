@@ -230,7 +230,7 @@ class Browser
 
   # Detect if browser is mobile.
   def mobile?
-    !!(ua =~ /(Mobile|Symbian|MIDP|Windows CE)/) || blackberry? || psp?
+    !!(ua =~ /(Mobile|Symbian|MIDP|Windows CE)/) || blackberry? || psp? || opera_mini?
   end
 
   # Detect if browser is QuickTime
@@ -245,7 +245,7 @@ class Browser
 
   # Detect if browser is Android.
   def android?
-    !!(ua =~ /Android/)
+    !!(ua =~ /Android/ && !opera?)
   end
 
   # Detect if browser is Apple CoreMedia.
@@ -318,6 +318,11 @@ class Browser
     !!(ua =~ /Opera/)
   end
 
+  # Detect if browser is Opera Mini.
+  def opera_mini?
+    !!(ua =~ /Opera Mini/)
+  end
+
   # Detect if current platform is Macintosh.
   def mac?
     !!(ua =~ /Mac OS X/)
@@ -335,7 +340,7 @@ class Browser
 
   # Detect if browser is tablet (currently just iPad or Android).
   def tablet?
-    ipad? || (android? && !mobile?)
+    !!(ipad? || (android? && !mobile?))
   end
 
   # Return the platform.

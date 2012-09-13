@@ -1,25 +1,28 @@
 require "test_helper"
 
 class BrowserTest < Test::Unit::TestCase
-  IPHONE     = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/1A542a Safari/419.3"
-  IPOD       = "Mozilla/5.0 (iPod; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/3A100a Safari/419.3"
-  IPAD       = "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B367 Safari/531.21.10"
-  SAFARI     = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-us) AppleWebKit/533.17.8 (KHTML, like Gecko) Version/5.0.1 Safari/533.17.8"
-  IE6        = "Mozilla/5.0 (Windows; U; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)"
-  IE7        = "Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)"
-  IE8        = "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.2; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)"
-  IE8_COMPAT = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/4.0; SLCC1; Media Center PC 5.0; .NET CLR 3.5.21022)"
-  IE9        = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)"
-  IE9_COMPAT = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/5.0)"
-  OPERA      = "Opera/9.80 (Macintosh; Intel Mac OS X 10.7.4; U; en) Presto/2.10.229 Version/11.64"
-  FIREFOX    = "Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8"
-  CHROME     = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4"
-  ANDROID    = "Android SDK 1.5r3: Mozilla/5.0 (Linux; U; Android 1.5; de-; sdk Build/CUPCAKE) AppleWebkit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
-  TABLOID    = "Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13"
-  BLACKBERRY = "BlackBerry7100i/4.1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/103"
-  PSP        = "Mozilla/4.0 (PSP (PlayStation Portable); 2.00)"
-  QUICKTIME  = "QuickTime/7.6.8 (qtver=7.6.8;os=Windows NT 5.1Service Pack 3)"
-  COREMEDIA  = "Apple Mac OS X v10.6.4 CoreMedia v1.0.0.10F569"
+  IPHONE        = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/1A542a Safari/419.3"
+  IPOD          = "Mozilla/5.0 (iPod; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/3A100a Safari/419.3"
+  IPAD          = "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B367 Safari/531.21.10"
+  SAFARI        = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-us) AppleWebKit/533.17.8 (KHTML, like Gecko) Version/5.0.1 Safari/533.17.8"
+  IE6           = "Mozilla/5.0 (Windows; U; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)"
+  IE7           = "Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)"
+  IE8           = "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.2; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)"
+  IE8_COMPAT    = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/4.0; SLCC1; Media Center PC 5.0; .NET CLR 3.5.21022)"
+  IE9           = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)"
+  IE9_COMPAT    = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/5.0)"
+  OPERA         = "Opera/9.80 (Macintosh; Intel Mac OS X 10.7.4; U; en) Presto/2.10.229 Version/11.64"
+  FIREFOX       = "Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8"
+  CHROME        = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4"
+  ANDROID       = "Android SDK 1.5r3: Mozilla/5.0 (Linux; U; Android 1.5; de-; sdk Build/CUPCAKE) AppleWebkit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
+  TABLOID       = "Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13"
+  BLACKBERRY    = "BlackBerry7100i/4.1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/103"
+  PSP           = "Mozilla/4.0 (PSP (PlayStation Portable); 2.00)"
+  QUICKTIME     = "QuickTime/7.6.8 (qtver=7.6.8;os=Windows NT 5.1Service Pack 3)"
+  COREMEDIA     = "Apple Mac OS X v10.6.4 CoreMedia v1.0.0.10F569"
+  XOOM          = "Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13"
+  NEXUS_TABLET  = "Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19"
+  OPERA_MINI    = "Opera/9.80 (Android; Opera Mini/7.029952/28.2359;u; fr) Presto/2.8.119 Version/11.10"
 
   def setup
     @browser = Browser.new
@@ -366,5 +369,29 @@ class BrowserTest < Test::Unit::TestCase
   def test_pimp_action_controller
     methods = ActionController::Base.private_instance_methods.collect {|m| m.to_sym}
     assert methods.include?(:browser)
+  end
+
+  def test_xoom
+    @browser.ua = XOOM
+
+    assert @browser.android?
+    assert @browser.tablet?
+    assert !@browser.mobile?
+  end
+
+  def test_nexus_tablet
+    @browser.ua = NEXUS_TABLET
+
+    assert @browser.android?
+    assert @browser.tablet?
+    assert !@browser.mobile?
+  end
+
+  def test_opera_mini
+    @browser.ua = OPERA_MINI
+
+    assert @browser.opera_mini?
+    assert !@browser.tablet?
+    assert @browser.mobile?
   end
 end
