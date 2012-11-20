@@ -28,7 +28,10 @@ class BrowserTest < Test::Unit::TestCase
   WINDOWS_PHONE = "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; DELL; Venue Pro)"
   KINDLE        = "Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600×800; rotate)"
   KINDLE_FIRE   = "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Kindle Fire Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
-
+  IOS4          = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7"
+  IOS5          = "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"
+  IOS6          = "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25"
+  
   def setup
     @browser = Browser.new
   end
@@ -118,6 +121,25 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.tablet?
     assert_equal "4.0.4", @browser.full_version
     assert_equal "4", @browser.version
+  end
+
+  def test_detect_ios4
+    @browser.ua = IOS4
+    assert @browser.ios?
+    assert @browser.ios4?
+  end
+
+
+  def test_detect_ios5
+    @browser.ua = IOS5
+    assert @browser.ios?
+    assert @browser.ios5?
+  end
+
+  def test_detect_ios6
+    @browser.ua = IOS6
+    assert @browser.ios?
+    assert @browser.ios6?
   end
 
   def test_detect_ie6
