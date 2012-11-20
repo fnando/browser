@@ -230,17 +230,17 @@ class Browser
 
   # Detect if is iOS5.
   def ios4?
-    ios? && ua =~ /OS (4)/
+    ios? && !!(ua =~ /OS (4)/)
   end
 
   # Detect if is iOS5.
   def ios5?
-    ios? && ua =~ /OS (5)/
+    ios? && !!(ua =~ /OS (5)/)
   end
 
   # Detect if is iOS6.
   def ios6?
-    ios? && ua =~ /OS (6)/
+    ios? && !!(ua =~ /OS (6)/)
   end
 
   # Detect if browser is mobile.
