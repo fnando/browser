@@ -29,7 +29,7 @@ class Browser
   }
 
   VERSIONS = {
-    :default => /(?:Version|MSIE|Firefox|Chrome|QuickTime|BlackBerry[^\/]+|CoreMedia v)[\/ ]?([a-z0-9.]+)/i,
+    :default => /(?:Version|MSIE|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^\/]+|CoreMedia v)[\/ ]?([a-z0-9.]+)/i,
     :opera => /Opera\/.*? Version\/([\d.]+)/
   }
 
@@ -270,7 +270,7 @@ class Browser
 
   # Detect if browser is Safari.
   def safari?
-    ua =~ /Safari/ && ua !~ /Chrome/
+    ua =~ /Safari/ && ua !~ /Chrome|CriOS/
   end
 
   # Detect if browser is Firefox.
@@ -280,7 +280,7 @@ class Browser
 
   # Detect if browser is Chrome.
   def chrome?
-    !!(ua =~ /Chrome/)
+    !!(ua =~ /Chrome|CriOS/)
   end
 
   # Detect if browser is Internet Explorer.
