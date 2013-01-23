@@ -15,6 +15,7 @@ class BrowserTest < Test::Unit::TestCase
   OPERA         = "Opera/9.80 (Macintosh; Intel Mac OS X 10.7.4; U; en) Presto/2.10.229 Version/11.64"
   FIREFOX       = "Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8"
   CHROME        = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4"
+  MOBILE_CHROME = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; en) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3"
   ANDROID       = "Android SDK 1.5r3: Mozilla/5.0 (Linux; U; Android 1.5; de-; sdk Build/CUPCAKE) AppleWebkit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
   TABLOID       = "Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13"
   BLACKBERRY    = "BlackBerry7100i/4.1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/103"
@@ -222,6 +223,18 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.capable?
     assert_equal "5.0.375.99", @browser.full_version
     assert_equal "5", @browser.version
+  end
+
+  def test_detect_mobile_chrome
+    @browser.ua = MOBILE_CHROME
+
+    assert_equal "Chrome", @browser.name
+    assert @browser.chrome?
+    assert !@browser.safari?
+    assert @browser.webkit?
+    assert @browser.capable?
+    assert_equal "19.0.1084.60", @browser.full_version
+    assert_equal "19", @browser.version
   end
 
   def test_detect_android
