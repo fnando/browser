@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    browser (0.1.5)
+    browser (0.1.6)
 
 GEM
   remote: http://rubygems.org/
@@ -36,6 +36,16 @@ GEM
       coderay (~> 1.0.5)
       method_source (~> 0.8)
       slop (~> 3.4)
+    pry-meta (0.0.5)
+      awesome_print
+      pry
+      pry-nav
+      pry-remote
+    pry-nav (0.2.3)
+      pry (~> 0.9.10)
+    pry-remote (0.1.6)
+      pry (~> 0.9)
+      slop (~> 3.0)
     rack (1.4.5)
     rack-cache (1.2)
       rack (>= 0.4)
@@ -59,6 +69,6 @@ DEPENDENCIES
   actionpack
   awesome_print
   browser!
-  pry
+  pry-meta
   rake
   rdoc
