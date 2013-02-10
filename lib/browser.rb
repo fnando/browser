@@ -1,3 +1,5 @@
+require "set"
+
 class Browser
   # Add Rails helper if ActionController::Base is available
   require "browser/action_controller" if defined?(ActionController::Base)
@@ -361,20 +363,24 @@ class Browser
 
   # Return a meta info about this browser.
   def meta
-    Array.new.tap do |m|
-      m << id
+    set = Set.new.tap do |m|
+      m << id.to_s
       m << "webkit" if webkit?
       m << "ios" if ios?
-      m << "safari safari#{version}" if safari?
+      m.merge(%W[safari safari#{version}]) if safari?
       m << "#{id}#{version}" unless safari? || chrome?
-      m << platform
+      m << platform.to_s
       m << "capable" if capable?
       m << "mobile" if mobile?
     end
+
+    set.to_a
   end
+
+  alias_method :to_a, :meta
 
   # Return meta representation as string.
   def to_s
-    meta.join(" ")
+    meta.to_a.join(" ")
   end
 end

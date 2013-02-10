@@ -443,4 +443,14 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.kindle?
     assert @browser.webkit?
   end
+
+  def test_remove_duplicate_items
+    @browser.ua = SAFARI
+    assert_equal ["safari"], @browser.meta.select {|item| item == "safari" }
+  end
+
+  def test_meta_aliased_as_to_a
+    @browser.ua = SAFARI
+    assert_equal @browser.meta, @browser.to_a
+  end
 end
