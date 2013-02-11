@@ -213,7 +213,7 @@ class Browser
 
   # Return true if browser supports some CSS 3 (Safari, Firefox, Opera & IE7+).
   def capable?
-    webkit? || firefox? || opera? || (ie? && version.to_f >= 7)
+    webkit? || firefox? || opera? || (ie? && version.to_i >= 7)
   end
 
   def compatibility_view?
