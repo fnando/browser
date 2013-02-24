@@ -17,6 +17,7 @@ Do some browser detection with Ruby. Includes ActionController integration.
   browser.opera?
   browser.chrome?
   browser.mobile?
+  browser.tablet?
   browser.firefox?
   browser.ie?
   browser.ie6?        # this goes up to 9
