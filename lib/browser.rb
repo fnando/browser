@@ -213,7 +213,7 @@ class Browser
 
   # Return true if browser supports some CSS 3 (Safari, Firefox, Opera & IE7+).
   def capable?
-    webkit? || firefox? || opera? || (ie? && version >= "7")
+    webkit? || firefox? || opera? || (ie? && version.to_i >= 7)
   end
 
   def compatibility_view?
@@ -310,6 +310,11 @@ class Browser
     ie? && version == "9"
   end
 
+  # Detect if browser is Internet Explorer 10.
+  def ie10?
+    ie? && version == "10"
+  end
+  
   # Detect if browser is running from PSP.
   def psp?
     !!(ua =~ /PSP/)

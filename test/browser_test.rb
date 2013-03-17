@@ -12,6 +12,8 @@ class BrowserTest < Test::Unit::TestCase
   IE8_COMPAT    = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/4.0; SLCC1; Media Center PC 5.0; .NET CLR 3.5.21022)"
   IE9           = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)"
   IE9_COMPAT    = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/5.0)"
+  IE10          = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0; EIE10;ENUSMSN)"
+  IE10_COMPAT   = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; EIE10;ENUSMSN)"
   OPERA         = "Opera/9.80 (Macintosh; Intel Mac OS X 10.7.4; U; en) Presto/2.10.229 Version/11.64"
   FIREFOX       = "Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8"
   CHROME        = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4"
@@ -193,6 +195,31 @@ class BrowserTest < Test::Unit::TestCase
     assert_equal "7", @browser.version
   end
 
+  def test_detect_ie10
+    @browser.ua = IE10
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert @browser.ie10?
+    assert @browser.capable?
+    assert !@browser.compatibility_view?
+    assert_equal "10.0", @browser.full_version
+    assert_equal "10", @browser.version
+  end
+
+  def test_detect_ie10_in_compatibility_view
+    @browser.ua = IE10_COMPAT
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert @browser.ie7?
+    assert !@browser.ie10?
+    assert @browser.capable?
+    assert @browser.compatibility_view?
+    assert_equal "7.0", @browser.full_version
+    assert_equal "7", @browser.version
+  end
+  
   def test_detect_opera
     @browser.ua = OPERA
 
