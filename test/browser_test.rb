@@ -29,6 +29,8 @@ class BrowserTest < Test::Unit::TestCase
   WINDOWS_PHONE = "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; DELL; Venue Pro)"
   KINDLE        = "Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600×800; rotate)"
   KINDLE_FIRE   = "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Kindle Fire Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
+  WINDOWS_PHONE_8 = "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)"
+  WINDOWS_8_TOUCH = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch)"
 
   def setup
     @browser = Browser.new
@@ -442,6 +444,20 @@ class BrowserTest < Test::Unit::TestCase
 
     assert @browser.kindle?
     assert @browser.webkit?
+  end
+
+  def test_windows_phone_8
+    @browser.ua = WINDOWS_PHONE_8
+    assert @browser.wp8?
+    assert @browser.ie?
+    assert @browser.ie10?
+  end
+
+  def test_windows_8_touch
+    @browser.ua = WINDOWS_8_TOUCH
+    assert @browser.win8Touch?
+    assert @browser.ie?
+    assert @browser.ie10?
   end
 
   def test_remove_duplicate_items
