@@ -1,5 +1,5 @@
 pkg
 coverage
-doc.bundle/
+doc
 vendor/
 .bundle/
