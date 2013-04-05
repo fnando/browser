@@ -285,6 +285,14 @@ class Browser
     !!(ua =~ /Chrome|CriOS/)
   end
 
+  def wp8?
+    !!(ua =~ /Windows Phone 8/)
+  end
+
+  def win8Touch?
+    ie10? && !!(ua =~ /Touch/)
+  end
+
   # Detect if browser is Internet Explorer.
   def ie?
     !!(ua =~ /MSIE/ && ua !~ /Opera/)
@@ -308,6 +316,10 @@ class Browser
   # Detect if browser is Internet Explorer 9.
   def ie9?
     ie? && version == "9"
+  end
+
+  def ie10?
+    ie? && version == "10"
   end
 
   # Detect if browser is running from PSP.
