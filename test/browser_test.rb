@@ -396,6 +396,31 @@ class BrowserTest < Test::Unit::TestCase
     assert_equal :windows, @browser.platform
   end
 
+  def test_detect_windowsXP
+    @browser.ua = "Windows NT 5.1"
+    assert @browser.windowsXP? == true
+  end
+
+  def test_detect_windowsXPx64
+    @browser.ua = "Windows NT 5.2"
+    assert @browser.windowsXPx64? == true
+  end
+
+  def test_detect_windowsVista
+    @browser.ua = "Windows NT 6.0"
+    assert @browser.windowsVista? == true
+  end
+
+  def test_detect_windows7
+    @browser.ua = "Windows NT 6.1"
+    assert @browser.windows7? == true
+  end
+
+  def test_detect_windows8
+    @browser.ua = "Windows NT 6.2"
+    assert @browser.windows8? == true
+  end
+
   def test_detect_linux_platform
     @browser.ua = "Linux"
     assert_equal :linux, @browser.platform
