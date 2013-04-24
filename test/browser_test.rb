@@ -30,6 +30,8 @@ class BrowserTest < Test::Unit::TestCase
   KINDLE        = "Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600×800; rotate)"
   KINDLE_FIRE   = "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Kindle Fire Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
 
+  IE9_CHROME_FRAME = "Mozilla/5.0 (Windows NT 6.1; WOW64; chromeframe/26.0.1410.43) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.43 Safari/537.31"
+
   def setup
     @browser = Browser.new
   end
@@ -64,6 +66,13 @@ class BrowserTest < Test::Unit::TestCase
 
     @browser = Browser.new(:user_agent => "Chrome")
     assert_equal "Chrome", @browser.ua
+  end
+
+  def test_ie9_chrome_frame
+    @browser.ua = IE9_CHROME_FRAME
+    assert @browser.chrome?
+    assert_equal "Chrome", @browser.name
+    assert_equal "26.0.1410.43", @browser.full_version
   end
 
   def test_detect_iphone

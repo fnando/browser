@@ -31,7 +31,7 @@ class Browser
   }
 
   VERSIONS = {
-    :default => /(?:Version|MSIE|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^\/]+|CoreMedia v)[\/ ]?([a-z0-9.]+)/i,
+    :default => /(?:Version|MSIE|Firefox|Chromeframe|Chrome|CriOS|QuickTime|BlackBerry[^\/]+|CoreMedia v)[\/ ]?([a-z0-9.]+)/i,
     :opera => /Opera\/.*? Version\/([\d.]+)/
   }
 
