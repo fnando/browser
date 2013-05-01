@@ -309,6 +309,11 @@ class Browser
   def ie9?
     ie? && version == "9"
   end
+  
+  # Detect if browser is Internet Explorer 10.
+  def ie10?
+    ie? && version == "10"
+  end
 
   # Detect if browser is running from PSP.
   def psp?
