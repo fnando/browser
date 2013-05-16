@@ -4,7 +4,7 @@ PATH
     browser (0.1.6)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     actionpack (3.2.11)
       activemodel (= 3.2.11)
