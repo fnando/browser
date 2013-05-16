@@ -27,11 +27,12 @@ class Browser
     :safari     => "Safari",
     :psp        => "PlayStation Portable",
     :quicktime  => "QuickTime",
-    :core_media => "Apple CoreMedia"
+    :core_media => "Apple CoreMedia",
+    :phantom_js => "PhantomJS"
   }
 
   VERSIONS = {
-    :default => /(?:Version|MSIE|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^\/]+|CoreMedia v)[\/ ]?([a-z0-9.]+)/i,
+    :default => /(?:Version|MSIE|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^\/]+|CoreMedia v|PhantomJS)[\/ ]?([a-z0-9.]+)/i,
     :opera => /Opera\/.*? Version\/([\d.]+)/
   }
 
@@ -190,6 +191,7 @@ class Browser
     when psp?         then :psp
     when quicktime?   then :quicktime
     when core_media?  then :core_media
+    when phantom_js?  then :phantom_js
     else
       :other
     end
@@ -255,6 +257,11 @@ class Browser
     !!(ua =~ /CoreMedia/)
   end
 
+  # Detect if browser is PhantomJS
+  def phantom_js?
+    !!(ua =~ /PhantomJS/)
+  end
+
   # Detect if browser is iPhone.
   def iphone?
     !!(ua =~ /iPhone/)
@@ -272,7 +279,7 @@ class Browser
 
   # Detect if browser is Safari.
   def safari?
-    ua =~ /Safari/ && ua !~ /Chrome|CriOS/
+    ua =~ /Safari/ && ua !~ /Chrome|CriOS|PhantomJS/
   end
 
   # Detect if browser is Firefox.
