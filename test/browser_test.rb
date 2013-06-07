@@ -29,6 +29,7 @@ class BrowserTest < Test::Unit::TestCase
   WINDOWS_PHONE = "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; DELL; Venue Pro)"
   KINDLE        = "Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600×800; rotate)"
   KINDLE_FIRE   = "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Kindle Fire Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
+  PHANTOM_JS    = "Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.0 Safari/534.34"
 
   def setup
     @browser = Browser.new
@@ -292,6 +293,18 @@ class BrowserTest < Test::Unit::TestCase
     assert_equal "Apple CoreMedia", @browser.name
     assert @browser.core_media?
     assert_equal "1.0.0.10F569", @browser.full_version
+    assert_equal "1", @browser.version
+  end
+
+  def test_detect_phantom_js
+    @browser.ua = PHANTOM_JS
+
+    assert_equal "PhantomJS", @browser.name
+    assert @browser.phantom_js?
+    assert @browser.tablet? == false
+    assert @browser.mobile? == false
+    assert @browser.capable?
+    assert_equal "1.9.0", @browser.full_version
     assert_equal "1", @browser.version
   end
 
