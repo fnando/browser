@@ -1,5 +1,7 @@
 # Browser
 
+![Travis-CI](https://travis-ci.org/fnando/browser.png)
+
 Do some browser detection with Ruby. Includes ActionController integration.
 
 ## Installation
