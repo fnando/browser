@@ -1,59 +1,66 @@
-= Browser
+# Browser
 
 Do some browser detection with Ruby. Includes ActionController integration.
 
-== Installation
+## Installation
 
-  gem install browser
+```bash
+gem install browser
+```
 
-== Usage
+## Usage
 
-  require "rubygems"
-  require "browser"
+```ruby
+require "rubygems"
+require "browser"
 
-  browser = Browser.new(:ua => "some string", :accept_language => "en-us")
-  browser.name        # readable browser name
-  browser.safari?
-  browser.opera?
-  browser.chrome?
-  browser.mobile?
-  browser.tablet?
-  browser.firefox?
-  browser.ie?
-  browser.ie6?        # this goes up to 9
-  browser.capable?    # supports some CSS 3
-  browser.platform    # return :mac, :windows, :linux or :other
-  browser.mac?
-  browser.windows?
-  browser.linux?
-  browser.blackberry?
-  browser.meta        # an array with several attributes
-  browser.to_s        # the meta info joined by space
+browser = Browser.new(:ua => "some string", :accept_language => "en-us")
+browser.name        # readable browser name
+browser.safari?
+browser.opera?
+browser.chrome?
+browser.mobile?
+browser.tablet?
+browser.firefox?
+browser.ie?
+browser.ie6?        # this goes up to 9
+browser.capable?    # supports some CSS 3
+browser.platform    # return :mac, :windows, :linux or :other
+browser.mac?
+browser.windows?
+browser.linux?
+browser.blackberry?
+browser.meta        # an array with several attributes
+browser.to_s        # the meta info joined by space
+```
 
-See the tests for more examples.
+See the [tests](https://github.com/fnando/browser/blob/master/test/browser_test.rb) and [implementation](https://github.com/fnando/browser/blob/master/lib/browser.rb) for more examples.
 
-=== Rails integration
+### Rails integration
 
-Just add it to the Gemfile or `environment.rb`, depending of your Rails version.
+Just add it to the Gemfile.
 
-  gem "browser"         #=> Rails 3
-  config.gem "browser"  #=> Rails 2
+```ruby
+gem "browser"
+```
 
 This adds a helper method called `browser`, that inspects your current user agent.
 
-  <% if browser.ie6? %>
-    <p class="disclaimer">You're running an older IE version. Please update it!</p>
-  <% end %>
+```erb
+<% if browser.ie6? %>
+  <p class="disclaimer">You're running an older IE version. Please update it!</p>
+<% end %>
+```
 
-== Maintainer
+## Maintainer
 
 * Nando Vieira - http://nandovieira.com.br
 
-== Contributors
+## Contributors
 
-* http://github.com/chrisyour/browser
+* https://github.com/fnando/browser/contributors
 
-== License
+## License
 
 (The MIT License)
 
