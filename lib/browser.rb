@@ -215,7 +215,7 @@ class Browser
 
   # Return true if browser supports some CSS 3 (Safari, Firefox, Opera & IE7+).
   def capable?
-    webkit? || firefox? || opera? || (ie? && version >= "7")
+    webkit? || firefox? || opera? || (ie? && version.to_i >= 7)
   end
 
   def compatibility_view?
@@ -332,6 +332,11 @@ class Browser
     ie? && version == "9"
   end
 
+  # Detect if browser is Internet Explorer 10.
+  def ie10?
+    ie? && version == "10"
+  end
+  
   # Detect if browser is running from PSP.
   def psp?
     !!(ua =~ /PSP/)
@@ -355,6 +360,31 @@ class Browser
   # Detect if current platform is Windows.
   def windows?
     !!(ua =~ /Windows/)
+  end
+
+  # Detect if current platform is Windows XP.
+  def windowsXP?
+    !!(ua =~ /Windows NT 5.1/)
+  end
+ 
+  # Detect if current platform is Windows XP 64-bit, Windows XP Professional x64 Edition.
+  def windowsXPx64?
+    !!(ua =~ /Windows NT 5.2/)
+  end
+
+  # Detect if current platform is Windows Vista.
+  def windowsVista?
+    !!(ua =~ /Windows NT 6.0/)
+  end
+
+  # Detect if current platform is Windows 7.
+  def windows7?
+    !!(ua =~ /Windows NT 6.1/)
+  end
+
+  # Detect if current platform is Windows 8.
+  def windows8?
+    !!(ua =~ /Windows NT 6.2/)
   end
 
   # Detect if current platform is Linux flavor.
