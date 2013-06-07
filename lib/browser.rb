@@ -262,6 +262,31 @@ class Browser
     !!(ua =~ /BlackBerry/)
   end
 
+  # Detect if browser is from a BlackBerry OS 4
+  def blackberry4?
+    blackberry? && ua.match(/BlackBerry(\d|\/|\.)*/)[1] && (ua.match(/BlackBerry(\d|\/|\.)*/)[0].split('/')[1][0] == "4")
+  end
+
+  # Detect if browser is from a BlackBerry OS 5
+  def blackberry5?
+    blackberry? && ua.match(/BlackBerry(\d|\/|\.)*/)[1] && (ua.match(/BlackBerry(\d|\/|\.)*/)[0].split('/')[1][0] == "5")
+  end
+
+  # Detect if browser is from a BlackBerry OS 6
+  def blackberry6?
+    blackberry? && (ua.match(/Version\/(\d)*/)[1] == "6")
+  end
+
+  # Detect if browser is from a BlackBerry OS 7
+  def blackberry7?
+    blackberry? && (ua.match(/Version\/(\d)*/)[1] == "7")
+  end
+
+  # Detect if browser is from a BlackBerry OS 10
+  def blackberry10?
+    blackberry? && !ua.scan(/BB10/).empty?
+  end
+
   # Detect if browser is Android.
   def android?
     !!(ua =~ /Android/ && !opera?)
