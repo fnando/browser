@@ -232,6 +232,21 @@ class Browser
     ipod? || ipad? || iphone?
   end
 
+  # Detect if is iOS5.
+  def ios4?
+    ios? && !!(ua =~ /OS (4)/)
+  end
+
+  # Detect if is iOS5.
+  def ios5?
+    ios? && !!(ua =~ /OS (5)/)
+  end
+
+  # Detect if is iOS6.
+  def ios6?
+    ios? && !!(ua =~ /OS (6)/)
+  end
+
   # Detect if browser is mobile.
   def mobile?
     !!(ua =~ /(Mobi(le)?|Symbian|MIDP|Windows CE)/) || blackberry? || psp? || opera_mini?
