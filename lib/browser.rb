@@ -1,9 +1,20 @@
 require "set"
+
 require "browser/methods/ie"
 require "browser/methods/platform"
 require "browser/methods/mobile"
 require "browser/methods/devices"
 require "browser/methods/language"
+
+require "browser/meta/base"
+require "browser/meta/generic_browser"
+require "browser/meta/id"
+require "browser/meta/ios"
+require "browser/meta/mobile"
+require "browser/meta/modern"
+require "browser/meta/platform"
+require "browser/meta/safari"
+require "browser/meta/webkit"
 
 class Browser
   include IE
@@ -82,9 +93,12 @@ class Browser
     v || "0.0"
   end
 
-  # Return true if browser supports some CSS 3 (Safari, Firefox, Opera & IE7+).
-  def capable?
-    webkit? || firefox? || opera? || (ie? && version.to_i >= 7)
+  # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
+  def modern?
+    webkit? ||
+    (firefox? && version.to_i >= 17) ||
+    (ie? && version.to_i >= 9) ||
+    (opera? && version.to_i >= 12)
   end
 
   # Detect if browser is WebKit-based.
@@ -129,18 +143,10 @@ class Browser
 
   # Return a meta info about this browser.
   def meta
-    set = Set.new.tap do |m|
-      m << id.to_s
-      m << "webkit" if webkit?
-      m << "ios" if ios?
-      m.merge(%W[safari safari#{version}]) if safari?
-      m << "#{id}#{version}" unless safari? || chrome?
-      m << platform.to_s
-      m << "capable" if capable?
-      m << "mobile" if mobile?
-    end
-
-    set.to_a
+    Meta.constants.each_with_object(Set.new) do |meta_name, meta|
+      meta_class = Meta.const_get(meta_name)
+      meta.merge(meta_class.new(self).to_a)
+    end.to_a
   end
 
   alias_method :to_a, :meta
