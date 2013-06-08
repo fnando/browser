@@ -1,6 +1,7 @@
 # Browser
 
-![Travis-CI](https://travis-ci.org/fnando/browser.png)
+[![Travis-CI](https://travis-ci.org/fnando/browser.png)](https://travis-ci.org/fnando/browser)
+[![CodeClimate](https://codeclimate.com/github/fnando/browser.png)](https://codeclimate.com/github/fnando/browser)
 
 Do some browser detection with Ruby. Includes ActionController integration.
 
