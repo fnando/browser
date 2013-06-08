@@ -435,9 +435,38 @@ class BrowserTest < Test::Unit::TestCase
     assert meta.include?("mobile")
   end
 
-  def test_return_string_representation_for_handcap
+  def test_return_string_representation_for_ie6
     @browser.ua = IE6
-    assert_equal "ie ie6 windows", @browser.to_s
+    meta = @browser.meta
+
+    assert meta.include?("ie")
+    assert meta.include?("ie6")
+    assert meta.include?("oldie")
+    assert meta.include?("lt-ie8")
+    assert meta.include?("lt-ie9")
+    assert meta.include?("windows")
+  end
+
+  def test_return_string_representation_for_ie7
+    @browser.ua = IE7
+    meta = @browser.meta
+
+    assert meta.include?("ie")
+    assert meta.include?("ie7")
+    assert meta.include?("oldie")
+    assert meta.include?("lt-ie8")
+    assert meta.include?("lt-ie9")
+    assert meta.include?("windows")
+  end
+
+  def test_return_string_representation_for_ie8
+    @browser.ua = IE8
+    meta = @browser.meta
+
+    assert meta.include?("ie")
+    assert meta.include?("ie8")
+    assert meta.include?("lt-ie9")
+    assert meta.include?("windows")
   end
 
   def test_detect_unknown_id
