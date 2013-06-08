@@ -55,6 +55,33 @@ This adds a helper method called `browser`, that inspects your current user agen
 <% end %>
 ```
 
+### Middleware
+
+You can use the `Browser::Middleware` to redirect user agents.
+
+```ruby
+use Browser::Middleware do
+  redirect_to "/upgrade" unless browser.modern?
+end
+```
+
+If you're using Rails, you can use the route helper methods. Just add something like the following to a initializer file (`config/initializers/browser.rb`).
+
+```ruby
+Rails.configuration.middleware.use Browser::Middleware do
+  redirect_to upgrade_path unless browser.modern?
+end
+```
+
+Notice that you can have multiple conditionals.
+
+```ruby
+Rails.configuration.middleware.use Browser::Middleware do
+  redirect_to upgrade_path(browser: "oldie") if browser.ie? && !browser.modern?
+  redirect_to upgrade_path(browser: "oldfx") if browser.firefox? && !browser.modern?
+end
+```
+
 ## Maintainer
 
 * Nando Vieira - http://nandovieira.com.br

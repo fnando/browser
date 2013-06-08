@@ -1,5 +1,9 @@
 require "set"
 
+require "browser/middleware"
+require "browser/middleware/context"
+require "browser/rails" if defined?(::Rails)
+
 require "browser/methods/ie"
 require "browser/methods/platform"
 require "browser/methods/mobile"
@@ -23,9 +27,6 @@ class Browser
   include Mobile
   include Devices
   include Language
-
-  # Add Rails helper if ActionController::Base is available
-  require "browser/action_controller" if defined?(ActionController::Base)
 
   # Set browser's UA string.
   attr_accessor :user_agent

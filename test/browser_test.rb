@@ -518,11 +518,6 @@ class BrowserTest < Test::Unit::TestCase
     assert_equal ["en-us", "en", "pt-br", "pt"], @browser.accept_language
   end
 
-  def test_pimp_action_controller
-    methods = ActionController::Base.private_instance_methods.collect {|m| m.to_sym}
-    assert methods.include?(:browser)
-  end
-
   def test_xoom
     @browser.ua = XOOM
 

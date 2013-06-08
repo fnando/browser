@@ -6,6 +6,9 @@ PATH
 GEM
   remote: http://rubygems.org/
   specs:
+    actionmailer (3.2.13)
+      actionpack (= 3.2.13)
+      mail (~> 2.5.3)
     actionpack (3.2.13)
       activemodel (= 3.2.13)
       activesupport (= 3.2.13)
@@ -19,20 +22,30 @@ GEM
     activemodel (3.2.13)
       activesupport (= 3.2.13)
       builder (~> 3.0.0)
+    activerecord (3.2.13)
+      activemodel (= 3.2.13)
+      activesupport (= 3.2.13)
+      arel (~> 3.0.2)
+      tzinfo (~> 0.3.29)
     activesupport (3.2.13)
       i18n (= 0.6.1)
       multi_json (~> 1.0)
+    arel (3.0.2)
     awesome_print (1.1.0)
     builder (3.0.4)
     coderay (1.0.9)
-    diff-lcs (1.2.4)
     erubis (2.7.0)
     hike (1.2.3)
     i18n (0.6.1)
     journey (1.0.4)
     json (1.8.0)
+    mail (2.5.4)
+      mime-types (~> 1.16)
+      treetop (~> 1.4.8)
     method_source (0.8.1)
+    mime-types (1.23)
     multi_json (1.7.6)
+    polyglot (0.3.3)
     pry (0.9.12.2)
       coderay (~> 1.0.5)
       method_source (~> 0.8)
@@ -52,17 +65,14 @@ GEM
       rack (>= 0.4)
     rack-test (0.6.2)
       rack (>= 1.0)
+    rails (0.9.5)
+      actionmailer (>= 0.6.1)
+      actionpack (>= 1.4.0)
+      activerecord (>= 1.6.0)
+      rake (>= 0.4.15)
     rake (10.0.4)
     rdoc (4.0.1)
       json (~> 1.4)
-    rspec (2.13.0)
-      rspec-core (~> 2.13.0)
-      rspec-expectations (~> 2.13.0)
-      rspec-mocks (~> 2.13.0)
-    rspec-core (2.13.1)
-    rspec-expectations (2.13.0)
-      diff-lcs (>= 1.1.3, < 2.0)
-    rspec-mocks (2.13.1)
     slop (3.4.5)
     sprockets (2.2.2)
       hike (~> 1.2)
@@ -70,6 +80,10 @@ GEM
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
     tilt (1.4.1)
+    treetop (1.4.14)
+      polyglot
+      polyglot (>= 0.3.1)
+    tzinfo (0.3.37)
 
 PLATFORMS
   ruby
@@ -79,6 +93,7 @@ DEPENDENCIES
   awesome_print
   browser!
   pry-meta
+  rack-test
+  rails
   rake
   rdoc
-  rspec
