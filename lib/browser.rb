@@ -24,18 +24,20 @@ class Browser
     :android    => "Android",
     :blackberry => "BlackBerry",
     :chrome     => "Chrome",
+    :core_media => "Apple CoreMedia",
     :firefox    => "Firefox",
     :ie         => "Internet Explorer",
     :ipad       => "iPad",
     :iphone     => "iPhone",
     :ipod       => "iPod Touch",
     :opera      => "Opera",
-    :other      => "Other",
-    :safari     => "Safari",
+    :phantom_js => "PhantomJS",
     :psp        => "PlayStation Portable",
     :quicktime  => "QuickTime",
-    :core_media => "Apple CoreMedia",
-    :phantom_js => "PhantomJS"
+    :safari     => "Safari",
+
+    # This must be last item, since Ruby 1.9+ has ordered keys.
+    :other      => "Other",
   }
 
   VERSIONS = {
@@ -63,26 +65,10 @@ class Browser
     NAMES[id]
   end
 
-  # Return a symbol that identifies the browser.
+  # Get the browser identifier.
   def id
-    case
-    when chrome?      then :chrome
-    when iphone?      then :iphone
-    when ipad?        then :ipad
-    when ipod?        then :ipod
-    when ie?          then :ie
-    when opera?       then :opera
-    when firefox?     then :firefox
-    when android?     then :android
-    when blackberry?  then :blackberry
-    when safari?      then :safari
-    when psp?         then :psp
-    when quicktime?   then :quicktime
-    when core_media?  then :core_media
-    when phantom_js?  then :phantom_js
-    else
-      :other
-    end
+    NAMES.keys
+      .find {|id| respond_to?("#{id}?") ? public_send("#{id}?") : id }
   end
 
   # Return major version.
