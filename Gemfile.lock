@@ -108,4 +108,4 @@ DEPENDENCIES
   browser!
   pry-meta
   rack-test
-  rails (>= 3.2.13)
+  rails (~> 3.2.13)

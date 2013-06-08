@@ -2,8 +2,10 @@ require "rails"
 require "browser"
 
 class SampleApp < Rails::Application
-  config.secret_key_base = "sample"
+  config.secret_token = "99f19f08db7a37bdcb9d6701f54dca"
+  config.secret_key_base = "99f19f08db7a37bdcb9d6701f54dca"
   config.eager_load = true
+  config.active_support.deprecation = :log
 
   routes.append do
     default_headers = {"Content-Type" => "text/html"}

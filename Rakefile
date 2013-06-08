@@ -1,8 +1,6 @@
 require "bundler"
 Bundler::GemHelper.install_tasks
 
-require "./lib/browser/version"
-
 require "rake/testtask"
 Rake::TestTask.new do |t|
   t.libs << "lib"
@@ -12,13 +10,14 @@ Rake::TestTask.new do |t|
   t.ruby_opts = %w[-rubygems]
 end
 
-require 'rdoc/task'
-RDoc::Task.new do |rdoc|
-  rdoc.main = "README.rdoc"
-  rdoc.rdoc_dir = "doc"
-  rdoc.title = "Browser API"
-  rdoc.options += %w[ --line-numbers --charset utf-8 ]
-  rdoc.rdoc_files.include("README.rdoc", "lib/**/*.rb")
+desc "Run specs against all gemfiles"
+task "test:all" do
+  [Dir["./gemfiles/*.gemfile"], "Gemfile"].flatten.each do |gemfile|
+    ENV["BUNDLE_GEMFILE"] = gemfile
+    puts "=> Running with Gemfile: #{gemfile}"
+    Rake::Task["test"].reenable
+    Rake::Task["test"].invoke
+  end
 end
 
-task :default => :test
+task :default => "test:all"
