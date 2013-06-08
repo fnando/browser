@@ -15,6 +15,7 @@ class BrowserTest < Test::Unit::TestCase
   IE10           = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0; EIE10;ENUSMSN)"
   IE10_COMPAT    = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; EIE10;ENUSMSN)"
   OPERA          = "Opera/9.80 (Macintosh; Intel Mac OS X 10.7.4; U; en) Presto/2.10.229 Version/11.64"
+  OPERA_NEXT     = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.37 Safari/537.36 OPR/15.0.1147.44 (Edition Next)"
   FIREFOX        = "Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8"
   FIREFOX_MODERN = "Mozilla/5.0 (X11; Ubuntu; Linux armv7l; rv:17.0) Gecko/20100101 Firefox/17.0"
   CHROME         = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4"
@@ -252,6 +253,19 @@ class BrowserTest < Test::Unit::TestCase
     assert ! @browser.modern?
     assert_equal "11.64", @browser.full_version
     assert_equal "11", @browser.version
+  end
+
+  def test_detect_opera_next
+    @browser.ua = OPERA_NEXT
+
+    assert_equal "Opera", @browser.name
+    assert_equal :opera, @browser.id
+    assert @browser.opera?
+    assert @browser.webkit?
+    assert @browser.modern?
+    assert ! @browser.chrome?
+    assert_equal "28.0.1500.37", @browser.full_version
+    assert_equal "28", @browser.version
   end
 
   def test_detect_firefox

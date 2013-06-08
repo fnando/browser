@@ -53,8 +53,8 @@ class Browser
   }
 
   VERSIONS = {
-    :default => /(?:Version|MSIE|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^\/]+|CoreMedia v|PhantomJS)[\/ ]?([a-z0-9.]+)/i,
-    :opera => /Opera\/.*? Version\/([\d.]+)/
+    :default => %r[(?:Version|MSIE|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
+    :opera => %r[(?:Opera/.*? Version/([\d.]+)|Chrome/([\d.]+).*?OPR)]
   }
 
   # Create a new browser instance and set
@@ -90,8 +90,8 @@ class Browser
 
   # Return the full version.
   def full_version
-    _, v = *ua.match(VERSIONS.fetch(id, VERSIONS[:default]))
-    v || "0.0"
+    _, *v = *ua.match(VERSIONS.fetch(id, VERSIONS[:default]))
+    v.compact.first || "0.0"
   end
 
   # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
@@ -134,12 +134,12 @@ class Browser
 
   # Detect if browser is Chrome.
   def chrome?
-    !!(ua =~ /Chrome|CriOS/)
+    !!(ua =~ /Chrome|CriOS/) && !opera?
   end
 
   # Detect if browser is Opera.
   def opera?
-    !!(ua =~ /Opera/)
+    !!(ua =~ /(Opera|OPR)/)
   end
 
   # Return a meta info about this browser.
