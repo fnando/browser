@@ -1,5 +1,4 @@
 require "rails"
-require "action_controller/railtie"
 require "browser"
 
 class SampleApp < Rails::Application
