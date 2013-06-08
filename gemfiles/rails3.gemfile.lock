@@ -1,10 +1,10 @@
 PATH
-  remote: .
+  remote: /mnt/hgfs/!%Projects/github/browser
   specs:
     browser (0.1.6)
 
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
     actionmailer (3.2.13)
       actionpack (= 3.2.13)
@@ -108,4 +108,4 @@ DEPENDENCIES
   browser!
   pry-meta
   rack-test
-  rails
+  rails (~> 3.2.13)

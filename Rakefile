@@ -12,7 +12,7 @@ end
 
 desc "Run specs against all gemfiles"
 task "test:all" do
-  [Dir["./gemfiles/*.gemfile"], "Gemfile"].flatten.each do |gemfile|
+  Dir["./gemfiles/*.gemfile"].flatten.each do |gemfile|
     ENV["BUNDLE_GEMFILE"] = gemfile
     puts "=> Running with Gemfile: #{gemfile}"
     Rake::Task["test"].reenable
@@ -20,4 +20,4 @@ task "test:all" do
   end
 end
 
-task :default => "test:all"
+task :default => "test"
