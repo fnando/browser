@@ -19,6 +19,11 @@ class BrowserTest < Test::Unit::TestCase
   ANDROID       = "Android SDK 1.5r3: Mozilla/5.0 (Linux; U; Android 1.5; de-; sdk Build/CUPCAKE) AppleWebkit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
   TABLOID       = "Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13"
   BLACKBERRY    = "BlackBerry7100i/4.1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/103"
+  BLACKBERRY4   = "BlackBerry8100/4.2.1 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/103"
+  BLACKBERRY5   = "BlackBerry9000/5.0.0.93 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/179"
+  BLACKBERRY6   = "Mozilla/5.0 (BlackBerry; U; BlackBerry AAAA; en-US) AppleWebKit/534.11+ (KHTML, like Gecko) Version/6.0.0.141 Mobile Safari/534.11+"
+  BLACKBERRY7   = "Mozilla/5.0 (BlackBerry; U; BlackBerry AAAA; en-US) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.0.0.1 Mobile Safari/534.11+"
+  BLACKBERRY10  = "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.0.9.1675 Mobile Safari/537.10+"
   PSP           = "Mozilla/4.0 (PSP (PlayStation Portable); 2.00)"
   QUICKTIME     = "QuickTime/7.6.8 (qtver=7.6.8;os=Windows NT 5.1Service Pack 3)"
   COREMEDIA     = "Apple Mac OS X v10.6.4 CoreMedia v1.0.0.10F569"
@@ -275,6 +280,66 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.capable? == false
     assert_equal "4.1.0", @browser.full_version
     assert_equal "4", @browser.version
+  end
+
+  def test_detect_blackberry4
+    @browser.ua = BLACKBERRY4
+
+    assert_equal "BlackBerry", @browser.name
+    assert @browser.blackberry4?
+    assert @browser.tablet? == false
+    assert @browser.mobile?
+    assert @browser.capable? == false
+    assert_equal "4.2.1", @browser.full_version
+    assert_equal "4", @browser.version
+  end
+
+  def test_detect_blackberry5
+    @browser.ua = BLACKBERRY5
+    
+    assert_equal "BlackBerry", @browser.name
+    assert @browser.blackberry5?
+    assert @browser.tablet? == false
+    assert @browser.mobile?
+    assert @browser.capable? == false
+    assert_equal "5.0.0.93", @browser.full_version
+    assert_equal "5", @browser.version
+  end
+
+  def test_detect_blackberry6
+    @browser.ua = BLACKBERRY6
+    
+    assert_equal "BlackBerry", @browser.name
+    assert @browser.blackberry6?
+    assert @browser.tablet? == false
+    assert @browser.mobile?
+    assert @browser.capable? == true
+    assert_equal "534.11", @browser.full_version
+    assert_equal "534", @browser.version
+  end
+
+  def test_detect_blackberry7
+    @browser.ua = BLACKBERRY7
+    
+    assert_equal "BlackBerry", @browser.name
+    assert @browser.blackberry7?
+    assert @browser.tablet? == false
+    assert @browser.mobile?
+    assert @browser.capable? == true
+    assert_equal "534.11", @browser.full_version
+    assert_equal "534", @browser.version
+  end
+
+  def test_detect_blackberry10
+    @browser.ua = BLACKBERRY10
+    
+    assert_equal "Safari", @browser.name
+    assert @browser.blackberry10?
+    assert @browser.tablet? == false
+    assert @browser.mobile?
+    assert @browser.capable? == true
+    assert_equal "10.0.9.1675", @browser.full_version
+    assert_equal "10", @browser.version
   end
 
   def test_detect_quicktime
