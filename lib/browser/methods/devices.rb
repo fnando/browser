@@ -17,7 +17,7 @@ class Browser
 
     # Detect if browser is tablet (currently just iPad or Android).
     def tablet?
-      !!(ipad? || (android? && !mobile?))
+      !!(ipad? || (android? && !detect_mobile?))
     end
 
     # Detect if browser is Kindle.

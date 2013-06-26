@@ -2,7 +2,7 @@ class Browser
   module Mobile
     # Detect if browser is mobile.
     def mobile?
-      !!(ua =~ /(Mobi(le)?|Symbian|MIDP|Windows CE)/) || blackberry? || psp? || opera_mini?
+      detect_mobile? && !tablet?
     end
 
     # Detect if browser is Opera Mini.
@@ -13,6 +13,11 @@ class Browser
     # Detect if browser is BlackBerry
     def blackberry?
       !!(ua =~ /BlackBerry/)
+    end
+
+    private
+    def detect_mobile?
+      ua =~ /(Mobi(le)?|Symbian|MIDP|Windows CE)/ || blackberry? || psp? || opera_mini?
     end
   end
 end

@@ -28,6 +28,8 @@ class BrowserTest < Test::Unit::TestCase
   COREMEDIA      = "Apple Mac OS X v10.6.4 CoreMedia v1.0.0.10F569"
   XOOM           = "Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13"
   NEXUS_TABLET   = "Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19"
+  NOOK           = "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; NOOK BNTV250A Build/GINGERBREAD 1.4.3) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Safari/533.1"
+  SAMSUNG        = "Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; SAMSUNG-SGH-I497 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30"
   OPERA_MINI     = "Opera/9.80 (Android; Opera Mini/7.029952/28.2359;u; fr) Presto/2.8.119 Version/11.10"
   OPERA_MOBI     = "Opera/9.8 (Android 2.3.5; Linux; Opera Mobi/ADR-1205181138; U; en) Presto/2.10.254 Version/12.00"
   WINDOWS_PHONE  = "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; DELL; Venue Pro)"
@@ -125,6 +127,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.modern?
     assert @browser.ios?
     assert @browser.tablet?
+    assert ! @browser.mobile?
     assert_equal "4.0.4", @browser.full_version
     assert_equal "4", @browser.version
   end
@@ -571,6 +574,20 @@ class BrowserTest < Test::Unit::TestCase
 
     assert @browser.kindle?
     assert @browser.webkit?
+  end
+
+  def test_nook
+    @browser.ua = NOOK
+
+    assert @browser.tablet?
+    assert ! @browser.mobile?
+  end
+
+  def test_samsung
+    @browser.ua = SAMSUNG
+
+    assert @browser.tablet?
+    assert ! @browser.mobile?
   end
 
   def test_remove_duplicate_items
