@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    browser (0.1.6)
+    browser (0.2.0)
 
 GEM
   remote: http://rubygems.org/
@@ -31,7 +31,7 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
     arel (4.0.0)
-    atomic (1.1.9)
+    atomic (1.1.10)
     awesome_print (1.1.0)
     builder (3.1.4)
     coderay (1.0.9)

@@ -1,7 +1,7 @@
 PATH
   remote: /mnt/hgfs/!%Projects/github/browser
   specs:
-    browser (0.1.6)
+    browser (0.2.0)
 
 GEM
   remote: https://rubygems.org/

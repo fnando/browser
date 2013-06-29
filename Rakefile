@@ -12,7 +12,10 @@ end
 
 desc "Run specs against all gemfiles"
 task "test:all" do
-  Dir["./gemfiles/*.gemfile"].flatten.each do |gemfile|
+  %w[
+    Gemfile
+    gemfiles/rails3.gemfile
+  ].each do |gemfile|
     ENV["BUNDLE_GEMFILE"] = gemfile
     puts "=> Running with Gemfile: #{gemfile}"
     Rake::Task["test"].reenable
