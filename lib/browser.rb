@@ -100,7 +100,8 @@ class Browser
     webkit? ||
     (firefox? && version.to_i >= 17) ||
     (ie? && version.to_i >= 9) ||
-    (opera? && version.to_i >= 12)
+    (opera? && version.to_i >= 12) ||
+    (firefox? && tablet? && android? && version.to_i >= 14)
   end
 
   # Detect if browser is WebKit-based.

@@ -18,6 +18,7 @@ class BrowserTest < Test::Unit::TestCase
   OPERA_NEXT     = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.37 Safari/537.36 OPR/15.0.1147.44 (Edition Next)"
   FIREFOX        = "Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8"
   FIREFOX_MODERN = "Mozilla/5.0 (X11; Ubuntu; Linux armv7l; rv:17.0) Gecko/20100101 Firefox/17.0"
+  FIREFOX_TABLET = "Mozilla/5.0 (Android; Tablet; rv:14.0) Gecko/14.0 Firefox/14.0"
   CHROME         = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4"
   MOBILE_CHROME  = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; en) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3"
   ANDROID        = "Android SDK 1.5r3: Mozilla/5.0 (Linux; U; Android 1.5; de-; sdk Build/CUPCAKE) AppleWebkit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
@@ -39,6 +40,7 @@ class BrowserTest < Test::Unit::TestCase
   IOS4           = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7"
   IOS5           = "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"
   IOS6           = "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25"
+  PLAYBOOK       = "Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML, like Gecko) Version/7.2.1.0 Safari/536.2+"
 
   def setup
     @browser = Browser.new
@@ -290,6 +292,18 @@ class BrowserTest < Test::Unit::TestCase
     assert_equal "17.0", @browser.full_version
     assert_equal "17", @browser.version
   end
+  
+  def test_detect_firefox_android_tablet
+    @browser.ua = FIREFOX_TABLET
+
+    assert_equal "Android", @browser.name
+    assert @browser.firefox?
+    assert @browser.modern?
+    assert @browser.tablet?
+    assert @browser.android?
+    assert_equal "14.0", @browser.full_version
+    assert_equal "14", @browser.version
+  end
 
   def test_detect_chrome
     @browser.ua = CHROME
@@ -535,6 +549,17 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.android?
     assert @browser.tablet?
     assert ! @browser.mobile?
+  end
+  
+  def test_blackberry_playbook_tablet
+    @browser.ua = PLAYBOOK
+    
+    assert ! @browser.android?
+    assert @browser.tablet?
+    assert ! @browser.mobile?
+    
+    assert_equal "7.2.1.0", @browser.full_version
+    assert_equal "7", @browser.version
   end
 
   def test_opera_mini
