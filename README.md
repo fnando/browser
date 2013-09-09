@@ -19,6 +19,7 @@ require "browser"
 
 browser = Browser.new(:ua => "some string", :accept_language => "en-us")
 browser.name        # readable browser name
+browser.version
 browser.safari?
 browser.opera?
 browser.chrome?
