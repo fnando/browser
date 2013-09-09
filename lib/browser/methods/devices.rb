@@ -14,10 +14,14 @@ class Browser
     def ipod?
       !!(ua =~ /iPod/)
     end
+    
+    def surface?
+      windows_rt? && !!(ua =~ /Touch/)
+    end
 
-    # Detect if browser is tablet (currently just iPad or Android).
+    # Detect if browser is tablet (currently iPad, Android & Surface).
     def tablet?
-      !!(ipad? || (android? && !detect_mobile?))
+      !!(ipad? || (android? && !detect_mobile?) || surface?)
     end
 
     # Detect if browser is Kindle.
