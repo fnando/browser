@@ -144,6 +144,11 @@ class Browser
     !!(ua =~ /(Opera|OPR)/)
   end
 
+  # Detect if browser is Silk.
+  def silk?
+    !!(ua =~ /Silk/)
+  end
+
   # Return a meta info about this browser.
   def meta
     Meta.constants.each_with_object(Set.new) do |meta_name, meta|

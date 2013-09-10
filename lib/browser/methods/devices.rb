@@ -26,7 +26,7 @@ class Browser
 
     # Detect if browser is Kindle.
     def kindle?
-      !!(ua =~ /Kindle/)
+      !!(ua =~ /Kindle/ || silk?)
     end
 
     # Detect if browser is running from PSP.
