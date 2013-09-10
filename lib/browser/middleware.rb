@@ -2,7 +2,7 @@ require "uri"
 
 class Browser
   class Middleware
-    attr_reader :env, :request
+    attr_reader :env
 
     def initialize(app, &block)
       raise ArgumentError, "Browser::Middleware requires a block" unless block
@@ -13,19 +13,19 @@ class Browser
 
     def call(env)
       @env = env
-      @request = Rack::Request.new(env)
+      request = Rack::Request.new(env)
 
       path = catch(:redirected) do
         Context.new(request).instance_eval(&@block)
       end
 
-      path ? resolve_redirection(path) : run_app!
+      path ? resolve_redirection(request.path, path) : run_app!
     end
 
-    def resolve_redirection(path)
+    def resolve_redirection(current_path, path)
       uri = URI.parse(path)
 
-      if uri.path == request.path
+      if uri.path == current_path
         run_app!
       else
         redirect(path)
