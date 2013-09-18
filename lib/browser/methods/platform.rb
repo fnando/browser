@@ -35,6 +35,16 @@ class Browser
       !!(ua =~ /Windows/)
     end
     
+    # Detect if current platform is Windows Mobile.
+    def windows_mobile?
+      !!(ua =~ /Windows Mobile/)
+    end
+    
+    # Detect if current platform is Windows Phone.
+    def windows_phone?
+      !!(ua =~ /Windows Phone/)
+    end
+    
     def windows8?
       windows? && !!(ua =~ /Windows NT 6.2/)
     end
