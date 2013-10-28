@@ -45,6 +45,7 @@ class BrowserTest < Test::Unit::TestCase
   IOS5                  = "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"
   IOS6                  = "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25"
   PLAYBOOK              = "Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML, like Gecko) Version/7.2.1.0 Safari/536.2+"
+  CHROME_OS             = "Mozilla/5.0 (X11; CrOS x86_64 3701.81.0) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.57 Safari/537.31."
 
   def setup
     @browser = Browser.new
@@ -669,5 +670,10 @@ class BrowserTest < Test::Unit::TestCase
   def test_meta_aliased_as_to_a
     @browser.ua = SAFARI
     assert_equal @browser.meta, @browser.to_a
+  end
+
+  def test_chrome_os
+    @browser.ua = CHROME_OS
+    assert @browser.chrome_os?
   end
 end
