@@ -34,11 +34,11 @@ class Browser
     def windows?
       !!(ua =~ /Windows/)
     end
-    
+
     def windows8?
       windows? && !!(ua =~ /Windows NT 6.2/)
     end
-    
+
     def windows_rt?
       windows8? && !!(ua =~ /ARM/)
     end
@@ -57,6 +57,11 @@ class Browser
       else
         :other
       end
+    end
+
+    # Detect if current platform is ChromeOS
+    def chrome_os?
+      !!(ua =~ /CrOS/)
     end
   end
 end
