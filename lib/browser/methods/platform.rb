@@ -34,11 +34,11 @@ class Browser
     def windows?
       !!(ua =~ /Windows/)
     end
-    
+
     def windows8?
-      windows? && !!(ua =~ /Windows NT 6.2/)
+      windows? && !!(ua =~ /Windows NT 6.[2-3]/)
     end
-    
+
     def windows_rt?
       windows8? && !!(ua =~ /ARM/)
     end
