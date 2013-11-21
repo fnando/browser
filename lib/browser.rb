@@ -8,6 +8,7 @@ require "browser/methods/ie"
 require "browser/methods/platform"
 require "browser/methods/mobile"
 require "browser/methods/devices"
+require "browser/methods/consoles"
 require "browser/methods/language"
 
 require "browser/meta/base"
@@ -26,6 +27,7 @@ class Browser
   include Platform
   include Mobile
   include Devices
+  include Consoles
   include Language
 
   # Set browser's UA string.
@@ -34,20 +36,23 @@ class Browser
   alias :ua= :user_agent=
 
   NAMES = {
-    :android    => "Android",
-    :blackberry => "BlackBerry",
-    :chrome     => "Chrome",
-    :core_media => "Apple CoreMedia",
-    :firefox    => "Firefox",
-    :ie         => "Internet Explorer",
-    :ipad       => "iPad",
-    :iphone     => "iPhone",
-    :ipod       => "iPod Touch",
-    :opera      => "Opera",
-    :phantom_js => "PhantomJS",
-    :psp        => "PlayStation Portable",
-    :quicktime  => "QuickTime",
-    :safari     => "Safari",
+    :android     => "Android",
+    :blackberry  => "BlackBerry",
+    :chrome      => "Chrome",
+    :core_media  => "Apple CoreMedia",
+    :firefox     => "Firefox",
+    :ie          => "Internet Explorer",
+    :ipad        => "iPad",
+    :iphone      => "iPhone",
+    :ipod        => "iPod Touch",
+    :nintendo    => "Nintendo",
+    :opera       => "Opera",
+    :phantom_js  => "PhantomJS",
+    :psp         => "PlayStation Portable",
+    :playstation => "PlayStation",
+    :quicktime   => "QuickTime",
+    :safari      => "Safari",
+    :xbox      => "Xbox",
 
     # This must be last item, since Ruby 1.9+ has ordered keys.
     :other      => "Other",

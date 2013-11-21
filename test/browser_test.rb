@@ -45,6 +45,12 @@ class BrowserTest < Test::Unit::TestCase
   IOS5                  = "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"
   IOS6                  = "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25"
   PLAYBOOK              = "Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML, like Gecko) Version/7.2.1.0 Safari/536.2+"
+  NINTENDO_WII          = "Opera/9.00 (Nintendo Wii; U; ; 1309-9; en)"
+  NINTENDO_WIIU         = "Mozilla/5.0 (Nintendo WiiU) AppleWebKit/534.52 (KHTML, like Gecko) NX/2.1.0.8.23 NintendoBrowser/1.1.0.7579.EU"
+  PLAYSTATION3          = "Mozilla/5.0 (PLAYSTATION 3; 3.55)"
+  PLAYSTATION4          = "Mozilla/5.0 (PlayStation 4 1.020) AppleWebKit/536.26 (KHTML, like Gecko)"
+  XBOX360               = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox), or Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Xbox)"
+  XBOXONE               = "Mozilla/5.0 (Compatible; MSIE 10.0; Windows NT 6.2; Trident /6.0; Xbox; Xbox One)"
 
   def setup
     @browser = Browser.new
@@ -659,6 +665,48 @@ class BrowserTest < Test::Unit::TestCase
 
     assert @browser.tablet?
     assert ! @browser.mobile?
+  end
+
+  def test_nintendo_wii
+    @browser.ua = NINTENDO_WII
+
+    assert @browser.console?
+    assert @browser.nintendo?
+  end
+
+  def test_nintendo_wii_u
+    @browser.ua = NINTENDO_WIIU
+
+    assert @browser.console?
+    assert @browser.nintendo?
+  end
+
+  def test_playstation_3
+    @browser.ua = PLAYSTATION3
+
+    assert @browser.console?
+    assert @browser.playstation?
+  end
+
+  def test_playstation_4
+    @browser.ua = PLAYSTATION4
+
+    assert @browser.console?
+    assert @browser.playstation?
+  end
+
+  def test_xbox_360
+    @browser.ua = XBOX360
+
+    assert @browser.console?
+    assert @browser.xbox?
+  end
+
+  def test_xbox_one
+    @browser.ua = XBOXONE
+
+    assert @browser.console?
+    assert @browser.xbox?
   end
 
   def test_remove_duplicate_items
