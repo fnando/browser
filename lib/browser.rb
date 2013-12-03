@@ -95,11 +95,25 @@ class Browser
     v.compact.first || "0.0"
   end
 
+  # Return major webkit version.
+  def webkit_version
+    return nil if !webkit?
+
+    webkit_full_version.to_s.split(".").first
+  end
+
+  # Return the full webkit version.
+  def webkit_full_version
+    return nil if !webkit?
+
+    ua[%r|AppleWeb[Kk]it/([0-9.]+)|, 1]
+  end
+
   # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
   def modern?
-    webkit? ||
-    (firefox? && version.to_i >= 17) ||
-    (ie? && version.to_i >= 9) ||
+    (webkit? && webkit_version.to_i >= 531) ||  # desktop Safari >=4 || iOS >= 3.2, passes acid3
+    (firefox? && version.to_i >= 10) ||         # Firefox Enterprise Support Release, passes acid3 and high html5test score
+    (ie? && version.to_i >= 9) ||               # first IE to pass acid3
     (opera? && version.to_i >= 12) ||
     (firefox? && tablet? && android? && version.to_i >= 14)
   end
