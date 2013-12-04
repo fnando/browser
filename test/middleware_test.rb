@@ -9,9 +9,9 @@ class MiddlewareTest < Test::Unit::TestCase
     Rails.application
   end
 
-  def test_redirect_uses_302
+  def test_redirect_uses_301
     get "/", {}, {"HTTP_USER_AGENT" => "MSIE 6", "HTTP_ACCEPT" => "text/html"}
-    assert_equal 302, last_response.status
+    assert_equal 301, last_response.status
   end
 
   def test_redirect_ie6_to_upgrade_path
