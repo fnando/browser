@@ -15,6 +15,8 @@ class BrowserTest < Test::Unit::TestCase
   IE9_COMPAT            = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/5.0)"
   IE10                  = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0; EIE10;ENUSMSN)"
   IE10_COMPAT           = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; EIE10;ENUSMSN)"
+  IE11                  = "Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; rv:11.0) like Gecko"
+  IE11_TOUCH_SCREEN     = "Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; Touch; rv:11.0) like Gecko"
   OPERA                 = "Opera/9.80 (Macintosh; Intel Mac OS X 10.7.4; U; en) Presto/2.10.229 Version/11.64"
   OPERA_NEXT            = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.37 Safari/537.36 OPR/15.0.1147.44 (Edition Next)"
   FIREFOX               = "Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8"
@@ -285,6 +287,35 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.compatibility_view?
     assert_equal "7.0", @browser.full_version
     assert_equal "7", @browser.version
+  end
+
+  def test_detect_ie11
+    @browser.ua = IE11
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert @browser.ie11?
+    assert @browser.modern?
+    assert ! @browser.compatibility_view?
+    assert ! @browser.windows_touchscreen_desktop?
+    assert @browser.windows8?
+    assert_equal "11.0", @browser.full_version
+    assert_equal "11", @browser.version
+  end
+
+  def test_detect_ie11_touch_desktop_pc
+    @browser.ua = IE11_TOUCH_SCREEN
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert @browser.ie11?
+    assert @browser.modern?
+    assert ! @browser.compatibility_view?
+    assert ! @browser.windows_rt?
+    assert @browser.windows_touchscreen_desktop?
+    assert @browser.windows8?
+    assert_equal "11.0", @browser.full_version
+    assert_equal "11", @browser.version
   end
 
   def test_detect_opera
