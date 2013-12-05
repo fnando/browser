@@ -22,11 +22,15 @@ class Browser
         if uri.path == request.path
           @app.call(env)
         else
-          [301, {"Content-Type" => "text/html", "Location" => path}, []]
+          redirect(path)
         end
       else
         @app.call(env)
       end
+    end
+
+    def redirect(path)
+      [302, {"Content-Type" => "text/html", "Location" => path}, []]
     end
   end
 end
