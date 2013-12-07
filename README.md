@@ -25,6 +25,7 @@ browser.opera?
 browser.chrome?
 browser.mobile?
 browser.tablet?
+browser.console?
 browser.firefox?
 browser.ie?
 browser.ie6?        # this goes up to 10
