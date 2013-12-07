@@ -53,6 +53,16 @@ class Browser
       !!(ua =~ /Linux/)
     end
 
+    # Detect if current platform is Windows Mobile.
+    def windows_mobile?
+      !!(ua =~ /Windows CE/)
+    end
+
+    # Detect if current platform is Windows Phone.
+    def windows_phone?
+      !!(ua =~ /Windows Phone/)
+    end
+
     # Return the platform.
     def platform
       case
