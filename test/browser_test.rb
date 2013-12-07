@@ -45,7 +45,6 @@ class BrowserTest < Test::Unit::TestCase
   IOS5                  = "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"
   IOS6                  = "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25"
   PLAYBOOK              = "Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML, like Gecko) Version/7.2.1.0 Safari/536.2+"
-  CHROME                = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4"
   GOOGLE_BOT            = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
   MSN_BOT               = "msnbot-media/1.1 (+http://search.msn.com/msnbot.htm)"
   FACEBOOK_BOT          = "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)"
