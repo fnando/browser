@@ -1,10 +1,11 @@
 class Browser
   module IE
-    TRIDENT_VERSION_REGEX = /Trident\/([0-9.]+)/
+    TRIDENT_VERSION_REGEX = %r[Trident/([0-9.]+)]
+    MODERN_IE = %r[Trident/.*?; rv:(.*?)]
 
     # Detect if browser is Internet Explorer.
     def ie?
-      !!(ua =~ /MSIE/ && ua !~ /Opera/)
+      msie? || modern_ie?
     end
 
     # Detect if browser is Internet Explorer 6.
@@ -32,9 +33,23 @@ class Browser
       ie? && version == "10"
     end
 
+    # Detect if browser is Internet Explorer 11.
+    def ie11?
+      ie? && version == "11"
+    end
+
     # Detect if IE is running in compatibility mode.
     def compatibility_view?
       ie? && ua.match(TRIDENT_VERSION_REGEX) && version.to_i < ($1.to_i + 4)
+    end
+
+    private
+    def msie?
+      !!(ua =~ /MSIE/ && ua !~ /Opera/)
+    end
+
+    def modern_ie?
+      !!(ua =~ MODERN_IE)
     end
   end
 end
