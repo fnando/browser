@@ -1,7 +1,7 @@
 PATH
   remote: ..
   specs:
-    browser (0.3.0)
+    browser (0.3.1)
 
 GEM
   remote: https://rubygems.org/
