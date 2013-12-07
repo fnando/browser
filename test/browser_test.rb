@@ -47,6 +47,7 @@ class BrowserTest < Test::Unit::TestCase
   IOS4                  = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7"
   IOS5                  = "Mozilla/5.0 (iPhone; CPU iPhone OS 5_0 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A334 Safari/7534.48.3"
   IOS6                  = "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A5376e Safari/8536.25"
+  IOS7                  = "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53"
   PLAYBOOK              = "Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML, like Gecko) Version/7.2.1.0 Safari/536.2+"
   NINTENDO_WII          = "Opera/9.00 (Nintendo Wii; U; ; 1309-9; en)"
   NINTENDO_WIIU         = "Mozilla/5.0 (Nintendo WiiU) AppleWebKit/534.52 (KHTML, like Gecko) NX/2.1.0.8.23 NintendoBrowser/1.1.0.7579.EU"
@@ -167,6 +168,12 @@ class BrowserTest < Test::Unit::TestCase
     @browser.ua = IOS6
     assert @browser.ios?
     assert @browser.ios6?
+  end
+
+  def test_detect_ios7
+    @browser.ua = IOS7
+    assert @browser.ios?
+    assert @browser.ios7?
   end
 
   def test_detect_ie6
