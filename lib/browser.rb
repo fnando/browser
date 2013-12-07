@@ -10,6 +10,7 @@ require "browser/methods/mobile"
 require "browser/methods/devices"
 require "browser/methods/consoles"
 require "browser/methods/language"
+require "browser/methods/bots"
 
 require "browser/meta/base"
 require "browser/meta/generic_browser"
@@ -29,6 +30,7 @@ class Browser
   include Devices
   include Consoles
   include Language
+  include Bots
 
   # Set browser's UA string.
   attr_accessor :user_agent

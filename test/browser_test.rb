@@ -54,6 +54,9 @@ class BrowserTest < Test::Unit::TestCase
   PLAYSTATION4          = "Mozilla/5.0 (PlayStation 4 1.020) AppleWebKit/536.26 (KHTML, like Gecko)"
   XBOX360               = "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox), or Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; Xbox)"
   XBOXONE               = "Mozilla/5.0 (Compatible; MSIE 10.0; Windows NT 6.2; Trident /6.0; Xbox; Xbox One)"
+  GOOGLE_BOT            = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
+  MSN_BOT               = "msnbot-media/1.1 (+http://search.msn.com/msnbot.htm)"
+  FACEBOOK_BOT          = "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)"
 
   def setup
     @browser = Browser.new
@@ -749,5 +752,23 @@ class BrowserTest < Test::Unit::TestCase
   def test_meta_aliased_as_to_a
     @browser.ua = SAFARI
     assert_equal @browser.meta, @browser.to_a
+  end
+
+  def test_bots
+    @browser.ua = GOOGLE_BOT
+    assert @browser.bot?
+
+    @browser.ua = MSN_BOT
+    assert @browser.bot?
+
+    @browser.ua = FACEBOOK_BOT
+    assert @browser.bot?
+
+    # Many bots actually report empty ua strings.
+    @browser.ua = ''
+    assert @browser.bot?
+
+    @browser.ua = CHROME
+    assert ! @browser.bot?
   end
 end

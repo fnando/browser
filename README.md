@@ -35,6 +35,7 @@ browser.mac?
 browser.windows?
 browser.linux?
 browser.blackberry?
+browser.bot?
 browser.meta        # an array with several attributes
 browser.to_s        # the meta info joined by space
 ```
