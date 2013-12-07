@@ -1,5 +1,5 @@
 PATH
-  remote: /mnt/hgfs/-Projects/github/browser
+  remote: ..
   specs:
     browser (0.2.1)
 

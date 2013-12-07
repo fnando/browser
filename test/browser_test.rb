@@ -36,6 +36,8 @@ class BrowserTest < Test::Unit::TestCase
   OPERA_MOBI            = "Opera/9.8 (Android 2.3.5; Linux; Opera Mobi/ADR-1205181138; U; en) Presto/2.10.254 Version/12.00"
   WINDOWS_PHONE         = "Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; DELL; Venue Pro)"
   WINDOWS_PHONE8        = "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)"
+  WINDOWS8              = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)"
+  WINDOWS81             = "Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko"
   SURFACE               = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch)"
   KINDLE                = "Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600×800; rotate)"
   KINDLE_FIRE           = "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Kindle Fire Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
@@ -543,16 +545,33 @@ class BrowserTest < Test::Unit::TestCase
   def test_detect_mac_platform
     @browser.ua = "Mac OS X"
     assert_equal :mac, @browser.platform
+    assert @browser.mac?
   end
 
   def test_detect_windows_platform
     @browser.ua = "Windows"
     assert_equal :windows, @browser.platform
+    assert @browser.windows?
+  end
+
+  def test_detect_windows8
+    @browser.ua = WINDOWS8
+
+    assert @browser.windows?
+    assert @browser.windows8?
+  end
+
+  def test_detect_windows8_1
+    @browser.ua = WINDOWS81
+
+    assert @browser.windows?
+    assert @browser.windows8?
   end
 
   def test_detect_linux_platform
     @browser.ua = "Linux"
     assert_equal :linux, @browser.platform
+    assert @browser.linux?
   end
 
   def test_detect_unknown_platform
