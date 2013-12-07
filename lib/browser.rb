@@ -106,10 +106,10 @@ class Browser
   # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
   def modern?
     webkit? ||
-    (firefox? && version.to_i >= 17) ||
-    (ie? && version.to_i >= 9) ||
-    (opera? && version.to_i >= 12) ||
-    (firefox? && tablet? && android? && version.to_i >= 14)
+    newer_firefox? ||
+    newer_ie? ||
+    newer_opera? ||
+    newer_firefox_tablet?
   end
 
   # Detect if browser is WebKit-based.
@@ -170,5 +170,22 @@ class Browser
   # Return meta representation as string.
   def to_s
     meta.to_a.join(" ")
+  end
+
+  private
+  def newer_firefox?
+    firefox? && version.to_i >= 17
+  end
+
+  def newer_ie?
+    ie? && version.to_i >= 9
+  end
+
+  def newer_opera?
+    opera? && version.to_i >= 12
+  end
+
+  def newer_firefox_tablet?
+    firefox? && tablet? && android? && version.to_i >= 14
   end
 end
