@@ -12,14 +12,22 @@ class Browser
     def call(env)
       request = Rack::Request.new(env)
 
+      # Only apply verification on HTML requests.
+      # This ensures that images, CSS and JavaScript
+      # will be rendered.
+      return run_app(env) unless html?(request)
+
       path = catch(:redirected) do
         Context.new(request).instance_eval(&@block)
       end
 
-      path ? resolve_redirection(request.path, path) : run_app(env)
+      # No path, no match.
+      return run_app(env) unless path
+
+      resolve_redirection(env, request.path, path)
     end
 
-    def resolve_redirection(current_path, path)
+    def resolve_redirection(env, current_path, path)
       uri = URI.parse(path)
 
       if uri.path == current_path
@@ -35,6 +43,10 @@ class Browser
 
     def run_app(env)
       @app.call(env)
+    end
+
+    def html?(request)
+      request.env["HTTP_ACCEPT"].to_s.include?("text/html")
     end
   end
 end

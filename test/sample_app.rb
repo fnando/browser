@@ -15,6 +15,10 @@ class SampleApp < Rails::Application
       browser = Rack::Request.new(env).params["browser"]
       [200, default_headers, ["UPGRADE: #{browser}"]]
     }, as: "upgrade"
+
+    get "/asset", to: -> env {
+      [200, {"Content-Type" => "image/png"}, []]
+    }
   end
 
   config.middleware.use Browser::Middleware do
