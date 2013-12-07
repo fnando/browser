@@ -25,6 +25,11 @@ class Browser
       ios? && !!(ua =~ /OS (6)/)
     end
 
+    # Detect if is iOS6.
+    def ios7?
+      ios? && !!(ua =~ /OS (7)/)
+    end
+
     # Detect if current platform is Macintosh.
     def mac?
       !!(ua =~ /Mac OS X/)
