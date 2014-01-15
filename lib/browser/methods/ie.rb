@@ -35,7 +35,7 @@ class Browser
 
     # Detect if browser is Internet Explorer 11.
     def ie11?
-      ie? && version == "11"
+      ie? && !!(ua =~ /rv:11.\d/) && version == "11"
     end
 
     # Detect if IE is running in compatibility mode.

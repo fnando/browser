@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-require File.expand_path("./test/test_helper")
+require File.expand_path(File.dirname(__FILE__) + "/test_helper")
 
 class BrowserTest < Test::Unit::TestCase
   IPHONE_IOS3           = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/1A542a Safari/419.3"

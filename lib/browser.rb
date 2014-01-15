@@ -61,9 +61,8 @@ class Browser
   }
 
   VERSIONS = {
-    :default => %r[(?:Version|MSIE|Trident\/.*rv|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
-    :opera => %r[(?:Opera/.*? Version/([\d.]+)|Chrome/([\d.]+).*?OPR)],
-    :ie => %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
+    :default => %r[(?:Version|MSIE|Trident\/.*rv|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ :]?([a-z0-9.]+)]i,
+    :opera => %r[(?:Opera/.*? Version/([\d.]+)|Chrome/([\d.]+).*?OPR)]
   }
 
   # Create a new browser instance and set
