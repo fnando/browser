@@ -64,13 +64,17 @@ class Browser
     end
 
     # Return the platform.
+    # Since there is not a hash with pretty names of the platforms I'm just returning strings.
     def platform
       case
-      when linux?   then :linux
-      when mac?     then :mac
-      when windows? then :windows
+      when mac?     then 'Macintosh'
+      when windows? then 'Windows'
+      when android? then 'Android'
+      when ios?     then 'iOS'
+      when linux?   then 'Linux'
+      
       else
-        :other
+        'Other'
       end
     end
   end
