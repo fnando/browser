@@ -493,7 +493,6 @@ class BrowserTest < Test::Unit::TestCase
 
     assert meta.include?("chrome")
     assert meta.include?("webkit")
-    #assert meta.include?("mac")
     assert meta.include?("modern")
   end
 
@@ -503,10 +502,9 @@ class BrowserTest < Test::Unit::TestCase
 
     assert meta.include?("iphone")
     assert meta.include?("webkit")
-    assert meta.include?("ios"), "Should include 'ios' in the meta string"
+    assert meta.include?("ios")
     assert meta.include?("safari")
     assert meta.include?("safari3")
-    #assert meta.include?("mac"), "Should include 'mac' in the meta string"
     assert meta.include?("modern")
     assert meta.include?("mobile")
   end
@@ -517,7 +515,6 @@ class BrowserTest < Test::Unit::TestCase
 
     assert meta.include?("BlackBerry")
     assert meta.include?("blackberry4")
-    #assert meta.include?("other")
     assert meta.include?("mobile")
   end
 
