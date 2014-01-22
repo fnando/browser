@@ -64,18 +64,21 @@ class Browser
     end
 
     # Return the platform.
-    # Since there is not a hash with pretty names of the platforms I'm just returning strings.
+    # Passing back pretty names from OS hash
+    
     def platform
       case
-      when mac?     then 'Macintosh'
-      when windows? then 'Windows'
-      when android? then 'Android'
-      when ios?     then 'iOS'
-      when linux?   then 'Linux'
-      
+      when android?       then OS[:android]
+      when ios?           then OS[:ios]
+      when blackberry?    then OS[:blackberry]
+      when linux?         then OS[:linux]
+      when mac?           then OS[:mac]
+      when windows?       then OS[:windows]
+
       else
-        'Other'
+        OS[:other]
       end
     end
+
   end
 end
