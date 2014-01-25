@@ -1,157 +1,69 @@
 require "set"
 
+require "browser/middleware"
+require "browser/middleware/context"
+require "browser/rails" if defined?(::Rails)
+
+require "browser/methods/ie"
+require "browser/methods/platform"
+require "browser/methods/mobile"
+require "browser/methods/devices"
+require "browser/methods/consoles"
+require "browser/methods/language"
+require "browser/methods/bots"
+
+require "browser/meta/base"
+require "browser/meta/generic_browser"
+require "browser/meta/id"
+require "browser/meta/ie"
+require "browser/meta/ios"
+require "browser/meta/mobile"
+require "browser/meta/modern"
+require "browser/meta/platform"
+require "browser/meta/safari"
+require "browser/meta/webkit"
+
 class Browser
-  # Add Rails helper if ActionController::Base is available
-  require "browser/action_controller" if defined?(ActionController::Base)
+  include IE
+  include Platform
+  include Mobile
+  include Devices
+  include Consoles
+  include Language
+  include Bots
 
   # Set browser's UA string.
   attr_accessor :user_agent
-
-  # Set browser's preferred language
-  attr_writer :accept_language
-
   alias :ua :user_agent
   alias :ua= :user_agent=
 
   NAMES = {
-    :android    => "Android",
-    :blackberry => "BlackBerry",
-    :chrome     => "Chrome",
-    :firefox    => "Firefox",
-    :ie         => "Internet Explorer",
-    :ipad       => "iPad",
-    :iphone     => "iPhone",
-    :ipod       => "iPod Touch",
-    :opera      => "Opera",
+    :android     => "Android",
+    :blackberry  => "BlackBerry",
+    :chrome      => "Chrome",
+    :core_media  => "Apple CoreMedia",
+    :firefox     => "Firefox",
+    :ie          => "Internet Explorer",
+    :ipad        => "iPad",
+    :iphone      => "iPhone",
+    :ipod        => "iPod Touch",
+    :nintendo    => "Nintendo",
+    :opera       => "Opera",
+    :phantom_js  => "PhantomJS",
+    :psp         => "PlayStation Portable",
+    :playstation => "PlayStation",
+    :quicktime   => "QuickTime",
+    :safari      => "Safari",
+    :xbox      => "Xbox",
+
+    # This must be last item, since Ruby 1.9+ has ordered keys.
     :other      => "Other",
-    :safari     => "Safari",
-    :psp        => "PlayStation Portable",
-    :quicktime  => "QuickTime",
-    :core_media => "Apple CoreMedia"
   }
 
   VERSIONS = {
-    :default => /(?:Version|MSIE|Firefox|Chromeframe|Chrome|CriOS|QuickTime|BlackBerry[^\/]+|CoreMedia v)[\/ ]?([a-z0-9.]+)/i,
-    :opera => /Opera\/.*? Version\/([\d.]+)/
-  }
-
-  TRIDENT_VERSION_REGEX = /Trident\/([0-9.]+)/
-
-  LANGUAGES = {
-    "af"    => "Afrikaans",
-    "sq"    => "Albanian",
-    "eu"    => "Basque",
-    "bg"    => "Bulgarian",
-    "be"    => "Byelorussian",
-    "ca"    => "Catalan",
-    "zh"    => "Chinese",
-    "zh-cn" => "Chinese/China",
-    "zh-tw" => "Chinese/Taiwan",
-    "zh-hk" => "Chinese/Hong Kong",
-    "zh-sg" => "Chinese/singapore",
-    "hr"    => "Croatian",
-    "cs"    => "Czech",
-    "da"    => "Danish",
-    "nl"    => "Dutch",
-    "nl-nl" => "Dutch/Netherlands",
-    "nl-be" => "Dutch/Belgium",
-    "en"    => "English",
-    "en-gb" => "English/United Kingdom",
-    "en-us" => "English/United States",
-    "en-au" => "English/Australian",
-    "en-ca" => "English/Canada",
-    "en-nz" => "English/New Zealand",
-    "en-ie" => "English/Ireland",
-    "en-za" => "English/South Africa",
-    "en-jm" => "English/Jamaica",
-    "en-bz" => "English/Belize",
-    "en-tt" => "English/Trinidad",
-    "et"    => "Estonian",
-    "fo"    => "Faeroese",
-    "fa"    => "Farsi",
-    "fi"    => "Finnish",
-    "fr"    => "French",
-    "fr-be" => "French/Belgium",
-    "fr-fr" => "French/France",
-    "fr-ch" => "French/Switzerland",
-    "fr-ca" => "French/Canada",
-    "fr-lu" => "French/Luxembourg",
-    "gd"    => "Gaelic",
-    "gl"    => "Galician",
-    "de"    => "German",
-    "de-at" => "German/Austria",
-    "de-de" => "German/Germany",
-    "de-ch" => "German/Switzerland",
-    "de-lu" => "German/Luxembourg",
-    "de-li" => "German/Liechtenstein",
-    "el"    => "Greek",
-    "he"    => "Hebrew",
-    "he-il" => "Hebrew/Israel",
-    "hi"    => "Hindi",
-    "hu"    => "Hungarian",
-    "ie-ee" => "Internet Explorer/Easter Egg",
-    "is"    => "Icelandic",
-    "id"    => "Indonesian",
-    "in"    => "Indonesian",
-    "ga"    => "Irish",
-    "it"    => "Italian",
-    "it-ch" => "Italian/ Switzerland",
-    "ja"    => "Japanese",
-    "km"    => "Khmer",
-    "km-kh" => "Khmer/Cambodia",
-    "ko"    => "Korean",
-    "lv"    => "Latvian",
-    "lt"    => "Lithuanian",
-    "mk"    => "Macedonian",
-    "ms"    => "Malaysian",
-    "mt"    => "Maltese",
-    "no"    => "Norwegian",
-    "pl"    => "Polish",
-    "pt"    => "Portuguese",
-    "pt-br" => "Portuguese/Brazil",
-    "rm"    => "Rhaeto-Romanic",
-    "ro"    => "Romanian",
-    "ro-mo" => "Romanian/Moldavia",
-    "ru"    => "Russian",
-    "ru-mo" => "Russian /Moldavia",
-    "gd"    => "Scots Gaelic",
-    "sr"    => "Serbian",
-    "sk"    => "Slovack",
-    "sl"    => "Slovenian",
-    "sb"    => "Sorbian",
-    "es"    => "Spanish",
-    "es-do" => "Spanish",
-    "es-ar" => "Spanish/Argentina",
-    "es-co" => "Spanish/Colombia",
-    "es-mx" => "Spanish/Mexico",
-    "es-es" => "Spanish/Spain",
-    "es-gt" => "Spanish/Guatemala",
-    "es-cr" => "Spanish/Costa Rica",
-    "es-pa" => "Spanish/Panama",
-    "es-ve" => "Spanish/Venezuela",
-    "es-pe" => "Spanish/Peru",
-    "es-ec" => "Spanish/Ecuador",
-    "es-cl" => "Spanish/Chile",
-    "es-uy" => "Spanish/Uruguay",
-    "es-py" => "Spanish/Paraguay",
-    "es-bo" => "Spanish/Bolivia",
-    "es-sv" => "Spanish/El salvador",
-    "es-hn" => "Spanish/Honduras",
-    "es-ni" => "Spanish/Nicaragua",
-    "es-pr" => "Spanish/Puerto Rico",
-    "sx"    => "Sutu",
-    "sv"    => "Swedish",
-    "sv-se" => "Swedish/Sweden",
-    "sv-fi" => "Swedish/Finland",
-    "ts"    => "Thai",
-    "tn"    => "Tswana",
-    "tr"    => "Turkish",
-    "uk"    => "Ukrainian",
-    "ur"    => "Urdu",
-    "vi"    => "Vietnamese",
-    "xh"    => "Xshosa",
-    "ji"    => "Yiddish",
-    "zu"    => "Zulu"
+    :default => %r[(?:Version|MSIE|Firefox|ChromeChrome|CriOS|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
+    :opera => %r[(?:Opera/.*? Version/([\d.]+)|Chrome/([\d.]+).*?OPR)],
+    :ie => %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
   }
 
   # Create a new browser instance and set
@@ -163,8 +75,8 @@ class Browser
   #   })
   #
   def initialize(options = {}, &block)
-    @user_agent = (options[:user_agent] || options[:ua]).to_s
-    @accept_language = options[:accept_language].to_s
+    self.user_agent = (options[:user_agent] || options[:ua]).to_s
+    self.accept_language = options[:accept_language].to_s
 
     yield self if block_given?
   end
@@ -174,30 +86,10 @@ class Browser
     NAMES[id]
   end
 
-  # Return a symbol that identifies the browser.
+  # Get the browser identifier.
   def id
-    case
-    when chrome?      then :chrome
-    when iphone?      then :iphone
-    when ipad?        then :ipad
-    when ipod?        then :ipod
-    when ie?          then :ie
-    when opera?       then :opera
-    when firefox?     then :firefox
-    when android?     then :android
-    when blackberry?  then :blackberry
-    when safari?      then :safari
-    when psp?         then :psp
-    when quicktime?   then :quicktime
-    when core_media?  then :core_media
-    else
-      :other
-    end
-  end
-
-  # Return an array with all preferred languages that this browser accepts.
-  def accept_language
-    @accept_language.gsub(/;q=[\d.]+/, "").split(",").collect {|l| l.downcase.gsub(/\s/m, "")}
+    NAMES.keys
+      .find {|id| respond_to?("#{id}?") ? public_send("#{id}?") : id }
   end
 
   # Return major version.
@@ -207,17 +99,17 @@ class Browser
 
   # Return the full version.
   def full_version
-    _, v = *ua.match(VERSIONS.fetch(id, VERSIONS[:default]))
-    v || "0.0"
+    _, *v = *ua.match(VERSIONS.fetch(id, VERSIONS[:default]))
+    v.compact.first || "0.0"
   end
 
-  # Return true if browser supports some CSS 3 (Safari, Firefox, Opera & IE7+).
-  def capable?
-    webkit? || firefox? || opera? || (ie? && version >= "7")
-  end
-
-  def compatibility_view?
-    ie? && ua.match(TRIDENT_VERSION_REGEX) && version.to_i < ($1.to_i + 4)
+  # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
+  def modern?
+    webkit? ||
+    newer_firefox? ||
+    newer_ie? ||
+    newer_opera? ||
+    newer_firefox_tablet?
   end
 
   # Detect if browser is WebKit-based.
@@ -225,29 +117,9 @@ class Browser
     !!(ua =~ /AppleWebKit/i)
   end
 
-  # Detect if browser is ios?.
-  def ios?
-    ipod? || ipad? || iphone?
-  end
-
-  # Detect if browser is mobile.
-  def mobile?
-    !!(ua =~ /(Mobi(le)?|Symbian|MIDP|Windows CE)/) || blackberry? || psp? || opera_mini?
-  end
-
   # Detect if browser is QuickTime
   def quicktime?
     !!(ua =~ /QuickTime/i)
-  end
-
-  # Detect if browser is BlackBerry
-  def blackberry?
-    !!(ua =~ /BlackBerry/)
-  end
-
-  # Detect if browser is Android.
-  def android?
-    !!(ua =~ /Android/ && !opera?)
   end
 
   # Detect if browser is Apple CoreMedia.
@@ -255,24 +127,14 @@ class Browser
     !!(ua =~ /CoreMedia/)
   end
 
-  # Detect if browser is iPhone.
-  def iphone?
-    !!(ua =~ /iPhone/)
-  end
-
-  # Detect if browser is iPad.
-  def ipad?
-    !!(ua =~ /iPad/)
-  end
-
-  # Detect if browser is iPod.
-  def ipod?
-    !!(ua =~ /iPod/)
+  # Detect if browser is PhantomJS
+  def phantom_js?
+    !!(ua =~ /PhantomJS/)
   end
 
   # Detect if browser is Safari.
   def safari?
-    ua =~ /Safari/ && ua !~ /Chrome|CriOS/
+    ua =~ /Safari/ && ua !~ /Chrome|CriOS|PhantomJS/
   end
 
   # Detect if browser is Firefox.
@@ -282,99 +144,25 @@ class Browser
 
   # Detect if browser is Chrome.
   def chrome?
-    !!(ua =~ /Chrome|CriOS/)
-  end
-
-  # Detect if browser is Internet Explorer.
-  def ie?
-    !!(ua =~ /MSIE/ && ua !~ /Opera/)
-  end
-
-  # Detect if browser is Internet Explorer 6.
-  def ie6?
-    ie? && version == "6"
-  end
-
-  # Detect if browser is Internet Explorer 7.
-  def ie7?
-    ie? && version == "7"
-  end
-
-  # Detect if browser is Internet Explorer 8.
-  def ie8?
-    ie? && version == "8"
-  end
-
-  # Detect if browser is Internet Explorer 9.
-  def ie9?
-    ie? && version == "9"
-  end
-
-  # Detect if browser is running from PSP.
-  def psp?
-    !!(ua =~ /PSP/)
+    !!(ua =~ /Chrome|CriOS/) && !opera?
   end
 
   # Detect if browser is Opera.
   def opera?
-    !!(ua =~ /Opera/)
+    !!(ua =~ /(Opera|OPR)/)
   end
 
-  # Detect if browser is Opera Mini.
-  def opera_mini?
-    !!(ua =~ /Opera Mini/)
-  end
-
-  # Detect if current platform is Macintosh.
-  def mac?
-    !!(ua =~ /Mac OS X/)
-  end
-
-  # Detect if current platform is Windows.
-  def windows?
-    !!(ua =~ /Windows/)
-  end
-
-  # Detect if current platform is Linux flavor.
-  def linux?
-    !!(ua =~ /Linux/)
-  end
-
-  # Detect if browser is tablet (currently just iPad or Android).
-  def tablet?
-    !!(ipad? || (android? && !mobile?))
-  end
-
-  # Detect if browser is Kindle.
-  def kindle?
-    !!(ua =~ /Kindle/)
-  end
-
-  # Return the platform.
-  def platform
-    case
-    when linux?   then :linux
-    when mac?     then :mac
-    when windows? then :windows
-    else
-      :other
-    end
+  # Detect if browser is Silk.
+  def silk?
+    !!(ua =~ /Silk/)
   end
 
   # Return a meta info about this browser.
   def meta
-    set = Set.new.tap do |m|
-      m << id.to_s
-      m << "webkit" if webkit?
-      m << "ios" if ios?
-      m.merge(%W[safari safari#{version}]) if safari?
-      m << "#{id}#{version}" unless safari? || chrome?
-      m << platform.to_s
-      m << "capable" if capable?
-      m << "mobile" if mobile?
-    end
-
-    set.to_a
+    Meta.constants.each_with_object(Set.new) do |meta_name, meta|
+      meta_class = Meta.const_get(meta_name)
+      meta.merge(meta_class.new(self).to_a)
+    end.to_a
   end
 
   alias_method :to_a, :meta
@@ -382,5 +170,22 @@ class Browser
   # Return meta representation as string.
   def to_s
     meta.to_a.join(" ")
+  end
+
+  private
+  def newer_firefox?
+    firefox? && version.to_i >= 17
+  end
+
+  def newer_ie?
+    ie? && version.to_i >= 9
+  end
+
+  def newer_opera?
+    opera? && version.to_i >= 12
+  end
+
+  def newer_firefox_tablet?
+    firefox? && tablet? && android? && version.to_i >= 14
   end
 end

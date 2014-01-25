@@ -17,9 +17,7 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
-  s.add_development_dependency "actionpack"
-  s.add_development_dependency "rake"
-  s.add_development_dependency "rdoc"
   s.add_development_dependency "pry-meta"
-  s.add_development_dependency "awesome_print"
+  s.add_development_dependency "rails"
+  s.add_development_dependency "rack-test"
 end
