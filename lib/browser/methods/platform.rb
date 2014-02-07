@@ -30,6 +30,31 @@ class Browser
       ios? && !!(ua =~ /OS 7/)
     end
 
+    # Detect if is BlackBerry 4.
+    def blackberry4?
+      blackberry? && !!(ua =~ %r[BlackBerry\d+/4])
+    end
+
+    # Detect if is BlackBerry 5.
+    def blackberry5?
+      blackberry? && !!(ua =~ %r[BlackBerry\d+/5])
+    end
+
+    # Detect if is BlackBerry 6.
+    def blackberry6?
+      blackberry? && !!(ua =~ %r[Version/6])
+    end
+
+    # Detect if is BlackBerry 7.
+    def blackberry7?
+      blackberry? && !!(ua =~ %r[Version/7])
+    end
+
+    # Detect if is BlackBerry 10.
+    def blackberry10?
+      !!(ua =~ /BB10/)
+    end
+
     # Detect if current platform is Macintosh.
     def mac?
       !!(ua =~ /Mac OS X/)
