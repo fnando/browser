@@ -10,7 +10,7 @@ class Browser
       ipod? || ipad? || iphone?
     end
 
-    # Detect if is iOS5.
+    # Detect if is iOS4.
     def ios4?
       ios? && !!(ua =~ /OS 4/)
     end
