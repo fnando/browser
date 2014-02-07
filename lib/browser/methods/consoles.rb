@@ -19,5 +19,10 @@ class Browser
     def console?
       xbox? || playstation? || nintendo?
     end
+
+    # Detect if browser is running from PSP.
+    def psp?
+      !!(ua =~ /(PSP|Playstation Vita)/)
+    end
   end
 end

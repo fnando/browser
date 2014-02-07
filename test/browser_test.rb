@@ -34,6 +34,7 @@ class BrowserTest < Test::Unit::TestCase
   BLACKBERRY7           = "Mozilla/5.0 (BlackBerry; U; BlackBerry AAAA; en-US) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.0.0.1 Mobile Safari/534.11+"
   BLACKBERRY10          = "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.0.9.1675 Mobile Safari/537.10+"
   PSP                   = "Mozilla/4.0 (PSP (PlayStation Portable); 2.00)"
+  PSP_VITA              = "Mozilla/5.0 (Playstation Vita 1.61) AppleWebKit/531.22.8 (KHTML, like Gecko) Silk/3.2"
   QUICKTIME             = "QuickTime/7.6.8 (qtver=7.6.8;os=Windows NT 5.1Service Pack 3)"
   COREMEDIA             = "Apple Mac OS X v10.6.4 CoreMedia v1.0.0.10F569"
   XOOM                  = "Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13"
@@ -519,6 +520,14 @@ class BrowserTest < Test::Unit::TestCase
 
   def test_detect_psp
     @browser.ua = PSP
+
+    assert_equal "PlayStation Portable", @browser.name
+    assert @browser.psp?
+    assert @browser.mobile?
+  end
+
+  def test_detect_psp
+    @browser.ua = PSP_VITA
 
     assert_equal "PlayStation Portable", @browser.name
     assert @browser.psp?
