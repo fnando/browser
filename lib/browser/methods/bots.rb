@@ -5,6 +5,7 @@ class Browser
     BOTS = {
       # Indexers
       "AdsBot-Google" => "Google Adwords",
+      "AhrefsBot"     => "Ahrefs backlinks research tool",
       "Baidu"         => "Chinese search engine",
       "Baiduspider"   => "Chinese search engine",
       "bingbot"       => "Microsoft bing bot",
