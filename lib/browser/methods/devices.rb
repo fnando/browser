@@ -38,5 +38,9 @@ class Browser
     def playbook?
       !!(ua =~ /PlayBook/ and ua =~ /RIM Tablet/)
     end
+
+    def windows_touchscreen_desktop?
+      windows? && !!(ua =~ /Touch/)
+    end
   end
 end
