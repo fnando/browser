@@ -63,12 +63,18 @@ class Browser
       !!(ua =~ /Windows Phone/)
     end
 
+
+    # Detect if current platform is ChromeOS
+    def chrome_os?
+      !!(ua =~ /CrOS/)
+    end
+
     # Return the platform.
     def platform
       case
-      when linux?   then :linux
-      when mac?     then :mac
-      when windows? then :windows
+      when linux?     then :linux
+      when mac?       then :mac
+      when windows?   then :windows
       else
         :other
       end

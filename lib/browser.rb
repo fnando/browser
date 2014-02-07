@@ -54,7 +54,7 @@ class Browser
     :playstation => "PlayStation",
     :quicktime   => "QuickTime",
     :safari      => "Safari",
-    :xbox      => "Xbox",
+    :xbox        => "Xbox",
 
     # This must be last item, since Ruby 1.9+ has ordered keys.
     :other      => "Other",

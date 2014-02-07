@@ -23,6 +23,7 @@ class BrowserTest < Test::Unit::TestCase
   FIREFOX_TABLET        = "Mozilla/5.0 (Android; Tablet; rv:14.0) Gecko/14.0 Firefox/14.0"
   CHROME                = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4"
   MOBILE_CHROME         = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; en) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3"
+  CHROME_OS             = "Mozilla/5.0 (X11; CrOS x86_64 3701.81.0) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.57 Safari/537.31."
   ANDROID               = "Android SDK 1.5r3: Mozilla/5.0 (Linux; U; Android 1.5; de-; sdk Build/CUPCAKE) AppleWebkit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
   TABLOID               = "Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13"
   BLACKBERRY            = "BlackBerry7100i/4.1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/103"
@@ -815,5 +816,10 @@ class BrowserTest < Test::Unit::TestCase
 
     @browser.ua = CHROME
     assert ! @browser.bot?
+  end
+
+  def test_chrome_os
+    @browser.ua = CHROME_OS
+    assert @browser.chrome_os?
   end
 end
