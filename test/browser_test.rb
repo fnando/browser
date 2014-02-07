@@ -526,7 +526,7 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.mobile?
   end
 
-  def test_detect_psp
+  def test_detect_psp_vita
     @browser.ua = PSP_VITA
 
     assert_equal "PlayStation Portable", @browser.name
