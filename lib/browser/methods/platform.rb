@@ -63,6 +63,10 @@ class Browser
       !!(ua =~ /Windows Phone/)
     end
 
+    # Detect if current platform is Windows in 64-bit architecture.
+    def windows_x64?
+      windows? && !!(ua =~ /(Win64|x64)/) && !!(ua =~ /x64/)
+    end
 
     # Detect if current platform is ChromeOS
     def chrome_os?

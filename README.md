@@ -23,6 +23,7 @@ browser.version
 browser.safari?
 browser.opera?
 browser.chrome?
+browser.chrome_os?
 browser.mobile?
 browser.tablet?
 browser.console?
@@ -33,6 +34,7 @@ browser.modern?     # Webkit, Firefox 17+, IE 9+ and Opera 12+
 browser.platform    # return :mac, :windows, :linux or :other
 browser.mac?
 browser.windows?
+browser.windows_x64?
 browser.linux?
 browser.blackberry?
 browser.bot?

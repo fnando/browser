@@ -14,6 +14,7 @@ class BrowserTest < Test::Unit::TestCase
   IE9_COMPAT            = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/5.0)"
   IE10                  = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0; EIE10;ENUSMSN)"
   IE10_COMPAT           = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; EIE10;ENUSMSN)"
+  IE10_X64_WINX64       = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)"
   IE11                  = "Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko"
   IE11_TOUCH_SCREEN     = "Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; Touch; rv:11.0) like Gecko"
   OPERA                 = "Opera/9.80 (Macintosh; Intel Mac OS X 10.7.4; U; en) Presto/2.10.229 Version/11.64"
@@ -683,6 +684,11 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.windows_phone?
     assert ! @browser.windows_mobile?
     assert ! @browser.tablet?
+  end
+
+  def test_windows_x64
+    @browser.ua = IE10_X64_WINX64
+    assert @browser.windows_x64?
   end
 
   def test_detect_ie11_touch_desktop_pc
