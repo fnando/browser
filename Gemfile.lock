@@ -109,6 +109,8 @@ PLATFORMS
 
 DEPENDENCIES
   browser!
+  bundler
   pry-meta
   rack-test
   rails
+  rake
