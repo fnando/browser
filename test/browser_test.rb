@@ -59,6 +59,7 @@ class BrowserTest < Test::Unit::TestCase
   GOOGLE_BOT            = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
   MSN_BOT               = "msnbot-media/1.1 (+http://search.msn.com/msnbot.htm)"
   FACEBOOK_BOT          = "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)"
+  SMART_TV              = "Mozilla/5.0 (SmartHub; SMART-TV; U; Linux/SmartTV) AppleWebKit/531.2+ (KHTML, like Gecko) WebBrowser/1.0 SmartTV Safari/531.2+"
 
   def setup
     @browser = Browser.new
@@ -799,5 +800,10 @@ class BrowserTest < Test::Unit::TestCase
 
     @browser.ua = CHROME
     assert ! @browser.bot?
+  end
+
+  def test_tv
+    @browser.ua = SMART_TV
+    assert @browser.tv?
   end
 end
