@@ -50,8 +50,8 @@ class Browser
     end
 
     def html?(request)
-      ( request.env["HTTP_ACCEPT"].to_s.match( ACCEPT_REGEX ) and
-      not request.path.match(ASSETS_REGEX) )
+      (request.env["HTTP_ACCEPT"].to_s.match(ACCEPT_REGEX) &&
+      !request.path.match(ASSETS_REGEX))
     end
   end
 end
