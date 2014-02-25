@@ -35,6 +35,13 @@ class MiddlewareTest < Test::Unit::TestCase
     assert_equal 404, last_response.status
   end
 
+  def test_redirect_ie8_with_wildcard_http_accept
+    get "/", {}, {"HTTP_USER_AGENT" => "MSIE 8", "HTTP_ACCEPT" => "*/*"}
+    follow_redirect!
+
+    assert_equal 404, last_response.status
+  end
+
   def test_ignores_non_html_requests
     get "/", {}, {"HTTP_USER_AGENT" => "MSIE 6", "HTTP_ACCEPT" => "image/png"}
 
