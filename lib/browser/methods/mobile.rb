@@ -12,7 +12,7 @@ class Browser
 
     # Detect if browser is BlackBerry
     def blackberry?
-      !!(ua =~ /BlackBerry/)
+      !!(ua =~ /(BlackBerry)/)
     end
 
     private

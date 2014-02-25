@@ -1,4 +1,5 @@
 require "set"
+require "yaml"
 
 require "browser/middleware"
 require "browser/middleware/context"
@@ -11,6 +12,7 @@ require "browser/methods/devices"
 require "browser/methods/consoles"
 require "browser/methods/language"
 require "browser/methods/bots"
+require "browser/methods/tv"
 
 require "browser/meta/base"
 require "browser/meta/generic_browser"
@@ -31,6 +33,7 @@ class Browser
   include Consoles
   include Language
   include Bots
+  include Tv
 
   # Set browser's UA string.
   attr_accessor :user_agent
@@ -54,7 +57,7 @@ class Browser
     :playstation => "PlayStation",
     :quicktime   => "QuickTime",
     :safari      => "Safari",
-    :xbox      => "Xbox",
+    :xbox        => "Xbox",
 
     # This must be last item, since Ruby 1.9+ has ordered keys.
     :other      => "Other",

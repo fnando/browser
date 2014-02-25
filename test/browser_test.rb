@@ -15,6 +15,7 @@ class BrowserTest < Test::Unit::TestCase
   IE9_COMPAT            = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; Trident/5.0)"
   IE10                  = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0; EIE10;ENUSMSN)"
   IE10_COMPAT           = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; EIE10;ENUSMSN)"
+  IE10_X64_WINX64       = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)"
   IE11                  = "Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko"
   IE11_WIN8_64          = "Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; rv:11.0) like Gecko"
   IE11_TOUCH_SCREEN     = "Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; Touch; rv:11.0) like Gecko"
@@ -26,9 +27,17 @@ class BrowserTest < Test::Unit::TestCase
   CHROME                = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4"
   MOBILE_CHROME         = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; en) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3"
   ANDROID_1_5           = "Android SDK 1.5r3: Mozilla/5.0 (Linux; U; Android 1.5; de-; sdk Build/CUPCAKE) AppleWebkit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
+  CHROME_OS             = "Mozilla/5.0 (X11; CrOS x86_64 3701.81.0) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.57 Safari/537.31."
+  ANDROID               = "Android SDK 1.5r3: Mozilla/5.0 (Linux; U; Android 1.5; de-; sdk Build/CUPCAKE) AppleWebkit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
   TABLOID               = "Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13"
   BLACKBERRY            = "BlackBerry7100i/4.1.0 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/103"
+  BLACKBERRY4           = "BlackBerry8100/4.2.1 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/103"
+  BLACKBERRY5           = "BlackBerry9000/5.0.0.93 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/179"
+  BLACKBERRY6           = "Mozilla/5.0 (BlackBerry; U; BlackBerry AAAA; en-US) AppleWebKit/534.11+ (KHTML, like Gecko) Version/6.0.0.141 Mobile Safari/534.11+"
+  BLACKBERRY7           = "Mozilla/5.0 (BlackBerry; U; BlackBerry AAAA; en-US) AppleWebKit/534.11+ (KHTML, like Gecko) Version/7.0.0.1 Mobile Safari/534.11+"
+  BLACKBERRY10          = "Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.0.9.1675 Mobile Safari/537.10+"
   PSP                   = "Mozilla/4.0 (PSP (PlayStation Portable); 2.00)"
+  PSP_VITA              = "Mozilla/5.0 (Playstation Vita 1.61) AppleWebKit/531.22.8 (KHTML, like Gecko) Silk/3.2"
   QUICKTIME             = "QuickTime/7.6.8 (qtver=7.6.8;os=Windows NT 5.1Service Pack 3)"
   COREMEDIA             = "Apple Mac OS X v10.6.4 CoreMedia v1.0.0.10F569"
   XOOM                  = "Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13"
@@ -63,6 +72,7 @@ class BrowserTest < Test::Unit::TestCase
   GOOGLE_BOT            = "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
   MSN_BOT               = "msnbot-media/1.1 (+http://search.msn.com/msnbot.htm)"
   FACEBOOK_BOT          = "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)"
+  SMART_TV              = "Mozilla/5.0 (SmartHub; SMART-TV; U; Linux/SmartTV) AppleWebKit/531.2+ (KHTML, like Gecko) WebBrowser/1.0 SmartTV Safari/531.2+"
 
   def setup
     @browser = Browser.new
@@ -493,6 +503,66 @@ class BrowserTest < Test::Unit::TestCase
     assert_equal "4", @browser.version
   end
 
+  def test_detect_blackberry4
+    @browser.ua = BLACKBERRY4
+
+    assert_equal "BlackBerry", @browser.name
+    assert @browser.blackberry4?
+    assert ! @browser.tablet?
+    assert @browser.mobile?
+    assert ! @browser.modern?
+    assert_equal "4.2.1", @browser.full_version
+    assert_equal "4", @browser.version
+  end
+
+  def test_detect_blackberry5
+    @browser.ua = BLACKBERRY5
+
+    assert_equal "BlackBerry", @browser.name
+    assert @browser.blackberry5?
+    assert ! @browser.tablet?
+    assert @browser.mobile?
+    assert ! @browser.modern?
+    assert_equal "5.0.0.93", @browser.full_version
+    assert_equal "5", @browser.version
+  end
+
+  def test_detect_blackberry6
+    @browser.ua = BLACKBERRY6
+
+    assert_equal "BlackBerry", @browser.name
+    assert @browser.blackberry6?
+    assert ! @browser.tablet?
+    assert @browser.mobile?
+    assert @browser.modern?
+    assert_equal "534.11", @browser.full_version
+    assert_equal "534", @browser.version
+  end
+
+  def test_detect_blackberry7
+    @browser.ua = BLACKBERRY7
+
+    assert_equal "BlackBerry", @browser.name
+    assert @browser.blackberry7?
+    assert ! @browser.tablet?
+    assert @browser.mobile?
+    assert @browser.modern?
+    assert_equal "534.11", @browser.full_version
+    assert_equal "534", @browser.version
+  end
+
+  def test_detect_blackberry10
+    @browser.ua = BLACKBERRY10
+
+    assert_equal "Safari", @browser.name
+    assert @browser.blackberry10?
+    assert ! @browser.tablet?
+    assert @browser.mobile?
+    assert @browser.modern?
+    assert_equal "10.0.9.1675", @browser.full_version
+    assert_equal "10", @browser.version
+  end
+
   def test_detect_quicktime
     @browser.ua = QUICKTIME
 
@@ -529,6 +599,14 @@ class BrowserTest < Test::Unit::TestCase
 
   def test_detect_psp
     @browser.ua = PSP
+
+    assert_equal "PlayStation Portable", @browser.name
+    assert @browser.psp?
+    assert @browser.mobile?
+  end
+
+  def test_detect_psp_vita
+    @browser.ua = PSP_VITA
 
     assert_equal "PlayStation Portable", @browser.name
     assert @browser.psp?
@@ -787,6 +865,26 @@ class BrowserTest < Test::Unit::TestCase
     assert ! @browser.tablet?
   end
 
+  def test_windows_x64
+    @browser.ua = IE10_X64_WINX64
+    assert @browser.windows_x64?
+  end
+
+  def test_detect_ie11_touch_desktop_pc
+    @browser.ua = IE11_TOUCH_SCREEN
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert @browser.ie11?
+    assert @browser.modern?
+    assert ! @browser.compatibility_view?
+    assert ! @browser.windows_rt?
+    assert @browser.windows_touchscreen_desktop?
+    assert @browser.windows8?
+    assert_equal "11.0", @browser.full_version
+    assert_equal "11", @browser.version
+  end
+
   def test_kindle_monochrome
     @browser.ua = KINDLE_3
 
@@ -918,5 +1016,15 @@ class BrowserTest < Test::Unit::TestCase
 
     @browser.ua = CHROME
     assert ! @browser.bot?
+  end
+
+  def test_chrome_os
+    @browser.ua = CHROME_OS
+    assert @browser.chrome_os?
+  end
+
+  def test_tv
+    @browser.ua = SMART_TV
+    assert @browser.tv?
   end
 end
