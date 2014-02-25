@@ -1,11 +1,12 @@
 # -*- encoding: utf-8 -*-
-require "test_helper"
+require File.expand_path(File.dirname(__FILE__) + "/test_helper")
 
 class BrowserTest < Test::Unit::TestCase
-  IPHONE                = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/1A542a Safari/419.3"
-  IPOD                  = "Mozilla/5.0 (iPod; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/3A100a Safari/419.3"
-  IPAD                  = "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B367 Safari/531.21.10"
+  IPHONE_IOS3           = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_0 like Mac OS X; en-us) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/1A542a Safari/419.3"
+  IPOD_OLD              = "Mozilla/5.0 (iPod; U; CPU like Mac OS X; en) AppleWebKit/420.1 (KHTML, like Gecko) Version/3.0 Mobile/3A100a Safari/419.3"
+  IPAD_IOS32            = "Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B367 Safari/531.21.10"
   SAFARI                = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-us) AppleWebKit/533.17.8 (KHTML, like Gecko) Version/5.0.1 Safari/533.17.8"
+  SAFARI3_WIN           = "Mozilla/5.0 (Windows; U; Windows NT 6.1; en-US) AppleWebKit/525.28 (KHTML, like Gecko) Version/3.2.2 Safari/525.28.1"
   IE6                   = "Mozilla/5.0 (Windows; U; MSIE 6.0; Windows NT 5.1; SV1; .NET CLR 2.0.50727)"
   IE7                   = "Mozilla/5.0 (Windows; U; MSIE 7.0; Windows NT 6.0; en-US)"
   IE8                   = "Mozilla/4.0 (compatible; MSIE 8.0; Windows NT 6.2; Trident/4.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0)"
@@ -16,6 +17,7 @@ class BrowserTest < Test::Unit::TestCase
   IE10_COMPAT           = "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.1; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; .NET4.0C; EIE10;ENUSMSN)"
   IE10_X64_WINX64       = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)"
   IE11                  = "Mozilla/5.0 (Windows NT 6.1; Trident/7.0; rv:11.0) like Gecko"
+  IE11_WIN8_64          = "Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; rv:11.0) like Gecko"
   IE11_TOUCH_SCREEN     = "Mozilla/5.0 (Windows NT 6.3; Win64; x64; Trident/7.0; Touch; rv:11.0) like Gecko"
   OPERA                 = "Opera/9.80 (Macintosh; Intel Mac OS X 10.7.4; U; en) Presto/2.10.229 Version/11.64"
   OPERA_NEXT            = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.37 Safari/537.36 OPR/15.0.1147.44 (Edition Next)"
@@ -24,6 +26,7 @@ class BrowserTest < Test::Unit::TestCase
   FIREFOX_TABLET        = "Mozilla/5.0 (Android; Tablet; rv:14.0) Gecko/14.0 Firefox/14.0"
   CHROME                = "Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/533.4 (KHTML, like Gecko) Chrome/5.0.375.99 Safari/533.4"
   MOBILE_CHROME         = "Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; en) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3"
+  ANDROID_1_5           = "Android SDK 1.5r3: Mozilla/5.0 (Linux; U; Android 1.5; de-; sdk Build/CUPCAKE) AppleWebkit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
   CHROME_OS             = "Mozilla/5.0 (X11; CrOS x86_64 3701.81.0) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.57 Safari/537.31."
   ANDROID               = "Android SDK 1.5r3: Mozilla/5.0 (Linux; U; Android 1.5; de-; sdk Build/CUPCAKE) AppleWebkit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1"
   TABLOID               = "Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13"
@@ -39,6 +42,7 @@ class BrowserTest < Test::Unit::TestCase
   COREMEDIA             = "Apple Mac OS X v10.6.4 CoreMedia v1.0.0.10F569"
   XOOM                  = "Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13"
   NEXUS_TABLET          = "Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19"
+  NEXUS_4_PHONE         = "Mozilla/5.0 (Linux; Android 4.4; Nexus 4 Build/KRT16S) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/31.0.1650.59 Mobile Safari/537.36"
   NOOK                  = "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; NOOK BNTV250A Build/GINGERBREAD 1.4.3) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Safari/533.1"
   SAMSUNG               = "Mozilla/5.0 (Linux; U; Android 4.0.4; en-us; SAMSUNG-SGH-I497 Build/IMM76D) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Safari/534.30"
   OPERA_MINI            = "Opera/9.80 (Android; Opera Mini/7.029952/28.2359;u; fr) Presto/2.8.119 Version/11.10"
@@ -49,7 +53,7 @@ class BrowserTest < Test::Unit::TestCase
   WINDOWS8              = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)"
   WINDOWS81             = "Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko"
   SURFACE               = "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; Touch)"
-  KINDLE                = "Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600×800; rotate)"
+  KINDLE_3              = "Mozilla/5.0 (Linux; U; en-US) AppleWebKit/528.5+ (KHTML, like Gecko, Safari/528.5+) Version/4.0 Kindle/3.0 (screen 600×800; rotate)"
   KINDLE_FIRE           = "Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Kindle Fire Build/GINGERBREAD) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"
   KINDLE_FIRE_HD        = "Mozilla/5.0 (Linux; U; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.4 Safari/535.19 Silk-Accelerated=true"
   KINDLE_FIRE_HD_MOBILE = "Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.4 Mobile Safari/535.19 Silk-Accelerated=true"
@@ -107,14 +111,16 @@ class BrowserTest < Test::Unit::TestCase
   end
 
   def test_detect_iphone
-    @browser.ua = IPHONE
+    @browser.ua = IPHONE_IOS3
 
     assert_equal "iPhone", @browser.name
     assert @browser.iphone?
     assert @browser.safari?
     assert @browser.webkit?
+    assert_equal "420.1", @browser.webkit_full_version
+    assert_equal "420", @browser.webkit_version
     assert @browser.mobile?
-    assert @browser.modern?
+    assert ! @browser.modern?
     assert @browser.ios?
     assert ! @browser.tablet?
     assert_equal "3.0", @browser.full_version
@@ -127,20 +133,37 @@ class BrowserTest < Test::Unit::TestCase
     assert_equal "Safari", @browser.name
     assert @browser.safari?
     assert @browser.webkit?
+    assert_equal "533.17.8", @browser.webkit_full_version
+    assert_equal "533", @browser.webkit_version
     assert @browser.modern?
     assert_equal "5.0.1", @browser.full_version
     assert_equal "5", @browser.version
   end
 
+  def test_detect_safari3_win
+    @browser.ua = SAFARI3_WIN
+
+    assert_equal "Safari", @browser.name
+    assert @browser.safari?
+    assert @browser.webkit?
+    assert_equal "525.28", @browser.webkit_full_version
+    assert_equal "525", @browser.webkit_version
+    assert !@browser.modern?
+    assert_equal "3.2.2", @browser.full_version
+    assert_equal "3", @browser.version
+  end
+
   def test_detect_ipod
-    @browser.ua = IPOD
+    @browser.ua = IPOD_OLD
 
     assert_equal "iPod Touch", @browser.name
     assert @browser.ipod?
     assert @browser.safari?
     assert @browser.webkit?
+    assert_equal "420.1", @browser.webkit_full_version
+    assert_equal "420", @browser.webkit_version
     assert @browser.mobile?
-    assert @browser.modern?
+    assert !@browser.modern?
     assert @browser.ios?
     assert ! @browser.tablet?
     assert_equal "3.0", @browser.full_version
@@ -148,13 +171,15 @@ class BrowserTest < Test::Unit::TestCase
   end
 
   def test_detect_ipad
-    @browser.ua = IPAD
+    @browser.ua = IPAD_IOS32
 
     assert_equal "iPad", @browser.name
     assert @browser.ipad?
     assert @browser.safari?
     assert @browser.webkit?
-    assert @browser.modern?
+    assert_equal "531.21.10", @browser.webkit_full_version
+    assert_equal "531", @browser.webkit_version
+    assert ! @browser.modern?
     assert @browser.ios?
     assert @browser.tablet?
     assert ! @browser.mobile?
@@ -166,19 +191,28 @@ class BrowserTest < Test::Unit::TestCase
     @browser.ua = IOS4
     assert @browser.ios?
     assert @browser.ios4?
+    assert @browser.webkit?
+    assert_equal "532.9", @browser.webkit_full_version
+    assert_equal "532", @browser.webkit_version
   end
-
 
   def test_detect_ios5
     @browser.ua = IOS5
     assert @browser.ios?
     assert @browser.ios5?
+
+    assert @browser.webkit?
+    assert_equal "534.46", @browser.webkit_full_version
+    assert_equal "534", @browser.webkit_version
   end
 
   def test_detect_ios6
     @browser.ua = IOS6
     assert @browser.ios?
     assert @browser.ios6?
+    assert @browser.webkit?
+    assert_equal "536.26", @browser.webkit_full_version
+    assert_equal "536", @browser.webkit_version
   end
 
   def test_detect_ios7
@@ -292,6 +326,37 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.ie11?
     assert @browser.modern?
     assert ! @browser.compatibility_view?
+    assert ! @browser.windows_touchscreen_desktop?
+    assert ! @browser.windows8?
+    assert_equal "11.0", @browser.full_version
+    assert_equal "11", @browser.version
+  end
+
+  def test_detect_ie11_win8
+    @browser.ua = IE11_WIN8_64
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert @browser.ie11?
+    assert @browser.modern?
+    assert ! @browser.compatibility_view?
+    assert ! @browser.windows_touchscreen_desktop?
+    assert @browser.windows8?
+    assert_equal "11.0", @browser.full_version
+    assert_equal "11", @browser.version
+  end
+
+  def test_detect_ie11_touch_desktop_pc
+    @browser.ua = IE11_TOUCH_SCREEN
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert @browser.ie11?
+    assert @browser.modern?
+    assert ! @browser.compatibility_view?
+    assert ! @browser.windows_rt?
+    assert @browser.windows_touchscreen_desktop?
+    assert @browser.windows8?
     assert_equal "11.0", @browser.full_version
     assert_equal "11", @browser.version
   end
@@ -313,6 +378,8 @@ class BrowserTest < Test::Unit::TestCase
     assert_equal :opera, @browser.id
     assert @browser.opera?
     assert @browser.webkit?
+    assert_equal "537.36", @browser.webkit_full_version
+    assert_equal "537", @browser.webkit_version
     assert @browser.modern?
     assert ! @browser.chrome?
     assert_equal "28.0.1500.37", @browser.full_version
@@ -358,6 +425,8 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.chrome?
     assert ! @browser.safari?
     assert @browser.webkit?
+    assert_equal "533.4", @browser.webkit_full_version
+    assert_equal "533", @browser.webkit_version
     assert @browser.modern?
     assert_equal "5.0.375.99", @browser.full_version
     assert_equal "5", @browser.version
@@ -370,21 +439,25 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.chrome?
     assert ! @browser.safari?
     assert @browser.webkit?
+    assert_equal "534.46.0", @browser.webkit_full_version
+    assert_equal "534", @browser.webkit_version
     assert @browser.modern?
     assert_equal "19.0.1084.60", @browser.full_version
     assert_equal "19", @browser.version
   end
 
   def test_detect_android
-    @browser.ua = ANDROID
+    @browser.ua = ANDROID_1_5
 
     assert_equal "Android", @browser.name
     assert @browser.android?
     assert @browser.safari?
     assert @browser.webkit?
+    assert_equal "528.5", @browser.webkit_full_version
+    assert_equal "528", @browser.webkit_version
     assert @browser.mobile?
     assert ! @browser.tablet?
-    assert @browser.modern?
+    assert !@browser.modern?
     assert_equal "3.1.2", @browser.full_version
     assert_equal "3", @browser.version
   end
@@ -396,6 +469,8 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.android?
     assert @browser.safari?
     assert @browser.webkit?
+    assert_equal "534.13", @browser.webkit_full_version
+    assert_equal "534", @browser.webkit_version
     assert ! @browser.mobile?
     assert @browser.tablet?
     assert @browser.modern?
@@ -513,6 +588,10 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.phantom_js?
     assert ! @browser.tablet?
     assert ! @browser.mobile?
+    assert @browser.webkit?
+    assert_equal "534.34", @browser.webkit_full_version
+    assert_equal "534", @browser.webkit_version
+
     assert @browser.modern?
     assert_equal "1.9.0", @browser.full_version
     assert_equal "1", @browser.version
@@ -576,7 +655,7 @@ class BrowserTest < Test::Unit::TestCase
   end
 
   def test_return_string_representation_for_ios
-    @browser.ua = IPHONE
+    @browser.ua = IPHONE_IOS3
     meta = @browser.to_s
 
     assert meta.include?("iphone")
@@ -585,7 +664,7 @@ class BrowserTest < Test::Unit::TestCase
     assert meta.include?("safari")
     assert meta.include?("safari3")
     assert meta.include?("mac")
-    assert meta.include?("modern")
+    assert !meta.include?("modern")
     assert meta.include?("mobile")
   end
 
@@ -690,6 +769,9 @@ class BrowserTest < Test::Unit::TestCase
 
     assert @browser.android?
     assert @browser.tablet?
+    assert @browser.webkit?
+    assert_equal "534.13", @browser.webkit_full_version
+    assert_equal "534", @browser.webkit_version
     assert ! @browser.mobile?
   end
 
@@ -698,7 +780,25 @@ class BrowserTest < Test::Unit::TestCase
 
     assert @browser.android?
     assert @browser.tablet?
+    assert @browser.webkit?
+    assert @browser.modern?
+
+    assert_equal "535.19", @browser.webkit_full_version
+    assert_equal "535", @browser.webkit_version
     assert ! @browser.mobile?
+  end
+
+  def test_nexus_4_phone
+    @browser.ua = NEXUS_4_PHONE
+
+    assert @browser.android?
+    assert !@browser.tablet?
+    assert @browser.webkit?
+    assert @browser.modern?
+
+    assert_equal "537.36", @browser.webkit_full_version
+    assert_equal "537", @browser.webkit_version
+    assert @browser.mobile?
   end
 
   def test_blackberry_playbook_tablet
@@ -707,6 +807,10 @@ class BrowserTest < Test::Unit::TestCase
     assert ! @browser.android?
     assert @browser.tablet?
     assert ! @browser.mobile?
+
+    assert @browser.webkit?
+    assert_equal "536.2", @browser.webkit_full_version
+    assert_equal "536", @browser.webkit_version
 
     assert_equal "7.2.1.0", @browser.full_version
     assert_equal "7", @browser.version
@@ -782,10 +886,13 @@ class BrowserTest < Test::Unit::TestCase
   end
 
   def test_kindle_monochrome
-    @browser.ua = KINDLE
+    @browser.ua = KINDLE_3
 
     assert @browser.kindle?
     assert @browser.webkit?
+    assert_equal "528.5", @browser.webkit_full_version
+    assert_equal "528", @browser.webkit_version
+
   end
 
   def test_kindle_fire
@@ -793,6 +900,8 @@ class BrowserTest < Test::Unit::TestCase
 
     assert @browser.kindle?
     assert @browser.webkit?
+    assert_equal "533.1", @browser.webkit_full_version
+    assert_equal "533", @browser.webkit_version
   end
 
   def test_kindle_fire_hd
@@ -801,6 +910,8 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.silk?
     assert @browser.kindle?
     assert @browser.webkit?
+    assert_equal "535.19", @browser.webkit_full_version
+    assert_equal "535", @browser.webkit_version
     assert @browser.modern?
     assert ! @browser.mobile?
   end
@@ -811,6 +922,8 @@ class BrowserTest < Test::Unit::TestCase
     assert @browser.silk?
     assert @browser.kindle?
     assert @browser.webkit?
+    assert_equal "535.19", @browser.webkit_full_version
+    assert_equal "535", @browser.webkit_version
     assert @browser.modern?
     assert @browser.mobile?
   end
@@ -819,6 +932,9 @@ class BrowserTest < Test::Unit::TestCase
     @browser.ua = NOOK
 
     assert @browser.tablet?
+    assert @browser.webkit?
+    assert_equal "533.1", @browser.webkit_full_version
+    assert_equal "533", @browser.webkit_version
     assert ! @browser.mobile?
   end
 
@@ -826,6 +942,9 @@ class BrowserTest < Test::Unit::TestCase
     @browser.ua = SAMSUNG
 
     assert @browser.tablet?
+    assert @browser.webkit?
+    assert_equal "534.30", @browser.webkit_full_version
+    assert_equal "534", @browser.webkit_version
     assert ! @browser.mobile?
   end
 

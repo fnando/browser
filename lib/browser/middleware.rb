@@ -4,6 +4,7 @@ class Browser
   class Middleware
     # Detect the most common assets.
     ASSETS_REGEX = %r[\.(css|png|jpe?g|gif|js|svg|ico|flv|mov|m4v|ogg|swf)\z]i
+    ACCEPT_REGEX = %r[(text\/html)|(\*\/\*)]
 
     def initialize(app, &block)
       raise ArgumentError, "Browser::Middleware requires a block" unless block
@@ -24,24 +25,21 @@ class Browser
         Context.new(request).instance_eval(&@block)
       end
 
-      # No path, no match.
-      return run_app(env) unless path
+      if path
+        uri = URI.parse(path)
 
-      resolve_redirection(env, request.path, path)
-    end
-
-    def resolve_redirection(env, current_path, path)
-      uri = URI.parse(path)
-
-      if uri.path == current_path
-        run_app(env)
+        if uri.path == request.path
+          run_app(env)
+        else
+          redirect(path)
+        end
       else
-        redirect(path)
+        run_app(env)
       end
     end
 
     def redirect(path)
-      [302, {"Content-Type" => "text/html", "Location" => path}, []]
+      [301, {"Content-Type" => "text/html", "Location" => path}, []]
     end
 
     def run_app(env)
@@ -49,8 +47,8 @@ class Browser
     end
 
     def html?(request)
-      return if request.path.match(ASSETS_REGEX)
-      request.env["HTTP_ACCEPT"].to_s.include?("text/html")
+      (request.env["HTTP_ACCEPT"].to_s.match(ACCEPT_REGEX) &&
+      !request.path.match(ASSETS_REGEX))
     end
   end
 end

@@ -64,9 +64,8 @@ class Browser
   }
 
   VERSIONS = {
-    :default => %r[(?:Version|MSIE|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
-    :opera => %r[(?:Opera/.*? Version/([\d.]+)|Chrome/([\d.]+).*?OPR)],
-    :ie => %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
+    :default => %r[(?:Version|MSIE|Trident\/.*rv|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ :]?([a-z0-9.]+)]i,
+    :opera => %r[(?:Opera/.*? Version/([\d.]+)|Chrome/([\d.]+).*?OPR)]
   }
 
   # Create a new browser instance and set
@@ -106,9 +105,23 @@ class Browser
     v.compact.first || "0.0"
   end
 
+  # Return major webkit version.
+  def webkit_version
+    return nil if !webkit?
+
+    webkit_full_version.to_s.split(".").first
+  end
+
+  # Return the full webkit version.
+  def webkit_full_version
+    return nil if !webkit?
+
+    ua[%r|AppleWeb[Kk]it/([0-9.]+)|, 1]
+  end
+
   # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
   def modern?
-    webkit? ||
+    newer_webkit? ||
     newer_firefox? ||
     newer_ie? ||
     newer_opera? ||
@@ -176,15 +189,23 @@ class Browser
   end
 
   private
+  def newer_webkit?
+    # desktop Safari >= 4.1 || iOS >= 4.2, Chrome 5.x -- all reasonably pass acid3, and have websocket support
+    webkit_version.to_i >= 532
+  end
+
   def newer_firefox?
-    firefox? && version.to_i >= 17
+    # passes acid3, has websocket support, is an Extended Support Release
+    firefox? && version.to_i >= 10
   end
 
   def newer_ie?
+    # passes acid3, but doesn't have websocket support
     ie? && version.to_i >= 9
   end
 
   def newer_opera?
+    # passes acid3, only 12.1 has websocket support
     opera? && version.to_i >= 12
   end
 

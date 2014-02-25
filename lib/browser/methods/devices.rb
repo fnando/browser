@@ -19,6 +19,10 @@ class Browser
       windows_rt? && !!(ua =~ /Touch/)
     end
 
+    def windows_touchscreen_desktop?
+      windows? && !!(ua =~ /Touch/)
+    end
+
     # Detect if browser is tablet (currently iPad, Android, Surface or Playbook).
     def tablet?
       !!(ipad? || (android? && !detect_mobile?) || surface? || playbook?)
