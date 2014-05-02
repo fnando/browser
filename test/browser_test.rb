@@ -901,10 +901,10 @@ class BrowserTest < Test::Unit::TestCase
 
   def test_bot_names
     @browser.ua = GOOGLE_BOT
-    assert_equal @browser.bot_name, "Googlebot"
+    assert_equal @browser.bot_name, 'Googlebot'
 
     @browser.ua = FACEBOOK_BOT
-    assert_equal @browser.bot_name, "facebookexternalhit"
+    assert_equal @browser.bot_name, 'facebookexternalhit'
     
     @browser.ua = CHROME
     assert_equal @browser.bot_name, nil
