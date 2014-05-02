@@ -5,5 +5,10 @@ class Browser
     def bot?
       ua.empty? || BOTS.any? {|key, description| ua.include?(key) }
     end
+    
+    def bot_name
+      return nil unless bot?
+      BOTS.detect{|key, description| ua.include? key }[0]
+    end
   end
 end
