@@ -22,5 +22,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rails"
   s.add_development_dependency "rack-test"
   s.add_development_dependency "pry-meta"
-  s.add_development_dependency "turn"
+  s.add_development_dependency "minitest"
 end

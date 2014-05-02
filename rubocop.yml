@@ -67,7 +67,19 @@ DotPosition:
   EnforcedStyle: leading
 
 SpaceBeforeBlockBraces:
-  EnforcedStyle: no_space
+  EnforcedStyle: space
 
 SpaceInsideBlockBraces:
-  EnforcedStyle: space
+  EnforcedStyle: no_space
+
+PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%':  '[]'
+    '%i': '[]'
+    '%q': '[]'
+    '%Q': '[]'
+    '%r': '[]'
+    '%s': '[]'
+    '%w': '[]'
+    '%W': '[]'
+    '%x': '[]'
