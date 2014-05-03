@@ -43,16 +43,6 @@ TrailingComma:
 WhileUntilModifier:
   Enabled: false
 
-LineLength:
-  Max: 80
-
-CollectionMethods:
-  PreferredMethods:
-    find: find
-    reduce: reduce
-    collect: map
-    find_all: select
-
 PredicateName:
   NamePrefixBlacklist:
     - is_
@@ -71,6 +61,21 @@ SpaceBeforeBlockBraces:
 
 SpaceInsideBlockBraces:
   EnforcedStyle: no_space
+
+DoubleNegation:
+  Enabled: false
+
+SpaceInsideBlockBraces:
+  SpaceBeforeBlockParameters: false
+
+LineLength:
+  Max: 130
+
+RegexpLiteral:
+  MaxSlashes: 0
+
+SpaceInsideHashLiteralBraces:
+  Enabled: false
 
 PercentLiteralDelimiters:
   PreferredDelimiters:

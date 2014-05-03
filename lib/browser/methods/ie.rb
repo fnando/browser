@@ -40,10 +40,12 @@ class Browser
 
     # Detect if IE is running in compatibility mode.
     def compatibility_view?
-      ie? && ua.match(TRIDENT_VERSION_REGEX) && version.to_i < ($1.to_i + 4)
+      match = ua.match(TRIDENT_VERSION_REGEX)
+      ie? && match && version.to_i < (match[1].to_i + 4)
     end
 
     private
+
     def msie?
       !!(ua =~ /MSIE/ && ua !~ /Opera/)
     end

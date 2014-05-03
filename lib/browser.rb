@@ -37,36 +37,36 @@ class Browser
 
   # Set browser's UA string.
   attr_accessor :user_agent
-  alias :ua :user_agent
-  alias :ua= :user_agent=
+  alias_method :ua, :user_agent
+  alias_method :ua=, :user_agent=
 
   NAMES = {
-    :android     => "Android",
-    :blackberry  => "BlackBerry",
-    :chrome      => "Chrome",
-    :core_media  => "Apple CoreMedia",
-    :firefox     => "Firefox",
-    :ie          => "Internet Explorer",
-    :ipad        => "iPad",
-    :iphone      => "iPhone",
-    :ipod        => "iPod Touch",
-    :nintendo    => "Nintendo",
-    :opera       => "Opera",
-    :phantom_js  => "PhantomJS",
-    :psp         => "PlayStation Portable",
-    :playstation => "PlayStation",
-    :quicktime   => "QuickTime",
-    :safari      => "Safari",
-    :xbox        => "Xbox",
+    android: "Android",
+    blackberry: "BlackBerry",
+    chrome: "Chrome",
+    core_media: "Apple CoreMedia",
+    firefox: "Firefox",
+    ie: "Internet Explorer",
+    ipad: "iPad",
+    iphone: "iPhone",
+    ipod: "iPod Touch",
+    nintendo: "Nintendo",
+    opera: "Opera",
+    phantom_js: "PhantomJS",
+    psp: "PlayStation Portable",
+    playstation: "PlayStation",
+    quicktime: "QuickTime",
+    safari: "Safari",
+    xbox: "Xbox",
 
     # This must be last item, since Ruby 1.9+ has ordered keys.
-    :other      => "Other",
+    other: "Other",
   }
 
   VERSIONS = {
-    :default => %r[(?:Version|MSIE|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
-    :opera => %r[(?:Opera/.*? Version/([\d.]+)|Chrome/([\d.]+).*?OPR)],
-    :ie => %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
+    default: %r[(?:Version|MSIE|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
+    opera: %r[(?:Opera/.*? Version/([\d.]+)|Chrome/([\d.]+).*?OPR)],
+    ie: %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
   }
 
   # Create a new browser instance and set
@@ -81,7 +81,7 @@ class Browser
     self.user_agent = (options[:user_agent] || options[:ua]).to_s
     self.accept_language = options[:accept_language].to_s
 
-    yield self if block_given?
+    yield self if block
   end
 
   # Get readable browser name.
@@ -176,6 +176,7 @@ class Browser
   end
 
   private
+
   def newer_firefox?
     firefox? && version.to_i >= 17
   end
