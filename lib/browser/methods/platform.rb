@@ -109,32 +109,33 @@ class Browser
       end
     end
 
+    #returns platform as string and additionally OS version in case of Windows
     def platform_version
       case
-        when linux?
-          'Linux'
-        when mac?
-          'OSX'
-        when windows?
-          if !!(ua =~ /Windows NT 6.[2-3]/)
-            'Windows 8'
-          elsif !!(ua =~ /Windows NT 6.[2-3]/) && !!(ua =~ /ARM/)
-            'Windows RT'
-          elsif !!(ua =~ /Windows NT 6.1/)
-            'Windows 7'
-          elsif !!(ua =~ /Windows NT 6.0/)
-            'Windows Vista'
-          elsif !!(ua =~ /Windows NT 5.2/)
-            'Windows Server 2003/XP x64'
-          elsif !!(ua =~ /Windows NT 5.1/)
-            'Windows XP'
-          elsif !!(ua =~ /Windows NT 5.0/)
-            'Windows 2000'
-          else
-            'Other Windows OS'
-          end
+      when linux?
+        "Linux"
+      when mac?
+        "OSX"
+      when windows?
+        if !!(ua =~ /Windows NT 6.[2-3]/)
+          "Windows 8"
+        elsif !!(ua =~ /Windows NT 6.[2-3]/) && !!(ua =~ /ARM/)
+          "Windows RT"
+        elsif !!(ua =~ /Windows NT 6.1/)
+          "Windows 7"
+        elsif !!(ua =~ /Windows NT 6.0/)
+          "Windows Vista"
+        elsif !!(ua =~ /Windows NT 5.2/)
+          "Windows Server 2003/XP x64"
+        elsif !!(ua =~ /Windows NT 5.1/)
+          "Windows XP"
+        elsif !!(ua =~ /Windows NT 5.0/)
+          "Windows 2000"
         else
-          'Other OS'
+          "Other Windows OS"
+        end
+      else
+        "Other OS"
       end
     end
   end
