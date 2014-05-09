@@ -110,7 +110,6 @@ class Browser
     end
 
     def platform_version
-      [platform.to_s.capitalize, ].join('')
       case
         when linux?
           'Linux'
