@@ -109,7 +109,7 @@ class Browser
       end
     end
 
-    #returns platform as string and additionally OS version in case of Windows
+    # returns platform as string and additionally OS version in case of Windows
     def platform_version
       case
       when linux?
