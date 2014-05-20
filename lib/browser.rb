@@ -69,6 +69,28 @@ class Browser
     ie: %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
   }
 
+  # Define the rules which define a modern browser.
+  # A rule must be a proc/lambda or any object that implements the method
+  # === and accepts the browser object.
+  #
+  # To redefine all rules, clear the existing rules before adding your own.
+  #
+  #   # Only Chrome Canary is considered modern.
+  #   Browser.modern_rules.clear
+  #   Browser.modern_rules << -> b { b.chrome? && b.version >= '37' }
+  #
+  def self.modern_rules
+    @modern_rules ||= []
+  end
+
+  self.modern_rules.tap do |rules|
+    rules << -> b { b.webkit? }
+    rules << -> b { b.firefox? && b.version.to_i >= 17 }
+    rules << -> b { b.ie? && b.version.to_i >= 9 }
+    rules << -> b { b.opera? && b.version.to_i >= 12 }
+    rules << -> b { b.firefox? && b.tablet? && b.android? && b.version.to_i >= 14 }
+  end
+
   # Create a new browser instance and set
   # the UA and Accept-Language headers.
   #
@@ -108,11 +130,7 @@ class Browser
 
   # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
   def modern?
-    webkit? ||
-    newer_firefox? ||
-    newer_ie? ||
-    newer_opera? ||
-    newer_firefox_tablet?
+    self.class.modern_rules.any? {|rule| rule === self }
   end
 
   # Detect if browser is WebKit-based.
@@ -173,23 +191,5 @@ class Browser
   # Return meta representation as string.
   def to_s
     meta.to_a.join(" ")
-  end
-
-  private
-
-  def newer_firefox?
-    firefox? && version.to_i >= 17
-  end
-
-  def newer_ie?
-    ie? && version.to_i >= 9
-  end
-
-  def newer_opera?
-    opera? && version.to_i >= 12
-  end
-
-  def newer_firefox_tablet?
-    firefox? && tablet? && android? && version.to_i >= 14
   end
 end

@@ -44,6 +44,24 @@ browser.to_s        # the meta info joined by space
 
 See the [tests](https://github.com/fnando/browser/blob/master/test/browser_test.rb) and [implementation](https://github.com/fnando/browser/blob/master/lib/browser.rb) for more examples.
 
+### What defines a modern browser?
+
+The current rules that define a modern browser are pretty loose:
+
+* Webkit
+* IE9+
+* Firefox 17+
+* Firefox Tablet 14+
+* Opera 12+
+
+You can define your your rules. A rule must be a proc/lambda or any object that implements the method === and accepts the browser object. To redefine all rules, clear the existing rules before adding your own.
+
+```ruby
+# Only Chrome Canary is considered modern.
+Browser.modern_rules.clear
+Browser.modern_rules << -> b { b.chrome? && b.version >= '37' }
+```
+
 ### Rails integration
 
 Just add it to the Gemfile.
