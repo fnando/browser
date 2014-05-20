@@ -823,6 +823,27 @@ describe Browser do
     @browser.ua = $ua["FACEBOOK_BOT"]
     assert @browser.bot?
 
+    @browser.ua = $ua["DOT_BOT"]
+    assert @browser.bot?
+
+    @browser.ua = $ua["LINKDEXBOT"]
+    assert @browser.bot?
+
+    @browser.ua = $ua["LOAD_TIME_BOT"]
+    assert @browser.bot?
+
+    @browser.ua = $ua["MAIL_RU"]
+    assert @browser.bot?
+
+    @browser.ua = $ua["SCRAPY"]
+    assert @browser.bot?
+
+    @browser.ua = $ua["YANDEX_DIRECT"]
+    assert @browser.bot?
+
+    @browser.ua = $ua["YANDEX_METRIKA"]
+    assert @browser.bot?
+
     # Many bots actually report empty ua strings.
     @browser.ua = ''
     assert @browser.bot?
