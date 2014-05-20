@@ -814,35 +814,21 @@ describe Browser do
   end
 
   it "detects bots" do
-    @browser.ua = $ua["GOOGLE_BOT"]
-    assert @browser.bot?
-
-    @browser.ua = $ua["MSN_BOT"]
-    assert @browser.bot?
-
-    @browser.ua = $ua["FACEBOOK_BOT"]
-    assert @browser.bot?
-
-    @browser.ua = $ua["DOT_BOT"]
-    assert @browser.bot?
-
-    @browser.ua = $ua["LINKDEXBOT"]
-    assert @browser.bot?
-
-    @browser.ua = $ua["LOAD_TIME_BOT"]
-    assert @browser.bot?
-
-    @browser.ua = $ua["MAIL_RU"]
-    assert @browser.bot?
-
-    @browser.ua = $ua["SCRAPY"]
-    assert @browser.bot?
-
-    @browser.ua = $ua["YANDEX_DIRECT"]
-    assert @browser.bot?
-
-    @browser.ua = $ua["YANDEX_METRIKA"]
-    assert @browser.bot?
+    %w[
+      DOT_BOT
+      FACEBOOK_BOT
+      GOOGLE_BOT
+      LINKDEXBOT
+      LOAD_TIME_BOT
+      MAIL_RU
+      MSN_BOT
+      SCRAPY
+      YANDEX_DIRECT
+      YANDEX_METRIKA
+    ].each do |key|
+      @browser.ua = $ua[key]
+      assert @browser.bot?, "#{$ua[key]} should be a bot"
+    end
 
     # Many bots actually report empty ua strings.
     @browser.ua = ''
