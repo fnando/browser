@@ -1,5 +1,6 @@
 require "set"
 require "yaml"
+require "pathname"
 
 require "browser/middleware"
 require "browser/middleware/context"

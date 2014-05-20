@@ -861,4 +861,18 @@ describe Browser do
     @browser.ua = $ua["SMART_TV"]
     assert @browser.tv?
   end
+
+  it "detects as search engines" do
+    %w[
+      ASK
+      BAIDU
+      BINGBOT
+      DUCKDUCKGO
+      GOOGLE_BOT
+      YAHOO_SLURP
+    ].each do |key|
+      @browser.ua = $ua[key]
+      assert @browser.search_engine?, "#{$ua[key]} should be a search engine"
+    end
+  end
 end
