@@ -79,6 +79,14 @@ This adds a helper method called `browser`, that inspects your current user agen
 <% end %>
 ```
 
+### Bots
+
+Browser used to detect empty user agents as bots, but this behaviour has changed. If you want to bring this detection back, you can activate it through the following call:
+
+```ruby
+Browser::Bots.detect_empty_ua!
+```
+
 ### Middleware
 
 You can use the `Browser::Middleware` to redirect user agents.

@@ -830,12 +830,20 @@ describe Browser do
       assert @browser.bot?, "#{$ua[key]} should be a bot"
     end
 
-    # Many bots actually report empty ua strings.
-    @browser.ua = ''
-    assert @browser.bot?
-
     @browser.ua = $ua["CHROME"]
     assert ! @browser.bot?
+  end
+
+  it "doesn't consider empty UA as bot" do
+    @browser.ua = ''
+    assert ! @browser.bot?
+  end
+
+  it "allows setting empty string as bots" do
+    Browser::Bots.detect_empty_ua!
+    @browser.ua = ''
+    assert @browser.bot?
+    Browser::Bots::BOTS.delete('')
   end
 
   it "detects chrome os" do
