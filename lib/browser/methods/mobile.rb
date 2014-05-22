@@ -16,6 +16,7 @@ class Browser
     end
 
     private
+
     def detect_mobile?
       ua =~ /(Mobi(le)?|Symbian|MIDP|Windows CE)/ || blackberry? || psp? || opera_mini?
     end

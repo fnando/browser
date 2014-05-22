@@ -31,7 +31,7 @@ class Browser
 
     # Detect if browser if a Blackberry Playbook tablet
     def playbook?
-      !!(ua =~ /PlayBook/ and ua =~ /RIM Tablet/)
+      !!(ua =~ /PlayBook/ && ua =~ /RIM Tablet/)
     end
 
     def windows_touchscreen_desktop?

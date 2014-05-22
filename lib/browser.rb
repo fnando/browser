@@ -1,5 +1,6 @@
 require "set"
 require "yaml"
+require "pathname"
 
 require "browser/middleware"
 require "browser/middleware/context"
@@ -37,37 +38,59 @@ class Browser
 
   # Set browser's UA string.
   attr_accessor :user_agent
-  alias :ua :user_agent
-  alias :ua= :user_agent=
+  alias_method :ua, :user_agent
+  alias_method :ua=, :user_agent=
 
   NAMES = {
-    :android     => "Android",
-    :blackberry  => "BlackBerry",
-    :chrome      => "Chrome",
-    :core_media  => "Apple CoreMedia",
-    :firefox     => "Firefox",
-    :ie          => "Internet Explorer",
-    :ipad        => "iPad",
-    :iphone      => "iPhone",
-    :ipod        => "iPod Touch",
-    :nintendo    => "Nintendo",
-    :opera       => "Opera",
-    :phantom_js  => "PhantomJS",
-    :psp         => "PlayStation Portable",
-    :playstation => "PlayStation",
-    :quicktime   => "QuickTime",
-    :safari      => "Safari",
-    :xbox        => "Xbox",
+    android: "Android",
+    blackberry: "BlackBerry",
+    chrome: "Chrome",
+    core_media: "Apple CoreMedia",
+    firefox: "Firefox",
+    ie: "Internet Explorer",
+    ipad: "iPad",
+    iphone: "iPhone",
+    ipod: "iPod Touch",
+    nintendo: "Nintendo",
+    opera: "Opera",
+    phantom_js: "PhantomJS",
+    psp: "PlayStation Portable",
+    playstation: "PlayStation",
+    quicktime: "QuickTime",
+    safari: "Safari",
+    xbox: "Xbox",
 
     # This must be last item, since Ruby 1.9+ has ordered keys.
-    :other      => "Other",
+    other: "Other",
   }
 
   VERSIONS = {
-    :default => %r[(?:Version|MSIE|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
-    :opera => %r[(?:Opera/.*? Version/([\d.]+)|Chrome/([\d.]+).*?OPR)],
-    :ie => %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
+    default: %r[(?:Version|MSIE|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
+    opera: %r[(?:Opera/.*? Version/([\d.]+)|Chrome/([\d.]+).*?OPR)],
+    ie: %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
   }
+
+  # Define the rules which define a modern browser.
+  # A rule must be a proc/lambda or any object that implements the method
+  # === and accepts the browser object.
+  #
+  # To redefine all rules, clear the existing rules before adding your own.
+  #
+  #   # Only Chrome Canary is considered modern.
+  #   Browser.modern_rules.clear
+  #   Browser.modern_rules << -> b { b.chrome? && b.version >= '37' }
+  #
+  def self.modern_rules
+    @modern_rules ||= []
+  end
+
+  self.modern_rules.tap do |rules|
+    rules << -> b { b.webkit? }
+    rules << -> b { b.firefox? && b.version.to_i >= 17 }
+    rules << -> b { b.ie? && b.version.to_i >= 9 }
+    rules << -> b { b.opera? && b.version.to_i >= 12 }
+    rules << -> b { b.firefox? && b.tablet? && b.android? && b.version.to_i >= 14 }
+  end
 
   # Create a new browser instance and set
   # the UA and Accept-Language headers.
@@ -81,7 +104,7 @@ class Browser
     self.user_agent = (options[:user_agent] || options[:ua]).to_s
     self.accept_language = options[:accept_language].to_s
 
-    yield self if block_given?
+    yield self if block
   end
 
   # Get readable browser name.
@@ -108,11 +131,7 @@ class Browser
 
   # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
   def modern?
-    webkit? ||
-    newer_firefox? ||
-    newer_ie? ||
-    newer_opera? ||
-    newer_firefox_tablet?
+    self.class.modern_rules.any? {|rule| rule === self }
   end
 
   # Detect if browser is WebKit-based.
@@ -173,22 +192,5 @@ class Browser
   # Return meta representation as string.
   def to_s
     meta.to_a.join(" ")
-  end
-
-  private
-  def newer_firefox?
-    firefox? && version.to_i >= 17
-  end
-
-  def newer_ie?
-    ie? && version.to_i >= 9
-  end
-
-  def newer_opera?
-    opera? && version.to_i >= 12
-  end
-
-  def newer_firefox_tablet?
-    firefox? && tablet? && android? && version.to_i >= 14
   end
 end

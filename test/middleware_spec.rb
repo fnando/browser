@@ -1,48 +1,48 @@
-require "test_helper"
+require "spec_helper"
 require "browser/rails"
 require "sample_app"
 
-class MiddlewareTest < Test::Unit::TestCase
+describe Browser::Middleware do
   include Rack::Test::Methods
 
   def app
     Rails.application
   end
 
-  def test_redirect_uses_302
+  it "redirects with 302" do
     get "/", {}, {"HTTP_USER_AGENT" => "MSIE 6", "HTTP_ACCEPT" => "text/html"}
     assert_equal 302, last_response.status
   end
 
-  def test_redirect_ie6_to_upgrade_path
+  it "redirects ie6 to upgrade path" do
     get "/", {}, {"HTTP_USER_AGENT" => "MSIE 6", "HTTP_ACCEPT" => "text/html"}
     follow_redirect!
 
     assert_equal "UPGRADE: ie6", last_response.body
   end
 
-  def test_redirect_ie7_to_upgrade_path
+  it "redirects ie7 to upgrade path" do
     get "/", {}, {"HTTP_USER_AGENT" => "MSIE 7", "HTTP_ACCEPT" => "text/html"}
     follow_redirect!
 
     assert_equal "UPGRADE: ie7", last_response.body
   end
 
-  def test_redirect_ie8_and_404
+  it "redirects ie8 and returns 404" do
     get "/", {}, {"HTTP_USER_AGENT" => "MSIE 8", "HTTP_ACCEPT" => "text/html"}
     follow_redirect!
 
     assert_equal 404, last_response.status
   end
 
-  def test_redirect_ie8_with_wildcard_http_accept
+  it "redirects ie8 with wildcard http accept" do
     get "/", {}, {"HTTP_USER_AGENT" => "MSIE 8", "HTTP_ACCEPT" => "*/*"}
     follow_redirect!
 
     assert_equal 404, last_response.status
   end
 
-  def test_ignores_non_html_requests
+  it "ignores non-html requests" do
     get "/", {}, {"HTTP_USER_AGENT" => "MSIE 6", "HTTP_ACCEPT" => "image/png"}
 
     assert_equal 200, last_response.status
