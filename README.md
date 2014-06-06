@@ -43,7 +43,7 @@ browser.meta            # an array with several attributes
 browser.to_s            # the meta info joined by space
 ```
 
-See the [tests](https://github.com/fnando/browser/blob/master/test/browser_test.rb) and [implementation](https://github.com/fnando/browser/blob/master/lib/browser.rb) for more examples.
+See the [tests](https://github.com/fnando/browser/blob/master/test/browser_spec.rb) and [implementation](https://github.com/fnando/browser/blob/master/lib/browser.rb) for more examples.
 
 ### What defines a modern browser?
 
