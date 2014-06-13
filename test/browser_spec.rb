@@ -45,8 +45,9 @@ describe Browser do
     assert @browser.iphone?
     assert @browser.safari?
     assert @browser.webkit?
+    assert_equal "420", @browser.webkit_version
     assert @browser.mobile?
-    assert @browser.modern?
+    assert ! @browser.modern?
     assert @browser.ios?
     assert ! @browser.tablet?
     assert_equal "3.0", @browser.full_version
@@ -59,9 +60,22 @@ describe Browser do
     assert_equal "Safari", @browser.name
     assert @browser.safari?
     assert @browser.webkit?
+    assert_equal "533", @browser.webkit_version
     assert @browser.modern?
     assert_equal "5.0.1", @browser.full_version
     assert_equal "5", @browser.version
+  end
+
+  it "detects non modern safari3 win" do
+    @browser.ua = $ua["SAFARI3_WIN"]
+
+    assert_equal "Safari", @browser.name
+    assert @browser.safari?
+    assert @browser.webkit?
+    assert_equal "525", @browser.webkit_version
+    assert !@browser.modern?
+    assert_equal "3.2.2", @browser.full_version
+    assert_equal "3", @browser.version
   end
 
   it "detects ipod" do
@@ -71,8 +85,9 @@ describe Browser do
     assert @browser.ipod?
     assert @browser.safari?
     assert @browser.webkit?
+    assert_equal "420", @browser.webkit_version
     assert @browser.mobile?
-    assert @browser.modern?
+    assert !@browser.modern?
     assert @browser.ios?
     assert ! @browser.tablet?
     assert_equal "3.0", @browser.full_version
@@ -86,7 +101,8 @@ describe Browser do
     assert @browser.ipad?
     assert @browser.safari?
     assert @browser.webkit?
-    assert @browser.modern?
+    assert_equal "531", @browser.webkit_version
+    assert ! @browser.modern?
     assert @browser.ios?
     assert @browser.tablet?
     assert ! @browser.mobile?
@@ -98,6 +114,8 @@ describe Browser do
     @browser.ua = $ua["IOS4"]
     assert @browser.ios?
     assert @browser.ios4?
+    assert @browser.webkit?
+    assert_equal "532", @browser.webkit_version
   end
 
 
@@ -105,12 +123,17 @@ describe Browser do
     @browser.ua = $ua["IOS5"]
     assert @browser.ios?
     assert @browser.ios5?
+
+    assert @browser.webkit?
+    assert_equal "534", @browser.webkit_version
   end
 
   it "detects ios6" do
     @browser.ua = $ua["IOS6"]
     assert @browser.ios?
     assert @browser.ios6?
+    assert @browser.webkit?
+    assert_equal "536", @browser.webkit_version
   end
 
   it "detects ios7" do
@@ -245,6 +268,7 @@ describe Browser do
     assert_equal :opera, @browser.id
     assert @browser.opera?
     assert @browser.webkit?
+    assert_equal "537", @browser.webkit_version
     assert @browser.modern?
     assert ! @browser.chrome?
     assert_equal "28.0.1500.37", @browser.full_version
@@ -290,6 +314,7 @@ describe Browser do
     assert @browser.chrome?
     assert ! @browser.safari?
     assert @browser.webkit?
+    assert_equal "533", @browser.webkit_version
     assert @browser.modern?
     assert_equal "5.0.375.99", @browser.full_version
     assert_equal "5", @browser.version
@@ -302,6 +327,7 @@ describe Browser do
     assert @browser.chrome?
     assert ! @browser.safari?
     assert @browser.webkit?
+    assert_equal "534", @browser.webkit_version
     assert @browser.modern?
     assert_equal "19.0.1084.60", @browser.full_version
     assert_equal "19", @browser.version
@@ -314,9 +340,10 @@ describe Browser do
     assert @browser.android?
     assert @browser.safari?
     assert @browser.webkit?
+    assert_equal "528", @browser.webkit_version
     assert @browser.mobile?
     assert ! @browser.tablet?
-    assert @browser.modern?
+    assert !@browser.modern?
     assert_equal "3.1.2", @browser.full_version
     assert_equal "3", @browser.version
   end
@@ -328,6 +355,7 @@ describe Browser do
     assert @browser.android?
     assert @browser.safari?
     assert @browser.webkit?
+    assert_equal "534", @browser.webkit_version
     assert ! @browser.mobile?
     assert @browser.tablet?
     assert @browser.modern?
@@ -445,6 +473,9 @@ describe Browser do
     assert @browser.phantom_js?
     assert ! @browser.tablet?
     assert ! @browser.mobile?
+    assert @browser.webkit?
+    assert_equal "534", @browser.webkit_version
+
     assert @browser.modern?
     assert_equal "1.9.0", @browser.full_version
     assert_equal "1", @browser.version
@@ -517,7 +548,7 @@ describe Browser do
     assert meta.include?("safari")
     assert meta.include?("safari3")
     assert meta.include?("mac")
-    assert meta.include?("modern")
+    assert !meta.include?("modern")
     assert meta.include?("mobile")
   end
 
@@ -622,6 +653,8 @@ describe Browser do
 
     assert @browser.android?
     assert @browser.tablet?
+    assert @browser.webkit?
+    assert_equal "534", @browser.webkit_version
     assert ! @browser.mobile?
   end
 
@@ -630,6 +663,10 @@ describe Browser do
 
     assert @browser.android?
     assert @browser.tablet?
+    assert @browser.webkit?
+    assert @browser.modern?
+
+    assert_equal "535", @browser.webkit_version
     assert ! @browser.mobile?
   end
 
@@ -639,6 +676,9 @@ describe Browser do
     assert ! @browser.android?
     assert @browser.tablet?
     assert ! @browser.mobile?
+
+    assert @browser.webkit?
+    assert_equal "536", @browser.webkit_version
 
     assert_equal "7.2.1.0", @browser.full_version
     assert_equal "7", @browser.version
@@ -718,6 +758,8 @@ describe Browser do
 
     assert @browser.kindle?
     assert @browser.webkit?
+    assert_equal "528", @browser.webkit_version
+
   end
 
   it "detects kindle fire" do
@@ -725,6 +767,7 @@ describe Browser do
 
     assert @browser.kindle?
     assert @browser.webkit?
+    assert_equal "533", @browser.webkit_version
   end
 
   it "detects kindle fire hd" do
@@ -733,6 +776,7 @@ describe Browser do
     assert @browser.silk?
     assert @browser.kindle?
     assert @browser.webkit?
+    assert_equal "535", @browser.webkit_version
     assert @browser.modern?
     assert ! @browser.mobile?
   end
@@ -743,6 +787,7 @@ describe Browser do
     assert @browser.silk?
     assert @browser.kindle?
     assert @browser.webkit?
+    assert_equal "535", @browser.webkit_version
     assert @browser.modern?
     assert @browser.mobile?
   end
@@ -751,6 +796,8 @@ describe Browser do
     @browser.ua = $ua["NOOK"]
 
     assert @browser.tablet?
+    assert @browser.webkit?
+    assert_equal "533", @browser.webkit_version
     assert ! @browser.mobile?
   end
 
@@ -758,6 +805,8 @@ describe Browser do
     @browser.ua = $ua["SAMSUNG"]
 
     assert @browser.tablet?
+    assert @browser.webkit?
+    assert_equal "534", @browser.webkit_version
     assert ! @browser.mobile?
   end
 

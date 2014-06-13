@@ -85,7 +85,7 @@ class Browser
   end
 
   self.modern_rules.tap do |rules|
-    rules << -> b { b.webkit? }
+    rules << -> b { b.webkit? && b.webkit_version.to_i >= 532 }
     rules << -> b { b.firefox? && b.version.to_i >= 17 }
     rules << -> b { b.ie? && b.version.to_i >= 9 }
     rules << -> b { b.opera? && b.version.to_i >= 12 }
@@ -129,7 +129,15 @@ class Browser
     v.compact.first || "0.0"
   end
 
-  # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
+  # Return major webkit version.
+  def webkit_version
+    return nil if !webkit?
+
+    webkit_full_version = ua[%r|AppleWeb[Kk]it/([0-9.]+)|, 1]
+    webkit_full_version.to_s.split(".").first
+  end
+
+  # Return true if browser is modern (Webkit (Safari 4.1+, Chrome 3.0+), Firefox 17+, IE9+, Opera 12+).
   def modern?
     self.class.modern_rules.any? {|rule| rule === self }
   end
