@@ -19,7 +19,8 @@ require "browser"
 
 browser = Browser.new(:ua => "some string", :accept_language => "en-us")
 browser.name            # readable browser name
-browser.version
+browser.version         # major version number
+browser.full_version
 browser.safari?
 browser.opera?
 browser.chrome?
@@ -39,6 +40,10 @@ browser.linux?
 browser.blackberry?
 browser.bot?
 browser.search_engine?
+browser.phantom_js?
+browser.quicktime?
+browser.core_media?
+browser.silk?
 browser.meta            # an array with several attributes
 browser.to_s            # the meta info joined by space
 ```
