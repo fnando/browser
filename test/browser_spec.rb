@@ -235,6 +235,19 @@ describe Browser do
     assert_equal "11", @browser.real_version
   end
 
+  it "detects ie11 in compatibility view" do
+    @browser.ua = $ua["IE11_COMPAT"]
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert ! @browser.ie11?
+    assert ! @browser.modern?
+    assert @browser.compatibility_view?
+    assert_equal "7.0", @browser.full_version
+    assert_equal "7", @browser.version
+    assert_equal "11", @browser.real_version
+  end
+
   it "detects opera" do
     @browser.ua = $ua["OPERA"]
 
