@@ -44,6 +44,14 @@ class Browser
       ie? && match && version.to_i < (match[1].to_i + 4)
     end
 
+    def real_version
+      if ie? && compatibility_view? && match = ua.match(TRIDENT_VERSION_REGEX)
+        (match[1].to_i + 4).to_s
+      else
+        version
+      end
+    end
+
     private
 
     def msie?
