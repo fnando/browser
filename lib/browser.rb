@@ -106,7 +106,7 @@ class Browser
     @outdated_rules ||= []
   end
 
-  self.outdated_rules.tap do |rules|
+  outdated_rules.tap do |rules|
     rules << -> b { b.chrome? && b.version.to_i < 27 }
     rules << -> b { b.firefox? && b.version.to_i < 17 }
     rules << -> b { b.ie? && b.version.to_i < 10 }
