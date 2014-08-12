@@ -159,7 +159,7 @@ class Browser
 
   # Return true if browser is outdated
   def outdated?
-    self.class.outdated_rules.any? { |rule| rule.call(browser) }
+    self.class.outdated_rules.any? {|rule| rule.call(browser) }
   end
 
   # Detect if browser is WebKit-based.
