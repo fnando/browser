@@ -32,6 +32,7 @@ browser.firefox?
 browser.ie?
 browser.ie6?            # this goes up to 11
 browser.modern?         # Webkit, Firefox 17+, IE 9+ and Opera 12+
+browser.outdated?       # Chrome < 27, Firefox < 17, IE < 10, Safari < 7, Opera < 13
 browser.platform        # return :mac, :windows, :linux or :other
 browser.mac?
 browser.windows?
@@ -68,6 +69,25 @@ Browser.modern_rules.clear
 Browser.modern_rules << -> b { b.chrome? && b.version >= '37' }
 ```
 
+### What defines a outdated browser?
+
+The current rules that define a outdated browser are:
+
+* Chrome < 27
+* Firefox < 17
+* IE < 10
+* Safari < 7
+* Opera? < 13
+* Firefox Android Tablet < 14
+
+You can define your own rules by appending proc/lambda or any object that implements the call method and accepts the browser object as parameter. To redefine all rules, clear the existing rules before adding your own.
+
+```ruby
+# Consider all IE as outdated.
+Browser.modern_rules << -> b { b.ie? }
+```
+
+
 ### Rails integration
 
 Just add it to the Gemfile.
@@ -99,6 +119,12 @@ You can use the `Browser::Middleware` to redirect user agents.
 ```ruby
 use Browser::Middleware do
   redirect_to "/upgrade" unless browser.modern?
+end
+```
+
+```ruby
+use Browser::Middleware do
+  redirect_to "/upgrade" if browser.outdated?
 end
 ```
 

@@ -126,6 +126,7 @@ describe Browser do
     assert @browser.ie?
     assert @browser.ie6?
     assert ! @browser.modern?
+    assert @browser.outdated?
     assert_equal "6.0", @browser.full_version
     assert_equal "6", @browser.version
   end
@@ -137,6 +138,7 @@ describe Browser do
     assert @browser.ie?
     assert @browser.ie7?
     assert ! @browser.modern?
+    assert @browser.outdated?
     assert_equal "7.0", @browser.full_version
     assert_equal "7", @browser.version
   end
@@ -148,6 +150,7 @@ describe Browser do
     assert @browser.ie?
     assert @browser.ie8?
     assert ! @browser.modern?
+    assert @browser.outdated?
     assert ! @browser.compatibility_view?
     assert_equal "8.0", @browser.full_version
     assert_equal "8", @browser.version
@@ -160,6 +163,7 @@ describe Browser do
     assert @browser.ie?
     assert @browser.ie7?
     assert ! @browser.ie8?
+    assert @browser.outdated?
     assert ! @browser.modern?
     assert @browser.compatibility_view?
     assert_equal "7.0", @browser.full_version
@@ -173,6 +177,7 @@ describe Browser do
     assert @browser.ie?
     assert @browser.ie9?
     assert @browser.modern?
+    assert @browser.outdated?
     assert ! @browser.compatibility_view?
     assert_equal "9.0", @browser.full_version
     assert_equal "9", @browser.version
@@ -186,6 +191,7 @@ describe Browser do
     assert @browser.ie7?
     assert ! @browser.ie9?
     assert ! @browser.modern?
+    assert @browser.outdated?
     assert @browser.compatibility_view?
     assert_equal "7.0", @browser.full_version
     assert_equal "7", @browser.version
@@ -198,6 +204,7 @@ describe Browser do
     assert @browser.ie?
     assert @browser.ie10?
     assert @browser.modern?
+    assert !@browser.outdated?
     assert ! @browser.compatibility_view?
     assert_equal "10.0", @browser.full_version
     assert_equal "10", @browser.version
@@ -211,6 +218,7 @@ describe Browser do
     assert @browser.ie7?
     assert ! @browser.ie10?
     assert ! @browser.modern?
+    assert @browser.outdated?
     assert @browser.compatibility_view?
     assert_equal "7.0", @browser.full_version
     assert_equal "7", @browser.version
@@ -223,6 +231,7 @@ describe Browser do
     assert @browser.ie?
     assert @browser.ie11?
     assert @browser.modern?
+    assert ! @browser.outdated?
     assert ! @browser.compatibility_view?
     assert_equal "11.0", @browser.full_version
     assert_equal "11", @browser.version

@@ -92,6 +92,29 @@ class Browser
     rules << -> b { b.firefox? && b.tablet? && b.android? && b.version.to_i >= 14 }
   end
 
+  # Define the rules which define a outdated browser.
+  # A rule must be a proc/lambda or any object that implements the method
+  # === and accepts the browser object.
+  #
+  # To redefine all rules, clear the existing rules before adding your own.
+  #
+  #   # Only Chrome Canary is considered outdated.
+  #   Browser.outdated_rules.clear
+  #   Browser.outdated_rules << -> b { b.chrome? && b.version < '27' }
+  #
+  def self.outdated_rules
+    @outdated_rules ||= []
+  end
+
+  self.outdated_rules.tap do |rules|
+    rules << -> b { b.chrome? && b.version.to_i < 27 }
+    rules << -> b { b.firefox? && b.version.to_i < 17 }
+    rules << -> b { b.ie? && b.version.to_i < 10 }
+    rules << -> b { b.safari? && b.version.to_i < 7 }
+    rules << -> b { b.opera? && b.version.to_i < 13 }
+    rules << -> b { b.firefox? && b.tablet? && b.android? && b.version.to_i < 14 }
+  end
+
   # Create a new browser instance and set
   # the UA and Accept-Language headers.
   #
@@ -132,6 +155,11 @@ class Browser
   # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
   def modern?
     self.class.modern_rules.any? {|rule| rule === self }
+  end
+
+  # Return true if browser is outdated
+  def outdated?
+    self.class.outdated_rules.any? { |rule| rule.call(browser) }
   end
 
   # Detect if browser is WebKit-based.
