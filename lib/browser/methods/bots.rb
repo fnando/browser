@@ -5,11 +5,15 @@ class Browser
     SEARCH_ENGINES = YAML.load_file(root.join("search_engines.yml"))
 
     def self.detect_empty_ua!
-      Browser::Bots::BOTS[''] = 'Generic bot'
+      @detect_empty_ua = true
+    end
+
+    def self.detect_empty_ua?
+      !!@detect_empty_ua
     end
 
     def bot?
-      BOTS.any? {|key, _| ua.include?(key) }
+      Browser::Bots.detect_empty_ua? && ua.strip == "" || BOTS.any? {|key, _| ua.include?(key) }
     end
 
     def search_engine?

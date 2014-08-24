@@ -4,6 +4,7 @@ require "spec_helper"
 describe Browser do
   before do
     @browser = Browser.new
+    Browser::Bots.instance_variable_set("@detect_empty_ua", false)
   end
 
   it "yields self when block is given" do
@@ -843,7 +844,12 @@ describe Browser do
     Browser::Bots.detect_empty_ua!
     @browser.ua = ''
     assert @browser.bot?
-    Browser::Bots::BOTS.delete('')
+  end
+
+  it "doesn't consider mozilla as a bot when considerint empty UA" do
+    Browser::Bots.detect_empty_ua!
+    @browser.ua = "Mozilla"
+    assert ! @browser.bot?
   end
 
   it "detects chrome os" do
