@@ -38,36 +38,35 @@ class Browser
 
   # Set browser's UA string.
   attr_accessor :user_agent
-  alias_method :ua, :user_agent
-  alias_method :ua=, :user_agent=
+  alias_method  :ua,  :user_agent
+  alias_method  :ua=, :user_agent=
 
   NAMES = {
-    android: "Android",
-    blackberry: "BlackBerry",
-    chrome: "Chrome",
-    core_media: "Apple CoreMedia",
-    firefox: "Firefox",
-    ie: "Internet Explorer",
-    ipad: "iPad",
-    iphone: "iPhone",
-    ipod: "iPod Touch",
-    nintendo: "Nintendo",
-    opera: "Opera",
-    phantom_js: "PhantomJS",
-    psp: "PlayStation Portable",
-    playstation: "PlayStation",
-    quicktime: "QuickTime",
-    safari: "Safari",
-    xbox: "Xbox",
-
+    :android      => "Android",
+    :blackberry   => "BlackBerry",
+    :chrome       => "Chrome",
+    :core_media   => "Apple CoreMedia",
+    :firefox      => "Firefox",
+    :ie           => "Internet Explorer",
+    :ipad         => "iPad",
+    :iphone       => "iPhone",
+    :ipod         => "iPod Touch",
+    :nintendo     => "Nintendo",
+    :opera        => "Opera",
+    :phantom_js   => "PhantomJS",
+    :psp          => "PlayStation Portable",
+    :playstation  => "PlayStation",
+    :quicktime    => "QuickTime",
+    :safari       => "Safari",
+    :xbox         => "Xbox",
     # This must be last item, since Ruby 1.9+ has ordered keys.
-    other: "Other",
+    :other        => "Other",
   }
 
   VERSIONS = {
-    default: %r[(?:Version|MSIE|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
-    opera: %r[(?:Opera/.*? Version/([\d.]+)|Chrome/([\d.]+).*?OPR)],
-    ie: %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
+    :default  => %r[(?:Version|MSIE|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
+    :opera    => %r[(?:Opera/.*? Version/([\d.]+)|Chrome/([\d.]+).*?OPR)],
+    :ie       => %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
   }
 
   # Define the rules which define a modern browser.
@@ -85,11 +84,11 @@ class Browser
   end
 
   self.modern_rules.tap do |rules|
-    rules << -> b { b.webkit? }
-    rules << -> b { b.firefox? && b.version.to_i >= 17 }
-    rules << -> b { b.ie? && b.version.to_i >= 9 }
-    rules << -> b { b.opera? && b.version.to_i >= 12 }
-    rules << -> b { b.firefox? && b.tablet? && b.android? && b.version.to_i >= 14 }
+    rules << lambda{|b| b.webkit? }
+    rules << lambda{|b| b.firefox? && b.version.to_i >= 17 }
+    rules << lambda{|b| b.ie? && b.version.to_i >= 9 }
+    rules << lambda{|b| b.opera? && b.version.to_i >= 12 }
+    rules << lambda{|b| b.firefox? && b.tablet? && b.android? && b.version.to_i >= 14 }
   end
 
   # Create a new browser instance and set
@@ -101,8 +100,8 @@ class Browser
   #   })
   #
   def initialize(options = {}, &block)
-    self.user_agent = (options[:user_agent] || options[:ua]).to_s
-    self.accept_language = options[:accept_language].to_s
+    self.user_agent       = (options[:user_agent] || options[:ua]).to_s
+    self.accept_language  =  options[:accept_language].to_s
 
     yield self if block
   end
@@ -114,7 +113,7 @@ class Browser
 
   # Get the browser identifier.
   def id
-    NAMES.keys
+    NAMES.keys \
       .find {|id| respond_to?("#{id}?") ? public_send("#{id}?") : id }
   end
 

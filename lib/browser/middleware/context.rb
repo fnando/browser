@@ -7,8 +7,8 @@ class Browser
         @request = request
 
         @browser = Browser.new(
-          ua: request.user_agent,
-          accept_language: request.env["HTTP_ACCEPT_LANGUAGE"]
+          :ua               => request.user_agent,
+          :accept_language  => request.env["HTTP_ACCEPT_LANGUAGE"]
         )
       end
 

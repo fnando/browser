@@ -4,6 +4,7 @@
 [![CodeClimate](https://codeclimate.com/github/fnando/browser.png)](https://codeclimate.com/github/fnando/browser)
 
 Do some browser detection with Ruby. Includes ActionController integration.
+Works with ruby 1.8.7+
 
 ## Installation
 
