@@ -156,7 +156,7 @@ class Browser
 
   # Detect if browser is Safari.
   def safari?
-    ua =~ /Safari/ && ua !~ /Chrome|CriOS|PhantomJS/
+    ua =~ /Safari/ && ua !~ /Android|Chrome|CriOS|PhantomJS/
   end
 
   # Detect if browser is Firefox.

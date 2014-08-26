@@ -77,3 +77,4 @@ YAHOO_SLURP: "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/
 ASK: "Mozilla/2.0 (compatible; Ask Jeeves/Teoma; +http://sp.ask.com/docs/about/tech_crawling.html)"
 BINGBOT: "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)"
 DUCKDUCKGO: "DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)"
+ANDROID_WITH_SAFARI: 'Mozilla/5.0 (Linux; U; Android 4.3; en-us; SCH-I535 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30'
