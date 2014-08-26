@@ -313,7 +313,7 @@ describe Browser do
 
     assert_equal "Android", @browser.name
     assert @browser.android?
-    assert @browser.safari?
+    refute @browser.safari?
     assert @browser.webkit?
     assert @browser.mobile?
     refute @browser.tablet?
@@ -327,7 +327,7 @@ describe Browser do
 
     assert_equal "Android", @browser.name
     assert @browser.android?
-    assert @browser.safari?
+    refute @browser.safari?
     assert @browser.webkit?
     refute @browser.mobile?
     assert @browser.tablet?
