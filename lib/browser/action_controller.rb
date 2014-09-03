@@ -9,6 +9,7 @@ class Browser
     end
 
     private
+
     def browser
       @browser ||= Browser.new(
         accept_language: request.headers["Accept-Language"],

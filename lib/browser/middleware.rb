@@ -3,10 +3,13 @@ require "uri"
 class Browser
   class Middleware
     # Detect the most common assets.
-    ASSETS_REGEX = %r[\.(css|png|jpe?g|gif|js|svg|ico|flv|mov|m4v|ogg|swf)\z]i
+    ASSETS_REGEX = /\.(css|png|jpe?g|gif|js|svg|ico|flv|mov|m4v|ogg|swf)\z/i
+
+    # Detect the ACCEPT header. IE8 send */*.
+    ACCEPT_REGEX = %r[(text/html|\*/\*)]
 
     def initialize(app, &block)
-      raise ArgumentError, "Browser::Middleware requires a block" unless block
+      fail ArgumentError, "Browser::Middleware requires a block" unless block
 
       @app = app
       @block = block
@@ -18,7 +21,7 @@ class Browser
       # Only apply verification on HTML requests.
       # This ensures that images, CSS and JavaScript
       # will be rendered.
-      return run_app(env) unless html?(request)
+      return run_app(env) unless process?(request)
 
       path = catch(:redirected) do
         Context.new(request).instance_eval(&@block)
@@ -48,9 +51,16 @@ class Browser
       @app.call(env)
     end
 
+    def process?(request)
+      html?(request) && !assets?(request)
+    end
+
     def html?(request)
-      return if request.path.match(ASSETS_REGEX)
-      request.env["HTTP_ACCEPT"].to_s.include?("text/html")
+      request.env["HTTP_ACCEPT"].to_s.match(ACCEPT_REGEX)
+    end
+
+    def assets?(request)
+      request.path.match(ASSETS_REGEX)
     end
   end
 end

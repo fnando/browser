@@ -29,14 +29,13 @@ class Browser
       !!(ua =~ /Kindle/ || silk?)
     end
 
-    # Detect if browser is running from PSP.
-    def psp?
-      !!(ua =~ /PSP/)
-    end
-
     # Detect if browser if a Blackberry Playbook tablet
     def playbook?
-      !!(ua =~ /PlayBook/ and ua =~ /RIM Tablet/)
+      !!(ua =~ /PlayBook/ && ua =~ /RIM Tablet/)
+    end
+
+    def windows_touchscreen_desktop?
+      windows? && !!(ua =~ /Touch/)
     end
   end
 end

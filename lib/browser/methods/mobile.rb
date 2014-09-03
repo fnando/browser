@@ -12,10 +12,11 @@ class Browser
 
     # Detect if browser is BlackBerry
     def blackberry?
-      !!(ua =~ /BlackBerry/)
+      !!(ua =~ /(BlackBerry)/)
     end
 
     private
+
     def detect_mobile?
       ua =~ /(Mobi(le)?|Symbian|MIDP|Windows CE)/ || blackberry? || psp? || opera_mini?
     end
