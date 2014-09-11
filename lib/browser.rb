@@ -42,9 +42,9 @@ class Browser
   alias_method :ua=, :user_agent=
 
   NAMES = {
+    chrome: "Chrome", # Must come before android
     android: "Android",
     blackberry: "BlackBerry",
-    chrome: "Chrome",
     core_media: "Apple CoreMedia",
     firefox: "Firefox",
     ie: "Internet Explorer",
@@ -65,7 +65,8 @@ class Browser
   }
 
   VERSIONS = {
-    default: %r[(?:Version|MSIE|Firefox|Chrome|CriOS|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
+    chrome: %r[(?:Chrome|CriOS)/([\d.]+)],
+    default: %r[(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
     opera: %r[(?:Opera/.*? Version/([\d.]+)|Chrome/([\d.]+).*?OPR)],
     ie: %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
   }

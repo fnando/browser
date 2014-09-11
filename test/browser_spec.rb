@@ -308,6 +308,19 @@ describe Browser do
     assert_equal "19", @browser.version
   end
 
+  it "detects samsung chrome" do
+    @browser.ua = $ua["SAMSUNG_CHROME"]
+
+    assert_equal "Chrome", @browser.name
+    assert @browser.chrome?
+    assert @browser.android?
+    refute @browser.safari?
+    assert @browser.webkit?
+    assert @browser.modern?
+    assert_equal "28.0.1500.94", @browser.full_version
+    assert_equal "28", @browser.version
+  end
+
   it "detects android" do
     @browser.ua = $ua["ANDROID"]
 
