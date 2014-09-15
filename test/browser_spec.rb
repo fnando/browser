@@ -849,13 +849,13 @@ describe Browser do
   end
 
   it "doesn't consider empty UA as bot" do
-    @browser.ua = ''
+    @browser.ua = ""
     refute @browser.bot?
   end
 
   it "allows setting empty string as bots" do
     Browser::Bots.detect_empty_ua!
-    @browser.ua = ''
+    @browser.ua = ""
     assert @browser.bot?
   end
 
