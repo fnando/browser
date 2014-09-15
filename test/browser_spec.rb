@@ -888,4 +888,14 @@ describe Browser do
       assert @browser.search_engine?, "#{$ua[key]} should be a search engine"
     end
   end
+
+  it "knows a supported browser" do
+    @browser.ua = "Chrome"
+    assert @browser.known?
+  end
+
+  it "does not know an unsupported browser" do
+    @browser.ua = "Fancy new browser"
+    refute @browser.known?
+  end
 end

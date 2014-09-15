@@ -180,6 +180,10 @@ class Browser
     !!(ua =~ /Silk/)
   end
 
+  def known?
+    id != :other
+  end
+
   # Return a meta info about this browser.
   def meta
     Meta.constants.each_with_object(Set.new) do |meta_name, meta|
