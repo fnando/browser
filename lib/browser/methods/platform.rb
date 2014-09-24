@@ -57,7 +57,7 @@ class Browser
 
     # Detect if current platform is Macintosh.
     def mac?
-      !!(ua =~ /Mac OS X/)
+      ua =~ /Mac OS X/ && !ios?
     end
 
     # Detect if current platform is Windows.

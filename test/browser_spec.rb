@@ -50,6 +50,7 @@ describe Browser do
     assert @browser.modern?
     assert @browser.ios?
     refute @browser.tablet?
+    refute @browser.mac?
     assert_equal "3.0", @browser.full_version
     assert_equal "3", @browser.version
   end
@@ -76,6 +77,7 @@ describe Browser do
     assert @browser.modern?
     assert @browser.ios?
     refute @browser.tablet?
+    refute @browser.mac?
     assert_equal "3.0", @browser.full_version
     assert_equal "3", @browser.version
   end
@@ -91,6 +93,7 @@ describe Browser do
     assert @browser.ios?
     assert @browser.tablet?
     refute @browser.mobile?
+    refute @browser.mac?
     assert_equal "4.0.4", @browser.full_version
     assert_equal "4", @browser.version
   end
@@ -99,6 +102,7 @@ describe Browser do
     @browser.ua = $ua["IOS4"]
     assert @browser.ios?
     assert @browser.ios4?
+    refute @browser.mac?
   end
 
 
@@ -106,18 +110,21 @@ describe Browser do
     @browser.ua = $ua["IOS5"]
     assert @browser.ios?
     assert @browser.ios5?
+    refute @browser.mac?
   end
 
   it "detects ios6" do
     @browser.ua = $ua["IOS6"]
     assert @browser.ios?
     assert @browser.ios6?
+    refute @browser.mac?
   end
 
   it "detects ios7" do
     @browser.ua = $ua["IOS7"]
     assert @browser.ios?
     assert @browser.ios7?
+    refute @browser.mac?
   end
 
   it "detects ie6" do
@@ -530,7 +537,6 @@ describe Browser do
     assert meta.include?("ios")
     assert meta.include?("safari")
     assert meta.include?("safari3")
-    assert meta.include?("mac")
     assert meta.include?("modern")
     assert meta.include?("mobile")
   end
