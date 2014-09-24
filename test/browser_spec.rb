@@ -127,6 +127,13 @@ describe Browser do
     refute @browser.mac?
   end
 
+  it "detects ios8" do
+    @browser.ua = $ua["IOS8"]
+    assert @browser.ios?
+    assert @browser.ios8?
+    refute @browser.mac?
+  end
+
   it "detects ie6" do
     @browser.ua = $ua["IE6"]
 
