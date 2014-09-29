@@ -120,6 +120,33 @@ Rails.configuration.middleware.use Browser::Middleware do
 end
 ```
 
+## Issues
+
+If you want to request a feature or report a bug, please use the following template.
+
+```markdown
+## Description
+
+[Add feature/bug description here]
+
+## How to reproduce
+
+[Add steps on how to reproduce this issue]
+
+## What do you expect
+
+[Describe what do you expect to happen]
+
+## What happened instead
+
+[Describe the actual results]
+
+## Environment
+
+- User agent: [Get the UA - <http://user-agent.herokuapp.com>]
+- Gem version: [Add browser gem version here]
+```
+
 ## Maintainer
 
 * Nando Vieira - http://nandovieira.com.br
