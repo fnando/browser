@@ -166,6 +166,7 @@ describe Browser do
     refute @browser.compatibility_view?
     assert_equal "8.0", @browser.full_version
     assert_equal "8", @browser.version
+    assert_equal "8", @browser.real_version
   end
 
   it "detects ie8 in compatibility view" do
@@ -179,6 +180,7 @@ describe Browser do
     assert @browser.compatibility_view?
     assert_equal "7.0", @browser.full_version
     assert_equal "7", @browser.version
+    assert_equal "8", @browser.real_version
   end
 
   it "detects ie9" do
@@ -191,6 +193,7 @@ describe Browser do
     refute @browser.compatibility_view?
     assert_equal "9.0", @browser.full_version
     assert_equal "9", @browser.version
+    assert_equal "9", @browser.real_version
   end
 
   it "detects ie9 in compatibility view" do
@@ -204,6 +207,7 @@ describe Browser do
     assert @browser.compatibility_view?
     assert_equal "7.0", @browser.full_version
     assert_equal "7", @browser.version
+    assert_equal "9", @browser.real_version
   end
 
   it "detects ie10" do
@@ -216,6 +220,7 @@ describe Browser do
     refute @browser.compatibility_view?
     assert_equal "10.0", @browser.full_version
     assert_equal "10", @browser.version
+    assert_equal "10", @browser.real_version
   end
 
   it "detects ie10 in compatibility view" do
@@ -229,6 +234,7 @@ describe Browser do
     assert @browser.compatibility_view?
     assert_equal "7.0", @browser.full_version
     assert_equal "7", @browser.version
+    assert_equal "10", @browser.real_version
   end
 
   it "detects ie11" do
@@ -241,6 +247,20 @@ describe Browser do
     refute @browser.compatibility_view?
     assert_equal "11.0", @browser.full_version
     assert_equal "11", @browser.version
+    assert_equal "11", @browser.real_version
+  end
+
+  it "detects ie11 in compatibility view" do
+    @browser.ua = $ua["IE11_COMPAT"]
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert ! @browser.ie11?
+    assert ! @browser.modern?
+    assert @browser.compatibility_view?
+    assert_equal "7.0", @browser.full_version
+    assert_equal "7", @browser.version
+    assert_equal "11", @browser.real_version
   end
 
   it "detects opera" do
