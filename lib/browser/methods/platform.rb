@@ -138,5 +138,10 @@ class Browser
         "Other OS"
       end
     end
+
+    # Detect if client is adobe air
+    def adobeair?
+      !!(ua =~ /adobeair/)
+    end
   end
 end
