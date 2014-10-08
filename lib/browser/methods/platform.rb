@@ -141,7 +141,7 @@ class Browser
 
     # Detect if client is adobe air
     def adobeair?
-      !!(ua =~ /adobeair/)
+      !!(ua =~ /adobeair/i)
     end
   end
 end
