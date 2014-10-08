@@ -4,6 +4,7 @@ require "spec_helper"
 describe Browser do
   before do
     @browser = Browser.new
+    Browser::Bots.instance_variable_set("@detect_empty_ua", false)
   end
 
   it "yields self when block is given" do
@@ -48,7 +49,8 @@ describe Browser do
     assert @browser.mobile?
     assert @browser.modern?
     assert @browser.ios?
-    assert ! @browser.tablet?
+    refute @browser.tablet?
+    refute @browser.mac?
     assert_equal "3.0", @browser.full_version
     assert_equal "3", @browser.version
   end
@@ -74,7 +76,8 @@ describe Browser do
     assert @browser.mobile?
     assert @browser.modern?
     assert @browser.ios?
-    assert ! @browser.tablet?
+    refute @browser.tablet?
+    refute @browser.mac?
     assert_equal "3.0", @browser.full_version
     assert_equal "3", @browser.version
   end
@@ -89,7 +92,8 @@ describe Browser do
     assert @browser.modern?
     assert @browser.ios?
     assert @browser.tablet?
-    assert ! @browser.mobile?
+    refute @browser.mobile?
+    refute @browser.mac?
     assert_equal "4.0.4", @browser.full_version
     assert_equal "4", @browser.version
   end
@@ -98,6 +102,7 @@ describe Browser do
     @browser.ua = $ua["IOS4"]
     assert @browser.ios?
     assert @browser.ios4?
+    refute @browser.mac?
   end
 
 
@@ -105,18 +110,28 @@ describe Browser do
     @browser.ua = $ua["IOS5"]
     assert @browser.ios?
     assert @browser.ios5?
+    refute @browser.mac?
   end
 
   it "detects ios6" do
     @browser.ua = $ua["IOS6"]
     assert @browser.ios?
     assert @browser.ios6?
+    refute @browser.mac?
   end
 
   it "detects ios7" do
     @browser.ua = $ua["IOS7"]
     assert @browser.ios?
     assert @browser.ios7?
+    refute @browser.mac?
+  end
+
+  it "detects ios8" do
+    @browser.ua = $ua["IOS8"]
+    assert @browser.ios?
+    assert @browser.ios8?
+    refute @browser.mac?
   end
 
   it "detects ie6" do
@@ -125,7 +140,7 @@ describe Browser do
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
     assert @browser.ie6?
-    assert ! @browser.modern?
+    refute @browser.modern?
     assert_equal "6.0", @browser.full_version
     assert_equal "6", @browser.version
   end
@@ -136,7 +151,7 @@ describe Browser do
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
     assert @browser.ie7?
-    assert ! @browser.modern?
+    refute @browser.modern?
     assert_equal "7.0", @browser.full_version
     assert_equal "7", @browser.version
   end
@@ -147,8 +162,8 @@ describe Browser do
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
     assert @browser.ie8?
-    assert ! @browser.modern?
-    assert ! @browser.compatibility_view?
+    refute @browser.modern?
+    refute @browser.compatibility_view?
     assert_equal "8.0", @browser.full_version
     assert_equal "8", @browser.version
   end
@@ -159,8 +174,8 @@ describe Browser do
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
     assert @browser.ie7?
-    assert ! @browser.ie8?
-    assert ! @browser.modern?
+    refute @browser.ie8?
+    refute @browser.modern?
     assert @browser.compatibility_view?
     assert_equal "7.0", @browser.full_version
     assert_equal "7", @browser.version
@@ -173,7 +188,7 @@ describe Browser do
     assert @browser.ie?
     assert @browser.ie9?
     assert @browser.modern?
-    assert ! @browser.compatibility_view?
+    refute @browser.compatibility_view?
     assert_equal "9.0", @browser.full_version
     assert_equal "9", @browser.version
   end
@@ -184,8 +199,8 @@ describe Browser do
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
     assert @browser.ie7?
-    assert ! @browser.ie9?
-    assert ! @browser.modern?
+    refute @browser.ie9?
+    refute @browser.modern?
     assert @browser.compatibility_view?
     assert_equal "7.0", @browser.full_version
     assert_equal "7", @browser.version
@@ -198,7 +213,7 @@ describe Browser do
     assert @browser.ie?
     assert @browser.ie10?
     assert @browser.modern?
-    assert ! @browser.compatibility_view?
+    refute @browser.compatibility_view?
     assert_equal "10.0", @browser.full_version
     assert_equal "10", @browser.version
   end
@@ -209,8 +224,8 @@ describe Browser do
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
     assert @browser.ie7?
-    assert ! @browser.ie10?
-    assert ! @browser.modern?
+    refute @browser.ie10?
+    refute @browser.modern?
     assert @browser.compatibility_view?
     assert_equal "7.0", @browser.full_version
     assert_equal "7", @browser.version
@@ -223,7 +238,7 @@ describe Browser do
     assert @browser.ie?
     assert @browser.ie11?
     assert @browser.modern?
-    assert ! @browser.compatibility_view?
+    refute @browser.compatibility_view?
     assert_equal "11.0", @browser.full_version
     assert_equal "11", @browser.version
   end
@@ -233,7 +248,7 @@ describe Browser do
 
     assert_equal "Opera", @browser.name
     assert @browser.opera?
-    assert ! @browser.modern?
+    refute @browser.modern?
     assert_equal "11.64", @browser.full_version
     assert_equal "11", @browser.version
   end
@@ -246,7 +261,7 @@ describe Browser do
     assert @browser.opera?
     assert @browser.webkit?
     assert @browser.modern?
-    assert ! @browser.chrome?
+    refute @browser.chrome?
     assert_equal "28.0.1500.37", @browser.full_version
     assert_equal "28", @browser.version
   end
@@ -256,7 +271,7 @@ describe Browser do
 
     assert_equal "Firefox", @browser.name
     assert @browser.firefox?
-    assert ! @browser.modern?
+    refute @browser.modern?
     assert_equal "3.8", @browser.full_version
     assert_equal "3", @browser.version
   end
@@ -288,7 +303,7 @@ describe Browser do
 
     assert_equal "Chrome", @browser.name
     assert @browser.chrome?
-    assert ! @browser.safari?
+    refute @browser.safari?
     assert @browser.webkit?
     assert @browser.modern?
     assert_equal "5.0.375.99", @browser.full_version
@@ -300,11 +315,24 @@ describe Browser do
 
     assert_equal "Chrome", @browser.name
     assert @browser.chrome?
-    assert ! @browser.safari?
+    refute @browser.safari?
     assert @browser.webkit?
     assert @browser.modern?
     assert_equal "19.0.1084.60", @browser.full_version
     assert_equal "19", @browser.version
+  end
+
+  it "detects samsung chrome" do
+    @browser.ua = $ua["SAMSUNG_CHROME"]
+
+    assert_equal "Chrome", @browser.name
+    assert @browser.chrome?
+    assert @browser.android?
+    refute @browser.safari?
+    assert @browser.webkit?
+    assert @browser.modern?
+    assert_equal "28.0.1500.94", @browser.full_version
+    assert_equal "28", @browser.version
   end
 
   it "detects android" do
@@ -312,10 +340,10 @@ describe Browser do
 
     assert_equal "Android", @browser.name
     assert @browser.android?
-    assert @browser.safari?
+    refute @browser.safari?
     assert @browser.webkit?
     assert @browser.mobile?
-    assert ! @browser.tablet?
+    refute @browser.tablet?
     assert @browser.modern?
     assert_equal "3.1.2", @browser.full_version
     assert_equal "3", @browser.version
@@ -326,9 +354,9 @@ describe Browser do
 
     assert_equal "Android", @browser.name
     assert @browser.android?
-    assert @browser.safari?
+    refute @browser.safari?
     assert @browser.webkit?
-    assert ! @browser.mobile?
+    refute @browser.mobile?
     assert @browser.tablet?
     assert @browser.modern?
     assert_equal "4.0", @browser.full_version
@@ -341,7 +369,7 @@ describe Browser do
     assert_equal "Internet Explorer", @browser.name
     assert @browser.surface?
     assert @browser.ie?
-    assert ! @browser.mobile?
+    refute @browser.mobile?
     assert @browser.tablet?
     assert @browser.modern?
     assert_equal "10.0", @browser.full_version
@@ -353,9 +381,9 @@ describe Browser do
 
     assert_equal "BlackBerry", @browser.name
     assert @browser.blackberry?
-    assert ! @browser.tablet?
+    refute @browser.tablet?
     assert @browser.mobile?
-    assert ! @browser.modern?
+    refute @browser.modern?
     assert_equal "4.1.0", @browser.full_version
     assert_equal "4", @browser.version
   end
@@ -365,9 +393,9 @@ describe Browser do
 
     assert_equal "BlackBerry", @browser.name
     assert @browser.blackberry4?
-    assert ! @browser.tablet?
+    refute @browser.tablet?
     assert @browser.mobile?
-    assert ! @browser.modern?
+    refute @browser.modern?
     assert_equal "4.2.1", @browser.full_version
     assert_equal "4", @browser.version
   end
@@ -377,9 +405,9 @@ describe Browser do
 
     assert_equal "BlackBerry", @browser.name
     assert @browser.blackberry5?
-    assert ! @browser.tablet?
+    refute @browser.tablet?
     assert @browser.mobile?
-    assert ! @browser.modern?
+    refute @browser.modern?
     assert_equal "5.0.0.93", @browser.full_version
     assert_equal "5", @browser.version
   end
@@ -389,7 +417,7 @@ describe Browser do
 
     assert_equal "BlackBerry", @browser.name
     assert @browser.blackberry6?
-    assert ! @browser.tablet?
+    refute @browser.tablet?
     assert @browser.mobile?
     assert @browser.modern?
     assert_equal "534.11", @browser.full_version
@@ -401,7 +429,7 @@ describe Browser do
 
     assert_equal "BlackBerry", @browser.name
     assert @browser.blackberry7?
-    assert ! @browser.tablet?
+    refute @browser.tablet?
     assert @browser.mobile?
     assert @browser.modern?
     assert_equal "534.11", @browser.full_version
@@ -413,7 +441,7 @@ describe Browser do
 
     assert_equal "Safari", @browser.name
     assert @browser.blackberry10?
-    assert ! @browser.tablet?
+    refute @browser.tablet?
     assert @browser.mobile?
     assert @browser.modern?
     assert_equal "10.0.9.1675", @browser.full_version
@@ -443,8 +471,8 @@ describe Browser do
 
     assert_equal "PhantomJS", @browser.name
     assert @browser.phantom_js?
-    assert ! @browser.tablet?
-    assert ! @browser.mobile?
+    refute @browser.tablet?
+    refute @browser.mobile?
     assert @browser.modern?
     assert_equal "1.9.0", @browser.full_version
     assert_equal "1", @browser.version
@@ -469,11 +497,11 @@ describe Browser do
   it "detects other mobiles" do
     @browser.ua = "Symbian OS"
     assert @browser.mobile?
-    assert ! @browser.tablet?
+    refute @browser.tablet?
 
     @browser.ua = "MIDP-2.0"
     assert @browser.mobile?
-    assert ! @browser.tablet?
+    refute @browser.tablet?
   end
 
   it "detects windows mobile" do
@@ -482,8 +510,8 @@ describe Browser do
     assert @browser.mobile?
     assert @browser.windows?
     assert @browser.windows_mobile?
-    assert ! @browser.windows_phone?
-    assert ! @browser.tablet?
+    refute @browser.windows_phone?
+    refute @browser.tablet?
   end
 
   it "returns a zero version" do
@@ -516,7 +544,6 @@ describe Browser do
     assert meta.include?("ios")
     assert meta.include?("safari")
     assert meta.include?("safari3")
-    assert meta.include?("mac")
     assert meta.include?("modern")
     assert meta.include?("mobile")
   end
@@ -622,7 +649,7 @@ describe Browser do
 
     assert @browser.android?
     assert @browser.tablet?
-    assert ! @browser.mobile?
+    refute @browser.mobile?
   end
 
   it "detects nexus tablet" do
@@ -630,15 +657,15 @@ describe Browser do
 
     assert @browser.android?
     assert @browser.tablet?
-    assert ! @browser.mobile?
+    refute @browser.mobile?
   end
 
   it "detects blackberry playbook tablet" do
     @browser.ua = $ua["PLAYBOOK"]
 
-    assert ! @browser.android?
+    refute @browser.android?
     assert @browser.tablet?
-    assert ! @browser.mobile?
+    refute @browser.mobile?
 
     assert_equal "7.2.1.0", @browser.full_version
     assert_equal "7", @browser.version
@@ -648,7 +675,7 @@ describe Browser do
     @browser.ua = $ua["OPERA_MINI"]
 
     assert @browser.opera_mini?
-    assert ! @browser.tablet?
+    refute @browser.tablet?
     assert @browser.mobile?
   end
 
@@ -656,7 +683,7 @@ describe Browser do
     @browser.ua = $ua["OPERA_MOBI"]
 
     assert @browser.opera?
-    assert ! @browser.tablet?
+    refute @browser.tablet?
     assert @browser.mobile?
   end
 
@@ -667,8 +694,8 @@ describe Browser do
     assert_equal "7", @browser.version
     assert @browser.mobile?
     assert @browser.windows_phone?
-    assert ! @browser.windows_mobile?
-    assert ! @browser.tablet?
+    refute @browser.windows_mobile?
+    refute @browser.tablet?
   end
 
   it "detects windows phone 8" do
@@ -678,8 +705,8 @@ describe Browser do
     assert_equal "10", @browser.version
     assert @browser.mobile?
     assert @browser.windows_phone?
-    assert ! @browser.windows_mobile?
-    assert ! @browser.tablet?
+    refute @browser.windows_mobile?
+    refute @browser.tablet?
   end
 
   it "detects windows mobile" do
@@ -689,8 +716,8 @@ describe Browser do
     assert_equal "10", @browser.version
     assert @browser.mobile?
     assert @browser.windows_phone?
-    assert ! @browser.windows_mobile?
-    assert ! @browser.tablet?
+    refute @browser.windows_mobile?
+    refute @browser.tablet?
   end
 
   it "detects windows x64" do
@@ -705,8 +732,8 @@ describe Browser do
     assert @browser.ie?
     assert @browser.ie11?
     assert @browser.modern?
-    assert ! @browser.compatibility_view?
-    assert ! @browser.windows_rt?
+    refute @browser.compatibility_view?
+    refute @browser.windows_rt?
     assert @browser.windows_touchscreen_desktop?
     assert @browser.windows8?
     assert_equal "11.0", @browser.full_version
@@ -734,7 +761,7 @@ describe Browser do
     assert @browser.kindle?
     assert @browser.webkit?
     assert @browser.modern?
-    assert ! @browser.mobile?
+    refute @browser.mobile?
   end
 
   it "detects kindle fire hd mobile" do
@@ -751,14 +778,14 @@ describe Browser do
     @browser.ua = $ua["NOOK"]
 
     assert @browser.tablet?
-    assert ! @browser.mobile?
+    refute @browser.mobile?
   end
 
   it "detects samsung" do
     @browser.ua = $ua["SAMSUNG"]
 
     assert @browser.tablet?
-    assert ! @browser.mobile?
+    refute @browser.mobile?
   end
 
   it "detects nintendo wii" do
@@ -814,21 +841,41 @@ describe Browser do
   end
 
   it "detects bots" do
-    @browser.ua = $ua["GOOGLE_BOT"]
-    assert @browser.bot?
-
-    @browser.ua = $ua["MSN_BOT"]
-    assert @browser.bot?
-
-    @browser.ua = $ua["FACEBOOK_BOT"]
-    assert @browser.bot?
-
-    # Many bots actually report empty ua strings.
-    @browser.ua = ''
-    assert @browser.bot?
+    %w[
+      DOT_BOT
+      FACEBOOK_BOT
+      GOOGLE_BOT
+      LINKDEXBOT
+      LOAD_TIME_BOT
+      MAIL_RU
+      MSN_BOT
+      SCRAPY
+      YANDEX_DIRECT
+      YANDEX_METRIKA
+    ].each do |key|
+      @browser.ua = $ua[key]
+      assert @browser.bot?, "#{$ua[key]} should be a bot"
+    end
 
     @browser.ua = $ua["CHROME"]
-    assert ! @browser.bot?
+    refute @browser.bot?
+  end
+
+  it "doesn't consider empty UA as bot" do
+    @browser.ua = ''
+    refute @browser.bot?
+  end
+
+  it "allows setting empty string as bots" do
+    Browser::Bots.detect_empty_ua!
+    @browser.ua = ''
+    assert @browser.bot?
+  end
+
+  it "doesn't consider mozilla as a bot when considerint empty UA" do
+    Browser::Bots.detect_empty_ua!
+    @browser.ua = "Mozilla"
+    refute @browser.bot?
   end
 
   it "detects chrome os" do
@@ -839,5 +886,19 @@ describe Browser do
   it "detects tv" do
     @browser.ua = $ua["SMART_TV"]
     assert @browser.tv?
+  end
+
+  it "detects as search engines" do
+    %w[
+      ASK
+      BAIDU
+      BINGBOT
+      DUCKDUCKGO
+      GOOGLE_BOT
+      YAHOO_SLURP
+    ].each do |key|
+      @browser.ua = $ua[key]
+      assert @browser.search_engine?, "#{$ua[key]} should be a search engine"
+    end
   end
 end
