@@ -262,8 +262,8 @@ describe Browser do
     assert @browser.webkit?
     assert @browser.modern?
     refute @browser.chrome?
-    assert_equal "28.0.1500.37", @browser.full_version
-    assert_equal "28", @browser.version
+    assert_equal "15.0.1147.44", @browser.full_version
+    assert_equal "15", @browser.version
   end
 
   it "detects firefox" do
