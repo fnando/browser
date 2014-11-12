@@ -66,6 +66,14 @@ describe Browser do
     assert_equal "5", @browser.version
   end
 
+  it "detects safari in webapp mode" do
+    @browser.ua = $ua["SAFARI_IPAD_WEBAPP_MODE"]
+    assert @browser.safari?
+
+    @browser.ua = $ua["SAFARI_IPHONE_WEBAPP_MODE"]
+    assert @browser.safari?
+  end
+
   it "detects ipod" do
     @browser.ua = $ua["IPOD"]
 
