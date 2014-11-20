@@ -890,13 +890,13 @@ describe Browser do
   end
 
   it "doesn't consider empty UA as bot" do
-    @browser.ua = ''
+    @browser.ua = ""
     refute @browser.bot?
   end
 
   it "allows setting empty string as bots" do
     Browser::Bots.detect_empty_ua!
-    @browser.ua = ''
+    @browser.ua = ""
     assert @browser.bot?
   end
 
@@ -928,5 +928,15 @@ describe Browser do
       @browser.ua = $ua[key]
       assert @browser.search_engine?, "#{$ua[key]} should be a search engine"
     end
+  end
+
+  it "knows a supported browser" do
+    @browser.ua = "Chrome"
+    assert @browser.known?
+  end
+
+  it "does not know an unsupported browser" do
+    @browser.ua = "Fancy new browser"
+    refute @browser.known?
   end
 end
