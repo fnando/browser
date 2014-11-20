@@ -22,7 +22,12 @@ class Browser
 
     # Detect if browser is running from PSP.
     def psp?
-      !!(ua =~ /(PSP|Playstation Vita)/)
+      !!(ua =~ /(PSP)/ || psp_vita?)
+    end
+
+    # Detect if browser is running from PSP Vita.
+    def psp_vita?
+      !!(ua =~ /Playstation Vita/)
     end
   end
 end

@@ -491,6 +491,7 @@ describe Browser do
 
     assert_equal "PlayStation Portable", @browser.name
     assert @browser.psp?
+    refute @browser.psp_vita?
     assert @browser.mobile?
   end
 
@@ -499,6 +500,7 @@ describe Browser do
 
     assert_equal "PlayStation Portable", @browser.name
     assert @browser.psp?
+    assert @browser.psp_vita?
     assert @browser.mobile?
   end
 
