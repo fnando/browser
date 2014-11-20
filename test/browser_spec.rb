@@ -831,6 +831,7 @@ describe Browser do
 
     assert @browser.console?
     assert @browser.playstation?
+    refute @browser.playstation4?
   end
 
   it "detects playstation 4" do
@@ -838,6 +839,7 @@ describe Browser do
 
     assert @browser.console?
     assert @browser.playstation?
+    assert @browser.playstation4?
   end
 
   it "detects xbox 360" do
@@ -845,6 +847,7 @@ describe Browser do
 
     assert @browser.console?
     assert @browser.xbox?
+    refute @browser.xbox_one?
   end
 
   it "detects xbox one" do
@@ -852,6 +855,7 @@ describe Browser do
 
     assert @browser.console?
     assert @browser.xbox?
+    assert @browser.xbox_one?
   end
 
   it "removes duplicate items" do

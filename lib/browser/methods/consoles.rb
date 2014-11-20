@@ -1,13 +1,23 @@
 class Browser
   module Consoles
-    # Detect if browser is Xbox.
+    # Detect if browser is running under Xbox.
     def xbox?
       !!(ua =~ /xbox/i)
     end
 
-    # Detect if browser is PlayStation.
+    # Detect if browser is running under Xbox One.
+    def xbox_one?
+      !!(ua =~ /xbox one/i)
+    end
+
+    # Detect if browser is running under PlayStation.
     def playstation?
       !!(ua =~ /playstation/i)
+    end
+
+    # Detect if browser is running under PlayStation 4.
+    def playstation4?
+      !!(ua =~ /playstation 4/i)
     end
 
     # Detect if browser is Nintendo.
