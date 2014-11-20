@@ -15,6 +15,11 @@ class Browser
       !!(ua =~ /(BlackBerry)/)
     end
 
+    # Detect if browser is Adobe AIR.
+    def adobe_air?
+      !!(ua =~ /adobeair/i)
+    end
+
     private
 
     # Regex taken from http://detectmobilebrowsers.com
