@@ -141,10 +141,13 @@ If you want to request a feature or report a bug, please use the following templ
 
 [Describe the actual results]
 
-## Environment
+## Gem version:
 
-- User agent: [Get the UA - <http://user-agent.herokuapp.com>]
-- Gem version: [Add browser gem version here]
+Browser version: [Add browser gem version here]
+
+## Report
+
+Visit <http://user-agent.herokuapp.com> and paste the URL here.
 ```
 
 ## Maintainer
