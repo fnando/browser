@@ -2,6 +2,7 @@
 
 [![Travis-CI](https://travis-ci.org/fnando/browser.png)](https://travis-ci.org/fnando/browser)
 [![CodeClimate](https://codeclimate.com/github/fnando/browser.png)](https://codeclimate.com/github/fnando/browser)
+[![Gem Version](https://badge.fury.io/rb/browser.svg)](http://badge.fury.io/rb/browser)
 
 Do some browser detection with Ruby. Includes ActionController integration.
 
