@@ -13,11 +13,23 @@ class Browser
     end
 
     def bot?
-      Browser::Bots.detect_empty_ua? && ua.strip == "" || BOTS.any? {|key, _| ua.include?(key) }
+      bot_with_empty_ua? || BOTS.any? {|key, _| ua.include?(key) }
+    end
+
+    def bot_name
+      return unless bot?
+      return "Generic Bot" if bot_with_empty_ua?
+      BOTS.find {|key, description| ua.include?(key) }.first
     end
 
     def search_engine?
       SEARCH_ENGINES.any? {|key, _| ua.include?(key) }
+    end
+
+    private
+
+    def bot_with_empty_ua?
+      Browser::Bots.detect_empty_ua? && ua.strip == ""
     end
   end
 end

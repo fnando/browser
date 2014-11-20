@@ -897,13 +897,35 @@ describe Browser do
   it "allows setting empty string as bots" do
     Browser::Bots.detect_empty_ua!
     @browser.ua = ""
+
     assert @browser.bot?
   end
 
-  it "doesn't consider mozilla as a bot when considerint empty UA" do
+  it "doesn't detect mozilla as a bot when considering empty UA" do
     Browser::Bots.detect_empty_ua!
     @browser.ua = "Mozilla"
+
     refute @browser.bot?
+  end
+
+  it "returns bot name" do
+    @browser.ua = $ua["GOOGLE_BOT"]
+    assert_equal @browser.bot_name, "Googlebot"
+
+    @browser.ua = $ua["FACEBOOK_BOT"]
+    assert_equal @browser.bot_name, "facebookexternalhit"
+  end
+
+  it "returns bot name (empty string ua detection enabled)" do
+    Browser::Bots.detect_empty_ua!
+    @browser.ua = ""
+
+    assert_equal @browser.bot_name, "Generic Bot"
+  end
+
+  it "returns nil for non-bots" do
+    @browser.ua = $ua["CHROME"]
+    assert_equal @browser.bot_name, nil
   end
 
   it "detects chrome os" do
