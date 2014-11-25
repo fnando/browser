@@ -106,12 +106,20 @@ class Browser
     # Return the platform.
     def platform
       case
-      when linux?     then :linux
-      when mac?       then :mac
-      when windows?   then :windows
+      when android?       then :android
+      when ios?           then :ios
+      when blackberry?    then :blackberry
+      when linux?         then :linux
+      when mac?           then :mac
+      when windows?       then :windows
       else
         :other
       end
+    end
+
+    # Passing back pretty names from OS hash
+    def platform_description
+      OS[platform]
     end
   end
 end

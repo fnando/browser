@@ -31,9 +31,10 @@ browser.tablet?
 browser.console?
 browser.firefox?
 browser.ie?
-browser.ie6?            # this goes up to 11
-browser.modern?         # Webkit, Firefox 17+, IE 9+ and Opera 12+
-browser.platform        # return :mac, :windows, :linux or :other
+browser.ie6?                  # this goes up to 11
+browser.modern?               # Webkit, Firefox 17+, IE 9+ and Opera 12+
+browser.platform              # :mac, :windows, :linux, :ios, :android, :blackberry, :other
+browser.platform_description  # human-friendly name for `platform` value
 browser.mac?
 browser.windows?
 browser.windows_x64?
@@ -121,6 +122,16 @@ Rails.configuration.middleware.use Browser::Middleware do
   redirect_to upgrade_path(browser: "oldfx") if browser.firefox? && !browser.modern?
 end
 ```
+
+## Platform descriptions
+
+To customize platform names, modify the `Browser::OS` hash. It has keys which correspond to `platform` values. For example, to override the description for platform `:mac`:
+
+```ruby
+Browser::OS[:mac] = "Apple Computer"
+```
+
+Now, `browser.platform_description` will return `"Apple Computer"` whenever `browser.platform` is `:mac`.
 
 ## Maintainer
 

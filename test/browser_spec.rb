@@ -564,7 +564,6 @@ describe Browser do
 
     assert meta.include?("blackberry")
     assert meta.include?("blackberry4")
-    assert meta.include?("other")
     assert meta.include?("mobile")
   end
 
@@ -615,12 +614,14 @@ describe Browser do
   it "detects mac platform" do
     @browser.ua = "Mac OS X"
     assert_equal :mac, @browser.platform
+    assert_equal "Macintosh", @browser.platform_description
     assert @browser.mac?
   end
 
   it "detects windows platform" do
     @browser.ua = "Windows"
     assert_equal :windows, @browser.platform
+    assert_equal "Windows", @browser.platform_description
     assert @browser.windows?
   end
 
@@ -641,12 +642,40 @@ describe Browser do
   it "detects linux platform" do
     @browser.ua = "Linux"
     assert_equal :linux, @browser.platform
+    assert_equal "Linux", @browser.platform_description
     assert @browser.linux?
+  end
+
+  it "detects andriod platform" do
+    @browser.ua = $ua["SAMSUNG"]
+    assert_equal :android, @browser.platform
+    assert_equal "Android", @browser.platform_description
+  end
+
+  it "detects blackberry platform" do
+    @browser.ua = $ua["BLACKBERRY6"]
+    assert_equal :blackberry, @browser.platform
+    assert_equal "BlackBerry", @browser.platform_description
+  end
+
+  it "detects ios platform" do
+    @browser.ua = $ua["IPHONE"]
+    assert_equal :ios, @browser.platform
+    assert_equal "iOS", @browser.platform_description
   end
 
   it "detects unknown platform" do
     @browser.ua = "Unknown"
     assert_equal :other, @browser.platform
+    assert_equal "Other", @browser.platform_description
+  end
+
+  it "can customize platform" do
+    previous_mac = Browser::OS[:mac]
+    Browser::OS[:mac] = "Apple Desktop"
+    @browser.ua = $ua["SAFARI"]
+    assert_equal "Apple Desktop", @browser.platform_description
+    Browser::OS[:mac] = previous_mac
   end
 
   it "returns all known languages" do
