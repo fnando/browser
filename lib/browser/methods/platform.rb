@@ -107,15 +107,19 @@ class Browser
     # Passing back pretty names from OS hash
     def platform
       case
-      when android?       then OS[:android]
-      when ios?           then OS[:ios]
-      when blackberry?    then OS[:blackberry]
-      when linux?         then OS[:linux]
-      when mac?           then OS[:mac]
-      when windows?       then OS[:windows]
+      when android?       then :android
+      when ios?           then :ios
+      when blackberry?    then :blackberry
+      when linux?         then :linux
+      when mac?           then :mac
+      when windows?       then :windows
       else
-        OS[:other]
+        :other
       end
+    end
+
+    def platform_description
+      OS[platform]
     end
   end
 end
