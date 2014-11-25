@@ -65,14 +65,13 @@ class Browser
   }
 
   OS = {
-    :ios         => "iOS",
-    :mac         => "Macintosh",
-    :android     => "Android",
-    :windows     => "Windows",
-    :linux       => "Linux",
-    :blackberry  => "BlackBerry",
-
-    :other       => "Other"
+    ios:          "iOS",
+    mac:          "Macintosh",
+    android:      "Android",
+    windows:      "Windows",
+    linux:        "Linux",
+    blackberry:   "BlackBerry",
+    other:        "Other",
   }
 
   VERSIONS = {

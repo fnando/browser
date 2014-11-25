@@ -646,19 +646,19 @@ describe Browser do
     assert @browser.linux?
   end
 
-  it 'detects andriod platform' do
+  it "detects andriod platform" do
     @browser.ua = $ua["SAMSUNG"]
     assert_equal :android, @browser.platform
     assert_equal "Android", @browser.platform_description
   end
 
-  it 'detects blackberry platform' do
+  it "detects blackberry platform" do
     @browser.ua = $ua["BLACKBERRY6"]
     assert_equal :blackberry, @browser.platform
     assert_equal "BlackBerry", @browser.platform_description
   end
 
-  it 'detects ios platform' do
+  it "detects ios platform" do
     @browser.ua = $ua["IPHONE"]
     assert_equal :ios, @browser.platform
     assert_equal "iOS", @browser.platform_description
@@ -670,7 +670,7 @@ describe Browser do
     assert_equal "Other", @browser.platform_description
   end
 
-  it 'can customize platform' do
+  it "can customize platform" do
     previous_mac = Browser::OS[:mac]
     Browser::OS[:mac] = "Apple Desktop"
     @browser.ua = $ua["SAFARI"]
