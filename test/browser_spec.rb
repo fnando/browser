@@ -670,6 +670,14 @@ describe Browser do
     assert_equal "Other", @browser.platform_description
   end
 
+  it 'can customize platform' do
+    previous_mac = Browser::OS[:mac]
+    Browser::OS[:mac] = "Apple Desktop"
+    @browser.ua = $ua["SAFARI"]
+    assert_equal "Apple Desktop", @browser.platform_description
+    Browser::OS[:mac] = previous_mac
+  end
+
   it "returns all known languages" do
     @browser.accept_language = "en-us,en;q=0.8,pt-br;q=0.5,pt;q=0.3"
     assert_equal ["en-us", "en", "pt-br", "pt"], @browser.accept_language

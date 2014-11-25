@@ -104,7 +104,6 @@ class Browser
     end
 
     # Return the platform.
-    # Passing back pretty names from OS hash
     def platform
       case
       when android?       then :android
@@ -118,6 +117,7 @@ class Browser
       end
     end
 
+    # Passing back pretty names from OS hash
     def platform_description
       OS[platform]
     end
