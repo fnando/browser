@@ -64,6 +64,17 @@ class Browser
     other: "Other",
   }
 
+  OS = {
+    :ios         => "iOS",
+    :mac         => "Macintosh",
+    :android     => "Android",
+    :windows     => "Windows",
+    :linux       => "Linux",
+    :blackberry  => "BlackBerry",
+
+    :other       => "Other"
+  }
+
   VERSIONS = {
     chrome: %r[(?:Chrome|CriOS)/([\d.]+)],
     default: %r[(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS|AdobeAIR)[/ ]?([a-z0-9.]+)]i,
