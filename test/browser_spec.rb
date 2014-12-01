@@ -624,6 +624,27 @@ describe Browser do
     assert @browser.windows?
   end
 
+  it "detects windows_xp" do
+    @browser.ua = $ua["WINDOWS_XP"]
+
+    assert @browser.windows?
+    assert @browser.windows_xp?
+  end
+
+  it "detects windows_vista" do
+    @browser.ua = $ua["WINDOWS_VISTA"]
+
+    assert @browser.windows?
+    assert @browser.windows_vista?
+  end
+
+  it "detects windows7" do
+    @browser.ua = $ua["WINDOWS7"]
+
+    assert @browser.windows?
+    assert @browser.windows7?
+  end
+
   it "detects windows8" do
     @browser.ua = $ua["WINDOWS8"]
 
