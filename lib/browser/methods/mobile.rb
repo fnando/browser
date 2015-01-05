@@ -10,6 +10,12 @@ class Browser
       !!(ua =~ /Opera Mini/)
     end
 
+    # Detect if browser is UC Browser.
+    # http://www.ucweb.com/download/UCBrowser_User_Agent_en.pdf
+    def uc_browser?
+      !!(ua =~ /UCBrowser/)
+    end
+
     # Detect if browser is BlackBerry
     def blackberry?
       !!(ua =~ /(BlackBerry)/)
