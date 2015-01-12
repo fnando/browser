@@ -952,8 +952,8 @@ describe Browser do
     end
   end
 
-  it 'detects Google Structured Data Testing Tool as a bot' do
-    @browser.ua = $ua['GOOGLE_STRUCTURED_DATA_TESTING_TOOL']
+  it "detects Google Structured Data Testing Tool as a bot" do
+    @browser.ua = $ua["GOOGLE_STRUCTURED_DATA_TESTING_TOOL"]
 
     assert @browser.bot?, "Google Structured Data Testing Tool should be a bot"
   end
