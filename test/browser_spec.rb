@@ -889,6 +889,11 @@ describe Browser do
     refute @browser.bot?
   end
 
+  it "detects Google Page Speed as a bot" do
+    @browser.ua = $ua["GOOGLE_PAGE_SPEED_INSIGHTS"]
+    assert @browser.bot?
+  end
+
   it "doesn't consider empty UA as bot" do
     @browser.ua = ""
     refute @browser.bot?
