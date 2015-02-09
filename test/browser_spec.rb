@@ -251,6 +251,18 @@ describe Browser do
     assert_equal "11", @browser.version
   end
 
+  it "detects Lumia 800" do
+    @browser.ua = $ua["LUMIA800"]
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert @browser.ie9?
+    assert_equal "9.0", @browser.full_version
+    assert_equal "9", @browser.version
+    refute @browser.tablet?
+    assert @browser.mobile?
+  end
+
   it "detects opera" do
     @browser.ua = $ua["OPERA"]
 
