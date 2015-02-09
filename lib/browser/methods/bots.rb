@@ -19,7 +19,7 @@ class Browser
     def bot_name
       return unless bot?
       return "Generic Bot" if bot_with_empty_ua?
-      BOTS.find {|key, description| ua.include?(key) }.first
+      BOTS.find {|key, _| ua.include?(key) }.first
     end
 
     def search_engine?
