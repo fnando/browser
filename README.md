@@ -2,6 +2,7 @@
 
 [![Travis-CI](https://travis-ci.org/fnando/browser.png)](https://travis-ci.org/fnando/browser)
 [![CodeClimate](https://codeclimate.com/github/fnando/browser.png)](https://codeclimate.com/github/fnando/browser)
+[![Gem Version](https://badge.fury.io/rb/browser.svg)](http://badge.fury.io/rb/browser)
 
 Do some browser detection with Ruby. Includes ActionController integration.
 
@@ -44,6 +45,7 @@ browser.phantom_js?
 browser.quicktime?
 browser.core_media?
 browser.silk?
+browser.known?          # has the browser been successfully detected?
 browser.meta            # an array with several attributes
 browser.to_s            # the meta info joined by space
 ```
@@ -120,31 +122,11 @@ Rails.configuration.middleware.use Browser::Middleware do
 end
 ```
 
-## Issues
-
-If you want to request a feature or report a bug, please use the following template.
-
-```markdown
-## Description
-
-[Add feature/bug description here]
-
-## How to reproduce
-
-[Add steps on how to reproduce this issue]
-
-## What do you expect
-
-[Describe what do you expect to happen]
-
-## What happened instead
-
-[Describe the actual results]
-
-## Environment
-
-- User agent: [Get the UA - <http://user-agent.herokuapp.com>]
-- Gem version: [Add browser gem version here]
+If you need acccess to the `Rack::Request` object (e.g. to exclude a path), you can do so with `request`.
+```ruby
+Rails.configuration.middleware.use Browser::Middleware do
+  redirect_to upgrade_path unless browser.modern? || request.env['PATH_INFO'] == '/exclude_me'
+end
 ```
 
 ## Maintainer

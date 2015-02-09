@@ -251,6 +251,18 @@ describe Browser do
     assert_equal "11", @browser.version
   end
 
+  it "detects Lumia 800" do
+    @browser.ua = $ua["LUMIA800"]
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert @browser.ie9?
+    assert_equal "9.0", @browser.full_version
+    assert_equal "9", @browser.version
+    refute @browser.tablet?
+    assert @browser.mobile?
+  end
+
   it "detects opera" do
     @browser.ua = $ua["OPERA"]
 
@@ -491,6 +503,7 @@ describe Browser do
 
     assert_equal "PlayStation Portable", @browser.name
     assert @browser.psp?
+    refute @browser.psp_vita?
     assert @browser.mobile?
   end
 
@@ -499,6 +512,7 @@ describe Browser do
 
     assert_equal "PlayStation Portable", @browser.name
     assert @browser.psp?
+    assert @browser.psp_vita?
     assert @browser.mobile?
   end
 
@@ -829,6 +843,7 @@ describe Browser do
 
     assert @browser.console?
     assert @browser.playstation?
+    refute @browser.playstation4?
   end
 
   it "detects playstation 4" do
@@ -836,6 +851,7 @@ describe Browser do
 
     assert @browser.console?
     assert @browser.playstation?
+    assert @browser.playstation4?
   end
 
   it "detects xbox 360" do
@@ -843,6 +859,7 @@ describe Browser do
 
     assert @browser.console?
     assert @browser.xbox?
+    refute @browser.xbox_one?
   end
 
   it "detects xbox one" do
@@ -850,6 +867,7 @@ describe Browser do
 
     assert @browser.console?
     assert @browser.xbox?
+    assert @browser.xbox_one?
   end
 
   it "removes duplicate items" do
@@ -883,21 +901,48 @@ describe Browser do
     refute @browser.bot?
   end
 
+  it "detects Google Page Speed as a bot" do
+    @browser.ua = $ua["GOOGLE_PAGE_SPEED_INSIGHTS"]
+    assert @browser.bot?
+  end
+
   it "doesn't consider empty UA as bot" do
-    @browser.ua = ''
+    @browser.ua = ""
     refute @browser.bot?
   end
 
   it "allows setting empty string as bots" do
     Browser::Bots.detect_empty_ua!
-    @browser.ua = ''
+    @browser.ua = ""
+
     assert @browser.bot?
   end
 
-  it "doesn't consider mozilla as a bot when considerint empty UA" do
+  it "doesn't detect mozilla as a bot when considering empty UA" do
     Browser::Bots.detect_empty_ua!
     @browser.ua = "Mozilla"
+
     refute @browser.bot?
+  end
+
+  it "returns bot name" do
+    @browser.ua = $ua["GOOGLE_BOT"]
+    assert_equal @browser.bot_name, "Googlebot"
+
+    @browser.ua = $ua["FACEBOOK_BOT"]
+    assert_equal @browser.bot_name, "facebookexternalhit"
+  end
+
+  it "returns bot name (empty string ua detection enabled)" do
+    Browser::Bots.detect_empty_ua!
+    @browser.ua = ""
+
+    assert_equal @browser.bot_name, "Generic Bot"
+  end
+
+  it "returns nil for non-bots" do
+    @browser.ua = $ua["CHROME"]
+    assert_equal @browser.bot_name, nil
   end
 
   it "detects chrome os" do
@@ -922,5 +967,31 @@ describe Browser do
       @browser.ua = $ua[key]
       assert @browser.search_engine?, "#{$ua[key]} should be a search engine"
     end
+  end
+
+  it "detects Google Structured Data Testing Tool as a bot" do
+    @browser.ua = $ua["GOOGLE_STRUCTURED_DATA_TESTING_TOOL"]
+
+    assert @browser.bot?, "Google Structured Data Testing Tool should be a bot"
+  end
+
+  it "knows a supported browser" do
+    @browser.ua = "Chrome"
+    assert @browser.known?
+  end
+
+  it "does not know an unsupported browser" do
+    @browser.ua = "Fancy new browser"
+    refute @browser.known?
+  end
+
+  it "detects adobe air" do
+    @browser.ua = $ua["ADOBE_AIR"]
+
+    assert @browser.adobe_air?
+    assert @browser.webkit?
+    assert_equal @browser.version, "13"
+    assert_equal @browser.full_version, "13.0"
+    assert_equal @browser.name, "Other"
   end
 end

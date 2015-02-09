@@ -66,7 +66,7 @@ class Browser
 
   VERSIONS = {
     chrome: %r[(?:Chrome|CriOS)/([\d.]+)],
-    default: %r[(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
+    default: %r[(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS|AdobeAIR)[/ ]?([a-z0-9.]+)]i,
     opera: %r[(?:Opera/.*? Version/([\d.]+)|Chrome/.*?OPR/([\d.]+))],
     ie: %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
   }
@@ -182,6 +182,10 @@ class Browser
   # Detect if browser is Silk.
   def silk?
     !!(ua =~ /Silk/)
+  end
+
+  def known?
+    id != :other
   end
 
   # Return a meta info about this browser.

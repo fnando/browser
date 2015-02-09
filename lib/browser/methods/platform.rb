@@ -30,7 +30,7 @@ class Browser
       ios? && !!(ua =~ /OS 7/)
     end
 
-    # Detect if is iOS7.
+    # Detect if is iOS8.
     def ios8?
       ios? && !!(ua =~ /OS 8/)
     end
@@ -62,7 +62,7 @@ class Browser
 
     # Detect if current platform is Macintosh.
     def mac?
-      ua =~ /Mac OS X/ && !ios?
+      !!(ua =~ /Mac OS X/ && !ios?)
     end
 
     # Detect if current platform is Windows.
