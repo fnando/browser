@@ -42,12 +42,12 @@ class Browser
   alias_method :ua=, :user_agent=
 
   NAMES = {
+    ie: "Internet Explorer", # Must come before android
     chrome: "Chrome", # Must come before android
     android: "Android",
     blackberry: "BlackBerry",
     core_media: "Apple CoreMedia",
     firefox: "Firefox",
-    ie: "Internet Explorer",
     ipad: "iPad",
     iphone: "iPhone",
     ipod: "iPod Touch",
@@ -66,8 +66,8 @@ class Browser
 
   VERSIONS = {
     chrome: %r[(?:Chromeframe|Chrome|CriOS)/([\d.]+)],
-    default: %r[(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
-    opera: %r[(?:Opera/.*? Version/([\d.]+)|Chrome/([\d.]+).*?OPR)],
+    default: %r[(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS|AdobeAIR)[/ ]?([a-z0-9.]+)]i,
+    opera: %r[(?:Opera/.*? Version/([\d.]+)|Chrome/.*?OPR/([\d.]+))],
     ie: %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
   }
 
@@ -157,7 +157,11 @@ class Browser
 
   # Detect if browser is Safari.
   def safari?
-    ua =~ /Safari/ && ua !~ /Android|Chrome|CriOS|PhantomJS/
+    (ua =~ /Safari/ || safari_webapp_mode?) && ua !~ /Android|Chrome|CriOS|PhantomJS/
+  end
+
+  def safari_webapp_mode?
+    (ipad? || iphone?) && ua =~ /AppleWebKit/
   end
 
   # Detect if browser is Firefox.
@@ -178,6 +182,10 @@ class Browser
   # Detect if browser is Silk.
   def silk?
     !!(ua =~ /Silk/)
+  end
+
+  def known?
+    id != :other
   end
 
   # Return a meta info about this browser.

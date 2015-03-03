@@ -2,6 +2,7 @@
 
 [![Travis-CI](https://travis-ci.org/fnando/browser.png)](https://travis-ci.org/fnando/browser)
 [![CodeClimate](https://codeclimate.com/github/fnando/browser.png)](https://codeclimate.com/github/fnando/browser)
+[![Gem Version](https://badge.fury.io/rb/browser.svg)](http://badge.fury.io/rb/browser)
 
 Do some browser detection with Ruby. Includes ActionController integration.
 
@@ -44,6 +45,7 @@ browser.phantom_js?
 browser.quicktime?
 browser.core_media?
 browser.silk?
+browser.known?          # has the browser been successfully detected?
 browser.meta            # an array with several attributes
 browser.to_s            # the meta info joined by space
 ```
@@ -117,6 +119,13 @@ Rails.configuration.middleware.use Browser::Middleware do
   next if browser.search_engine?
   redirect_to upgrade_path(browser: "oldie") if browser.ie? && !browser.modern?
   redirect_to upgrade_path(browser: "oldfx") if browser.firefox? && !browser.modern?
+end
+```
+
+If you need acccess to the `Rack::Request` object (e.g. to exclude a path), you can do so with `request`.
+```ruby
+Rails.configuration.middleware.use Browser::Middleware do
+  redirect_to upgrade_path unless browser.modern? || request.env['PATH_INFO'] == '/exclude_me'
 end
 ```
 
