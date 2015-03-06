@@ -782,6 +782,15 @@ describe Browser do
   it "detects windows x64" do
     @browser.ua = $ua["IE10_X64_WINX64"]
     assert @browser.windows_x64?
+    refute @browser.windows_wow64?
+    assert @browser.windows_x64_inclusive?
+  end
+
+  it "detects windows wow64" do
+    @browser.ua = $ua["WINDOWS_WOW64"]
+    refute @browser.windows_x64?
+    assert @browser.windows_wow64?
+    assert @browser.windows_x64_inclusive?
   end
 
   it "detects ie11 touch desktop pc" do
