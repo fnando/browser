@@ -70,6 +70,19 @@ class Browser
       !!(ua =~ /Windows/)
     end
 
+    ## More info here => http://msdn.microsoft.com/fr-FR/library/ms537503.aspx#PltToken
+    def windows_xp?
+      windows? && !!(ua =~ /Windows NT 5.1/)
+    end
+
+    def windows_vista?
+      windows? && !!(ua =~ /Windows NT 6.0/)
+    end
+
+    def windows7?
+      windows? && !!(ua =~ /Windows NT 6.1/)
+    end
+
     def windows8?
       windows? && !!(ua =~ /Windows NT 6.[2-3]/)
     end

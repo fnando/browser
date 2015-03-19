@@ -122,6 +122,13 @@ Rails.configuration.middleware.use Browser::Middleware do
 end
 ```
 
+If you need acccess to the `Rack::Request` object (e.g. to exclude a path), you can do so with `request`.
+```ruby
+Rails.configuration.middleware.use Browser::Middleware do
+  redirect_to upgrade_path unless browser.modern? || request.env['PATH_INFO'] == '/exclude_me'
+end
+```
+
 ## Maintainer
 
 * Nando Vieira - http://nandovieira.com.br

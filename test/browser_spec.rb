@@ -251,6 +251,18 @@ describe Browser do
     assert_equal "11", @browser.version
   end
 
+  it "detects Lumia 800" do
+    @browser.ua = $ua["LUMIA800"]
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert @browser.ie9?
+    assert_equal "9.0", @browser.full_version
+    assert_equal "9", @browser.version
+    refute @browser.tablet?
+    assert @browser.mobile?
+  end
+
   it "detects opera" do
     @browser.ua = $ua["OPERA"]
 
@@ -624,6 +636,27 @@ describe Browser do
     assert @browser.windows?
   end
 
+  it "detects windows_xp" do
+    @browser.ua = $ua["WINDOWS_XP"]
+
+    assert @browser.windows?
+    assert @browser.windows_xp?
+  end
+
+  it "detects windows_vista" do
+    @browser.ua = $ua["WINDOWS_VISTA"]
+
+    assert @browser.windows?
+    assert @browser.windows_vista?
+  end
+
+  it "detects windows7" do
+    @browser.ua = $ua["WINDOWS7"]
+
+    assert @browser.windows?
+    assert @browser.windows7?
+  end
+
   it "detects windows8" do
     @browser.ua = $ua["WINDOWS8"]
 
@@ -897,6 +930,11 @@ describe Browser do
     refute @browser.bot?
   end
 
+  it "detects Google Page Speed as a bot" do
+    @browser.ua = $ua["GOOGLE_PAGE_SPEED_INSIGHTS"]
+    assert @browser.bot?
+  end
+
   it "doesn't consider empty UA as bot" do
     @browser.ua = ""
     refute @browser.bot?
@@ -958,6 +996,12 @@ describe Browser do
       @browser.ua = $ua[key]
       assert @browser.search_engine?, "#{$ua[key]} should be a search engine"
     end
+  end
+
+  it "detects Google Structured Data Testing Tool as a bot" do
+    @browser.ua = $ua["GOOGLE_STRUCTURED_DATA_TESTING_TOOL"]
+
+    assert @browser.bot?, "Google Structured Data Testing Tool should be a bot"
   end
 
   it "knows a supported browser" do
