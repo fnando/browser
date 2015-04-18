@@ -87,13 +87,12 @@ class Browser
       windows? && !!(ua =~ /Windows NT 6.[2-3]/)
     end
 
-    def windows_rt?
-      windows8? && !!(ua =~ /ARM/)
+    def windows8_1?
+      windows? && !!(ua =~ /Windows NT 6\.3/)
     end
 
-    # Detect if current platform is Linux flavor.
-    def linux?
-      !!(ua =~ /Linux/)
+    def windows_rt?
+      windows8? && !!(ua =~ /ARM/)
     end
 
     # Detect if current platform is Windows Mobile.
@@ -109,6 +108,19 @@ class Browser
     # Detect if current platform is Windows in 64-bit architecture.
     def windows_x64?
       windows? && !!(ua =~ /(Win64|x64)/) && !!(ua =~ /x64/)
+    end
+
+    def windows_wow64?
+      windows? && !!(ua =~ /WOW64/i)
+    end
+
+    def windows_x64_inclusive?
+      windows_x64? || windows_wow64?
+    end
+
+    # Detect if current platform is Linux flavor.
+    def linux?
+      !!(ua =~ /Linux/)
     end
 
     # Detect if current platform is ChromeOS
