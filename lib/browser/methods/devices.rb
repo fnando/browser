@@ -37,5 +37,15 @@ class Browser
     def windows_touchscreen_desktop?
       windows? && !!(ua =~ /Touch/)
     end
+
+    # Detect if browser is Nokia S40 Ovi Browser
+    def nokia?
+      !!(ua =~ /S40OviBrowser/)
+    end
+
+    # Detect if browser is UC Browser
+    def uc_browser?
+      !!(ua =~ /UCBrowser/)
+    end
   end
 end

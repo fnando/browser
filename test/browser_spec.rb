@@ -722,6 +722,7 @@ describe Browser do
     assert @browser.opera_mini?
     refute @browser.tablet?
     assert @browser.mobile?
+    assert @browser.proxy?
   end
 
   it "detects opera mobi" do
@@ -1027,4 +1028,23 @@ describe Browser do
     assert_equal @browser.full_version, "13.0"
     assert_equal @browser.name, "Other"
   end
+
+  it "detects nokia ovi browser" do
+    @browser.ua = $ua["NOKIA"]
+
+    assert @browser.mobile?
+    assert @browser.nokia?
+    assert @browser.proxy?
+    assert_equal @browser.name, "Nokia S40 Ovi Browser"
+  end
+
+  it "detects UC Browser" do
+    @browser.ua = $ua["UC_BROWSER"]
+
+    assert @browser.mobile?
+    assert @browser.uc_browser?
+    assert @browser.proxy?
+    assert_equal @browser.name, "UC Browser"
+  end
+
 end
