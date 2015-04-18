@@ -909,6 +909,7 @@ describe Browser do
       LINKDEXBOT
       LOAD_TIME_BOT
       MAIL_RU
+      MEGAINDEX_RU
       MSN_BOT
       SCRAPY
       YANDEX_DIRECT
