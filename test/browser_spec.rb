@@ -922,6 +922,7 @@ describe Browser do
       MAIL_RU
       MEGAINDEX_RU
       MSN_BOT
+      QUERYSEEKER
       SCRAPY
       YANDEX_DIRECT
       YANDEX_METRIKA

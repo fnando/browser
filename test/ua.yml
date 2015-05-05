@@ -67,6 +67,7 @@ PLAYSTATION4: 'Mozilla/5.0 (PlayStation 4 1.020) AppleWebKit/536.26 (KHTML, like
 PSP: 'Mozilla/4.0 (PSP (PlayStation Portable); 2.00)'
 PSP_VITA: 'Mozilla/5.0 (Playstation Vita 1.61) AppleWebKit/531.22.8 (KHTML, like Gecko) Silk/3.2'
 QUICKTIME: 'QuickTime/7.6.8 (qtver=7.6.8;os=Windows NT 5.1Service Pack 3)'
+QUERYSEEKER: 'QuerySeekerSpider ( http://queryseeker.com/bot.html )'
 SAFARI: 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-us) AppleWebKit/533.17.8 (KHTML, like Gecko) Version/5.0.1 Safari/533.17.8'
 SAFARI_IPAD_WEBAPP_MODE: 'Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405'
 SAFARI_IPHONE_WEBAPP_MODE: 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.20 (KHTML, like Gecko) Mobile/7B298g'
