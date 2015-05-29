@@ -673,6 +673,15 @@ describe Browser do
     assert @browser.windows8_1?
   end
 
+  it "detects windows 10" do
+    @browser.ua = $ua["WINDOWS_10"]
+
+    assert @browser.windows?
+    refute @browser.windows8?
+    refute @browser.windows8_1?
+    assert @browser.windows10?
+  end
+
   it "detects linux platform" do
     @browser.ua = "Linux"
     assert_equal :linux, @browser.platform
