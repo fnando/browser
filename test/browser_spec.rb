@@ -947,6 +947,7 @@ describe Browser do
 
   it "detects bots" do
     %w[
+      APPLE_BOT
       DOT_BOT
       FACEBOOK_BOT
       GOOGLE_BOT
