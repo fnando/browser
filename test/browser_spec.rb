@@ -299,6 +299,7 @@ describe Browser do
   it "detects modern firefox" do
     @browser.ua = $ua["FIREFOX_MODERN"]
 
+    assert_equal :firefox, @browser.id
     assert_equal "Firefox", @browser.name
     assert @browser.firefox?
     assert @browser.modern?
@@ -309,7 +310,8 @@ describe Browser do
   it "detects firefox android tablet" do
     @browser.ua = $ua["FIREFOX_TABLET"]
 
-    assert_equal "Android", @browser.name
+    assert_equal :firefox, @browser.id
+    assert_equal "Firefox", @browser.name
     assert @browser.firefox?
     assert @browser.modern?
     assert @browser.tablet?

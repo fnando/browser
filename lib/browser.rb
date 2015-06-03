@@ -42,13 +42,13 @@ class Browser
   alias_method :ua=, :user_agent=
 
   NAMES = {
-    edge: "Microsoft Edge",  # Must come before everything
-    ie: "Internet Explorer", # Must come before android
-    chrome: "Chrome", # Must come before android
+    edge: "Microsoft Edge",   # Must come before everything
+    ie: "Internet Explorer",  # Must come before android
+    chrome: "Chrome",         # Must come before android
+    firefox: "Firefox",       # Must come before android
     android: "Android",
     blackberry: "BlackBerry",
     core_media: "Apple CoreMedia",
-    firefox: "Firefox",
     ipad: "iPad",
     iphone: "iPhone",
     ipod: "iPod Touch",
