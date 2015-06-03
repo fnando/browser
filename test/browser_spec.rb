@@ -808,6 +808,37 @@ describe Browser do
     assert_equal "11", @browser.version
   end
 
+  it "detects Microsoft Edge" do
+    @browser.ua = $ua["MS_EDGE"]
+
+    assert_equal :edge, @browser.id
+    assert_equal "Microsoft Edge", @browser.name
+    assert_equal "12.0", @browser.full_version
+    assert_equal "12", @browser.version
+    assert @browser.windows10?
+    assert @browser.edge?
+    refute @browser.webkit?
+    refute @browser.chrome?
+    refute @browser.safari?
+    refute @browser.mobile?
+  end
+
+  it "detects Microsoft Edge Mobile" do
+    @browser.ua = $ua["MS_EDGE_MOBILE"]
+
+    assert_equal :edge, @browser.id
+    assert_equal "Microsoft Edge", @browser.name
+    assert_equal "12.0", @browser.full_version
+    assert_equal "12", @browser.version
+    refute @browser.windows10?
+    assert @browser.windows_phone?
+    assert @browser.edge?
+    assert @browser.mobile?
+    refute @browser.webkit?
+    refute @browser.chrome?
+    refute @browser.safari?
+  end
+
   it "detects kindle monochrome" do
     @browser.ua = $ua["KINDLE"]
 

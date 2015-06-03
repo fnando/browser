@@ -91,6 +91,10 @@ class Browser
       windows? && !!(ua =~ /Windows NT 6\.3/)
     end
 
+    def windows10?
+      windows? && !!(ua =~ /Windows NT 10/)
+    end
+
     def windows_rt?
       windows8? && !!(ua =~ /ARM/)
     end

@@ -42,6 +42,7 @@ class Browser
   alias_method :ua=, :user_agent=
 
   NAMES = {
+    edge: "Microsoft Edge",  # Must come before everything
     ie: "Internet Explorer", # Must come before android
     chrome: "Chrome", # Must come before android
     android: "Android",
@@ -65,6 +66,7 @@ class Browser
   }
 
   VERSIONS = {
+    edge: %r[Edge/([\d.]+)],
     chrome: %r[(?:Chrome|CriOS)/([\d.]+)],
     default: %r[(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS|AdobeAIR)[/ ]?([a-z0-9.]+)]i,
     opera: %r[(?:Opera/.*? Version/([\d.]+)|Chrome/.*?OPR/([\d.]+))],
@@ -137,7 +139,7 @@ class Browser
 
   # Detect if browser is WebKit-based.
   def webkit?
-    !!(ua =~ /AppleWebKit/i)
+    ua =~ /AppleWebKit/i && !edge?
   end
 
   # Detect if browser is QuickTime
@@ -171,7 +173,12 @@ class Browser
 
   # Detect if browser is Chrome.
   def chrome?
-    !!(ua =~ /Chrome|CriOS/) && !opera?
+    ua =~ /Chrome|CriOS/ && !opera? && !edge?
+  end
+
+  # Detect if browser is Microsoft Edge.
+  def edge?
+    !!(ua =~ /Windows.*?\bEdge\/\d+/)
   end
 
   # Detect if browser is Opera.
