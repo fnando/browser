@@ -1,7 +1,7 @@
 ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile", __FILE__)
 require "bundler/setup"
 require "minitest/autorun"
-require "minitest/unit"
+require "minitest/utils"
 require "browser"
 require "yaml"
 
