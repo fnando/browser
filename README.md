@@ -62,7 +62,7 @@ The current rules that define a modern browser are pretty loose:
 * Firefox Tablet 14+
 * Opera 12+
 
-You can define your your rules. A rule must be a proc/lambda or any object that implements the method === and accepts the browser object. To redefine all rules, clear the existing rules before adding your own.
+You can define your own rules. A rule must be a proc/lambda or any object that implements the method === and accepts the browser object. To redefine all rules, clear the existing rules before adding your own.
 
 ```ruby
 # Only Chrome Canary is considered modern.
