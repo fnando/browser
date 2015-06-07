@@ -37,5 +37,9 @@ class Browser
     def windows_touchscreen_desktop?
       windows? && !!(ua =~ /Touch/)
     end
+    
+    def desktop?
+      !mobile? && !tablet?
+    end
   end
 end

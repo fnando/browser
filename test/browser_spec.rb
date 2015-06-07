@@ -1062,4 +1062,13 @@ describe Browser do
     assert_equal @browser.full_version, "13.0"
     assert_equal @browser.name, "Other"
   end
+  
+  it "detects desktop" do
+    @browser.ua = $ua["CHROME"]
+
+    assert @browser.desktop?
+
+    @browser.ua = $ua["FIREFOX"]
+    assert @browser.desktop?
+  end
 end
