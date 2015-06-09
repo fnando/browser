@@ -67,7 +67,7 @@ You can define your own rules. A rule must be a proc/lambda or any object that i
 ```ruby
 # Only Chrome Canary is considered modern.
 Browser.modern_rules.clear
-Browser.modern_rules << -> b { b.chrome? && b.version >= '37' }
+Browser.modern_rules << -> b { b.chrome? && b.version.to_i >= 37 }
 ```
 
 ### Rails integration
