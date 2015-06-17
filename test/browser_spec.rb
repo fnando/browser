@@ -51,6 +51,7 @@ describe Browser do
     assert @browser.ios?
     refute @browser.tablet?
     refute @browser.mac?
+    refute @browser.safari_webapp_mode_or_cna?
     assert_equal "3.0", @browser.full_version
     assert_equal "3", @browser.version
   end
@@ -66,12 +67,38 @@ describe Browser do
     assert_equal "5", @browser.version
   end
 
-  it "detects safari in webapp mode" do
+  it "detects safari in webapp mode or CNA" do
     @browser.ua = $ua["SAFARI_IPAD_WEBAPP_MODE"]
+    assert @browser.ipad?
     assert @browser.safari?
+    assert @browser.webkit?
+    assert @browser.modern?
+    assert @browser.ios?
+    assert @browser.tablet?
+    assert @browser.safari_webapp_mode_or_cna?
+    refute @browser.mobile?
+    refute @browser.mac?
 
     @browser.ua = $ua["SAFARI_IPHONE_WEBAPP_MODE"]
+    assert @browser.iphone?
     assert @browser.safari?
+    assert @browser.webkit?
+    assert @browser.mobile?
+    assert @browser.modern?
+    assert @browser.ios?
+    assert @browser.safari_webapp_mode_or_cna?
+    refute @browser.tablet?
+    refute @browser.mac?
+
+    @browser.ua = $ua["SAFARI_MAC_CNA"]
+    assert @browser.mac?
+    assert @browser.safari?
+    assert @browser.webkit?
+    assert @browser.modern?
+    assert @browser.safari_webapp_mode_or_cna?
+    refute @browser.tablet?
+    refute @browser.mobile?
+    refute @browser.ios?
   end
 
   it "detects ipod" do
@@ -102,6 +129,7 @@ describe Browser do
     assert @browser.tablet?
     refute @browser.mobile?
     refute @browser.mac?
+    refute @browser.safari_webapp_mode_or_cna?
     assert_equal "4.0.4", @browser.full_version
     assert_equal "4", @browser.version
   end

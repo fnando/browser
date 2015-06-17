@@ -159,11 +159,14 @@ class Browser
 
   # Detect if browser is Safari.
   def safari?
-    (ua =~ /Safari/ || safari_webapp_mode?) && ua !~ /Android|Chrome|CriOS|PhantomJS/
+    !!((ua =~ /Safari/ || safari_webapp_mode_or_cna?) && ua !~ /Android|Chrome|CriOS|PhantomJS/)
   end
 
-  def safari_webapp_mode?
-    (ipad? || iphone?) && ua =~ /AppleWebKit/
+  # Detect if IOS is in full screen app mode or in CNA, which is indistinguishable
+  def safari_webapp_mode_or_cna?
+    tokens = ua.scan(/(\w+)(?=\/[\d\.]+)/).flatten
+    tokens.include?('Mozilla') && tokens.include?('AppleWebKit') &&
+      (tokens.size == 2 || (tokens.size == 3 && tokens.include?('Mobile')))
   end
 
   # Detect if browser is Firefox.
