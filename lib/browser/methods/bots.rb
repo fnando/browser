@@ -13,7 +13,7 @@ class Browser
     end
 
     def bot?
-      bot_with_empty_ua? || BOTS.any? {|key, _| ua.include?(key) }
+      bot_with_empty_ua? || BOTS.any? {|key, _| ua.downcase.include?(key.downcase) }
     end
 
     def bot_name
