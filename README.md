@@ -32,6 +32,7 @@ browser.console?
 browser.firefox?
 browser.ie?
 browser.ie6?            # this goes up to 11
+browser.edge?           # Newest MS browser
 browser.modern?         # Webkit, Firefox 17+, IE 9+ and Opera 12+
 browser.platform        # return :mac, :windows, :linux or :other
 browser.mac?
