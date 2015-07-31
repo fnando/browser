@@ -819,6 +819,7 @@ describe Browser do
     assert_equal "12", @browser.version
     assert @browser.windows10?
     assert @browser.edge?
+    assert @browser.modern?
     refute @browser.webkit?
     refute @browser.chrome?
     refute @browser.safari?
@@ -835,6 +836,7 @@ describe Browser do
     refute @browser.windows10?
     assert @browser.windows_phone?
     assert @browser.edge?
+    assert @browser.modern?
     assert @browser.mobile?
     refute @browser.webkit?
     refute @browser.chrome?
