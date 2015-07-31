@@ -91,6 +91,7 @@ class Browser
     rules << -> b { b.webkit? }
     rules << -> b { b.firefox? && b.version.to_i >= 17 }
     rules << -> b { b.ie? && b.version.to_i >= 9 }
+    rules << -> b { b.edge? }
     rules << -> b { b.opera? && b.version.to_i >= 12 }
     rules << -> b { b.firefox? && b.tablet? && b.android? && b.version.to_i >= 14 }
   end
