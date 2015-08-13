@@ -87,6 +87,34 @@ This adds a helper method called `browser`, that inspects your current user agen
 <% end %>
 ```
 
+### Internet Explorer
+
+Internet Explorer has a compatibility view mode that allows newer versions (IE8+) to run as an older version. Browser will always return the navigator version, ignoring the compatibility view version, when defined. If you need to get the engine's version, you have to use `Browser#msie_version` and `Browser#msie_full_version`.
+
+So, let's say an user activates compatibility view in a IE11 browser. This is what you'll get:
+
+```ruby
+browser.version
+#=> 11
+
+browser.full_version
+#=> 11.0
+
+browser.msie_version
+#=> 7
+
+browser.msie_full_version
+#=> 7.0
+
+browser.compatibility_view?
+#=> true
+
+browser.modern?
+#=> false
+```
+
+This behavior changed in `v1.0.0`; previously there wasn't a way of getting the real browser version.
+
 ### Bots
 
 Browser used to detect empty user agents as bots, but this behaviour has changed. If you want to bring this detection back, you can activate it through the following call:
