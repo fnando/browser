@@ -181,12 +181,13 @@ describe Browser do
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie7?
-    refute @browser.ie8?
+    assert @browser.ie8?
     refute @browser.modern?
     assert @browser.compatibility_view?
-    assert_equal "7.0", @browser.full_version
-    assert_equal "7", @browser.version
+    assert_equal "8.0", @browser.full_version
+    assert_equal "8", @browser.version
+    assert_equal "7.0", @browser.msie_full_version
+    assert_equal "7", @browser.msie_version
   end
 
   it "detects ie9" do
@@ -206,12 +207,13 @@ describe Browser do
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie7?
-    refute @browser.ie9?
+    assert @browser.ie9?
     refute @browser.modern?
     assert @browser.compatibility_view?
-    assert_equal "7.0", @browser.full_version
-    assert_equal "7", @browser.version
+    assert_equal "9.0", @browser.full_version
+    assert_equal "9", @browser.version
+    assert_equal "7.0", @browser.msie_full_version
+    assert_equal "7", @browser.msie_version
   end
 
   it "detects ie10" do
@@ -231,12 +233,13 @@ describe Browser do
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie7?
-    refute @browser.ie10?
+    assert @browser.ie10?
     refute @browser.modern?
     assert @browser.compatibility_view?
-    assert_equal "7.0", @browser.full_version
-    assert_equal "7", @browser.version
+    assert_equal "10.0", @browser.full_version
+    assert_equal "10", @browser.version
+    assert_equal "7.0", @browser.msie_full_version
+    assert_equal "7", @browser.msie_version
   end
 
   it "detects ie11" do
@@ -249,6 +252,20 @@ describe Browser do
     refute @browser.compatibility_view?
     assert_equal "11.0", @browser.full_version
     assert_equal "11", @browser.version
+  end
+
+  it "detects ie11 in compatibility view" do
+    @browser.ua = $ua["IE11_COMPAT"]
+
+    assert_equal "Internet Explorer", @browser.name
+    assert @browser.ie?
+    assert @browser.ie11?
+    refute @browser.modern?
+    assert @browser.compatibility_view?
+    assert_equal "11.0", @browser.full_version
+    assert_equal "11", @browser.version
+    assert_equal "7.0", @browser.msie_full_version
+    assert_equal "7", @browser.msie_version
   end
 
   it "detects Lumia 800" do
@@ -820,6 +837,24 @@ describe Browser do
     assert @browser.windows10?
     assert @browser.edge?
     assert @browser.modern?
+    refute @browser.webkit?
+    refute @browser.chrome?
+    refute @browser.safari?
+    refute @browser.mobile?
+  end
+
+  it "detects Microsoft Edge in compatibility view" do
+    @browser.ua = $ua["MS_EDGE_COMPAT"]
+
+    assert_equal :edge, @browser.id
+    assert_equal "Microsoft Edge", @browser.name
+    assert_equal "12.0", @browser.full_version
+    assert_equal "12", @browser.version
+    assert_equal "7.0", @browser.msie_full_version
+    assert_equal "7", @browser.msie_version
+    assert @browser.edge?
+    assert @browser.compatibility_view?
+    refute @browser.modern?
     refute @browser.webkit?
     refute @browser.chrome?
     refute @browser.safari?

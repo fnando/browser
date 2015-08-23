@@ -18,6 +18,18 @@ Gem::Specification.new do |s|
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }
   s.require_paths = ["lib"]
 
+  s.post_install_message = [
+    "",
+    "#################### WARNING ##############################"     ,
+    "#                                                         #"     ,
+    "#   Internet Explorer detection has changed on v1.0.0+.   #"     ,
+    "#   If this is important for you, please read             #"     ,
+    "#   https://github.com/fnando/browser#internet-explorer   #"     ,
+    "#                                                         #"     ,
+    "###########################################################"     ,
+    "\n"
+  ].join("\n")
+
   s.add_development_dependency "bundler", ">= 0"
   s.add_development_dependency "rake"
   s.add_development_dependency "rails"
