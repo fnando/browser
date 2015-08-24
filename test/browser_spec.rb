@@ -743,6 +743,14 @@ describe Browser do
     assert @browser.mobile?
   end
 
+  it "detects uc browser" do
+    @browser.ua = $ua["UC_BROWSER"]
+
+    assert @browser.uc_browser?
+    refute @browser.tablet?
+    assert @browser.mobile?
+  end
+
   it "detects opera mobi" do
     @browser.ua = $ua["OPERA_MOBI"]
 
