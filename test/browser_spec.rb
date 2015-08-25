@@ -878,6 +878,45 @@ describe Browser do
     refute @browser.safari?
   end
 
+  it "detects IE without Trident" do
+      @browser.ua = $ua["IE_WITHOUT_TRIDENT"]
+
+      assert_equal :ie, @browser.id
+      assert_equal "Internet Explorer", @browser.name
+      assert_equal "0.0", @browser.msie_full_version
+      assert_equal "0", @browser.msie_version
+      assert_equal "0.0", @browser.full_version
+      assert_equal "0", @browser.version
+      refute @browser.windows10?
+      refute @browser.windows_phone?
+      refute @browser.edge?
+      refute @browser.modern?
+      refute @browser.mobile?
+      refute @browser.webkit?
+      refute @browser.chrome?
+      refute @browser.safari?
+    end
+
+  it "detects Daumoa" do
+    @browser.ua = $ua["DAUMOA"]
+
+    assert_equal :ie, @browser.id
+    assert_equal "Internet Explorer", @browser.name
+    assert_equal "0.0", @browser.msie_full_version
+    assert_equal "0", @browser.msie_version
+    assert_equal "0.0", @browser.full_version
+    assert_equal "0", @browser.version
+    assert @browser.ie?
+    refute @browser.windows10?
+    refute @browser.windows_phone?
+    refute @browser.edge?
+    refute @browser.modern?
+    refute @browser.mobile?
+    refute @browser.webkit?
+    refute @browser.chrome?
+    refute @browser.safari?
+  end
+
   it "detects kindle monochrome" do
     @browser.ua = $ua["KINDLE"]
 

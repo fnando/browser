@@ -23,11 +23,11 @@ class Browser
     end
 
     def msie_full_version
-      ua.match(MSIE) && ($1 || $2)
+      (ua.match(MSIE) && ($1 || $2)) || "0.0"
     end
 
     def msie_version
-      msie_full_version.split(".").first
+      msie_full_version.to_s.split(".").first || "0"
     end
 
     # Return the trident version.
