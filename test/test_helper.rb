@@ -6,3 +6,9 @@ require "browser"
 require "yaml"
 
 $ua = YAML.load_file("./test/ua.yml")
+
+class Minitest::Test
+  setup do
+    Browser::Bots.instance_variable_set("@detect_empty_ua", false)
+  end
+end
