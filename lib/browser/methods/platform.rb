@@ -35,6 +35,11 @@ class Browser
       ios? && !!(ua =~ /OS 8/)
     end
 
+    # Detect if is iOS9.
+    def ios9?
+      ios? && !!(ua =~ /OS 9/)
+    end
+
     # Detect if is BlackBerry 4.
     def blackberry4?
       blackberry? && !!(ua =~ %r[BlackBerry\d+/4])

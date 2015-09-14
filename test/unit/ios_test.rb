@@ -108,6 +108,13 @@ class IosTest < Minitest::Test
     refute @browser.mac?
   end
 
+  test "detects ios9" do
+    @browser.ua = $ua["IOS9"]
+    assert @browser.ios?
+    assert @browser.ios9?
+    refute @browser.mac?
+  end
+
   test "returns string representation for ios" do
     @browser.ua = $ua["IPHONE"]
     meta = @browser.to_s
