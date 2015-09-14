@@ -210,26 +210,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects IE without Trident" do
-      @browser.ua = $ua["IE_WITHOUT_TRIDENT"]
-
-      assert_equal :ie, @browser.id
-      assert_equal "Internet Explorer", @browser.name
-      assert_equal "0.0", @browser.msie_full_version
-      assert_equal "0", @browser.msie_version
-      assert_equal "0.0", @browser.full_version
-      assert_equal "0", @browser.version
-      refute @browser.windows10?
-      refute @browser.windows_phone?
-      refute @browser.edge?
-      refute @browser.modern?
-      refute @browser.mobile?
-      refute @browser.webkit?
-      refute @browser.chrome?
-      refute @browser.safari?
-    end
-
-  test "detects Daumoa" do
-    @browser.ua = $ua["DAUMOA"]
+    @browser.ua = $ua["IE_WITHOUT_TRIDENT"]
 
     assert_equal :ie, @browser.id
     assert_equal "Internet Explorer", @browser.name
@@ -237,7 +218,6 @@ class IeTest < Minitest::Test
     assert_equal "0", @browser.msie_version
     assert_equal "0.0", @browser.full_version
     assert_equal "0", @browser.version
-    assert @browser.ie?
     refute @browser.windows10?
     refute @browser.windows_phone?
     refute @browser.edge?
