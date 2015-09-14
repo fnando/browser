@@ -49,6 +49,8 @@ browser.phantom_js?
 browser.quicktime?
 browser.core_media?
 browser.silk?
+browser.android?
+browser.android?(4.2)   # detect Android Jelly Bean 4.2
 browser.known?          # has the browser been successfully detected?
 browser.meta            # an array with several attributes
 browser.to_s            # the meta info joined by space
