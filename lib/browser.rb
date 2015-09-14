@@ -176,11 +176,11 @@ class Browser
 
   # Detect if browser is Safari.
   def safari?
-    (ua =~ /Safari/ || safari_webapp_mode?) && ua !~ /Android|Chrome|CriOS|PhantomJS/
+    !!((ua =~ /Safari/) && ua !~ /Android|Chrome|CriOS|PhantomJS/)
   end
 
   def safari_webapp_mode?
-    (ipad? || iphone?) && ua =~ /AppleWebKit/
+    !!((ipad? || iphone?) && ua =~ /AppleWebKit/)
   end
 
   # Detect if browser is Firefox.
