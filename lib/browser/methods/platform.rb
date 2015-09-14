@@ -45,6 +45,12 @@ class Browser
       ios?(8)
     end
 
+    # Detect if is iOS9.
+    def ios9?
+      deprecate "Browser##{__method__} is deprecated; use Browser#ios?(version) instead"
+      ios?(9)
+    end
+
     # Detect if current platform is Macintosh.
     def mac?
       !!(ua =~ /Mac OS X/ && !ios?)

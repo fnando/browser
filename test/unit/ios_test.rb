@@ -108,6 +108,13 @@ class IosTest < Minitest::Test
     refute @browser.mac?
   end
 
+  test "detects ios9" do
+    @browser.ua = $ua["IOS9"]
+    assert @browser.ios?
+    assert @browser.ios?(9)
+    refute @browser.mac?
+  end
+
   test "don't detect as two different versions" do
     @browser.ua = $ua["IOS8"]
     assert @browser.ios?(8)
