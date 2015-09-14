@@ -10,7 +10,7 @@ class IeTest < Minitest::Test
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie6?
+    assert @browser.ie?(6)
     refute @browser.modern?
     assert_equal "6.0", @browser.full_version
     assert_equal "6", @browser.version
@@ -21,7 +21,7 @@ class IeTest < Minitest::Test
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie7?
+    assert @browser.ie?(7)
     refute @browser.modern?
     assert_equal "7.0", @browser.full_version
     assert_equal "7", @browser.version
@@ -32,7 +32,7 @@ class IeTest < Minitest::Test
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie8?
+    assert @browser.ie?(8)
     refute @browser.modern?
     refute @browser.compatibility_view?
     assert_equal "8.0", @browser.full_version
@@ -44,7 +44,7 @@ class IeTest < Minitest::Test
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie8?
+    assert @browser.ie?(8)
     refute @browser.modern?
     assert @browser.compatibility_view?
     assert_equal "8.0", @browser.full_version
@@ -58,7 +58,7 @@ class IeTest < Minitest::Test
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie9?
+    assert @browser.ie?(9)
     assert @browser.modern?
     refute @browser.compatibility_view?
     assert_equal "9.0", @browser.full_version
@@ -70,7 +70,7 @@ class IeTest < Minitest::Test
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie9?
+    assert @browser.ie?(9)
     refute @browser.modern?
     assert @browser.compatibility_view?
     assert_equal "9.0", @browser.full_version
@@ -84,7 +84,7 @@ class IeTest < Minitest::Test
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie10?
+    assert @browser.ie?(10)
     assert @browser.modern?
     refute @browser.compatibility_view?
     assert_equal "10.0", @browser.full_version
@@ -96,7 +96,7 @@ class IeTest < Minitest::Test
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie10?
+    assert @browser.ie?(10)
     refute @browser.modern?
     assert @browser.compatibility_view?
     assert_equal "10.0", @browser.full_version
@@ -110,7 +110,7 @@ class IeTest < Minitest::Test
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie11?
+    assert @browser.ie?(11)
     assert @browser.modern?
     refute @browser.compatibility_view?
     assert_equal "11.0", @browser.full_version
@@ -122,7 +122,7 @@ class IeTest < Minitest::Test
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie11?
+    assert @browser.ie?(11)
     refute @browser.modern?
     assert @browser.compatibility_view?
     assert_equal "11.0", @browser.full_version
@@ -136,7 +136,7 @@ class IeTest < Minitest::Test
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie9?
+    assert @browser.ie?(9)
     assert_equal "9.0", @browser.full_version
     assert_equal "9", @browser.version
     refute @browser.tablet?
@@ -148,7 +148,7 @@ class IeTest < Minitest::Test
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
-    assert @browser.ie11?
+    assert @browser.ie?(11)
     assert @browser.modern?
     refute @browser.compatibility_view?
     refute @browser.windows_rt?
@@ -384,5 +384,16 @@ class IeTest < Minitest::Test
     assert meta.include?("ie8")
     assert meta.include?("lt-ie9")
     assert meta.include?("windows")
+  end
+
+  test "warn about deprecated numbered version" do
+    message = "Browser#ie6? is deprecated; use Browser#ie?(version) instead"
+    assert_deprecated(message, __FILE__, __LINE__) { @browser.ie6? }
+  end
+
+  test "don't detect as two different versions" do
+    @browser.ua = $ua["IE8"]
+    assert @browser.ie?(8)
+    refute @browser.ie?(7)
   end
 end

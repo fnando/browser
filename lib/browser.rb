@@ -7,6 +7,7 @@ require "browser/middleware/context"
 require "browser/rails" if defined?(::Rails)
 
 require "browser/methods/ie"
+require "browser/methods/blackberry"
 require "browser/methods/platform"
 require "browser/methods/mobile"
 require "browser/methods/devices"
@@ -28,6 +29,7 @@ require "browser/meta/webkit"
 
 class Browser
   include IE
+  include BlackBerry
   include Platform
   include Mobile
   include Devices
@@ -47,11 +49,12 @@ class Browser
     chrome: "Chrome",         # Must come before android
     firefox: "Firefox",       # Must come before android
     android: "Android",
+    blackberry_running_safari: "Safari",
     blackberry: "BlackBerry",
     core_media: "Apple CoreMedia",
-    ipad: "iPad",
-    iphone: "iPhone",
-    ipod: "iPod Touch",
+    ipad: "iPad",             # Must come before safari
+    iphone: "iPhone",         # Must come before safari
+    ipod: "iPod Touch",       # Must come before safari
     nintendo: "Nintendo",
     opera: "Opera",
     phantom_js: "PhantomJS",
@@ -119,7 +122,7 @@ class Browser
   # Get the browser identifier.
   def id
     NAMES.keys
-      .find {|id| respond_to?("#{id}?") ? public_send("#{id}?") : id }
+      .find {|id| respond_to?("#{id}?", true) ? send("#{id}?") : id }
   end
 
   # Return major version.
@@ -212,5 +215,17 @@ class Browser
   # Return meta representation as string.
   def to_s
     meta.to_a.join(" ")
+  end
+
+  private
+
+  def detect_version?(actual_version, expected_version)
+    return true unless expected_version
+    actual_version.to_s.start_with?(expected_version.to_s)
+  end
+
+  def deprecate(message)
+    offender = caller[1].to_s[/^(.*?\.rb:\d+).*?$/, 1]
+    $stderr << "\n#{message} (called from #{offender})\n"
   end
 end

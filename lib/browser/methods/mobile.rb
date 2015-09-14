@@ -10,11 +10,6 @@ class Browser
       !!(ua =~ /Opera Mini/)
     end
 
-    # Detect if browser is BlackBerry
-    def blackberry?
-      !!(ua =~ /(BlackBerry)/)
-    end
-
     # Detect if browser is Adobe AIR.
     def adobe_air?
       !!(ua =~ /adobeair/i)

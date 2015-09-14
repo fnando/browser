@@ -31,15 +31,18 @@ browser.tablet?
 browser.console?
 browser.firefox?
 browser.ie?
-browser.ie6?            # this goes up to 11
+browser.ie(6)?          # detect specific IE version
 browser.edge?           # Newest MS browser
 browser.modern?         # Webkit, Firefox 17+, IE 9+ and Opera 12+
 browser.platform        # return :mac, :windows, :linux or :other
+browser.ios?            # detect iOS
+browser.ios?(9)         # detect specific iOS version
 browser.mac?
 browser.windows?
 browser.windows_x64?
 browser.linux?
 browser.blackberry?
+browser.blackberry?(10) # detect specific BlackBerry version
 browser.bot?
 browser.search_engine?
 browser.phantom_js?
@@ -82,7 +85,7 @@ gem "browser"
 This adds a helper method called `browser`, that inspects your current user agent.
 
 ```erb
-<% if browser.ie6? %>
+<% if browser.ie?(6) %>
   <p class="disclaimer">You're running an older IE version. Please update it!</p>
 <% end %>
 ```

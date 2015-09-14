@@ -75,7 +75,7 @@ class IosTest < Minitest::Test
   test "detects ios4" do
     @browser.ua = $ua["IOS4"]
     assert @browser.ios?
-    assert @browser.ios4?
+    assert @browser.ios?(4)
     refute @browser.mac?
   end
 
@@ -83,36 +83,40 @@ class IosTest < Minitest::Test
   test "detects ios5" do
     @browser.ua = $ua["IOS5"]
     assert @browser.ios?
-    assert @browser.ios5?
+    assert @browser.ios?(5)
     refute @browser.mac?
   end
 
   test "detects ios6" do
     @browser.ua = $ua["IOS6"]
     assert @browser.ios?
-    assert @browser.ios6?
+    assert @browser.ios?(6)
     refute @browser.mac?
   end
 
   test "detects ios7" do
     @browser.ua = $ua["IOS7"]
     assert @browser.ios?
-    assert @browser.ios7?
+    assert @browser.ios?(7)
     refute @browser.mac?
   end
 
   test "detects ios8" do
     @browser.ua = $ua["IOS8"]
     assert @browser.ios?
-    assert @browser.ios8?
+    assert @browser.ios?(8)
     refute @browser.mac?
   end
 
-  test "detects ios9" do
-    @browser.ua = $ua["IOS9"]
-    assert @browser.ios?
-    assert @browser.ios9?
-    refute @browser.mac?
+  test "don't detect as two different versions" do
+    @browser.ua = $ua["IOS8"]
+    assert @browser.ios?(8)
+    refute @browser.ios?(7)
+  end
+
+  test "warn about deprecated numbered version" do
+    message = "Browser#ios8? is deprecated; use Browser#ios?(version) instead"
+    assert_deprecated(message, __FILE__, __LINE__) { @browser.ios8? }
   end
 
   test "returns string representation for ios" do

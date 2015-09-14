@@ -21,7 +21,8 @@ class BlackberryTest < Minitest::Test
     @browser.ua = $ua["BLACKBERRY4"]
 
     assert_equal "BlackBerry", @browser.name
-    assert @browser.blackberry4?
+    assert_equal "4", @browser.blackberry_version
+    assert @browser.blackberry?(4)
     refute @browser.tablet?
     assert @browser.mobile?
     refute @browser.modern?
@@ -33,7 +34,8 @@ class BlackberryTest < Minitest::Test
     @browser.ua = $ua["BLACKBERRY5"]
 
     assert_equal "BlackBerry", @browser.name
-    assert @browser.blackberry5?
+    assert @browser.blackberry?(5)
+    assert_equal "5", @browser.blackberry_version
     refute @browser.tablet?
     assert @browser.mobile?
     refute @browser.modern?
@@ -44,8 +46,9 @@ class BlackberryTest < Minitest::Test
   test "detects blackberry6" do
     @browser.ua = $ua["BLACKBERRY6"]
 
-    assert_equal "BlackBerry", @browser.name
-    assert @browser.blackberry6?
+    assert_equal "Safari", @browser.name
+    assert @browser.blackberry?(6)
+    assert_equal "6", @browser.blackberry_version
     refute @browser.tablet?
     assert @browser.mobile?
     assert @browser.modern?
@@ -56,8 +59,9 @@ class BlackberryTest < Minitest::Test
   test "detects blackberry7" do
     @browser.ua = $ua["BLACKBERRY7"]
 
-    assert_equal "BlackBerry", @browser.name
-    assert @browser.blackberry7?
+    assert_equal "Safari", @browser.name
+    assert @browser.blackberry?(7)
+    assert_equal "7", @browser.blackberry_version
     refute @browser.tablet?
     assert @browser.mobile?
     assert @browser.modern?
@@ -69,7 +73,8 @@ class BlackberryTest < Minitest::Test
     @browser.ua = $ua["BLACKBERRY10"]
 
     assert_equal "Safari", @browser.name
-    assert @browser.blackberry10?
+    assert_equal "10", @browser.blackberry_version
+    assert @browser.blackberry?(10)
     refute @browser.tablet?
     assert @browser.mobile?
     assert @browser.modern?
@@ -86,5 +91,16 @@ class BlackberryTest < Minitest::Test
 
     assert_equal "7.2.1.0", @browser.full_version
     assert_equal "7", @browser.version
+  end
+
+  test "warn about deprecated numbered version" do
+    message = "Browser#blackberry10? is deprecated; use Browser#blackberry?(version) instead"
+    assert_deprecated(message, __FILE__, __LINE__) { @browser.blackberry10? }
+  end
+
+  test "don't detect as two different versions" do
+    @browser.ua = $ua["BLACKBERRY10"]
+    assert @browser.blackberry?(10)
+    refute @browser.blackberry?(7)
   end
 end
