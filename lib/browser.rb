@@ -198,6 +198,10 @@ class Browser
     !!(ua =~ /Silk/)
   end
 
+  def yandex?
+    ua =~ /YaBrowser/
+  end
+
   def known?
     id != :other
   end
