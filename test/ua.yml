@@ -114,5 +114,6 @@ XBOX360: 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox),
 XBOXONE: 'Mozilla/5.0 (Compatible; MSIE 10.0; Windows NT 6.2; Trident /6.0; Xbox; Xbox One)'
 XOOM: 'Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13'
 YAHOO_SLURP: 'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)'
+YANDEX_BROWSER: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3909 (beta) Yowser/2.0 Safari/537.36'
 YANDEX_DIRECT: 'Mozilla/5.0 (compatible; YandexDirect/3.0; +http://yandex.com/bots)'
 YANDEX_METRIKA: 'Mozilla/5.0 (compatible; YandexMetrika/3.0; +http://yandex.com/bots)'

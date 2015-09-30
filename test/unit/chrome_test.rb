@@ -46,4 +46,15 @@ class ChromeTest < Minitest::Test
     @browser.ua = $ua["CHROME_OS"]
     assert @browser.chrome_os?
   end
+
+  test "detects yandex browser" do
+    @browser.ua = $ua["YANDEX_BROWSER"]
+
+    assert @browser.yandex?
+    assert @browser.chrome?
+    refute @browser.safari?
+    assert @browser.webkit?
+    assert_equal "41.0.2272.118", @browser.full_version
+    assert_equal "41", @browser.version
+  end
 end

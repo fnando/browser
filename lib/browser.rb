@@ -198,6 +198,11 @@ class Browser
     !!(ua =~ /Silk/)
   end
 
+  # Detect if browser is Yandex.
+  def yandex?
+    !!(ua =~ /YaBrowser/)
+  end
+
   def known?
     id != :other
   end
