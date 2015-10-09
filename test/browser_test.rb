@@ -169,6 +169,26 @@ class BrowserTest < Minitest::Test
     assert_equal "Other", @browser.name
   end
 
+  ["iPhone", "iPad", "iPod"].each do |ios_platform|
+    test "detects ios platform for #{ios_platform}" do
+      @browser.ua = ios_platform
+      assert_equal :ios, @browser.platform
+      assert @browser.ios?
+    end
+  end
+
+  test "detects android platform" do
+    @browser.ua = "Android"
+    assert_equal :android, @browser.platform
+    assert @browser.android?
+  end
+
+  test "detects chrome_os platform" do
+    @browser.ua = "CrOS"
+    assert_equal :chrome_os, @browser.platform
+    assert @browser.chrome_os?
+  end
+
   test "detects mac platform" do
     @browser.ua = "Mac OS X"
     assert_equal :mac, @browser.platform
@@ -179,6 +199,12 @@ class BrowserTest < Minitest::Test
     @browser.ua = "Linux"
     assert_equal :linux, @browser.platform
     assert @browser.linux?
+  end
+
+  test "detects windows platform" do
+    @browser.ua = "Windows"
+    assert_equal :windows, @browser.platform
+    assert @browser.windows?
   end
 
   test "detects unknown platform" do
