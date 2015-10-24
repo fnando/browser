@@ -15,6 +15,12 @@ class Browser
       !!(ua =~ /adobeair/i)
     end
 
+    # Detect if browser is UC Browser.
+    # http://www.ucweb.com/download/UCBrowser_User_Agent_en.pdf
+    def uc_browser?
+      !!(ua =~ /UCBrowser/)
+    end
+
     private
 
     # Regex taken from http://detectmobilebrowsers.com
