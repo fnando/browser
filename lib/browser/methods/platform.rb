@@ -71,6 +71,10 @@ class Browser
       windows? && !!(ua =~ /Windows NT 5.1/)
     end
 
+    def windows_xp_x64?
+      windows? && !!(ua =~ /Windows NT 5.2/)
+    end
+
     def windows_vista?
       windows? && !!(ua =~ /Windows NT 6.0/)
     end
