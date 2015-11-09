@@ -64,6 +64,7 @@ The current rules that define a modern browser are pretty loose:
 
 * Webkit
 * IE9+
+* Microsoft Edge
 * Firefox 17+
 * Firefox Tablet 14+
 * Opera 12+
