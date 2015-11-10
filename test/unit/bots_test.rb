@@ -12,6 +12,7 @@ class BotsTest < Minitest::Test
       DOT_BOT
       FACEBOOK_BOT
       GOOGLE_BOT
+      GRAPESHOT
       LINKDEXBOT
       LOAD_TIME_BOT
       MAIL_RU
