@@ -21,6 +21,7 @@ class BotsTest < Minitest::Test
       QUERYSEEKER
       SCRAPY
       TINEYE
+      SISTRIX
       YANDEX_DIRECT
       YANDEX_METRIKA
     ].each do |key|
