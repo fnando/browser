@@ -22,6 +22,7 @@ class BotsTest < Minitest::Test
       SCRAPY
       SEOKICKS
       TINEYE
+      SISTRIX
       YANDEX_DIRECT
       YANDEX_METRIKA
     ].each do |key|
