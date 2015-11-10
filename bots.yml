@@ -137,6 +137,7 @@ Scrapy: "Scrapy"
 Screaming Frog SEO Spider: Screaming Frog SEO Spider
 SearchmetricsBot: "SearchmetricsBot"
 SemrushBot: "SEO analysis bot"
+SEOkicks-Robot: "Mozilla/5.0 (compatible; SEOkicks-Robot; +http://www.seokicks.de/robot.html)"
 SeznamBot: "SeznamBot"
 ShopWiki: "ShopWiki"
 ShortLinkTranslate: "Link shortener"

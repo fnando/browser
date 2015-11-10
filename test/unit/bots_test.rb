@@ -20,6 +20,7 @@ class BotsTest < Minitest::Test
       MSN_BOT
       QUERYSEEKER
       SCRAPY
+      SEOKICKS
       TINEYE
       YANDEX_DIRECT
       YANDEX_METRIKA
