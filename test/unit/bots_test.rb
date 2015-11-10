@@ -8,6 +8,7 @@ class BotsTest < Minitest::Test
   test "detects bots" do
     %w[
       APPLE_BOT
+      DOMAINAREANIMATOR
       DOT_BOT
       FACEBOOK_BOT
       GOOGLE_BOT
