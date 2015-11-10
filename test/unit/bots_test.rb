@@ -18,6 +18,7 @@ class BotsTest < Minitest::Test
       MSN_BOT
       QUERYSEEKER
       SCRAPY
+      TINEYE
       YANDEX_DIRECT
       YANDEX_METRIKA
     ].each do |key|
