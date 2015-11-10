@@ -30,6 +30,7 @@ CHROME: 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/53
 CHROME_OS: 'Mozilla/5.0 (X11; CrOS x86_64 3701.81.0) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.57 Safari/537.31.'
 COREMEDIA: 'Apple Mac OS X v10.6.4 CoreMedia v1.0.0.10F569'
 DAUMOA: Mozilla/5.0 (compatible; MSIE or Firefox mutant; not on Windows server;) Daumoa 4.0
+DOMAINAREANIMATOR: 'Domain Re-Animator Bot (http://domainreanimator.com) - support@domainreanimator.com'
 DOT_BOT: 'Mozilla/5.0 (compatible; DotBot/1.1; http://www.opensiteexplorer.org/dotbot, help@moz.com)'
 DUCKDUCKGO: 'DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)'
 FACEBOOK_BOT: 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)'
