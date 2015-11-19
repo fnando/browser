@@ -1,63 +1,59 @@
 class Browser
   module Platform
     # Detect if browser is Android.
-    def android?
-      !!(ua =~ /Android/ && !opera?)
+    def android?(version = nil)
+      !!(ua =~ /Android/ && !opera?) && detect_version?(android_version, version)
+    end
+
+    # Detect Android version.
+    def android_version
+      ua[/Android ([\d.]+)/, 1]
+    end
+
+    # Return the iOS version.
+    def ios_version
+      ua[/OS (\d)/, 1]
     end
 
     # Detect if browser is ios?.
-    def ios?
-      ipod? || ipad? || iphone?
+    def ios?(version = nil)
+      (ipod? || ipad? || iphone?) && detect_version?(ios_version, version)
     end
 
     # Detect if is iOS4.
     def ios4?
-      ios? && !!(ua =~ /OS 4/)
+      deprecate "Browser##{__method__} is deprecated; use Browser#ios?(version) instead"
+      ios?(4)
     end
 
     # Detect if is iOS5.
     def ios5?
-      ios? && !!(ua =~ /OS 5/)
+      deprecate "Browser##{__method__} is deprecated; use Browser#ios?(version) instead"
+      ios?(5)
     end
 
     # Detect if is iOS6.
     def ios6?
-      ios? && !!(ua =~ /OS 6/)
+      deprecate "Browser##{__method__} is deprecated; use Browser#ios?(version) instead"
+      ios?(6)
     end
 
     # Detect if is iOS7.
     def ios7?
-      ios? && !!(ua =~ /OS 7/)
+      deprecate "Browser##{__method__} is deprecated; use Browser#ios?(version) instead"
+      ios?(7)
     end
 
     # Detect if is iOS8.
     def ios8?
-      ios? && !!(ua =~ /OS 8/)
+      deprecate "Browser##{__method__} is deprecated; use Browser#ios?(version) instead"
+      ios?(8)
     end
 
-    # Detect if is BlackBerry 4.
-    def blackberry4?
-      blackberry? && !!(ua =~ %r[BlackBerry\d+/4])
-    end
-
-    # Detect if is BlackBerry 5.
-    def blackberry5?
-      blackberry? && !!(ua =~ %r[BlackBerry\d+/5])
-    end
-
-    # Detect if is BlackBerry 6.
-    def blackberry6?
-      blackberry? && !!(ua =~ %r[Version/6])
-    end
-
-    # Detect if is BlackBerry 7.
-    def blackberry7?
-      blackberry? && !!(ua =~ %r[Version/7])
-    end
-
-    # Detect if is BlackBerry 10.
-    def blackberry10?
-      !!(ua =~ /BB10/)
+    # Detect if is iOS9.
+    def ios9?
+      deprecate "Browser##{__method__} is deprecated; use Browser#ios?(version) instead"
+      ios?(9)
     end
 
     # Detect if current platform is Macintosh.

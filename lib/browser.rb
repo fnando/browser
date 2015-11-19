@@ -7,6 +7,7 @@ require "browser/middleware/context"
 require "browser/rails" if defined?(::Rails)
 
 require "browser/methods/ie"
+require "browser/methods/blackberry"
 require "browser/methods/platform"
 require "browser/methods/mobile"
 require "browser/methods/devices"
@@ -28,6 +29,7 @@ require "browser/meta/webkit"
 
 class Browser
   include IE
+  include BlackBerry
   include Platform
   include Mobile
   include Devices
@@ -47,11 +49,12 @@ class Browser
     chrome: "Chrome",         # Must come before android
     firefox: "Firefox",       # Must come before android
     android: "Android",
+    blackberry_running_safari: "Safari",
     blackberry: "BlackBerry",
     core_media: "Apple CoreMedia",
-    ipad: "iPad",
-    iphone: "iPhone",
-    ipod: "iPod Touch",
+    ipad: "iPad",             # Must come before safari
+    iphone: "iPhone",         # Must come before safari
+    ipod: "iPod Touch",       # Must come before safari
     nintendo: "Nintendo",
     opera: "Opera",
     phantom_js: "PhantomJS",
@@ -90,7 +93,8 @@ class Browser
   self.modern_rules.tap do |rules|
     rules << -> b { b.webkit? }
     rules << -> b { b.firefox? && b.version.to_i >= 17 }
-    rules << -> b { b.ie? && b.version.to_i >= 9 }
+    rules << -> b { b.ie? && b.version.to_i >= 9 && !b.compatibility_view? }
+    rules << -> b { b.edge? && !b.compatibility_view? }
     rules << -> b { b.opera? && b.version.to_i >= 12 }
     rules << -> b { b.firefox? && b.tablet? && b.android? && b.version.to_i >= 14 }
   end
@@ -118,18 +122,26 @@ class Browser
   # Get the browser identifier.
   def id
     NAMES.keys
-      .find {|id| respond_to?("#{id}?") ? public_send("#{id}?") : id }
+      .find {|id| respond_to?("#{id}?", true) ? send("#{id}?") : id }
   end
 
   # Return major version.
   def version
-    full_version.to_s.split(".").first
+    if ie?
+      ie_version
+    else
+      full_version.to_s.split(".").first
+    end
   end
 
   # Return the full version.
   def full_version
-    _, *v = *ua.match(VERSIONS.fetch(id, VERSIONS[:default]))
-    v.compact.first || "0.0"
+    if ie?
+      ie_full_version
+    else
+      _, *v = *ua.match(VERSIONS.fetch(id, VERSIONS[:default]))
+      v.compact.first || "0.0"
+    end
   end
 
   # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
@@ -176,11 +188,6 @@ class Browser
     ua =~ /Chrome|CriOS/ && !opera? && !edge?
   end
 
-  # Detect if browser is Microsoft Edge.
-  def edge?
-    !!(ua =~ /Windows.*?\bEdge\/\d+/)
-  end
-
   # Detect if browser is Opera.
   def opera?
     !!(ua =~ /(Opera|OPR)/)
@@ -189,6 +196,11 @@ class Browser
   # Detect if browser is Silk.
   def silk?
     !!(ua =~ /Silk/)
+  end
+
+  # Detect if browser is Yandex.
+  def yandex?
+    !!(ua =~ /YaBrowser/)
   end
 
   def known?
@@ -208,5 +220,17 @@ class Browser
   # Return meta representation as string.
   def to_s
     meta.to_a.join(" ")
+  end
+
+  private
+
+  def detect_version?(actual_version, expected_version)
+    return true unless expected_version
+    actual_version.to_s.start_with?(expected_version.to_s)
+  end
+
+  def deprecate(message)
+    offender = caller[1].to_s[/^(.*?\.rb:\d+).*?$/, 1]
+    $stderr << "\n#{message} (called from #{offender})\n"
   end
 end

@@ -1,4 +1,6 @@
 language: ruby
+sudo: false
+cache: bundler
 rvm:
   - '2.2'
   - '2.1'
@@ -7,3 +9,5 @@ gemfile:
   - Gemfile
   - gemfiles/rails3.gemfile
 script: "bundle exec rake spec"
+notifications:
+  email: false
