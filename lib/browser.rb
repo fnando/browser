@@ -185,7 +185,7 @@ class Browser
 
   # Detect if browser is Chrome.
   def chrome?
-    ua =~ /Chrome|CriOS/ && !opera? && !edge?
+    !!(ua =~ /Chrome|CriOS/ && !opera? && !edge?)
   end
 
   # Detect if browser is Opera.
