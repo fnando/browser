@@ -69,7 +69,7 @@ class BrowserTest < Minitest::Test
     @browser.ua = $ua["CHROME"]
     assert @browser.chrome?
 
-    @browser.ua = 'AnyOtherBrowser'
+    @browser.ua = "AnyOtherBrowser"
     refute @browser.chrome?
     refute_nil @browser.chrome?
   end
