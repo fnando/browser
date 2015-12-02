@@ -72,7 +72,7 @@ class BrowserTest < Minitest::Test
     @browser.ua = 'AnyOtherBrowser'
     refute @browser.chrome?
     refute_nil @browser.chrome?
-  end    
+  end
 
   test "detects surface tablet" do
     @browser.ua = $ua["SURFACE"]
