@@ -6,6 +6,7 @@ require "browser/middleware"
 require "browser/middleware/context"
 require "browser/rails" if defined?(::Rails)
 
+require "browser/methods/app"
 require "browser/methods/ie"
 require "browser/methods/blackberry"
 require "browser/methods/platform"
@@ -28,6 +29,7 @@ require "browser/meta/safari"
 require "browser/meta/webkit"
 
 class Browser
+  include App
   include IE
   include BlackBerry
   include Platform
@@ -226,7 +228,10 @@ class Browser
 
   def detect_version?(actual_version, expected_version)
     return true unless expected_version
-    actual_version.to_s.start_with?(expected_version.to_s)
+    # actual_version.to_s.start_with?(expected_version.to_s)
+    # Use advanced version comparison
+    # detect_version?('1.2.5', '~> 1.2.3') => true
+    Gem::Requirement.create(expected_version).satisfied_by?(Gem::Version.create(actual_version))
   end
 
   def deprecate(message)
