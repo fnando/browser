@@ -15,6 +15,7 @@ require "browser/methods/consoles"
 require "browser/methods/language"
 require "browser/methods/bots"
 require "browser/methods/tv"
+require "browser/methods/proxy"
 
 require "browser/meta/base"
 require "browser/meta/generic_browser"
@@ -24,6 +25,7 @@ require "browser/meta/ios"
 require "browser/meta/mobile"
 require "browser/meta/modern"
 require "browser/meta/platform"
+require "browser/meta/proxy"
 require "browser/meta/safari"
 require "browser/meta/webkit"
 
@@ -37,6 +39,7 @@ class Browser
   include Language
   include Bots
   include Tv
+  include Proxy
 
   # Set browser's UA string.
   attr_accessor :user_agent
