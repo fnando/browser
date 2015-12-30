@@ -182,3 +182,5 @@ zelist.ro: "feed parser"
 ZIBB: "ZIBB spider"
 ZyBorg: "Zyborg? Hmmm...."
 StructuredDataTestingTool: 'Google-StructuredDataTestingTool'
+crawler: "Generic web crawler"
+fetcher: "Generic web fetcher"
