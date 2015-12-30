@@ -32,6 +32,13 @@ class WindowsTest < Minitest::Test
     assert @browser.windows_xp?
   end
 
+  test "detects windows_xp_x64" do
+    @browser.ua = $ua["WINDOWS_XP_X64"]
+
+    assert @browser.windows?
+    assert @browser.windows_xp_x64?
+  end
+
   test "detects windows_vista" do
     @browser.ua = $ua["WINDOWS_VISTA"]
 
