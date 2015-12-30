@@ -23,6 +23,8 @@ browser.name            # readable browser name
 browser.version         # major version number
 browser.full_version
 browser.safari?
+browser.ios?
+browser.app?      # request performed by ios' app webview 
 browser.opera?
 browser.chrome?
 browser.chrome_os?

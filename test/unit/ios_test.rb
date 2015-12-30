@@ -34,10 +34,12 @@ class IosTest < Minitest::Test
 
   test "detects safari in webapp mode" do
     @browser.ua = $ua["SAFARI_IPAD_WEBAPP_MODE"]
-    assert @browser.safari?
+    refute @browser.safari?
+    assert @browser.ios_webview?
 
     @browser.ua = $ua["SAFARI_IPHONE_WEBAPP_MODE"]
-    assert @browser.safari?
+    refute @browser.safari?
+    assert @browser.ios_webview?
   end
 
   test "detects ipod" do

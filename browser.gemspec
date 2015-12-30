@@ -26,6 +26,9 @@ Gem::Specification.new do |s|
     "#   If this is important for you, please read             #"     ,
     "#   https://github.com/fnando/browser#internet-explorer   #"     ,
     "#                                                         #"     ,
+    "#   iOS webviews and web apps aren't detect as Safari     #"     ,
+    "#   anymore, so be aware of that if that's your case.     #"     ,
+    "#                                                         #"     ,
     "###########################################################"     ,
     "\n"
   ].join("\n")
@@ -37,4 +40,5 @@ Gem::Specification.new do |s|
   s.add_development_dependency "minitest"
   s.add_development_dependency "minitest-utils"
   s.add_development_dependency "pry-meta"
+  s.add_development_dependency "minitest-autotest"
 end

@@ -15,6 +15,16 @@ class Browser
       ua[/OS (\d)/, 1]
     end
 
+    # Detect if running on iOS app webview.
+    def ios_app?
+      ios? && !ua.include?("Safari")
+    end
+
+    # Detect if is iOS webview.
+    def ios_webview?
+      ios_app?
+    end
+
     # Detect if browser is ios?.
     def ios?(version = nil)
       (ipod? || ipad? || iphone?) && detect_version?(ios_version, version)
