@@ -198,6 +198,11 @@ class Browser
     !!(ua =~ /(Opera|OPR)/)
   end
 
+  # Detect if browser is Opera Mini.
+  def opera_mini?
+    !!(ua =~ /Opera Mini/)
+  end
+
   # Detect if browser is Silk.
   def silk?
     !!(ua =~ /Silk/)
