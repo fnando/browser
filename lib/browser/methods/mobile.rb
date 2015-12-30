@@ -15,6 +15,11 @@ class Browser
       !!(ua =~ /adobeair/i)
     end
 
+    # Detect if browser is Nokia S40 Ovi Browser.
+    def nokia?
+      !!(ua =~ /S40OviBrowser/)
+    end
+
     private
 
     # Regex taken from http://detectmobilebrowsers.com

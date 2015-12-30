@@ -64,6 +64,7 @@ class Browser
     quicktime: "QuickTime",
     safari: "Safari",
     xbox: "Xbox",
+    nokia: "Nokia S40 Ovi Browser",
 
     # This must be last item, since Ruby 1.9+ has ordered keys.
     other: "Other",
