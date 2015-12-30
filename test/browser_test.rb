@@ -65,6 +65,15 @@ class BrowserTest < Minitest::Test
     assert_equal "4", @browser.version
   end
 
+  test "detects chrome browser" do
+    @browser.ua = $ua["CHROME"]
+    assert @browser.chrome?
+
+    @browser.ua = "AnyOtherBrowser"
+    refute @browser.chrome?
+    refute_nil @browser.chrome?
+  end
+
   test "detects surface tablet" do
     @browser.ua = $ua["SURFACE"]
 
