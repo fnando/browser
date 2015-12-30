@@ -48,6 +48,7 @@ class Browser
     ie: "Internet Explorer",  # Must come before android
     chrome: "Chrome",         # Must come before android
     firefox: "Firefox",       # Must come before android
+    uc_browser: "UC Browser", # Must come before android
     android: "Android",
     blackberry_running_safari: "Safari",
     blackberry: "BlackBerry",
@@ -201,6 +202,11 @@ class Browser
   # Detect if browser is Yandex.
   def yandex?
     !!(ua =~ /YaBrowser/)
+  end
+
+  # Detect if browser is UCBrowser.
+  def uc_browser?
+    !!(ua =~ /UCBrowser/)
   end
 
   def known?
