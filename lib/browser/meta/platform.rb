@@ -2,7 +2,7 @@ class Browser
   module Meta
     class Platform < Base
       def meta
-        browser.platform
+        browser.platform.id
       end
     end
   end

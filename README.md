@@ -23,39 +23,41 @@ browser.name            # readable browser name
 browser.version         # major version number
 browser.full_version
 browser.safari?
-browser.ios?
+browser.device.ios?
 browser.app?      # request performed by ios' app webview 
 browser.opera?
 browser.chrome?
-browser.chrome_os?
+browser.platform.chrome_os?
 browser.mobile?
-browser.tablet?
+browser.device.tablet?
 browser.console?
 browser.firefox?
 browser.ie?
-browser.ie?(6)          # detect specific IE version
-browser.edge?           # Newest MS browser
-browser.modern?         # Webkit, Firefox 17+, IE 9+ and Opera 12+
-browser.platform        # return :mac, :windows, :linux or :other
-browser.ios?            # detect iOS
-browser.ios?(9)         # detect specific iOS version
-browser.mac?
-browser.windows?
-browser.windows_x64?
-browser.linux?
-browser.blackberry?
-browser.blackberry?(10) # detect specific BlackBerry version
+browser.ie?(6)            # detect specific IE version
+browser.edge?             # Newest MS browser
+browser.modern?           # Webkit, Firefox 17+, IE 9+ and Opera 12+
+browser.platform          # Information about the platform
+browser.platform.id       # e.g. :linux, :mac, :ios, :android
+browser.platform.version  # e.g. 9 (for iOS9)
+browser.platform.ios?     # detect iOS
+browser.platform.ios?(9)  # detect specific iOS version
+browser.platform.mac?
+browser.platform.windows?
+browser.platform.windows_x64?
+browser.platform.linux?
+browser.platform.blackberry?
+browser.platform.blackberry?(10) # detect specific BlackBerry version
 browser.bot?
 browser.search_engine?
 browser.phantom_js?
 browser.quicktime?
 browser.core_media?
 browser.silk?
-browser.android?
-browser.android?(4.2)   # detect Android Jelly Bean 4.2
-browser.known?          # has the browser been successfully detected?
-browser.meta            # an array with several attributes
-browser.to_s            # the meta info joined by space
+browser.platform.android?
+browser.platform.android?(4.2)   # detect Android Jelly Bean 4.2
+browser.known?                   # has the browser been successfully detected?
+browser.meta                     # an array with several attributes
+browser.to_s                     # the meta info joined by space
 ```
 
 See the [tests](https://github.com/fnando/browser/blob/master/test/browser_test.rb) and [implementation](https://github.com/fnando/browser/blob/master/lib/browser.rb) for more examples.

@@ -33,8 +33,7 @@ class FirefoxTest < Minitest::Test
     assert_equal "Firefox", @browser.name
     assert @browser.firefox?
     assert @browser.modern?
-    assert @browser.tablet?
-    assert @browser.android?
+    assert @browser.platform.android?
     assert_equal "14.0", @browser.full_version
     assert_equal "14", @browser.version
   end

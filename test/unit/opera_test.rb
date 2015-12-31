@@ -30,17 +30,11 @@ class OperaTest < Minitest::Test
 
   test "detects opera mini" do
     @browser.ua = $ua["OPERA_MINI"]
-
     assert @browser.opera_mini?
-    refute @browser.tablet?
-    assert @browser.mobile?
   end
 
   test "detects opera mobi" do
     @browser.ua = $ua["OPERA_MOBI"]
-
     assert @browser.opera?
-    refute @browser.tablet?
-    assert @browser.mobile?
   end
 end

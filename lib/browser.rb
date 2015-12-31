@@ -6,15 +6,44 @@ require "browser/middleware"
 require "browser/middleware/context"
 require "browser/rails" if defined?(::Rails)
 
+require "browser/platform"
+require "browser/platform/base"
+require "browser/platform/ios"
+require "browser/platform/linux"
+require "browser/platform/windows"
+require "browser/platform/mac"
+require "browser/platform/windows_phone"
+require "browser/platform/windows_mobile"
+require "browser/platform/firefox_os"
+require "browser/platform/blackberry"
+require "browser/platform/android"
+require "browser/platform/other"
+require "browser/platform/chrome_os"
+require "browser/platform/adobe_air"
+
+require "browser/device"
+require "browser/device/base"
+require "browser/device/unknown"
+require "browser/device/ipad"
+require "browser/device/ipod_touch"
+require "browser/device/iphone"
+require "browser/device/playstation3"
+require "browser/device/playstation4"
+require "browser/device/psp"
+require "browser/device/psvita"
+require "browser/device/kindle"
+require "browser/device/kindle_fire"
+require "browser/device/wii"
+require "browser/device/wiiu"
+require "browser/device/blackberry_playbook"
+require "browser/device/surface"
+require "browser/device/tv"
+require "browser/device/xbox_one"
+require "browser/device/xbox_360"
+
 require "browser/methods/ie"
-require "browser/methods/blackberry"
-require "browser/methods/platform"
-require "browser/methods/mobile"
-require "browser/methods/devices"
-require "browser/methods/consoles"
 require "browser/methods/language"
 require "browser/methods/bots"
-require "browser/methods/tv"
 require "browser/methods/proxy"
 
 require "browser/meta/base"
@@ -28,17 +57,13 @@ require "browser/meta/platform"
 require "browser/meta/proxy"
 require "browser/meta/safari"
 require "browser/meta/webkit"
+require "browser/meta/tablet"
+require "browser/meta/device"
 
 class Browser
   include IE
-  include BlackBerry
-  include Platform
-  include Mobile
-  include Devices
-  include Consoles
   include Language
   include Bots
-  include Tv
   include Proxy
 
   # Set browser's UA string.
@@ -52,21 +77,11 @@ class Browser
     chrome: "Chrome",         # Must come before android
     firefox: "Firefox",       # Must come before android
     uc_browser: "UC Browser", # Must come before android
-    android: "Android",
-    blackberry_running_safari: "Safari",
-    blackberry: "BlackBerry",
     core_media: "Apple CoreMedia",
-    ipad: "iPad",             # Must come before safari
-    iphone: "iPhone",         # Must come before safari
-    ipod: "iPod Touch",       # Must come before safari
-    nintendo: "Nintendo",
     opera: "Opera",
-    phantom_js: "PhantomJS",
-    psp: "PlayStation Portable",
-    playstation: "PlayStation",
-    quicktime: "QuickTime",
     safari: "Safari",
-    xbox: "Xbox",
+    phantom_js: "PhantomJS",
+    quicktime: "QuickTime",
     nokia: "Nokia S40 Ovi Browser",
 
     # This must be last item, since Ruby 1.9+ has ordered keys.
@@ -76,10 +91,14 @@ class Browser
   VERSIONS = {
     edge: %r[Edge/([\d.]+)],
     chrome: %r[(?:Chrome|CriOS)/([\d.]+)],
-    default: %r[(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS|AdobeAIR)[/ ]?([a-z0-9.]+)]i,
+    default: %r[(?:Version|MSIE|Firefox|QuickTime|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
     opera: %r[(?:Opera/.*? Version/([\d.]+)|Chrome/.*?OPR/([\d.]+))],
     ie: %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
   }
+
+  def self.root
+    @root ||= Pathname.new(File.expand_path("../..", __FILE__))
+  end
 
   # Define the rules which define a modern browser.
   # A rule must be a proc/lambda or any object that implements the method
@@ -101,7 +120,7 @@ class Browser
     rules << -> b { b.ie? && b.version.to_i >= 9 && !b.compatibility_view? }
     rules << -> b { b.edge? && !b.compatibility_view? }
     rules << -> b { b.opera? && b.version.to_i >= 12 }
-    rules << -> b { b.firefox? && b.tablet? && b.android? && b.version.to_i >= 14 }
+    rules << -> b { b.firefox? && b.device.tablet? && b.platform.android? && b.version.to_i >= 14 }
   end
 
   # Create a new browser instance and set
@@ -126,8 +145,8 @@ class Browser
 
   # Get the browser identifier.
   def id
-    NAMES.keys
-      .find {|id| respond_to?("#{id}?", true) ? send("#{id}?") : id }
+    @id ||= NAMES.keys
+            .find {|id| respond_to?("#{id}?", true) ? send("#{id}?") : id }
   end
 
   # Return major version.
@@ -143,6 +162,8 @@ class Browser
   def full_version
     if ie?
       ie_full_version
+    elsif alternative_version?
+      webkit_full_version || "0.0"
     else
       _, *v = *ua.match(VERSIONS.fetch(id, VERSIONS[:default]))
       v.compact.first || "0.0"
@@ -176,7 +197,7 @@ class Browser
 
   # Detect if browser is Safari.
   def safari?
-    !!((ua =~ /Safari/) && ua !~ /Android|Chrome|CriOS|PhantomJS/)
+    !!(ua =~ /Safari/ && ua !~ /Chrome|CriOS|PhantomJS/)
   end
 
   def safari_webapp_mode?
@@ -198,11 +219,6 @@ class Browser
     !!(ua =~ /(Opera|OPR)/)
   end
 
-  # Detect if browser is Silk.
-  def silk?
-    !!(ua =~ /Silk/)
-  end
-
   # Detect if browser is Yandex.
   def yandex?
     !!(ua =~ /YaBrowser/)
@@ -213,8 +229,32 @@ class Browser
     !!(ua =~ /UCBrowser/)
   end
 
+  # Detect if browser is Nokia S40 Ovi Browser.
+  def nokia?
+    !!(ua =~ /S40OviBrowser/)
+  end
+
+  # Detect if browser is Opera Mini.
+  def opera_mini?
+    !!(ua =~ /Opera Mini/)
+  end
+
+  def webkit_full_version
+    ua[%r[AppleWebKit/([\d.]+)], 1] || "0.0"
+  end
+
   def known?
     id != :other
+  end
+
+  # Return the platform.
+  def platform
+    @platform ||= Browser::Platform.new(ua)
+  end
+
+  # Return the device info.
+  def device
+    @device ||= Browser::Device.new(ua)
   end
 
   # Return a meta info about this browser.
@@ -233,6 +273,10 @@ class Browser
   end
 
   private
+
+  def alternative_version?
+    platform.blackberry? || device.playbook? || platform.adobe_air?
+  end
 
   def detect_version?(actual_version, expected_version)
     return true unless expected_version

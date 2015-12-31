@@ -1,6 +1,8 @@
 class Browser
   module Language
-    LANGUAGES = YAML.load_file(File.expand_path("../../../../languages.yml", __FILE__))
+    def self.languages
+      @languages ||= YAML.load_file(Browser.root.join("languages.yml"))
+    end
 
     # Set browser's preferred language
     attr_writer :accept_language

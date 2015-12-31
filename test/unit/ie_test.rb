@@ -139,8 +139,6 @@ class IeTest < Minitest::Test
     assert @browser.ie?(9)
     assert_equal "9.0", @browser.full_version
     assert_equal "9", @browser.version
-    refute @browser.tablet?
-    assert @browser.mobile?
   end
 
   test "detects ie11 touch desktop pc" do
@@ -151,9 +149,9 @@ class IeTest < Minitest::Test
     assert @browser.ie?(11)
     assert @browser.modern?
     refute @browser.compatibility_view?
-    refute @browser.windows_rt?
-    assert @browser.windows_touchscreen_desktop?
-    assert @browser.windows8?
+    refute @browser.platform.windows_rt?
+    assert @browser.platform.windows_touchscreen_desktop?
+    assert @browser.platform.windows8?
     assert_equal "11.0", @browser.full_version
     assert_equal "11", @browser.version
   end
@@ -165,13 +163,13 @@ class IeTest < Minitest::Test
     assert_equal "Microsoft Edge", @browser.name
     assert_equal "12.0", @browser.full_version
     assert_equal "12", @browser.version
-    assert @browser.windows10?
+    assert @browser.platform.windows10?
     assert @browser.edge?
     assert @browser.modern?
     refute @browser.webkit?
     refute @browser.chrome?
     refute @browser.safari?
-    refute @browser.mobile?
+    refute @browser.device.mobile?
   end
 
   test "detects Microsoft Edge in compatibility view" do
@@ -189,7 +187,7 @@ class IeTest < Minitest::Test
     refute @browser.webkit?
     refute @browser.chrome?
     refute @browser.safari?
-    refute @browser.mobile?
+    refute @browser.device.mobile?
   end
 
   test "detects Microsoft Edge Mobile" do
@@ -199,11 +197,10 @@ class IeTest < Minitest::Test
     assert_equal "Microsoft Edge", @browser.name
     assert_equal "12.0", @browser.full_version
     assert_equal "12", @browser.version
-    refute @browser.windows10?
-    assert @browser.windows_phone?
+    refute @browser.platform.windows10?
+    assert @browser.platform.windows_phone?
     assert @browser.edge?
     assert @browser.modern?
-    assert @browser.mobile?
     refute @browser.webkit?
     refute @browser.chrome?
     refute @browser.safari?
@@ -218,11 +215,11 @@ class IeTest < Minitest::Test
     assert_equal "0", @browser.msie_version
     assert_equal "0.0", @browser.full_version
     assert_equal "0", @browser.version
-    refute @browser.windows10?
-    refute @browser.windows_phone?
+    refute @browser.platform.windows10?
+    refute @browser.platform.windows_phone?
     refute @browser.edge?
     refute @browser.modern?
-    refute @browser.mobile?
+    refute @browser.device.mobile?
     refute @browser.webkit?
     refute @browser.chrome?
     refute @browser.safari?
@@ -233,10 +230,8 @@ class IeTest < Minitest::Test
 
     assert @browser.ie?
     assert_equal "7", @browser.version
-    assert @browser.mobile?
-    assert @browser.windows_phone?
-    refute @browser.windows_mobile?
-    refute @browser.tablet?
+    assert @browser.platform.windows_phone?
+    refute @browser.platform.windows_mobile?
   end
 
   test "detects windows phone 8" do
@@ -244,10 +239,8 @@ class IeTest < Minitest::Test
 
     assert @browser.ie?
     assert_equal "10", @browser.version
-    assert @browser.mobile?
-    assert @browser.windows_phone?
-    refute @browser.windows_mobile?
-    refute @browser.tablet?
+    assert @browser.platform.windows_phone?
+    refute @browser.platform.windows_mobile?
   end
 
   test "detects windows phone 8.1" do
@@ -258,10 +251,8 @@ class IeTest < Minitest::Test
     assert_equal :ie, @browser.id
     assert_equal "11", @browser.version
     assert_equal "11.0", @browser.full_version
-    assert @browser.mobile?
-    assert @browser.windows_phone?
-    refute @browser.windows_mobile?
-    refute @browser.tablet?
+    assert @browser.platform.windows_phone?
+    refute @browser.platform.windows_mobile?
   end
 
   test "detects windows mobile (windows phone 8)" do
@@ -269,67 +260,65 @@ class IeTest < Minitest::Test
 
     assert @browser.ie?
     assert_equal "10", @browser.version
-    assert @browser.mobile?
-    assert @browser.windows_phone?
-    refute @browser.windows_mobile?
-    refute @browser.tablet?
+    assert @browser.platform.windows_phone?
+    refute @browser.platform.windows_mobile?
   end
 
   test "detects windows x64" do
     @browser.ua = $ua["IE10_X64_WINX64"]
-    assert @browser.windows_x64?
-    refute @browser.windows_wow64?
-    assert @browser.windows_x64_inclusive?
+    assert @browser.platform.windows_x64?
+    refute @browser.platform.windows_wow64?
+    assert @browser.platform.windows_x64_inclusive?
   end
 
   test "detects windows wow64" do
     @browser.ua = $ua["WINDOWS_WOW64"]
-    refute @browser.windows_x64?
-    assert @browser.windows_wow64?
-    assert @browser.windows_x64_inclusive?
+    refute @browser.platform.windows_x64?
+    assert @browser.platform.windows_wow64?
+    assert @browser.platform.windows_x64_inclusive?
   end
 
   test "detects windows platform" do
     @browser.ua = "Windows"
-    assert_equal :windows, @browser.platform
-    assert @browser.windows?
+    assert_equal :windows, @browser.platform.id
+    assert @browser.platform.windows?
   end
 
   test "detects windows_xp" do
     @browser.ua = $ua["WINDOWS_XP"]
 
-    assert @browser.windows?
-    assert @browser.windows_xp?
+    assert @browser.platform.windows?
+    assert @browser.platform.windows_xp?
   end
 
   test "detects windows_vista" do
     @browser.ua = $ua["WINDOWS_VISTA"]
 
-    assert @browser.windows?
-    assert @browser.windows_vista?
+    assert @browser.platform.windows?
+    assert @browser.platform.windows_vista?
   end
 
   test "detects windows7" do
     @browser.ua = $ua["WINDOWS7"]
 
-    assert @browser.windows?
-    assert @browser.windows7?
+    assert @browser.platform.windows?
+    assert @browser.platform.windows7?
   end
 
   test "detects windows8" do
     @browser.ua = $ua["WINDOWS8"]
 
-    assert @browser.windows?
-    assert @browser.windows8?
-    refute @browser.windows8_1?
+    assert @browser.platform.windows?
+    assert @browser.platform.windows8?
+    refute @browser.platform.windows8_1?
   end
 
   test "detects windows8.1" do
     @browser.ua = $ua["WINDOWS81"]
 
-    assert @browser.windows?
-    assert @browser.windows8?
-    assert @browser.windows8_1?
+    assert @browser.platform.windows?
+    assert @browser.platform.windows8?
+    assert @browser.platform.windows8_1?
   end
 
   test "returns string representation for ie6" do
@@ -364,11 +353,6 @@ class IeTest < Minitest::Test
     assert meta.include?("ie8")
     assert meta.include?("lt-ie9")
     assert meta.include?("windows")
-  end
-
-  test "warn about deprecated numbered version" do
-    message = "Browser#ie6? is deprecated; use Browser#ie?(version) instead"
-    assert_deprecated(message, __FILE__, __LINE__) { @browser.ie6? }
   end
 
   test "don't detect as two different versions" do

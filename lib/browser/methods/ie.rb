@@ -40,42 +40,6 @@ class Browser
       (msie? || modern_ie?) && detect_version?(ie_version, version)
     end
 
-    # Detect if browser is Internet Explorer 6.
-    def ie6?
-      deprecate "Browser##{__method__} is deprecated; use Browser#ie?(version) instead"
-      ie?(6)
-    end
-
-    # Detect if browser is Internet Explorer 7.
-    def ie7?
-      deprecate "Browser##{__method__} is deprecated; use Browser#ie?(version) instead"
-      ie?(7)
-    end
-
-    # Detect if browser is Internet Explorer 8.
-    def ie8?
-      deprecate "Browser##{__method__} is deprecated; use Browser#ie?(version) instead"
-      ie?(8)
-    end
-
-    # Detect if browser is Internet Explorer 9.
-    def ie9?
-      deprecate "Browser##{__method__} is deprecated; use Browser#ie?(version) instead"
-      ie?(9)
-    end
-
-    # Detect if browser is Internet Explorer 10.
-    def ie10?
-      deprecate "Browser##{__method__} is deprecated; use Browser#ie?(version) instead"
-      ie?(10)
-    end
-
-    # Detect if browser is Internet Explorer 11.
-    def ie11?
-      deprecate "Browser##{__method__} is deprecated; use Browser#ie?(version) instead"
-      ie?(11)
-    end
-
     # Detect if browser is Microsoft Edge.
     def edge?
       !!(ua =~ EDGE)

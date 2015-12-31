@@ -40,12 +40,10 @@ class BrowserTest < Minitest::Test
   test "detects android" do
     @browser.ua = $ua["ANDROID"]
 
-    assert_equal "Android", @browser.name
-    assert @browser.android?
-    refute @browser.safari?
+    assert_equal "Safari", @browser.name
+    assert @browser.platform.android?
+    assert @browser.safari?
     assert @browser.webkit?
-    assert @browser.mobile?
-    refute @browser.tablet?
     assert @browser.modern?
     assert_equal "3.1.2", @browser.full_version
     assert_equal "3", @browser.version
@@ -54,12 +52,10 @@ class BrowserTest < Minitest::Test
   test "detects android tablet" do
     @browser.ua = $ua["TABLOID"]
 
-    assert_equal "Android", @browser.name
-    assert @browser.android?
-    refute @browser.safari?
+    assert_equal "Safari", @browser.name
+    assert @browser.platform.android?
+    assert @browser.safari?
     assert @browser.webkit?
-    refute @browser.mobile?
-    assert @browser.tablet?
     assert @browser.modern?
     assert_equal "4.0", @browser.full_version
     assert_equal "4", @browser.version
@@ -69,10 +65,8 @@ class BrowserTest < Minitest::Test
     @browser.ua = $ua["SURFACE"]
 
     assert_equal "Internet Explorer", @browser.name
-    assert @browser.surface?
+    assert @browser.device.surface?
     assert @browser.ie?
-    refute @browser.mobile?
-    assert @browser.tablet?
     assert @browser.modern?
     assert_equal "10.0", @browser.full_version
     assert_equal "10", @browser.version
@@ -101,31 +95,9 @@ class BrowserTest < Minitest::Test
 
     assert_equal "PhantomJS", @browser.name
     assert @browser.phantom_js?
-    refute @browser.tablet?
-    refute @browser.mobile?
     assert @browser.modern?
     assert_equal "1.9.0", @browser.full_version
     assert_equal "1", @browser.version
-  end
-
-  test "detects other mobiles" do
-    @browser.ua = "Symbian OS"
-    assert @browser.mobile?
-    refute @browser.tablet?
-
-    @browser.ua = "MIDP-2.0"
-    assert @browser.mobile?
-    refute @browser.tablet?
-  end
-
-  test "detects windows mobile" do
-    @browser.ua = $ua["WINDOWS_MOBILE"]
-
-    assert @browser.mobile?
-    assert @browser.windows?
-    assert @browser.windows_mobile?
-    refute @browser.windows_phone?
-    refute @browser.tablet?
   end
 
   test "returns a zero version" do
@@ -154,8 +126,6 @@ class BrowserTest < Minitest::Test
     meta = @browser.to_s
 
     assert meta.include?("blackberry")
-    assert meta.include?("blackberry4")
-    assert meta.include?("other")
     assert meta.include?("mobile")
   end
 
@@ -169,56 +139,9 @@ class BrowserTest < Minitest::Test
     assert_equal "Other", @browser.name
   end
 
-  test "detects mac platform" do
-    @browser.ua = "Mac OS X"
-    assert_equal :mac, @browser.platform
-    assert @browser.mac?
-  end
-
-  test "detects linux platform" do
-    @browser.ua = "Linux"
-    assert_equal :linux, @browser.platform
-    assert @browser.linux?
-  end
-
-  test "detects unknown platform" do
-    @browser.ua = "Unknown"
-    assert_equal :other, @browser.platform
-  end
-
   test "returns all known languages" do
     @browser.accept_language = "en-us,en;q=0.8,pt-br;q=0.5,pt;q=0.3"
     assert_equal ["en-us", "en", "pt-br", "pt"], @browser.accept_language
-  end
-
-  test "detects xoom" do
-    @browser.ua = $ua["XOOM"]
-
-    assert @browser.android?
-    assert @browser.tablet?
-    refute @browser.mobile?
-  end
-
-  test "detects nexus tablet" do
-    @browser.ua = $ua["NEXUS_TABLET"]
-
-    assert @browser.android?
-    assert @browser.tablet?
-    refute @browser.mobile?
-  end
-
-  test "detects nook" do
-    @browser.ua = $ua["NOOK"]
-
-    assert @browser.tablet?
-    refute @browser.mobile?
-  end
-
-  test "detects samsung" do
-    @browser.ua = $ua["SAMSUNG"]
-
-    assert @browser.tablet?
-    refute @browser.mobile?
   end
 
   test "removes duplicate items" do
@@ -229,11 +152,6 @@ class BrowserTest < Minitest::Test
   test "detects meta aliased as to_a" do
     @browser.ua = $ua["SAFARI"]
     assert_equal @browser.meta, @browser.to_a
-  end
-
-  test "detects tv" do
-    @browser.ua = $ua["SMART_TV"]
-    assert @browser.tv?
   end
 
   test "knows a supported browser" do

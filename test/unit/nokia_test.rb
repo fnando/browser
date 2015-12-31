@@ -1,13 +1,9 @@
 require "test_helper"
 
 class NokiaTest < Minitest::Test
-  setup do
-    @browser = Browser.new(ua: $ua["NOKIA"])
-  end
-
   test "detects Nokia S40" do
-    assert @browser.mobile?
+    @browser = Browser.new(ua: $ua["NOKIA"])
     assert @browser.nokia?
-    assert_equal @browser.name, "Nokia S40 Ovi Browser"
+    assert_equal "Nokia S40 Ovi Browser", @browser.name
   end
 end

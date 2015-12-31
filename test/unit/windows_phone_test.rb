@@ -10,10 +10,8 @@ class WindowPhoneTest < Minitest::Test
 
     assert @browser.ie?
     assert_equal "7", @browser.version
-    assert @browser.mobile?
-    assert @browser.windows_phone?
-    refute @browser.windows_mobile?
-    refute @browser.tablet?
+    assert @browser.platform.windows_phone?
+    refute @browser.platform.windows_mobile?
   end
 
   test "detects windows phone 8" do
@@ -21,10 +19,8 @@ class WindowPhoneTest < Minitest::Test
 
     assert @browser.ie?
     assert_equal "10", @browser.version
-    assert @browser.mobile?
-    assert @browser.windows_phone?
-    refute @browser.windows_mobile?
-    refute @browser.tablet?
+    assert @browser.platform.windows_phone?
+    refute @browser.platform.windows_mobile?
   end
 
   test "detects windows phone 8.1" do
@@ -35,20 +31,7 @@ class WindowPhoneTest < Minitest::Test
     assert_equal :ie, @browser.id
     assert_equal "11", @browser.version
     assert_equal "11.0", @browser.full_version
-    assert @browser.mobile?
-    assert @browser.windows_phone?
-    refute @browser.windows_mobile?
-    refute @browser.tablet?
-  end
-
-  test "detects windows mobile (windows phone 8)" do
-    @browser.ua = $ua["WINDOWS_PHONE8"]
-
-    assert @browser.ie?
-    assert_equal "10", @browser.version
-    assert @browser.mobile?
-    assert @browser.windows_phone?
-    refute @browser.windows_mobile?
-    refute @browser.tablet?
+    assert @browser.platform.windows_phone?
+    refute @browser.platform.windows_mobile?
   end
 end

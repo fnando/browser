@@ -34,7 +34,7 @@ class ChromeTest < Minitest::Test
 
     assert_equal "Chrome", @browser.name
     assert @browser.chrome?
-    assert @browser.android?
+    assert @browser.platform.android?
     refute @browser.safari?
     assert @browser.webkit?
     assert @browser.modern?
@@ -44,7 +44,7 @@ class ChromeTest < Minitest::Test
 
   test "detects chrome os" do
     @browser.ua = $ua["CHROME_OS"]
-    assert @browser.chrome_os?
+    assert @browser.platform.chrome_os?
   end
 
   test "detects yandex browser" do

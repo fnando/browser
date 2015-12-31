@@ -109,11 +109,11 @@ class BotsTest < Minitest::Test
     assert_equal "0", @browser.version
     assert @browser.ie?
     assert @browser.bot?
-    refute @browser.windows10?
-    refute @browser.windows_phone?
+    refute @browser.platform.windows10?
+    refute @browser.platform.windows_phone?
     refute @browser.edge?
     refute @browser.modern?
-    refute @browser.mobile?
+    refute @browser.device.mobile?
     refute @browser.webkit?
     refute @browser.chrome?
     refute @browser.safari?
@@ -122,7 +122,7 @@ class BotsTest < Minitest::Test
   test "custom android user agent (#144)" do
     @browser.ua = "Our App 0.0.1 (Linux; Android 4.0.3; HTC Ruby Build/IML74K; en_CA)"
 
-    assert @browser.android?
+    assert @browser.platform.android?
     refute @browser.bot?
   end
 end

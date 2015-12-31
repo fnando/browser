@@ -1,0 +1,21 @@
+class Browser
+  class Platform
+    class AdobeAir < Base
+      def match?
+        ua =~ /AdobeAIR/
+      end
+
+      def version
+        ua[%r[AdobeAIR/([\d.]+)]]
+      end
+
+      def name
+        "Adobe AIR"
+      end
+
+      def id
+        :adobe_air
+      end
+    end
+  end
+end

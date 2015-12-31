@@ -1,9 +1,16 @@
 class Browser
   module Bots
-    root = Pathname.new(File.expand_path("../../../..", __FILE__))
-    BOTS = YAML.load_file(root.join("bots.yml"))
-    BOT_EXCEPTIONS = YAML.load_file(root.join("bot_exceptions.yml"))
-    SEARCH_ENGINES = YAML.load_file(root.join("search_engines.yml"))
+    def self.bots
+      @bots ||= YAML.load_file(Browser.root.join("bots.yml"))
+    end
+
+    def self.bot_exceptions
+      @bot_exceptions ||= YAML.load_file(Browser.root.join("bot_exceptions.yml"))
+    end
+
+    def self.search_engines
+      @search_engines ||= YAML.load_file(Browser.root.join("search_engines.yml"))
+    end
 
     def self.detect_empty_ua!
       @detect_empty_ua = true
@@ -20,11 +27,11 @@ class Browser
     def bot_name
       return unless bot?
       return "Generic Bot" if bot_with_empty_ua?
-      BOTS.find {|key, _| ua.include?(key) }.first
+      Browser::Bots.bots.find {|key, _| ua.include?(key) }.first
     end
 
     def search_engine?
-      SEARCH_ENGINES.any? {|key, _| ua.include?(key) }
+      Browser::Bots.search_engines.any? {|key, _| ua.include?(key) }
     end
 
     private
@@ -34,11 +41,11 @@ class Browser
     end
 
     def bot_exception?
-      BOT_EXCEPTIONS.any? {|key| ua.include?(key) }
+      Browser::Bots.bot_exceptions.any? {|key| ua.include?(key) }
     end
 
     def detect_bot?
-      BOTS.any? {|key, _| ua.include?(key) }
+      Browser::Bots.bots.any? {|key, _| ua.include?(key) }
     end
   end
 end

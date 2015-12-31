@@ -7,58 +7,58 @@ class WindowsTest < Minitest::Test
 
   test "detects windows x64" do
     @browser.ua = $ua["IE10_X64_WINX64"]
-    assert @browser.windows_x64?
-    refute @browser.windows_wow64?
-    assert @browser.windows_x64_inclusive?
+    assert @browser.platform.windows_x64?
+    refute @browser.platform.windows_wow64?
+    assert @browser.platform.windows_x64_inclusive?
   end
 
   test "detects windows wow64" do
     @browser.ua = $ua["WINDOWS_WOW64"]
-    refute @browser.windows_x64?
-    assert @browser.windows_wow64?
-    assert @browser.windows_x64_inclusive?
+    refute @browser.platform.windows_x64?
+    assert @browser.platform.windows_wow64?
+    assert @browser.platform.windows_x64_inclusive?
   end
 
   test "detects windows platform" do
     @browser.ua = "Windows"
-    assert_equal :windows, @browser.platform
-    assert @browser.windows?
+    assert_equal :windows, @browser.platform.id
+    assert @browser.platform.windows?
   end
 
   test "detects windows_xp" do
     @browser.ua = $ua["WINDOWS_XP"]
 
-    assert @browser.windows?
-    assert @browser.windows_xp?
+    assert @browser.platform.windows?
+    assert @browser.platform.windows_xp?
   end
 
   test "detects windows_vista" do
     @browser.ua = $ua["WINDOWS_VISTA"]
 
-    assert @browser.windows?
-    assert @browser.windows_vista?
+    assert @browser.platform.windows?
+    assert @browser.platform.windows_vista?
   end
 
   test "detects windows7" do
     @browser.ua = $ua["WINDOWS7"]
 
-    assert @browser.windows?
-    assert @browser.windows7?
+    assert @browser.platform.windows?
+    assert @browser.platform.windows7?
   end
 
   test "detects windows8" do
     @browser.ua = $ua["WINDOWS8"]
 
-    assert @browser.windows?
-    assert @browser.windows8?
-    refute @browser.windows8_1?
+    assert @browser.platform.windows?
+    assert @browser.platform.windows8?
+    refute @browser.platform.windows8_1?
   end
 
   test "detects windows8.1" do
     @browser.ua = $ua["WINDOWS81"]
 
-    assert @browser.windows?
-    assert @browser.windows8?
-    assert @browser.windows8_1?
+    assert @browser.platform.windows?
+    assert @browser.platform.windows8?
+    assert @browser.platform.windows8_1?
   end
 end
