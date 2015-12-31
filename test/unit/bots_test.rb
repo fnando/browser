@@ -118,4 +118,11 @@ class BotsTest < Minitest::Test
     refute @browser.chrome?
     refute @browser.safari?
   end
+
+  test "custom android user agent (#144)" do
+    @browser.ua = "Our App 0.0.1 (Linux; Android 4.0.3; HTC Ruby Build/IML74K; en_CA)"
+
+    assert @browser.android?
+    refute @browser.bot?
+  end
 end
