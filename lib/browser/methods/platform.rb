@@ -117,7 +117,7 @@ class Browser
 
     # Detect if current platform is Windows in 64-bit architecture.
     def windows_x64?
-      windows? && !!(ua =~ /(Win64|x64)/) && !!(ua =~ /x64/)
+      !!(windows? && ua =~ /(Win64|x64)/)
     end
 
     def windows_wow64?
