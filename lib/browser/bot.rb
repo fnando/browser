@@ -13,11 +13,13 @@ class Browser
     end
 
     def self.bot_exceptions
-      @bot_exceptions ||= YAML.load_file(Browser.root.join("bot_exceptions.yml"))
+      @bot_exceptions ||= YAML
+                          .load_file(Browser.root.join("bot_exceptions.yml"))
     end
 
     def self.search_engines
-      @search_engines ||= YAML.load_file(Browser.root.join("search_engines.yml"))
+      @search_engines ||= YAML
+                          .load_file(Browser.root.join("search_engines.yml"))
     end
 
     attr_reader :ua

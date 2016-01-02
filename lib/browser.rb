@@ -90,7 +90,7 @@ class Browser
   VERSIONS = {
     edge: %r[Edge/([\d.]+)],
     chrome: %r[(?:Chrome|CriOS)/([\d.]+)],
-    default: %r[(?:Version|MSIE|Firefox|QuickTime|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i,
+    default: %r[(?:Version|MSIE|Firefox|QuickTime|CoreMedia v|PhantomJS)[/ ]?([a-z0-9.]+)]i, # rubocop:disable Metrics/LineLength
     opera: %r[(?:Opera/.*? Version/([\d.]+)|Chrome/.*?OPR/([\d.]+))],
     ie: %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
   }
@@ -113,13 +113,13 @@ class Browser
     @modern_rules ||= []
   end
 
-  self.modern_rules.tap do |rules|
-    rules << -> b { b.webkit? }
-    rules << -> b { b.firefox? && b.version.to_i >= 17 }
-    rules << -> b { b.ie? && b.version.to_i >= 9 && !b.compatibility_view? }
-    rules << -> b { b.edge? && !b.compatibility_view? }
-    rules << -> b { b.opera? && b.version.to_i >= 12 }
-    rules << -> b { b.firefox? && b.device.tablet? && b.platform.android? && b.version.to_i >= 14 }
+  modern_rules.tap do |rules|
+    rules << -> (b) { b.webkit? }
+    rules << -> (b) { b.firefox? && b.version.to_i >= 17 }
+    rules << -> (b) { b.ie? && b.version.to_i >= 9 && !b.compatibility_view? }
+    rules << -> (b) { b.edge? && !b.compatibility_view? }
+    rules << -> (b) { b.opera? && b.version.to_i >= 12 }
+    rules << -> (b) { b.firefox? && b.device.tablet? && b.platform.android? && b.version.to_i >= 14 } # rubocop:disable Metrics/LineLength
   end
 
   # Create a new browser instance and set
@@ -171,7 +171,7 @@ class Browser
 
   # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
   def modern?
-    self.class.modern_rules.any? {|rule| rule === self }
+    self.class.modern_rules.any? {|rule| rule === self } # rubocop:disable Metrics/LineLength, Style/CaseEquality
   end
 
   # Detect if browser is WebKit-based.

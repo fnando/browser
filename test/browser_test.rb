@@ -25,15 +25,15 @@ class BrowserTest < Minitest::Test
   end
 
   test "sets accept language while instantiating object" do
-    @browser = Browser.new(:accept_language => "pt-br")
+    @browser = Browser.new(accept_language: "pt-br")
     assert_equal ["pt-br"], @browser.accept_language
   end
 
   test "sets user agent while instantianting object" do
-    @browser = Browser.new(:ua => "Safari")
+    @browser = Browser.new(ua: "Safari")
     assert_equal "Safari", @browser.ua
 
-    @browser = Browser.new(:user_agent => "Chrome")
+    @browser = Browser.new(user_agent: "Chrome")
     assert_equal "Chrome", @browser.ua
   end
 

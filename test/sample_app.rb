@@ -10,13 +10,13 @@ class SampleApp < Rails::Application
   routes.append do
     default_headers = {"Content-Type" => "text/html"}
 
-    root to: -> env { [200, default_headers, ["ROOT"]] }
-    get "upgrade", to: -> env {
+    root to: -> (_env) { [200, default_headers, ["ROOT"]] }
+    get "upgrade", to: lambda {|env|
       browser = Rack::Request.new(env).params["browser"]
       [200, default_headers, ["UPGRADE: #{browser}"]]
     }, as: "upgrade"
 
-    get "/asset", to: -> env {
+    get "/asset", to: proc {
       [200, {"Content-Type" => "image/png"}, []]
     }
   end

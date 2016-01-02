@@ -1,3 +1,18 @@
+Metrics/LineLength:
+  Max: 80
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Style/PerlBackrefs:
+  Enabled: false
+
 ClassLength:
   Enabled: false
 
@@ -68,12 +83,6 @@ DoubleNegation:
 SpaceInsideBlockBraces:
   SpaceBeforeBlockParameters: false
 
-LineLength:
-  Max: 130
-
-RegexpLiteral:
-  MaxSlashes: 0
-
 SpaceInsideHashLiteralBraces:
   Enabled: false
 
@@ -88,3 +97,11 @@ PercentLiteralDelimiters:
     '%w': '[]'
     '%W': '[]'
     '%x': '[]'
+
+Style/CollectionMethods:
+  PreferredMethods:
+    collect: 'map'
+    collect!: 'map!'
+    inject: 'reduce'
+    detect: 'find'
+    find_all: 'select'

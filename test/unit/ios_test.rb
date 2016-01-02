@@ -72,7 +72,6 @@ class IosTest < Minitest::Test
     refute @browser.platform.mac?
   end
 
-
   test "detects ios5" do
     @browser.ua = Browser["IOS5"]
     assert @browser.platform.ios?
