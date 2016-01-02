@@ -32,6 +32,10 @@ class Browser
       subject.id
     end
 
+    def name
+      subject.name
+    end
+
     # Detect if browser is tablet (currently iPad, Android, Surface or
     # Playbook).
     def tablet?

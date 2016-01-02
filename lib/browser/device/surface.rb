@@ -6,7 +6,7 @@ class Browser
       end
 
       def name
-        "Surface"
+        "Microsoft Surface"
       end
 
       def match?
