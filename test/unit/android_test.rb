@@ -6,91 +6,91 @@ class AndroidTest < Minitest::Test
   end
 
   test "detect android cupcake (1.5)" do
-    @browser.ua = Browser['ANDROID_CUPCAKE']
+    @browser.ua = Browser["ANDROID_CUPCAKE"]
     assert @browser.platform.android?
     assert @browser.platform.android?(1.5)
   end
 
   test "detect android donut (1.6)" do
-    @browser.ua = Browser['ANDROID_DONUT']
+    @browser.ua = Browser["ANDROID_DONUT"]
     assert @browser.platform.android?
     assert @browser.platform.android?(1.6)
   end
 
   test "detect android eclair (2.1)" do
-    @browser.ua = Browser['ANDROID_ECLAIR_21']
+    @browser.ua = Browser["ANDROID_ECLAIR_21"]
     assert @browser.platform.android?
     assert @browser.platform.android?(2.1)
   end
 
   test "detect android froyo (2.2)" do
-    @browser.ua = Browser['ANDROID_FROYO']
+    @browser.ua = Browser["ANDROID_FROYO"]
     assert @browser.platform.android?
     assert @browser.platform.android?(2.2)
   end
 
   test "detect android gingerbread (2.3)" do
-    @browser.ua = Browser['ANDROID_GINGERBREAD']
+    @browser.ua = Browser["ANDROID_GINGERBREAD"]
     assert @browser.platform.android?
     assert @browser.platform.android?(2.3)
   end
 
   test "detect android honeycomb (3.0)" do
-    @browser.ua = Browser['ANDROID_HONEYCOMB_30']
+    @browser.ua = Browser["ANDROID_HONEYCOMB_30"]
     assert @browser.platform.android?
     assert @browser.platform.android?(3.0)
   end
 
   test "detect android ice cream sandwich (4.0)" do
-    @browser.ua = Browser['ANDROID_ICECREAM']
+    @browser.ua = Browser["ANDROID_ICECREAM"]
     assert @browser.platform.android?
     assert @browser.platform.android?(4.0)
   end
 
   test "detect android jellybean (4.1)" do
-    @browser.ua = Browser['ANDROID_JELLYBEAN_41']
+    @browser.ua = Browser["ANDROID_JELLYBEAN_41"]
     assert @browser.platform.android?
     assert @browser.platform.android?(4.1)
   end
 
   test "detect android jellybean (4.2)" do
-    @browser.ua = Browser['ANDROID_JELLYBEAN_42']
+    @browser.ua = Browser["ANDROID_JELLYBEAN_42"]
     assert @browser.platform.android?
     assert @browser.platform.android?(4.2)
   end
 
   test "detect android jellybean (4.3)" do
-    @browser.ua = Browser['ANDROID_JELLYBEAN_43']
+    @browser.ua = Browser["ANDROID_JELLYBEAN_43"]
     assert @browser.platform.android?
     assert @browser.platform.android?(4.3)
   end
 
   test "detect android kitkat (4.4)" do
-    @browser.ua = Browser['ANDROID_KITKAT']
+    @browser.ua = Browser["ANDROID_KITKAT"]
     assert @browser.platform.android?
     assert @browser.platform.android?(4.4)
   end
 
   test "detect android lollipop (5.0)" do
-    @browser.ua = Browser['ANDROID_LOLLIPOP_50']
+    @browser.ua = Browser["ANDROID_LOLLIPOP_50"]
     assert @browser.platform.android?
     assert @browser.platform.android?(5.0)
   end
 
   test "detect android lollipop (5.1)" do
-    @browser.ua = Browser['ANDROID_LOLLIPOP_51']
+    @browser.ua = Browser["ANDROID_LOLLIPOP_51"]
     assert @browser.platform.android?
     assert @browser.platform.android?(5.1)
   end
 
   test "detect android tv" do
-    @browser.ua = Browser['ANDROID_TV']
+    @browser.ua = Browser["ANDROID_TV"]
     assert @browser.platform.android?
     assert @browser.device.tv?
   end
 
   test "detect nexus player" do
-    @browser.ua = Browser['ANDROID_NEXUS_PLAYER']
+    @browser.ua = Browser["ANDROID_NEXUS_PLAYER"]
     assert @browser.platform.android?
   end
 end

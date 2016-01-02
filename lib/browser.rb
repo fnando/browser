@@ -107,7 +107,7 @@ class Browser
   #
   #   # Only Chrome Canary is considered modern.
   #   Browser.modern_rules.clear
-  #   Browser.modern_rules << -> b { b.chrome? && b.version >= '37' }
+  #   Browser.modern_rules << -> b { b.chrome? && b.version >= "37" }
   #
   def self.modern_rules
     @modern_rules ||= []
