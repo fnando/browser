@@ -18,7 +18,7 @@ gem install browser
 require "rubygems"
 require "browser"
 
-browser = Browser.new(:ua => "some string", :accept_language => "en-us")
+browser = Browser.new(ua: "some string", accept_language: "en-us")
 browser.name            # readable browser name
 browser.version         # major version number
 browser.full_version
@@ -128,7 +128,7 @@ This behavior changed in `v1.0.0`; previously there wasn't a way of getting the 
 
 ### Bots
 
-Browser used to detect empty user agents as bots, but this behaviour has changed. If you want to bring this detection back, you can activate it through the following call:
+Browser used to detect empty user agents as bots, but this behavior has changed. If you want to bring this detection back, you can activate it through the following call:
 
 ```ruby
 Browser::Bot.detect_empty_ua!
@@ -162,7 +162,7 @@ Rails.configuration.middleware.use Browser::Middleware do
 end
 ```
 
-If you need acccess to the `Rack::Request` object (e.g. to exclude a path), you can do so with `request`.
+If you need access to the `Rack::Request` object (e.g. to exclude a path), you can do so with `request`.
 ```ruby
 Rails.configuration.middleware.use Browser::Middleware do
   redirect_to upgrade_path unless browser.modern? || request.env['PATH_INFO'] == '/exclude_me'
