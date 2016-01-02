@@ -3,6 +3,7 @@ require "bundler/setup"
 require "minitest/autorun"
 require "minitest/utils"
 require "browser"
+require "browser/testing"
 require "yaml"
 
 $ua = YAML.load_file("./test/ua.yml")

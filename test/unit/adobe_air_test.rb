@@ -6,7 +6,7 @@ class AdobeAirTest < Minitest::Test
   end
 
   test "detects adobe air" do
-    @browser.ua = $ua["ADOBE_AIR"]
+    @browser.ua = Browser["ADOBE_AIR"]
 
     assert @browser.webkit?
     assert_equal "533", @browser.version

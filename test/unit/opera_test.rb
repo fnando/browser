@@ -6,7 +6,7 @@ class OperaTest < Minitest::Test
   end
 
   test "detects opera" do
-    @browser.ua = $ua["OPERA"]
+    @browser.ua = Browser["OPERA"]
 
     assert_equal "Opera", @browser.name
     assert @browser.opera?
@@ -16,7 +16,7 @@ class OperaTest < Minitest::Test
   end
 
   test "detects opera next" do
-    @browser.ua = $ua["OPERA_NEXT"]
+    @browser.ua = Browser["OPERA_NEXT"]
 
     assert_equal "Opera", @browser.name
     assert_equal :opera, @browser.id
@@ -29,12 +29,12 @@ class OperaTest < Minitest::Test
   end
 
   test "detects opera mini" do
-    @browser.ua = $ua["OPERA_MINI"]
+    @browser.ua = Browser["OPERA_MINI"]
     assert @browser.opera_mini?
   end
 
   test "detects opera mobi" do
-    @browser.ua = $ua["OPERA_MOBI"]
+    @browser.ua = Browser["OPERA_MOBI"]
     assert @browser.opera?
   end
 end

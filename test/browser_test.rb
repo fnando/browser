@@ -38,7 +38,7 @@ class BrowserTest < Minitest::Test
   end
 
   test "detects android" do
-    @browser.ua = $ua["ANDROID"]
+    @browser.ua = Browser["ANDROID"]
 
     assert_equal "Safari", @browser.name
     assert @browser.platform.android?
@@ -50,7 +50,7 @@ class BrowserTest < Minitest::Test
   end
 
   test "detects android tablet" do
-    @browser.ua = $ua["TABLOID"]
+    @browser.ua = Browser["TABLOID"]
 
     assert_equal "Safari", @browser.name
     assert @browser.platform.android?
@@ -62,7 +62,7 @@ class BrowserTest < Minitest::Test
   end
 
   test "detects surface tablet" do
-    @browser.ua = $ua["SURFACE"]
+    @browser.ua = Browser["SURFACE"]
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.device.surface?
@@ -73,7 +73,7 @@ class BrowserTest < Minitest::Test
   end
 
   test "detects quicktime" do
-    @browser.ua = $ua["QUICKTIME"]
+    @browser.ua = Browser["QUICKTIME"]
 
     assert_equal "QuickTime", @browser.name
     assert @browser.quicktime?
@@ -82,7 +82,7 @@ class BrowserTest < Minitest::Test
   end
 
   test "detects core media" do
-    @browser.ua = $ua["COREMEDIA"]
+    @browser.ua = Browser["COREMEDIA"]
 
     assert_equal "Apple CoreMedia", @browser.name
     assert @browser.core_media?
@@ -91,7 +91,7 @@ class BrowserTest < Minitest::Test
   end
 
   test "detects phantom.js" do
-    @browser.ua = $ua["PHANTOM_JS"]
+    @browser.ua = Browser["PHANTOM_JS"]
 
     assert_equal "PhantomJS", @browser.name
     assert @browser.phantom_js?
@@ -107,12 +107,12 @@ class BrowserTest < Minitest::Test
   end
 
   test "sets meta" do
-    @browser.ua = $ua["CHROME"]
+    @browser.ua = Browser["CHROME"]
     assert_kind_of Array, @browser.meta
   end
 
   test "returns string representation" do
-    @browser.ua = $ua["CHROME"]
+    @browser.ua = Browser["CHROME"]
     meta = @browser.to_s
 
     assert meta.include?("chrome")
@@ -122,7 +122,7 @@ class BrowserTest < Minitest::Test
   end
 
   test "returns string representation for mobile" do
-    @browser.ua = $ua["BLACKBERRY"]
+    @browser.ua = Browser["BLACKBERRY"]
     meta = @browser.to_s
 
     assert meta.include?("blackberry")
@@ -145,12 +145,12 @@ class BrowserTest < Minitest::Test
   end
 
   test "removes duplicate items" do
-    @browser.ua = $ua["SAFARI"]
+    @browser.ua = Browser["SAFARI"]
     assert_equal ["safari"], @browser.meta.select {|item| item == "safari" }
   end
 
   test "detects meta aliased as to_a" do
-    @browser.ua = $ua["SAFARI"]
+    @browser.ua = Browser["SAFARI"]
     assert_equal @browser.meta, @browser.to_a
   end
 

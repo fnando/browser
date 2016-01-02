@@ -6,7 +6,7 @@ class IosTest < Minitest::Test
   end
 
   test "detects iphone" do
-    @browser.ua = $ua["IPHONE"]
+    @browser.ua = Browser["IPHONE"]
 
     assert_equal "Safari", @browser.name
     assert @browser.safari?
@@ -19,7 +19,7 @@ class IosTest < Minitest::Test
   end
 
   test "detects safari" do
-    @browser.ua = $ua["SAFARI"]
+    @browser.ua = Browser["SAFARI"]
 
     assert_equal "Safari", @browser.name
     assert @browser.safari?
@@ -30,17 +30,17 @@ class IosTest < Minitest::Test
   end
 
   test "detects safari in webapp mode" do
-    @browser.ua = $ua["SAFARI_IPAD_WEBAPP_MODE"]
+    @browser.ua = Browser["SAFARI_IPAD_WEBAPP_MODE"]
     refute @browser.safari?
     assert @browser.platform.ios_webview?
 
-    @browser.ua = $ua["SAFARI_IPHONE_WEBAPP_MODE"]
+    @browser.ua = Browser["SAFARI_IPHONE_WEBAPP_MODE"]
     refute @browser.safari?
     assert @browser.platform.ios_webview?
   end
 
   test "detects ipod" do
-    @browser.ua = $ua["IPOD"]
+    @browser.ua = Browser["IPOD"]
 
     assert_equal "Safari", @browser.name
     assert @browser.safari?
@@ -53,7 +53,7 @@ class IosTest < Minitest::Test
   end
 
   test "detects ipad" do
-    @browser.ua = $ua["IPAD"]
+    @browser.ua = Browser["IPAD"]
 
     assert_equal "Safari", @browser.name
     assert @browser.safari?
@@ -66,7 +66,7 @@ class IosTest < Minitest::Test
   end
 
   test "detects ios4" do
-    @browser.ua = $ua["IOS4"]
+    @browser.ua = Browser["IOS4"]
     assert @browser.platform.ios?
     assert @browser.platform.ios?(4)
     refute @browser.platform.mac?
@@ -74,48 +74,48 @@ class IosTest < Minitest::Test
 
 
   test "detects ios5" do
-    @browser.ua = $ua["IOS5"]
+    @browser.ua = Browser["IOS5"]
     assert @browser.platform.ios?
     assert @browser.platform.ios?(5)
     refute @browser.platform.mac?
   end
 
   test "detects ios6" do
-    @browser.ua = $ua["IOS6"]
+    @browser.ua = Browser["IOS6"]
     assert @browser.platform.ios?
     assert @browser.platform.ios?(6)
     refute @browser.platform.mac?
   end
 
   test "detects ios7" do
-    @browser.ua = $ua["IOS7"]
+    @browser.ua = Browser["IOS7"]
     assert @browser.platform.ios?
     assert @browser.platform.ios?(7)
     refute @browser.platform.mac?
   end
 
   test "detects ios8" do
-    @browser.ua = $ua["IOS8"]
+    @browser.ua = Browser["IOS8"]
     assert @browser.platform.ios?
     assert @browser.platform.ios?(8)
     refute @browser.platform.mac?
   end
 
   test "detects ios9" do
-    @browser.ua = $ua["IOS9"]
+    @browser.ua = Browser["IOS9"]
     assert @browser.platform.ios?
     assert @browser.platform.ios?(9)
     refute @browser.platform.mac?
   end
 
   test "don't detect as two different versions" do
-    @browser.ua = $ua["IOS8"]
+    @browser.ua = Browser["IOS8"]
     assert @browser.platform.ios?(8)
     refute @browser.platform.ios?(7)
   end
 
   test "returns string representation for iphone" do
-    @browser.ua = $ua["IPHONE"]
+    @browser.ua = Browser["IPHONE"]
     meta = @browser.to_s
 
     assert meta.include?("webkit")
@@ -127,7 +127,7 @@ class IosTest < Minitest::Test
   end
 
   test "returns string representation for ipad" do
-    @browser.ua = $ua["IPAD"]
+    @browser.ua = Browser["IPAD"]
     meta = @browser.to_s
 
     assert meta.include?("webkit")

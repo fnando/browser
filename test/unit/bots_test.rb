@@ -26,16 +26,16 @@ class BotsTest < Minitest::Test
       YANDEX_DIRECT
       YANDEX_METRIKA
     ].each do |key|
-      @browser.ua = $ua[key]
-      assert @browser.bot?, "#{$ua[key]} should be a bot"
+      @browser.ua = Browser[key]
+      assert @browser.bot?, "#{Browser[key]} should be a bot"
     end
 
-    @browser.ua = $ua["CHROME"]
+    @browser.ua = Browser["CHROME"]
     refute @browser.bot?
   end
 
   test "detects Google Page Speed as a bot" do
-    @browser.ua = $ua["GOOGLE_PAGE_SPEED_INSIGHTS"]
+    @browser.ua = Browser["GOOGLE_PAGE_SPEED_INSIGHTS"]
     assert @browser.bot?
   end
 
@@ -59,10 +59,10 @@ class BotsTest < Minitest::Test
   end
 
   test "returns bot name" do
-    @browser.ua = $ua["GOOGLE_BOT"]
+    @browser.ua = Browser["GOOGLE_BOT"]
     assert_equal @browser.bot_name, "Googlebot"
 
-    @browser.ua = $ua["FACEBOOK_BOT"]
+    @browser.ua = Browser["FACEBOOK_BOT"]
     assert_equal @browser.bot_name, "facebookexternalhit"
   end
 
@@ -74,7 +74,7 @@ class BotsTest < Minitest::Test
   end
 
   test "returns nil for non-bots" do
-    @browser.ua = $ua["CHROME"]
+    @browser.ua = Browser["CHROME"]
     assert_equal @browser.bot_name, nil
   end
 
@@ -87,19 +87,19 @@ class BotsTest < Minitest::Test
       GOOGLE_BOT
       YAHOO_SLURP
     ].each do |key|
-      @browser.ua = $ua[key]
-      assert @browser.search_engine?, "#{$ua[key]} should be a search engine"
+      @browser.ua = Browser[key]
+      assert @browser.search_engine?, "#{Browser[key]} should be a search engine"
     end
   end
 
   test "detects Google Structured Data Testing Tool as a bot" do
-    @browser.ua = $ua["GOOGLE_STRUCTURED_DATA_TESTING_TOOL"]
+    @browser.ua = Browser["GOOGLE_STRUCTURED_DATA_TESTING_TOOL"]
 
     assert @browser.bot?, "Google Structured Data Testing Tool should be a bot"
   end
 
   test "detects Daumoa" do
-    @browser.ua = $ua["DAUMOA"]
+    @browser.ua = Browser["DAUMOA"]
 
     assert_equal :ie, @browser.id
     assert_equal "Internet Explorer", @browser.name

@@ -6,7 +6,7 @@ class ChromeTest < Minitest::Test
   end
 
   test "detects chrome" do
-    @browser.ua = $ua["CHROME"]
+    @browser.ua = Browser["CHROME"]
 
     assert_equal "Chrome", @browser.name
     assert @browser.chrome?
@@ -18,7 +18,7 @@ class ChromeTest < Minitest::Test
   end
 
   test "detects mobile chrome" do
-    @browser.ua = $ua["MOBILE_CHROME"]
+    @browser.ua = Browser["MOBILE_CHROME"]
 
     assert_equal "Chrome", @browser.name
     assert @browser.chrome?
@@ -30,7 +30,7 @@ class ChromeTest < Minitest::Test
   end
 
   test "detects samsung chrome" do
-    @browser.ua = $ua["SAMSUNG_CHROME"]
+    @browser.ua = Browser["SAMSUNG_CHROME"]
 
     assert_equal "Chrome", @browser.name
     assert @browser.chrome?
@@ -43,12 +43,12 @@ class ChromeTest < Minitest::Test
   end
 
   test "detects chrome os" do
-    @browser.ua = $ua["CHROME_OS"]
+    @browser.ua = Browser["CHROME_OS"]
     assert @browser.platform.chrome_os?
   end
 
   test "detects yandex browser" do
-    @browser.ua = $ua["YANDEX_BROWSER"]
+    @browser.ua = Browser["YANDEX_BROWSER"]
 
     assert @browser.yandex?
     assert @browser.chrome?

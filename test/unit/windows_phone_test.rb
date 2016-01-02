@@ -6,7 +6,7 @@ class WindowPhoneTest < Minitest::Test
   end
 
   test "detects windows phone" do
-    @browser.ua = $ua["WINDOWS_PHONE"]
+    @browser.ua = Browser["WINDOWS_PHONE"]
 
     assert @browser.ie?
     assert_equal "7", @browser.version
@@ -15,7 +15,7 @@ class WindowPhoneTest < Minitest::Test
   end
 
   test "detects windows phone 8" do
-    @browser.ua = $ua["WINDOWS_PHONE8"]
+    @browser.ua = Browser["WINDOWS_PHONE8"]
 
     assert @browser.ie?
     assert_equal "10", @browser.version
@@ -24,7 +24,7 @@ class WindowPhoneTest < Minitest::Test
   end
 
   test "detects windows phone 8.1" do
-    @browser.ua = $ua["WINDOWS_PHONE_81"]
+    @browser.ua = Browser["WINDOWS_PHONE_81"]
 
     assert @browser.ie?
     assert_equal "Internet Explorer", @browser.name

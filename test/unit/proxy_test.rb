@@ -6,7 +6,7 @@ class ProxyTest < Minitest::Test
     OPERA_MINI
     UC_BROWSER
   ].each do |name|
-    ua = $ua[name]
+    ua = Browser[name]
 
     test "detect #{ua} as proxy" do
       browser = Browser.new(ua: ua)

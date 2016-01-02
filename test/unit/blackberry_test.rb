@@ -6,7 +6,7 @@ class BlackberryTest < Minitest::Test
   end
 
   test "detects blackberry" do
-    @browser.ua = $ua["BLACKBERRY"]
+    @browser.ua = Browser["BLACKBERRY"]
 
     assert_equal "Other", @browser.name
     refute @browser.device.tablet?
@@ -17,7 +17,7 @@ class BlackberryTest < Minitest::Test
   end
 
   test "detects blackberry4" do
-    @browser.ua = $ua["BLACKBERRY4"]
+    @browser.ua = Browser["BLACKBERRY4"]
 
     assert_equal "Other", @browser.name
     refute @browser.modern?
@@ -26,7 +26,7 @@ class BlackberryTest < Minitest::Test
   end
 
   test "detects blackberry5" do
-    @browser.ua = $ua["BLACKBERRY5"]
+    @browser.ua = Browser["BLACKBERRY5"]
 
     assert_equal "Other", @browser.name
     refute @browser.device.tablet?
@@ -37,7 +37,7 @@ class BlackberryTest < Minitest::Test
   end
 
   test "detects blackberry6" do
-    @browser.ua = $ua["BLACKBERRY6"]
+    @browser.ua = Browser["BLACKBERRY6"]
 
     assert_equal "Safari", @browser.name
     refute @browser.device.tablet?
@@ -48,7 +48,7 @@ class BlackberryTest < Minitest::Test
   end
 
   test "detects blackberry7" do
-    @browser.ua = $ua["BLACKBERRY7"]
+    @browser.ua = Browser["BLACKBERRY7"]
 
     assert_equal "Safari", @browser.name
     refute @browser.device.tablet?
@@ -59,7 +59,7 @@ class BlackberryTest < Minitest::Test
   end
 
   test "detects blackberry10" do
-    @browser.ua = $ua["BLACKBERRY10"]
+    @browser.ua = Browser["BLACKBERRY10"]
 
     assert_equal "Safari", @browser.name
     refute @browser.device.tablet?
@@ -70,7 +70,7 @@ class BlackberryTest < Minitest::Test
   end
 
   test "detects blackberry playbook tablet" do
-    @browser.ua = $ua["PLAYBOOK"]
+    @browser.ua = Browser["PLAYBOOK"]
 
     refute @browser.platform.android?
     assert @browser.device.tablet?
@@ -81,7 +81,7 @@ class BlackberryTest < Minitest::Test
   end
 
   test "don't detect as two different versions" do
-    @browser.ua = $ua["BLACKBERRY10"]
+    @browser.ua = Browser["BLACKBERRY10"]
     assert @browser.platform.blackberry?(10)
     refute @browser.platform.blackberry?(7)
   end

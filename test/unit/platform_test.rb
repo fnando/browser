@@ -10,7 +10,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect ios (iPhone)" do
-    platform = Browser::Platform.new($ua["IOS4"])
+    platform = Browser::Platform.new(Browser["IOS4"])
 
     assert_equal "iOS (iPhone)", platform.name
     assert_equal :ios, platform.id
@@ -19,7 +19,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect ios (iPad)" do
-    platform = Browser::Platform.new($ua["IOS9"])
+    platform = Browser::Platform.new(Browser["IOS9"])
 
     assert_equal "iOS (iPad)", platform.name
     assert_equal :ios, platform.id
@@ -28,7 +28,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect ios (iPod Touch)" do
-    platform = Browser::Platform.new($ua["IPOD"])
+    platform = Browser::Platform.new(Browser["IPOD"])
 
     assert_equal "iOS (iPod)", platform.name
     assert_equal :ios, platform.id
@@ -37,7 +37,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect linux" do
-    platform = Browser::Platform.new($ua["FIREFOX"])
+    platform = Browser::Platform.new(Browser["FIREFOX"])
 
     assert_equal "Generic Linux", platform.name
     assert_equal :linux, platform.id
@@ -46,7 +46,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect mac" do
-    platform = Browser::Platform.new($ua["SAFARI"])
+    platform = Browser::Platform.new(Browser["SAFARI"])
 
     assert_equal "Macintosh", platform.name
     assert_equal :mac, platform.id
@@ -55,7 +55,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect firefox os" do
-    platform = Browser::Platform.new($ua["FIREFOX_OS"])
+    platform = Browser::Platform.new(Browser["FIREFOX_OS"])
 
     assert_equal "Firefox OS", platform.name
     assert_equal :firefox_os, platform.id
@@ -64,7 +64,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect windows phone" do
-    platform = Browser::Platform.new($ua["MS_EDGE_MOBILE"])
+    platform = Browser::Platform.new(Browser["MS_EDGE_MOBILE"])
 
     assert_equal "Windows Phone", platform.name
     assert_equal :windows_phone, platform.id
@@ -73,7 +73,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect windows mobile" do
-    platform = Browser::Platform.new($ua["WINDOWS_MOBILE"])
+    platform = Browser::Platform.new(Browser["WINDOWS_MOBILE"])
 
     assert_equal "Windows Mobile", platform.name
     assert_equal :windows_mobile, platform.id
@@ -82,7 +82,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect blackberry 10" do
-    platform = Browser::Platform.new($ua["BLACKBERRY10"])
+    platform = Browser::Platform.new(Browser["BLACKBERRY10"])
 
     assert_equal "BlackBerry", platform.name
     assert_equal :blackberry, platform.id
@@ -91,7 +91,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect blackberry 4" do
-    platform = Browser::Platform.new($ua["BLACKBERRY4"])
+    platform = Browser::Platform.new(Browser["BLACKBERRY4"])
 
     assert_equal "BlackBerry", platform.name
     assert_equal :blackberry, platform.id
@@ -100,7 +100,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect blackberry 4 (other)" do
-    platform = Browser::Platform.new($ua["BLACKBERRY"])
+    platform = Browser::Platform.new(Browser["BLACKBERRY"])
 
     assert_equal "BlackBerry", platform.name
     assert_equal :blackberry, platform.id
@@ -109,7 +109,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect blackberry 5" do
-    platform = Browser::Platform.new($ua["BLACKBERRY5"])
+    platform = Browser::Platform.new(Browser["BLACKBERRY5"])
 
     assert_equal "BlackBerry", platform.name
     assert_equal :blackberry, platform.id
@@ -118,7 +118,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect blackberry 6" do
-    platform = Browser::Platform.new($ua["BLACKBERRY6"])
+    platform = Browser::Platform.new(Browser["BLACKBERRY6"])
 
     assert_equal "BlackBerry", platform.name
     assert_equal :blackberry, platform.id
@@ -127,7 +127,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect blackberry 7" do
-    platform = Browser::Platform.new($ua["BLACKBERRY7"])
+    platform = Browser::Platform.new(Browser["BLACKBERRY7"])
 
     assert_equal "BlackBerry", platform.name
     assert_equal :blackberry, platform.id
@@ -136,7 +136,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect android" do
-    platform = Browser::Platform.new($ua["ANDROID_CUPCAKE"])
+    platform = Browser::Platform.new(Browser["ANDROID_CUPCAKE"])
 
     assert_equal "Android", platform.name
     assert_equal :android, platform.id
@@ -145,7 +145,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect chrome os" do
-    platform = Browser::Platform.new($ua["CHROME_OS"])
+    platform = Browser::Platform.new(Browser["CHROME_OS"])
 
     assert_equal "Chrome OS", platform.name
     assert_equal :chrome_os, platform.id
@@ -154,7 +154,7 @@ class PlatformTest < Minitest::Test
   end
 
   test "detect adobe air" do
-    platform = Browser::Platform.new($ua["ADOBE_AIR"])
+    platform = Browser::Platform.new(Browser["ADOBE_AIR"])
 
     assert platform.adobe_air?
   end
