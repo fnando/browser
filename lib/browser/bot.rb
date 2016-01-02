@@ -1,4 +1,4 @@
-class Browser
+module Browser
   class Bot
     def self.detect_empty_ua!
       @detect_empty_ua = true

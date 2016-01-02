@@ -1,4 +1,4 @@
-class Browser
+module Browser
   class Device
     class IpodTouch < Base
       def id

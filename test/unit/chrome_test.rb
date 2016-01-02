@@ -1,12 +1,8 @@
 require "test_helper"
 
 class ChromeTest < Minitest::Test
-  setup do
-    @browser = Browser.new
-  end
-
   test "detects chrome" do
-    @browser.ua = Browser["CHROME"]
+    @browser = Browser.new(Browser["CHROME"])
 
     assert_equal "Chrome", @browser.name
     assert @browser.chrome?
@@ -18,7 +14,7 @@ class ChromeTest < Minitest::Test
   end
 
   test "detects mobile chrome" do
-    @browser.ua = Browser["MOBILE_CHROME"]
+    @browser = Browser.new(Browser["MOBILE_CHROME"])
 
     assert_equal "Chrome", @browser.name
     assert @browser.chrome?
@@ -30,7 +26,7 @@ class ChromeTest < Minitest::Test
   end
 
   test "detects samsung chrome" do
-    @browser.ua = Browser["SAMSUNG_CHROME"]
+    @browser = Browser.new(Browser["SAMSUNG_CHROME"])
 
     assert_equal "Chrome", @browser.name
     assert @browser.chrome?
@@ -43,12 +39,12 @@ class ChromeTest < Minitest::Test
   end
 
   test "detects chrome os" do
-    @browser.ua = Browser["CHROME_OS"]
+    @browser = Browser.new(Browser["CHROME_OS"])
     assert @browser.platform.chrome_os?
   end
 
   test "detects yandex browser" do
-    @browser.ua = Browser["YANDEX_BROWSER"]
+    @browser = Browser.new(Browser["YANDEX_BROWSER"])
 
     assert @browser.yandex?
     assert @browser.chrome?
@@ -59,7 +55,7 @@ class ChromeTest < Minitest::Test
   end
 
   test "detects chrome frame" do
-    @browser.ua = Browser["IE9_CHROME_FRAME"]
+    @browser = Browser.new(Browser["IE9_CHROME_FRAME"])
 
     assert @browser.chrome?
     refute @browser.safari?

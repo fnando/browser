@@ -1,4 +1,4 @@
-class Browser
+module Browser
   class Platform
     class Base
       attr_reader :ua

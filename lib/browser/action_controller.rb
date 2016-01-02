@@ -1,6 +1,6 @@
 require "action_controller/railtie"
 
-class Browser
+module Browser
   module ActionController
     extend ActiveSupport::Concern
 

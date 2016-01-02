@@ -1,4 +1,4 @@
-class Browser
+module Browser
   module Meta
     class GenericBrowser < Base
       def meta

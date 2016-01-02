@@ -1,4 +1,4 @@
-class Browser
+module Browser
   class Platform
     class Mac < Base
       def version

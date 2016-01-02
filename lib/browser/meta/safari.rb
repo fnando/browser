@@ -1,4 +1,4 @@
-class Browser
+module Browser
   module Meta
     class Safari < Base
       def meta

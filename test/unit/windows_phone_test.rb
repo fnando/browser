@@ -1,12 +1,8 @@
 require "test_helper"
 
 class WindowPhoneTest < Minitest::Test
-  setup do
-    @browser = Browser.new
-  end
-
   test "detects windows phone" do
-    @browser.ua = Browser["WINDOWS_PHONE"]
+    @browser = Browser.new(Browser["WINDOWS_PHONE"])
 
     assert @browser.ie?
     assert_equal "7", @browser.version
@@ -15,7 +11,7 @@ class WindowPhoneTest < Minitest::Test
   end
 
   test "detects windows phone 8" do
-    @browser.ua = Browser["WINDOWS_PHONE8"]
+    @browser = Browser.new(Browser["WINDOWS_PHONE8"])
 
     assert @browser.ie?
     assert_equal "10", @browser.version
@@ -24,7 +20,7 @@ class WindowPhoneTest < Minitest::Test
   end
 
   test "detects windows phone 8.1" do
-    @browser.ua = Browser["WINDOWS_PHONE_81"]
+    @browser = Browser.new(Browser["WINDOWS_PHONE_81"])
 
     assert @browser.ie?
     assert_equal "Internet Explorer", @browser.name

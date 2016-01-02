@@ -1,4 +1,4 @@
-class Browser
+module Browser
   class Device
     class Ipad < Base
       def id

@@ -1,7 +1,7 @@
 require "test_helper"
 
 class IosAppTest < Minitest::Test
-  let(:browser) { Browser.new(ua: Browser["IOS_WEBVIEW"]) }
+  let(:browser) { Browser.new(Browser["IOS_WEBVIEW"]) }
 
   test "detect as ios" do
     assert browser.platform.ios?

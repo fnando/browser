@@ -1,4 +1,4 @@
-class Browser
+module Browser
   class Platform
     class Android < Base
       def match?

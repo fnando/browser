@@ -1,4 +1,4 @@
-class Browser
+module Browser
   module Version
     MAJOR = 1
     MINOR = 1

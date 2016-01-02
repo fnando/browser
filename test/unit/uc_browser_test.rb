@@ -2,8 +2,8 @@ require "test_helper"
 
 class UcBrowserTest < Minitest::Test
   test "detects UC Browser" do
-    browser = Browser.new(ua: Browser["UC_BROWSER"])
+    browser = Browser.new(Browser["UC_BROWSER"])
     assert browser.uc_browser?
-    assert_equal browser.name, "UC Browser"
+    assert_equal browser.name, "UCBrowser"
   end
 end

@@ -2,7 +2,7 @@ require "rails/railtie"
 require "browser/action_controller"
 require "browser/middleware/context/additions"
 
-class Browser
+module Browser
   class Railtie < Rails::Railtie
     config.browser = ActiveSupport::OrderedOptions.new
 

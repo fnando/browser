@@ -1,4 +1,4 @@
-class Browser
+module Browser
   class Middleware
     class Context
       attr_reader :browser, :request
@@ -7,8 +7,8 @@ class Browser
         @request = request
 
         @browser = Browser.new(
-          ua: request.user_agent,
-          accept_language: request.env["HTTP_ACCEPT_LANGUAGE"]
+          request.user_agent,
+          request.env["HTTP_ACCEPT_LANGUAGE"]
         )
       end
 

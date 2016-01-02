@@ -1,3 +1,6 @@
+Style/ClassCheck:
+  EnforcedStyle: kind_of?
+
 Metrics/LineLength:
   Max: 80
 

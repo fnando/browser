@@ -1,12 +1,8 @@
 require "test_helper"
 
 class IeTest < Minitest::Test
-  setup do
-    @browser = Browser.new
-  end
-
   test "detects ie6" do
-    @browser.ua = Browser["IE6"]
+    @browser = Browser.new(Browser["IE6"])
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
@@ -17,7 +13,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects ie7" do
-    @browser.ua = Browser["IE7"]
+    @browser = Browser.new(Browser["IE7"])
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
@@ -28,7 +24,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects ie8" do
-    @browser.ua = Browser["IE8"]
+    @browser = Browser.new(Browser["IE8"])
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
@@ -40,7 +36,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects ie8 in compatibility view" do
-    @browser.ua = Browser["IE8_COMPAT"]
+    @browser = Browser.new(Browser["IE8_COMPAT"])
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
@@ -54,7 +50,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects ie9" do
-    @browser.ua = Browser["IE9"]
+    @browser = Browser.new(Browser["IE9"])
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
@@ -66,7 +62,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects ie9 in compatibility view" do
-    @browser.ua = Browser["IE9_COMPAT"]
+    @browser = Browser.new(Browser["IE9_COMPAT"])
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
@@ -80,7 +76,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects ie10" do
-    @browser.ua = Browser["IE10"]
+    @browser = Browser.new(Browser["IE10"])
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
@@ -92,7 +88,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects ie10 in compatibility view" do
-    @browser.ua = Browser["IE10_COMPAT"]
+    @browser = Browser.new(Browser["IE10_COMPAT"])
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
@@ -106,7 +102,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects ie11" do
-    @browser.ua = Browser["IE11"]
+    @browser = Browser.new(Browser["IE11"])
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
@@ -118,7 +114,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects ie11 in compatibility view" do
-    @browser.ua = Browser["IE11_COMPAT"]
+    @browser = Browser.new(Browser["IE11_COMPAT"])
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
@@ -132,7 +128,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects Lumia 800" do
-    @browser.ua = Browser["LUMIA800"]
+    @browser = Browser.new(Browser["LUMIA800"])
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
@@ -142,7 +138,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects ie11 touch desktop pc" do
-    @browser.ua = Browser["IE11_TOUCH_SCREEN"]
+    @browser = Browser.new(Browser["IE11_TOUCH_SCREEN"])
 
     assert_equal "Internet Explorer", @browser.name
     assert @browser.ie?
@@ -157,7 +153,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects Microsoft Edge" do
-    @browser.ua = Browser["MS_EDGE"]
+    @browser = Browser.new(Browser["MS_EDGE"])
 
     assert_equal :edge, @browser.id
     assert_equal "Microsoft Edge", @browser.name
@@ -173,7 +169,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects Microsoft Edge in compatibility view" do
-    @browser.ua = Browser["MS_EDGE_COMPAT"]
+    @browser = Browser.new(Browser["MS_EDGE_COMPAT"])
 
     assert_equal :edge, @browser.id
     assert_equal "Microsoft Edge", @browser.name
@@ -191,7 +187,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects Microsoft Edge Mobile" do
-    @browser.ua = Browser["MS_EDGE_MOBILE"]
+    @browser = Browser.new(Browser["MS_EDGE_MOBILE"])
 
     assert_equal :edge, @browser.id
     assert_equal "Microsoft Edge", @browser.name
@@ -207,7 +203,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects IE without Trident" do
-    @browser.ua = Browser["IE_WITHOUT_TRIDENT"]
+    @browser = Browser.new(Browser["IE_WITHOUT_TRIDENT"])
 
     assert_equal :ie, @browser.id
     assert_equal "Internet Explorer", @browser.name
@@ -226,7 +222,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects windows phone" do
-    @browser.ua = Browser["WINDOWS_PHONE"]
+    @browser = Browser.new(Browser["WINDOWS_PHONE"])
 
     assert @browser.ie?
     assert_equal "7", @browser.version
@@ -235,7 +231,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects windows phone 8" do
-    @browser.ua = Browser["WINDOWS_PHONE8"]
+    @browser = Browser.new(Browser["WINDOWS_PHONE8"])
 
     assert @browser.ie?
     assert_equal "10", @browser.version
@@ -244,7 +240,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects windows phone 8.1" do
-    @browser.ua = Browser["WINDOWS_PHONE_81"]
+    @browser = Browser.new(Browser["WINDOWS_PHONE_81"])
 
     assert @browser.ie?
     assert_equal "Internet Explorer", @browser.name
@@ -256,7 +252,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects windows mobile (windows phone 8)" do
-    @browser.ua = Browser["WINDOWS_PHONE8"]
+    @browser = Browser.new(Browser["WINDOWS_PHONE8"])
 
     assert @browser.ie?
     assert_equal "10", @browser.version
@@ -265,48 +261,48 @@ class IeTest < Minitest::Test
   end
 
   test "detects windows x64" do
-    @browser.ua = Browser["IE10_X64_WINX64"]
+    @browser = Browser.new(Browser["IE10_X64_WINX64"])
     assert @browser.platform.windows_x64?
     refute @browser.platform.windows_wow64?
     assert @browser.platform.windows_x64_inclusive?
   end
 
   test "detects windows wow64" do
-    @browser.ua = Browser["WINDOWS_WOW64"]
+    @browser = Browser.new(Browser["WINDOWS_WOW64"])
     refute @browser.platform.windows_x64?
     assert @browser.platform.windows_wow64?
     assert @browser.platform.windows_x64_inclusive?
   end
 
   test "detects windows platform" do
-    @browser.ua = "Windows"
+    @browser = Browser.new("Windows")
     assert_equal :windows, @browser.platform.id
     assert @browser.platform.windows?
   end
 
   test "detects windows_xp" do
-    @browser.ua = Browser["WINDOWS_XP"]
+    @browser = Browser.new(Browser["WINDOWS_XP"])
 
     assert @browser.platform.windows?
     assert @browser.platform.windows_xp?
   end
 
   test "detects windows_vista" do
-    @browser.ua = Browser["WINDOWS_VISTA"]
+    @browser = Browser.new(Browser["WINDOWS_VISTA"])
 
     assert @browser.platform.windows?
     assert @browser.platform.windows_vista?
   end
 
   test "detects windows7" do
-    @browser.ua = Browser["WINDOWS7"]
+    @browser = Browser.new(Browser["WINDOWS7"])
 
     assert @browser.platform.windows?
     assert @browser.platform.windows7?
   end
 
   test "detects windows8" do
-    @browser.ua = Browser["WINDOWS8"]
+    @browser = Browser.new(Browser["WINDOWS8"])
 
     assert @browser.platform.windows?
     assert @browser.platform.windows8?
@@ -314,7 +310,7 @@ class IeTest < Minitest::Test
   end
 
   test "detects windows8.1" do
-    @browser.ua = Browser["WINDOWS81"]
+    @browser = Browser.new(Browser["WINDOWS81"])
 
     assert @browser.platform.windows?
     assert @browser.platform.windows8?
@@ -322,7 +318,7 @@ class IeTest < Minitest::Test
   end
 
   test "returns string representation for ie6" do
-    @browser.ua = Browser["IE6"]
+    @browser = Browser.new(Browser["IE6"])
     meta = @browser.meta
 
     assert meta.include?("ie")
@@ -334,7 +330,7 @@ class IeTest < Minitest::Test
   end
 
   test "returns string representation for ie7" do
-    @browser.ua = Browser["IE7"]
+    @browser = Browser.new(Browser["IE7"])
     meta = @browser.meta
 
     assert meta.include?("ie")
@@ -346,7 +342,7 @@ class IeTest < Minitest::Test
   end
 
   test "returns string representation for ie8" do
-    @browser.ua = Browser["IE8"]
+    @browser = Browser.new(Browser["IE8"])
     meta = @browser.meta
 
     assert meta.include?("ie")
@@ -356,13 +352,13 @@ class IeTest < Minitest::Test
   end
 
   test "don't detect as two different versions" do
-    @browser.ua = Browser["IE8"]
+    @browser = Browser.new(Browser["IE8"])
     assert @browser.ie?(8)
     refute @browser.ie?(7)
   end
 
   test "more complex versioning check" do
-    @browser.ua = Browser["IE8"]
+    @browser = Browser.new(Browser["IE8"])
     assert @browser.ie?(["> 7", "< 9"])
   end
 end

@@ -1,4 +1,4 @@
-class Browser
+module Browser
   class Device
     class Surface < Base
       def id

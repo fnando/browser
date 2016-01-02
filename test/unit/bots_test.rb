@@ -24,52 +24,52 @@ class BotsTest < Minitest::Test
     YANDEX_METRIKA
   ].each do |key|
     test "detect #{key} as bot" do
-      browser = Browser.new(ua: Browser[key])
+      browser = Browser.new(Browser[key])
       assert browser.bot?
     end
   end
 
   test "don't detect as bot" do
-    browser = Browser.new(UA: Browser["CHROME"])
+    browser = Browser.new(Browser["CHROME"])
     refute browser.bot?
   end
 
   test "doesn't consider empty UA as bot" do
-    browser = Browser.new(ua: "")
+    browser = Browser.new("")
     refute browser.bot?
   end
 
   test "allows setting empty string as bots" do
     Browser::Bot.detect_empty_ua!
-    browser = Browser.new(ua: "")
+    browser = Browser.new("")
 
     assert browser.bot?
   end
 
   test "doesn't detect mozilla as a bot when considering empty UA" do
     Browser::Bot.detect_empty_ua!
-    browser = Browser.new(ua: "Mozilla")
+    browser = Browser.new("Mozilla")
 
     refute browser.bot?
   end
 
   test "returns bot name" do
-    browser = Browser.new(ua: Browser["GOOGLE_BOT"])
+    browser = Browser.new(Browser["GOOGLE_BOT"])
     assert_equal "Google Bot", browser.bot.name
 
-    browser = Browser.new(ua: Browser["FACEBOOK_BOT"])
+    browser = Browser.new(Browser["FACEBOOK_BOT"])
     assert_equal "Facebook Bot", browser.bot.name
   end
 
   test "returns bot name (empty string ua detection enabled)" do
     Browser::Bot.detect_empty_ua!
-    browser = Browser.new(ua: "")
+    browser = Browser.new("")
 
     assert_equal browser.bot.name, "Generic Bot"
   end
 
   test "returns nil for non-bots" do
-    browser = Browser.new(UA: Browser["CHROME"])
+    browser = Browser.new(Browser["CHROME"])
     assert_nil browser.bot.name
   end
 
@@ -82,13 +82,13 @@ class BotsTest < Minitest::Test
     YAHOO_SLURP
   ].each do |key|
     test "detect #{key} as search engines" do
-      browser = Browser.new(ua: Browser[key])
+      browser = Browser.new(Browser[key])
       assert browser.bot.search_engine?
     end
   end
 
   test "detects Daumoa" do
-    browser = Browser.new(ua: Browser["DAUMOA"])
+    browser = Browser.new(Browser["DAUMOA"])
 
     assert_equal :ie, browser.id
     assert_equal "Internet Explorer", browser.name
@@ -109,7 +109,7 @@ class BotsTest < Minitest::Test
   end
 
   test "custom android user agent (#144)" do
-    browser = Browser.new(ua: Browser["CUSTOM_APP"])
+    browser = Browser.new(Browser["CUSTOM_APP"])
 
     assert browser.platform.android?
     refute browser.bot?

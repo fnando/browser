@@ -1,4 +1,4 @@
-class Browser
+module Browser
   module Meta
     class IOS < Base
       def meta

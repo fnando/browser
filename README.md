@@ -18,7 +18,7 @@ gem install browser
 require "rubygems"
 require "browser"
 
-browser = Browser.new(ua: "some string", accept_language: "en-us")
+browser = Browser.new("Some User Agent", accept_language: "en-us")
 
 # General info
 browser.bot?
@@ -221,7 +221,7 @@ end
 If you need access to the `Rack::Request` object (e.g. to exclude a path), you can do so with `request`.
 ```ruby
 Rails.configuration.middleware.use Browser::Middleware do
-  redirect_to upgrade_path unless browser.modern? || request.env['PATH_INFO'] == '/exclude_me'
+  redirect_to upgrade_path unless browser.modern? || request.env["PATH_INFO"] == "/exclude_me"
 end
 ```
 

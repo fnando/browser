@@ -8,8 +8,8 @@ class ProxyTest < Minitest::Test
   ].each do |name|
     ua = Browser[name]
 
-    test "detect #{ua} as proxy" do
-      browser = Browser.new(ua: ua)
+    test "detect #{name} as proxy" do
+      browser = Browser.new(ua)
 
       assert browser.proxy?
       assert browser.meta.include?("proxy")
