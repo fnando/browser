@@ -6,11 +6,9 @@ require "browser"
 require "browser/testing"
 require "yaml"
 
-$ua = YAML.load_file("./test/ua.yml")
-
 class Minitest::Test
   setup do
-    Browser::Bots.instance_variable_set("@detect_empty_ua", false)
+    Browser::Bot.instance_variable_set("@detect_empty_ua", false)
   end
 
   def assert_deprecated(message, file, line, &block)

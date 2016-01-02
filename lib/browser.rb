@@ -2,6 +2,7 @@ require "set"
 require "yaml"
 require "pathname"
 
+require "browser/bot"
 require "browser/middleware"
 require "browser/middleware/context"
 require "browser/rails" if defined?(::Rails)
@@ -43,7 +44,6 @@ require "browser/device/xbox_360"
 
 require "browser/methods/ie"
 require "browser/methods/language"
-require "browser/methods/bots"
 require "browser/methods/proxy"
 
 require "browser/meta/base"
@@ -63,7 +63,6 @@ require "browser/meta/device"
 class Browser
   include IE
   include Language
-  include Bots
   include Proxy
 
   # Set browser's UA string.
@@ -250,6 +249,16 @@ class Browser
   # Return the platform.
   def platform
     @platform ||= Browser::Platform.new(ua)
+  end
+
+  # Return the bot info.
+  def bot
+    @bot ||= Bot.new(ua)
+  end
+
+  # Detect if current user agent is from a bot.
+  def bot?
+    bot.bot?
   end
 
   # Return the device info.

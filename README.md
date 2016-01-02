@@ -48,7 +48,8 @@ browser.platform.linux?
 browser.platform.blackberry?
 browser.platform.blackberry?(10) # detect specific BlackBerry version
 browser.bot?
-browser.search_engine?
+browser.bot.search_engine?
+browser.bot.name
 browser.phantom_js?
 browser.quicktime?
 browser.core_media?
@@ -130,7 +131,7 @@ This behavior changed in `v1.0.0`; previously there wasn't a way of getting the 
 Browser used to detect empty user agents as bots, but this behaviour has changed. If you want to bring this detection back, you can activate it through the following call:
 
 ```ruby
-Browser::Bots.detect_empty_ua!
+Browser::Bot.detect_empty_ua!
 ```
 
 ### Middleware
@@ -155,7 +156,7 @@ Notice that you can have multiple conditionals.
 
 ```ruby
 Rails.configuration.middleware.use Browser::Middleware do
-  next if browser.search_engine?
+  next if browser.bot.search_engine?
   redirect_to upgrade_path(browser: "oldie") if browser.ie? && !browser.modern?
   redirect_to upgrade_path(browser: "oldfx") if browser.firefox? && !browser.modern?
 end
