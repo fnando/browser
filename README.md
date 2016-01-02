@@ -36,7 +36,7 @@ browser.ie?
 browser.ie?(6)          # detect specific IE version
 browser.edge?           # Newest MS browser
 browser.modern?         # Webkit, Firefox 17+, IE 9+ and Opera 12+
-browser.platform        # return :mac, :windows, :linux or :other
+browser.platform        # return :mac, :windows, :linux, :ios, :android, :chrome_os, or :other
 browser.ios?            # detect iOS
 browser.ios?(9)         # detect specific iOS version
 browser.mac?
