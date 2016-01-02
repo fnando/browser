@@ -19,49 +19,104 @@ require "rubygems"
 require "browser"
 
 browser = Browser.new(ua: "some string", accept_language: "en-us")
-browser.name            # readable browser name
-browser.version         # major version number
-browser.full_version
-browser.safari?
-browser.device.ios?
-browser.app?      # request performed by ios' app webview 
-browser.opera?
-browser.chrome?
-browser.platform.chrome_os?
-browser.mobile?
-browser.device.tablet?
-browser.console?
-browser.firefox?
-browser.ie?
-browser.ie?(6)            # detect specific IE version
-browser.edge?             # Newest MS browser
-browser.modern?           # Webkit, Firefox 17+, IE 9+ and Opera 12+
-browser.platform          # Information about the platform
-browser.platform.id       # e.g. :linux, :mac, :ios, :android
-browser.platform.version  # e.g. 9 (for iOS9)
-browser.platform.ios?     # detect iOS
-browser.platform.ios?(9)  # detect specific iOS version
-browser.platform.mac?
-browser.platform.windows?
-browser.platform.windows_x64?
-browser.platform.linux?
-browser.platform.blackberry?
-browser.platform.blackberry?(10) # detect specific BlackBerry version
+
+# General info
 browser.bot?
-browser.bot.search_engine?
-browser.bot.name
+browser.chrome?
+browser.core_media?
+browser.edge?           # Newest MS browser
+browser.firefox?
+browser.full_version
+browser.ie?
+browser.ie?(6)          # detect specific IE version
+browser.known?          # has the browser been successfully detected?
+browser.meta            # an array with several attributes
+browser.modern?         # Webkit, Firefox 17+, IE 9+ and Opera 12+
+browser.name            # readable browser name
+browser.nokia?
+browser.opera?
+browser.opera_mini?
 browser.phantom_js?
 browser.quicktime?
-browser.core_media?
-browser.silk?
+browser.safari?
+browser.safari_webapp_mode?
+browser.to_s            # the meta info joined by space
+browser.uc_browser?
+browser.version         # major version number
+browser.webkit?
+browser.webkit_full_version
+browser.yandex?
+
+# Get bot info
+browser.bot.name
+browser.bot.search_engine?
+browser.bot?
+
+# Get device info
+browser.device
+browser.device.id
+browser.device.name
+browser.device.blackberry_playbook?
+browser.device.console?
+browser.device.ios?
+browser.device.ipad?
+browser.device.iphone?
+browser.device.ipod_touch?
+browser.device.kindle?
+browser.device.kindle_fire?
+browser.device.mobile?
+browser.device.nintendo?
+browser.device.playstation?
+browser.device.ps3?
+browser.device.ps4?
+browser.device.psp?
+browser.device.silk?
+browser.device.surface?
+browser.device.tablet?
+browser.device.tv?
+browser.device.vita?
+browser.device.wii?
+browser.device.wiiu?
+browser.device.xbox?
+browser.device.xbox_360?
+browser.device.xbox_one?
+
+# Get platform info
+browser.platform
+browser.platform.id
+browser.platform.name
+browser.platform.version  # e.g. 9 (for iOS9)
+browser.platform.adobe_air?
 browser.platform.android?
 browser.platform.android?(4.2)   # detect Android Jelly Bean 4.2
-browser.known?                   # has the browser been successfully detected?
-browser.meta                     # an array with several attributes
-browser.to_s                     # the meta info joined by space
+browser.platform.blackberry?
+browser.platform.blackberry?(10) # detect specific BlackBerry version
+browser.platform.chrome_os?
+browser.platform.firefox_os?
+browser.platform.ios?     # detect iOS
+browser.platform.ios?(9)  # detect specific iOS version
+browser.platform.ios_app?
+browser.platform.ios_webview?
+browser.platform.ios_webview? # request performed by ios' app webview 
+browser.platform.linux?
+browser.platform.mac?
+browser.platform.other?
+browser.platform.windows10?
+browser.platform.windows7?
+browser.platform.windows8?
+browser.platform.windows8_1?
+browser.platform.windows?
+browser.platform.windows_mobile?
+browser.platform.windows_phone?
+browser.platform.windows_rt?
+browser.platform.windows_touchscreen_desktop?
+browser.platform.windows_vista?
+browser.platform.windows_wow64?
+browser.platform.windows_x64?
+browser.platform.windows_x64?
+browser.platform.windows_x64_inclusive?
+browser.platform.windows_xp?
 ```
-
-See the [tests](https://github.com/fnando/browser/blob/master/test/browser_test.rb) and [implementation](https://github.com/fnando/browser/blob/master/lib/browser.rb) for more examples.
 
 ### What defines a modern browser?
 
