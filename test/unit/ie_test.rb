@@ -360,4 +360,9 @@ class IeTest < Minitest::Test
     assert @browser.ie?(8)
     refute @browser.ie?(7)
   end
+
+  test "more complex versioning check" do
+    @browser.ua = Browser["IE8"]
+    assert @browser.ie?(["> 7", "< 9"])
+  end
 end

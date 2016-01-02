@@ -28,11 +28,12 @@ browser.edge?           # Newest MS browser
 browser.firefox?
 browser.full_version
 browser.ie?
-browser.ie?(6)          # detect specific IE version
-browser.known?          # has the browser been successfully detected?
-browser.meta            # an array with several attributes
-browser.modern?         # Webkit, Firefox 17+, IE 9+ and Opera 12+
-browser.name            # readable browser name
+browser.ie?(6)               # detect specific IE version
+browser.ie?([">8", "<10"])   # detect specific IE (IE9).
+browser.known?               # has the browser been successfully detected?
+browser.meta                 # an array with several attributes
+browser.modern?              # Webkit, Firefox 17+, IE 9+ and Opera 12+
+browser.name                 # readable browser name
 browser.nokia?
 browser.opera?
 browser.opera_mini?
