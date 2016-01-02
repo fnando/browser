@@ -32,6 +32,14 @@ class WindowsTest < Minitest::Test
     assert @browser.platform.windows_xp?
   end
 
+  test "detects windows_xp (64-bit)" do
+    @browser.ua = Browser["WINDOWS_XP_64"]
+
+    assert @browser.platform.windows?
+    assert @browser.platform.windows_xp?
+    assert @browser.platform.windows_x64?
+  end
+
   test "detects windows_vista" do
     @browser.ua = Browser["WINDOWS_VISTA"]
 
