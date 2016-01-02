@@ -82,6 +82,7 @@ MS_EDGE: 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like G
 MS_EDGE_COMPAT: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; WOW64; Trident/8.0; .NET4.0C; .NET4.0E; Tablet PC 2.0; Microsoft Outlook 15.0.4433; ms-office; MSOffice 15)'
 MS_EDGE_MOBILE: 'Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; DEVICE INFO) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Mobile Safari/537.36 Edge/12.0'
 MSN_BOT: 'msnbot-media/1.1 (+http://search.msn.com/msnbot.htm)'
+NEXUS7: 'Mozilla/5.0 (Linux; Android 4.3; Nexus 7 Build/JWR66Y) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/29.0.1547.72 Safari/537.36'
 NEXUS_TABLET: 'Mozilla/5.0 (Linux; Android 4.1.1; Nexus 7 Build/JRO03D) AppleWebKit/535.19 (KHTML, like Gecko) Chrome/18.0.1025.166 Safari/535.19'
 NINTENDO_WII: 'Opera/9.00 (Nintendo Wii; U; ; 1309-9; en)'
 NINTENDO_WIIU: 'Mozilla/5.0 (Nintendo WiiU) AppleWebKit/534.52 (KHTML, like Gecko) NX/2.1.0.8.23 NintendoBrowser/1.1.0.7579.EU'

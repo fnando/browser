@@ -182,6 +182,7 @@ class DeviceTest < Minitest::Test
     NOOK
     SAMSUNG
     FIREFOX_TABLET
+    NEXUS7
   ].each do |key|
     test "detect #{key} as tablet" do
       device = Browser::Device.new(Browser[key])
