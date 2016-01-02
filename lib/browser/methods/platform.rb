@@ -78,7 +78,7 @@ class Browser
 
     ## More info here => http://msdn.microsoft.com/fr-FR/library/ms537503.aspx#PltToken
     def windows_xp?
-      windows? && !!(ua =~ /Windows NT 5.1/)
+      windows? && !!(ua =~ /Windows NT 5.[1-2]/)
     end
 
     def windows_vista?
