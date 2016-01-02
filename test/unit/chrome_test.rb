@@ -57,4 +57,14 @@ class ChromeTest < Minitest::Test
     assert_equal "41.0.2272.118", @browser.full_version
     assert_equal "41", @browser.version
   end
+
+  test "detects chrome frame" do
+    @browser.ua = Browser["IE9_CHROME_FRAME"]
+
+    assert @browser.chrome?
+    refute @browser.safari?
+    assert @browser.webkit?
+    assert_equal "26.0.1410.43", @browser.full_version
+    assert_equal "26", @browser.version
+  end
 end
