@@ -1,5 +1,7 @@
 module Browser
   class Platform
+    include DetectVersion
+
     attr_reader :ua
 
     def initialize(ua)
@@ -31,8 +33,8 @@ module Browser
       id == :chrome_os
     end
 
-    def android?(version = nil)
-      id == :android && match_version?(version)
+    def android?(expected_version = nil)
+      id == :android && detect_version?(version, expected_version)
     end
 
     def other?
@@ -55,20 +57,20 @@ module Browser
       id == :firefox_os
     end
 
-    def ios?(version = nil)
-      id == :ios && match_version?(version)
+    def ios?(expected_version = nil)
+      id == :ios && detect_version?(version, expected_version)
     end
 
-    def blackberry?(version = nil)
-      id == :blackberry && match_version?(version)
+    def blackberry?(expected_version = nil)
+      id == :blackberry && detect_version?(version, expected_version)
     end
 
-    def windows_phone?(version = nil)
-      id == :windows_phone && match_version?(version)
+    def windows_phone?(expected_version = nil)
+      id == :windows_phone && detect_version?(version, expected_version)
     end
 
-    def windows_mobile?(version = nil)
-      id == :windows_mobile && match_version?(version)
+    def windows_mobile?(expected_version = nil)
+      id == :windows_mobile && detect_version?(version, expected_version)
     end
 
     def id
@@ -145,13 +147,6 @@ module Browser
 
     def windows_touchscreen_desktop?
       windows? && !!(ua =~ /Touch/)
-    end
-
-    private
-
-    def match_version?(expected_version)
-      return true unless expected_version
-      version.to_s.start_with?(expected_version.to_s)
     end
   end
 end

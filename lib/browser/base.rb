@@ -1,5 +1,7 @@
 module Browser
   class Base
+    include DetectVersion
+
     attr_reader :ua
 
     def initialize(ua, accept_language = nil)
@@ -104,8 +106,8 @@ module Browser
     end
 
     # Detect if browser is Safari.
-    def safari?
-      Safari.new(ua).match?
+    def safari?(expected_version = nil)
+      Safari.new(ua).match? && detect_version?(version, expected_version)
     end
 
     def safari_webapp_mode?
@@ -158,22 +160,6 @@ module Browser
     # Detect if browser is a proxy browser.
     def proxy?
       nokia? || uc_browser? || opera_mini?
-    end
-
-    private
-
-    def detect_version?(actual_version, expected_version)
-      return true unless expected_version
-
-      expected_version = parse_version(expected_version)
-      actual_version = parse_version(actual_version)
-
-      Gem::Requirement.create(expected_version)
-        .satisfied_by?(Gem::Version.create(actual_version))
-    end
-
-    def parse_version(version)
-      version.kind_of?(Numeric) ? "#{version}" : version
     end
   end
 end

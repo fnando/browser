@@ -28,25 +28,25 @@ class AndroidTest < Minitest::Test
   test "detect android gingerbread (2.3)" do
     @browser = Browser.new(Browser["ANDROID_GINGERBREAD"])
     assert @browser.platform.android?
-    assert @browser.platform.android?(2.3)
+    assert @browser.platform.android?("~> 2.3.0")
   end
 
   test "detect android honeycomb (3.0)" do
     @browser = Browser.new(Browser["ANDROID_HONEYCOMB_30"])
     assert @browser.platform.android?
-    assert @browser.platform.android?(3.0)
+    assert @browser.platform.android?("~> 3.0")
   end
 
   test "detect android ice cream sandwich (4.0)" do
     @browser = Browser.new(Browser["ANDROID_ICECREAM"])
     assert @browser.platform.android?
-    assert @browser.platform.android?(4.0)
+    assert @browser.platform.android?("~> 4.0")
   end
 
   test "detect android jellybean (4.1)" do
     @browser = Browser.new(Browser["ANDROID_JELLYBEAN_41"])
     assert @browser.platform.android?
-    assert @browser.platform.android?(4.1)
+    assert @browser.platform.android?("~> 4.1")
   end
 
   test "detect android jellybean (4.2)" do

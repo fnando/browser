@@ -78,7 +78,7 @@ class BlackberryTest < Minitest::Test
 
   test "don't detect as two different versions" do
     @browser = Browser.new(Browser["BLACKBERRY10"])
-    assert @browser.platform.blackberry?(10)
-    refute @browser.platform.blackberry?(7)
+    assert @browser.platform.blackberry?("~> 10.0")
+    refute @browser.platform.blackberry?("~> 7.0")
   end
 end

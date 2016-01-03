@@ -119,6 +119,7 @@ class IosTest < Minitest::Test
     assert meta.include?("safari3")
     assert meta.include?("modern")
     assert meta.include?("mobile")
+    refute meta.include?("tablet")
   end
 
   test "returns string representation for ipad" do

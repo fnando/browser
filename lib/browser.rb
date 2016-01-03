@@ -2,6 +2,7 @@ require "set"
 require "yaml"
 require "pathname"
 
+require "browser/detect_version"
 require "browser/base"
 require "browser/safari"
 require "browser/chrome"
