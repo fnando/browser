@@ -76,7 +76,8 @@ class Browser
   VERSIONS = {
     edge: %r[Edge/([\d.]+)],
     chrome: %r[(?:Chrome|CriOS)/([\d.]+)],
-    default: %r[(?:Version|MSIE|Firefox|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS|AdobeAIR)[/ ]?([a-z0-9.]+)]i,
+    firefox: %r[(?:Firefox|FxiOS)/([\d.]+)],
+    default: %r[(?:Version|MSIE|QuickTime|BlackBerry[^/]+|CoreMedia v|PhantomJS|AdobeAIR)[/ ]?([a-z0-9.]+)]i,
     opera: %r[(?:Opera/.*? Version/([\d.]+)|Chrome/.*?OPR/([\d.]+))],
     ie: %r[(?:MSIE |Trident/.*?; rv:)([\d.]+)]
   }
@@ -185,7 +186,7 @@ class Browser
 
   # Detect if browser is Firefox.
   def firefox?
-    !!(ua =~ /Firefox/)
+    !!(ua =~ /Firefox|FxiOS/)
   end
 
   # Detect if browser is Chrome.
