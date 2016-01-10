@@ -27,7 +27,7 @@ class FirefoxTest < Minitest::Test
   end
 
   test "detects firefox android tablet" do
-    @browser.ua = $ua["FIREFOX_TABLET"]
+    @browser.ua = $ua["FIREFOX_ANDROID_TABLET"]
 
     assert_equal :firefox, @browser.id
     assert_equal "Firefox", @browser.name
@@ -37,5 +37,17 @@ class FirefoxTest < Minitest::Test
     assert @browser.android?
     assert_equal "14.0", @browser.full_version
     assert_equal "14", @browser.version
+  end
+
+  test "detects firefox ios" do
+    @browser.ua = $ua["FIREFOX_IOS"]
+
+    assert_equal :firefox, @browser.id
+    assert_equal "Firefox", @browser.name
+    assert @browser.firefox?
+    assert @browser.modern?
+    assert @browser.ios?
+    assert_equal "1.2", @browser.full_version
+    assert_equal "1", @browser.version
   end
 end
