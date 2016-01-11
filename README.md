@@ -15,7 +15,6 @@ gem install browser
 ## Usage
 
 ```ruby
-require "rubygems"
 require "browser"
 
 browser = Browser.new("Some User Agent", accept_language: "en-us")
@@ -182,6 +181,24 @@ browser.modern?
 
 This behavior changed in `v1.0.0`; previously there wasn't a way of getting the real browser version.
 
+### Safari
+
+iOS webviews and web apps aren't detect as Safari anymore, so be aware of that if that's your case. You can use a combination of platform and webkit detection to do whatever you want.
+
+```ruby
+# iPad's Safari running as web app mode.
+browser = Browser.new("Mozilla/5.0 (iPad; U; CPU OS 3_2_1 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Mobile/7B405")
+
+browser.safari?
+#=> false
+
+browser.webkit?
+#=> true
+
+browser.platform.ios?
+#=> true
+```
+
 ### Bots
 
 Browser used to detect empty user agents as bots, but this behavior has changed. If you want to bring this detection back, you can activate it through the following call:
@@ -219,15 +236,45 @@ end
 ```
 
 If you need access to the `Rack::Request` object (e.g. to exclude a path), you can do so with `request`.
+
 ```ruby
 Rails.configuration.middleware.use Browser::Middleware do
   redirect_to upgrade_path unless browser.modern? || request.env["PATH_INFO"] == "/exclude_me"
 end
 ```
 
+## Development
+
+If you want to contribute to this project, just follow the tips below.
+
+To configure your environment, you must have Ruby and bundler installed. Then run `bundle install` to install all dependencies.
+
+To run tests, execute `./bin/rake`.
+
+### Adding new features
+
+Before using your time to code a new feature, open a ticket asking if it makes sense and if it's on this project's scope.
+
+#### Adding a new bot
+
+1. Add the user agent to `test/ua_bots.yml`.
+2. Add the readable name to `bots.yml`. The key must be something that matches the user agent, in lowercased text.
+3. Run tests.
+
+#### Adding a new search engine
+
+1. Add the user agent to `test/ua_search_engines.yml`.
+2. Add the same user agent to `test/ua_bots.yml`.
+3. Add the readable name to `search_engines.yml`. The key must be something that matches the user agent, in lowercased text.
+4. Run tests.
+
+#### Wrong browser detection
+
+Follow the instructions of [CONTRIBUTING.md](https://github.com/fnando/browser/blob/master/CONTRIBUTING.md).
+
 ## Maintainer
 
-* Nando Vieira - http://nandovieira.com.br
+* Nando Vieira - http://nandovieira.com
 
 ## Contributors
 
