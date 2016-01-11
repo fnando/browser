@@ -11,6 +11,16 @@ class FirefoxTest < Minitest::Test
     assert_equal "3", @browser.version
   end
 
+  test "detects firefox for iOS" do
+    @browser = Browser.new(Browser["FIREFOX_IOS"])
+
+    assert_equal "Firefox", @browser.name
+    assert @browser.firefox?
+    assert @browser.platform.ios?
+    assert_equal "1.2", @browser.full_version
+    assert_equal "1", @browser.version
+  end
+
   test "detects modern firefox" do
     @browser = Browser.new(Browser["FIREFOX_MODERN"])
 

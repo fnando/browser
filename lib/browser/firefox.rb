@@ -9,11 +9,11 @@ module Browser
     end
 
     def full_version
-      ua[%r[Firefox/([\d.]+)], 1]
+      ua[%r[(?:Firefox|FxiOS)/([\d.]+)], 1]
     end
 
     def match?
-      ua =~ /Firefox/
+      ua =~ /Firefox|FxiOS/
     end
   end
 end

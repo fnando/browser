@@ -39,6 +39,7 @@ FIREFOX: 'Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubu
 FIREFOX_MODERN: 'Mozilla/5.0 (X11; Ubuntu; Linux armv7l; rv:17.0) Gecko/20100101 Firefox/17.0'
 FIREFOX_OS: 'Mozilla/5.0 (Mobile; rv:18.0) Gecko/18.0 Firefox/18.0'
 FIREFOX_TABLET: 'Mozilla/5.0 (Android; Tablet; rv:14.0) Gecko/14.0 Firefox/14.0'
+FIREFOX_IOS: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) FxiOS/1.2 Mobile/13C75 Safari/601.1.46'
 GOOGLE_BOT: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
 GOOGLE_PAGE_SPEED_INSIGHTS: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.4 (KHTML, like Gecko; Google Page Speed Insights) Chrome/22.0.1229 Safari/537.4'
 GOOGLE_STRUCTURED_DATA_TESTING_TOOL: 'Mozilla/5.0 (compatible; X11; Linux x86_64; Google-StructuredDataTestingTool; +http://www.google.com/webmasters/tools/richsnippets)'
