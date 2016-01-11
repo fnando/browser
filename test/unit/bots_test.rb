@@ -14,6 +14,7 @@ class BotsTest < Minitest::Test
     LOAD_TIME_BOT
     MAIL_RU
     MEGAINDEX_RU
+    MRCHROME
     MSN_BOT
     QUERYSEEKER
     SCRAPY
