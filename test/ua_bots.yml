@@ -17,6 +17,7 @@ MAIL_RU: 'Mozilla/5.0 (compatible; Linux x86_64; Mail.RU_Bot/2.0; +http://go.mai
 MEGAINDEX_RU: 'Mozilla/5.0 (compatible; MegaIndex.ru/2.0; +https://www.megaindex.ru/?tab=linkAnalyze)'
 MRCHROME: 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.107 Amigo/45.0.2454.107 MRCHROME SOC Safari/537.36'
 MSN_BOT: 'msnbot-media/1.1 (+http://search.msn.com/msnbot.htm)'
+QUERYSEEKER: 'QuerySeekerSpider ( http://queryseeker.com/bot.html )'
 SCRAPY: 'Scrapy/0.18.4 (+http://scrapy.org)'
 SEOKICKS: 'Mozilla/5.0 (compatible; SEOkicks-Robot; +http://www.seokicks.de/robot.html)'
 SISTRIX: 'Mozilla/5.0 (compatible; SISTRIX Crawler; http://crawler.sistrix.net/)'

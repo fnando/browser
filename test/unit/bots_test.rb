@@ -52,16 +52,9 @@ class BotsTest < Minitest::Test
     assert_nil browser.bot.name
   end
 
-  %w[
-    ASK
-    BAIDU
-    BINGBOT
-    DUCKDUCKGO
-    GOOGLE_BOT
-    YAHOO_SLURP
-  ].each do |key|
-    test "detect #{key} as search engines" do
-      browser = Browser.new(Browser[key])
+  Browser.search_engine_user_agents.each do |key, ua|
+    test "detects #{key} as search engine" do
+      browser = Browser.new(ua)
       assert browser.bot.search_engine?
     end
   end

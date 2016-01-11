@@ -33,7 +33,7 @@ module Browser
     end
 
     def search_engine?
-      self.class.search_engines.any? {|key, _| ua.include?(key) }
+      self.class.search_engines.any? {|key, _| downcased_ua.include?(key) }
     end
 
     def name
