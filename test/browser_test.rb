@@ -1,11 +1,6 @@
 require "test_helper"
 
 class BrowserTest < Minitest::Test
-  test "sets accept language while instantiating object" do
-    browser = Browser.new("", "pt-br")
-    assert_equal ["pt-br"], browser.accept_language
-  end
-
   test "sets user agent while instantianting object" do
     browser = Browser.new("Safari")
     assert_equal "Safari", browser.ua
@@ -113,9 +108,21 @@ class BrowserTest < Minitest::Test
     assert_equal "Generic Browser", browser.name
   end
 
+  test "returns empty language set for missing accept language" do
+    browser = Browser.new("")
+    assert_equal [], browser.accept_language
+  end
+
+  test "sets accept language while instantiating object" do
+    browser = Browser.new("", accept_language: "pt-br")
+
+    assert_kind_of Array, browser.accept_language
+    assert_equal ["pt-BR"], browser.accept_language.map(&:full)
+  end
+
   test "returns all known languages" do
-    browser = Browser.new("", "en-us,en;q=0.8,pt-br;q=0.5,pt;q=0.3")
-    assert_equal ["en-us", "en", "pt-br", "pt"], browser.accept_language
+    browser = Browser.new("", accept_language: "en-us,en;q=0.8,pt-br;q=0.5,pt;q=0.3")
+    assert_equal ["en-US", "en", "pt-BR", "pt"], browser.accept_language.map(&:full)
   end
 
   test "removes duplicate items" do

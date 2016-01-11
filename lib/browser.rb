@@ -3,6 +3,7 @@ require "yaml"
 require "pathname"
 
 require "browser/detect_version"
+require "browser/accept_language"
 require "browser/base"
 require "browser/safari"
 require "browser/chrome"
@@ -75,10 +76,6 @@ module Browser
     @root ||= Pathname.new(File.expand_path("../..", __FILE__))
   end
 
-  def self.languages
-    @languages ||= YAML.load_file(Browser.root.join("languages.yml"))
-  end
-
   # Define the rules which define a modern browser.
   # A rule must be a proc/lambda or any object that implements the method
   # === and accepts the browser object.
@@ -102,7 +99,7 @@ module Browser
     rules << -> (b) { b.firefox? && b.device.tablet? && b.platform.android? && b.version.to_i >= 14 } # rubocop:disable Metrics/LineLength
   end
 
-  def self.new(user_agent, accept_language = nil)
+  def self.new(user_agent, **kwargs)
     [
       Nokia,
       UCBrowser,
@@ -116,7 +113,7 @@ module Browser
       Safari,
       Generic,
     ]
-      .map {|klass| klass.new(user_agent, accept_language) }
+      .map {|klass| klass.new(user_agent, **kwargs) }
       .find(&:match?)
   end
 

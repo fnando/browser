@@ -153,6 +153,36 @@ This adds a helper method called `browser`, that inspects your current user agen
 <% end %>
 ```
 
+### Accept Language
+
+Parses the accept-language header from an HTTP request and produces an array of language objects sorted by quality.
+
+```ruby
+browser = Browser.new("Some User Agent", accept_language: "en-us")
+
+browser.accept_language.class
+#=> Array
+
+language = browser.accept_language.first
+
+language.code
+#=> "en"
+
+language.region
+#=> "US"
+
+language.full
+#=> "en-US"
+
+language.quality
+#=> 1.0
+
+language.name
+#=> "English/United States"
+```
+
+Result is always sorted in quality order from highest -> lowest. as per the HTTP spec, omitting the quality value implies 1.0.
+
 ### Internet Explorer
 
 Internet Explorer has a compatibility view mode that allows newer versions (IE8+) to run as an older version. Browser will always return the navigator version, ignoring the compatibility view version, when defined. If you need to get the engine's version, you have to use `Browser#msie_version` and `Browser#msie_full_version`.

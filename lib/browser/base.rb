@@ -4,18 +4,12 @@ module Browser
 
     attr_reader :ua
 
-    def initialize(ua, accept_language = nil)
-      @ua = ua
-      @accept_language = accept_language
-    end
-
     # Return an array with all preferred languages that this browser accepts.
-    def accept_language
-      @accept_language
-        .to_s
-        .gsub(/;q=[\d.]+/, "")
-        .split(",")
-        .map {|l| l.downcase.gsub(/\s/m, "") }
+    attr_reader :accept_language
+
+    def initialize(ua, accept_language: nil)
+      @ua = ua
+      @accept_language = AcceptLanguage.parse(accept_language)
     end
 
     # Return a meta info about this browser.
