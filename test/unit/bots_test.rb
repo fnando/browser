@@ -1,31 +1,9 @@
 require "test_helper"
 
 class BotsTest < Minitest::Test
-  %w[
-    APPLE_BOT
-    DOMAINAREANIMATOR
-    DOT_BOT
-    FACEBOOK_BOT
-    GOOGLE_BOT
-    GOOGLE_PAGE_SPEED_INSIGHTS
-    GOOGLE_STRUCTURED_DATA_TESTING_TOOL
-    GRAPESHOT
-    LINKDEXBOT
-    LOAD_TIME_BOT
-    MAIL_RU
-    MEGAINDEX_RU
-    MRCHROME
-    MSN_BOT
-    QUERYSEEKER
-    SCRAPY
-    SEOKICKS
-    SISTRIX
-    TINEYE
-    YANDEX_DIRECT
-    YANDEX_METRIKA
-  ].each do |key|
+  Browser.bot_user_agents.each do |key, ua|
     test "detect #{key} as bot" do
-      browser = Browser.new(Browser[key])
+      browser = Browser.new(ua)
       assert browser.bot?
     end
   end
