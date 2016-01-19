@@ -285,11 +285,15 @@ To run tests, execute `./bin/rake`.
 
 Before using your time to code a new feature, open a ticket asking if it makes sense and if it's on this project's scope.
 
+Don't forget to add a new entry to `CHANGELOG.md`.
+
 #### Adding a new bot
 
 1. Add the user agent to `test/ua_bots.yml`.
 2. Add the readable name to `bots.yml`. The key must be something that matches the user agent, in lowercased text.
 3. Run tests.
+
+Don't forget to add a new entry to `CHANGELOG.md`.
 
 #### Adding a new search engine
 
@@ -298,7 +302,9 @@ Before using your time to code a new feature, open a ticket asking if it makes s
 3. Add the readable name to `search_engines.yml`. The key must be something that matches the user agent, in lowercased text.
 4. Run tests.
 
-#### Wrong browser detection
+Don't forget to add a new entry to `CHANGELOG.md`.
+
+#### Wrong browser/platform/device detection
 
 Follow the instructions of [CONTRIBUTING.md](https://github.com/fnando/browser/blob/master/CONTRIBUTING.md).
 
