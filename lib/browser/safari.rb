@@ -16,7 +16,7 @@ module Browser
     end
 
     def match?
-      !!(ua =~ /Safari/ && ua !~ /Chrome|CriOS|PhantomJS|FxiOS/)
+      ua =~ /Safari/ && ua !~ /Chrome|CriOS|PhantomJS|FxiOS/
     end
   end
 end

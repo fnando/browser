@@ -5,7 +5,7 @@ module Browser
     end
 
     def self.detect_empty_ua?
-      !!@detect_empty_ua
+      @detect_empty_ua
     end
 
     def self.bots

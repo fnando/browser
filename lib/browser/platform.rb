@@ -105,40 +105,40 @@ module Browser
 
     # http://msdn.microsoft.com/fr-FR/library/ms537503.aspx#PltToken
     def windows_xp?
-      windows? && !!(ua =~ /Windows NT 5\.[12]/)
+      windows? && ua =~ /Windows NT 5\.[12]/
     end
 
     def windows_vista?
-      windows? && !!(ua =~ /Windows NT 6\.0/)
+      windows? && ua =~ /Windows NT 6\.0/
     end
 
     def windows7?
-      windows? && !!(ua =~ /Windows NT 6\.1/)
+      windows? && ua =~ /Windows NT 6\.1/
     end
 
     def windows8?
-      windows? && !!(ua =~ /Windows NT 6\.[2-3]/)
+      windows? && ua =~ /Windows NT 6\.[2-3]/
     end
 
     def windows8_1?
-      windows? && !!(ua =~ /Windows NT 6\.3/)
+      windows? && ua =~ /Windows NT 6\.3/
     end
 
     def windows10?
-      windows? && !!(ua =~ /Windows NT 10/)
+      windows? && ua =~ /Windows NT 10/
     end
 
     def windows_rt?
-      windows8? && !!(ua =~ /ARM/)
+      windows8? && ua =~ /ARM/
     end
 
     # Detect if current platform is Windows in 64-bit architecture.
     def windows_x64?
-      !!(windows? && ua =~ /(Win64|x64|Windows NT 5\.2)/)
+      windows? && ua =~ /(Win64|x64|Windows NT 5\.2)/
     end
 
     def windows_wow64?
-      windows? && !!(ua =~ /WOW64/i)
+      windows? && ua =~ /WOW64/i
     end
 
     def windows_x64_inclusive?
@@ -146,7 +146,7 @@ module Browser
     end
 
     def windows_touchscreen_desktop?
-      windows? && !!(ua =~ /Touch/)
+      windows? && ua =~ /Touch/
     end
   end
 end
