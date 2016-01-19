@@ -1,8 +1,3 @@
 module Browser
-  module Version
-    MAJOR = 1
-    MINOR = 1
-    PATCH = 0
-    STRING = "#{MAJOR}.#{MINOR}.#{PATCH}"
-  end
+  VERSION = "2.0.0.rc1"
 end

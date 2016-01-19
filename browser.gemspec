@@ -3,7 +3,7 @@ require "./lib/browser/version"
 Gem::Specification.new do |s|
   s.required_ruby_version = ">= 2.0"
   s.name                  = "browser"
-  s.version               = Browser::Version::STRING
+  s.version               = Browser::VERSION
   s.platform              = Gem::Platform::RUBY
   s.authors               = ["Nando Vieira"]
   s.email                 = ["fnando.vieira@gmail.com"]
