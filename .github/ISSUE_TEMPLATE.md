@@ -14,10 +14,17 @@
 
 [Describe the actual results]
 
-## Gem version:
+## Software:
 
-Browser version: [Add browser gem version here]
+- Rails version: [Add rails version here]
+- Browser gem version: [Add browser gem version here]
+
+## Full backtrace
+
+```text
+[Paste full backtrace here]
+```
 
 ## Report
 
-You: visit <http://user-agent.herokuapp.com> and paste the URL here.
+[Visit <http://user-agent.herokuapp.com> and paste the URL here]
