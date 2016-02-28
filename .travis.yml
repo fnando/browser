@@ -8,6 +8,6 @@ rvm:
 gemfile:
   - Gemfile
   - gemfiles/rails3.gemfile
-script: "bundle exec rake spec"
+script: "bundle exec rake"
 notifications:
   email: false
