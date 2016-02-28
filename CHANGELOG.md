@@ -1,6 +1,6 @@
 # Changelog
 
-## v2.0.1 [unreleased]
+## v2.0.1
 
 - Fix Rails integration.
 
