@@ -275,7 +275,20 @@ end
 
 ## Development
 
-If you want to contribute to this project, just follow the tips below.
+### Writing code
+
+Once you've made your great commits (include tests, please):
+
+1. [Fork](http://help.github.com/forking/) browser
+2. Create a topic branch - `git checkout -b my_branch`
+3. Push to your branch - `git push origin my_branch`
+4. Create a pull request
+5. That's it!
+
+Please respect the indentation rules and code style.
+And use 2 spaces, not tabs. And don't touch the version thing.
+
+## Configuring environment
 
 To configure your environment, you must have Ruby and bundler installed. Then run `bundle install` to install all dependencies.
 
@@ -306,7 +319,7 @@ Don't forget to add a new entry to `CHANGELOG.md`.
 
 #### Wrong browser/platform/device detection
 
-Follow the instructions of [CONTRIBUTING.md](https://github.com/fnando/browser/blob/master/CONTRIBUTING.md).
+If you know how to fix it, follow the "Writing code" above. Open an issue otherwise; make sure you fill in the issue template with all the required information.
 
 ## Maintainer
 
