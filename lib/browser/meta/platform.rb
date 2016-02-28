@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Browser
   module Meta
     class Platform < Base

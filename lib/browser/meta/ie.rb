@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Browser
   module Meta
     class IE < Base
@@ -8,10 +9,10 @@ module Browser
       def meta
         return unless browser.ie?
 
-        meta = ""
+        meta = []
         meta << "oldie lt-ie8 lt-ie9" if version < 8
         meta << "lt-ie9" if version == 8
-        meta
+        meta.join(" ")
       end
     end
   end

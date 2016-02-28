@@ -1,3 +1,6 @@
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
 Style/ClassCheck:
   EnforcedStyle: kind_of?
 

@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 module Browser
   class Bot
     def self.detect_empty_ua!
