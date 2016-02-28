@@ -1,6 +1,6 @@
 # Changelog
 
-## v2.0.0 [unreleased]
+## v2.0.0
 
 - `Browser#platform` now returns instance of `Browser::Platform`, instead of a `String`. It contains information about the platform (software).
 - `Browser#device` was added. It returns information about the device (hardware).
