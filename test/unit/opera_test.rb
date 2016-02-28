@@ -33,4 +33,9 @@ class OperaTest < Minitest::Test
     browser = Browser.new(Browser["OPERA_MOBI"])
     assert browser.opera?
   end
+
+  test "detects opera running in Android" do
+    browser = Browser.new(Browser["OPERA_ANDROID"])
+    assert browser.platform.android?
+  end
 end
