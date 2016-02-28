@@ -2,6 +2,12 @@
 require "rails"
 require "browser"
 
+class PagesController < ActionController::Base
+  def home
+    render text: "#{browser.name}:#{browser.accept_language.first.full}"
+  end
+end
+
 class SampleApp < Rails::Application
   config.secret_token = "99f19f08db7a37bdcb9d6701f54dca"
   config.secret_key_base = "99f19f08db7a37bdcb9d6701f54dca"
@@ -20,6 +26,8 @@ class SampleApp < Rails::Application
     get "/asset", to: proc {
       [200, {"Content-Type" => "image/png"}, []]
     }
+
+    get "/home", to: "pages#home"
   end
 
   config.middleware.use Browser::Middleware do

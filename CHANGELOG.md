@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.1 [unreleased]
+
+- Fix Rails integration.
+
 ## v2.0.0
 
 - `Browser#platform` now returns instance of `Browser::Platform`, instead of a `String`. It contains information about the platform (software).
