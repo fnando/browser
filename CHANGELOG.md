@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.2 [unreleased]
+
+- Fix issue when user agent is set to `nil`.
+
 ## v2.0.1
 
 - Fix Rails integration.

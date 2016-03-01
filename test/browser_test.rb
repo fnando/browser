@@ -7,6 +7,11 @@ class BrowserTest < Minitest::Test
     assert_equal "Safari", browser.ua
   end
 
+  test "don't fail with nil user agent" do
+    browser = Browser.new(nil)
+    refute browser.known?
+  end
+
   test "detects android" do
     browser = Browser.new(Browser["ANDROID"])
 

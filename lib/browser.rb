@@ -114,7 +114,7 @@ module Browser
       Safari,
       Generic,
     ]
-      .map {|klass| klass.new(user_agent, **kwargs) }
+      .map {|klass| klass.new(user_agent.to_s, **kwargs) }
       .find(&:match?)
   end
 
