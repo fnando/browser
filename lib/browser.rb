@@ -73,6 +73,8 @@ require "browser/meta/tablet"
 require "browser/meta/device"
 
 module Browser
+  EMPTY_STRING = "".freeze
+
   def self.root
     @root ||= Pathname.new(File.expand_path("../..", __FILE__))
   end
@@ -114,7 +116,7 @@ module Browser
       Safari,
       Generic,
     ]
-      .map {|klass| klass.new(user_agent.to_s, **kwargs) }
+      .map {|klass| klass.new(user_agent || EMPTY_STRING, **kwargs) }
       .find(&:match?)
   end
 
