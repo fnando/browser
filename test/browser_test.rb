@@ -12,6 +12,25 @@ class BrowserTest < Minitest::Test
     refute browser.known?
   end
 
+  %w[
+    BlackBerry
+    Chrome
+    Edge
+    Firefox
+    MSIE
+    Opera
+    PhantomJS
+    S40OviBrowser
+    Safari
+    UCBrowser
+  ].each do |ua|
+    test "don't fail when have no version info (#{ua})" do
+      browser = Browser.new(ua)
+      assert_equal "0", browser.version
+      assert_equal "0.0", browser.full_version
+    end
+  end
+
   test "detects android" do
     browser = Browser.new(Browser["ANDROID"])
 

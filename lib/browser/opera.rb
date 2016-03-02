@@ -10,7 +10,7 @@ module Browser
     end
 
     def full_version
-      ua[%r[OPR/([\d.]+)], 1] || ua[%r[Version/([\d.]+)], 1]
+      ua[%r[OPR/([\d.]+)], 1] || ua[%r[Version/([\d.]+)], 1] || "0.0"
     end
 
     def match?

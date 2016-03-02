@@ -3,6 +3,7 @@
 ## v2.0.2 [unreleased]
 
 - Fix issue when user agent is set to `nil`.
+- Fix issue with user agent without version information.
 
 ## v2.0.1
 
