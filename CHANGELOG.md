@@ -1,6 +1,6 @@
 # Changelog
 
-## v2.0.2 [unreleased]
+## v2.0.2
 
 - Fix issue when user agent is set to `nil`.
 - Fix issue with user agent without version information.
