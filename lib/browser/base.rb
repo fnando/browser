@@ -15,10 +15,7 @@ module Browser
 
     # Return a meta info about this browser.
     def meta
-      Meta.constants.each_with_object(Set.new) do |meta_name, meta|
-        meta_class = Meta.const_get(meta_name)
-        meta.merge(meta_class.new(self).to_a)
-      end.to_a
+      Meta.get(self)
     end
 
     alias_method :to_a, :meta
