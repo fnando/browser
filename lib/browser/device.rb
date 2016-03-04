@@ -3,30 +3,38 @@ module Browser
   class Device
     attr_reader :ua
 
+    # Hold the list of device matchers.
+    # Order is important.
+    def self.matchers
+      @matchers ||= [
+        XboxOne,
+        Xbox360,
+        Surface,
+        TV,
+        BlackBerryPlaybook,
+        WiiU,
+        Wii,
+        KindleFire,
+        Kindle,
+        PlayStation4,
+        PlayStation3,
+        PSVita,
+        PSP,
+        Iphone,
+        Ipad,
+        IpodTouch,
+        Unknown
+      ]
+    end
+
     def initialize(ua)
       @ua = ua
     end
 
     def subject
-      @subject ||= [
-        XboxOne.new(ua),
-        Xbox360.new(ua),
-        Surface.new(ua),
-        TV.new(ua),
-        BlackBerryPlaybook.new(ua),
-        WiiU.new(ua),
-        Wii.new(ua),
-        KindleFire.new(ua),
-        Kindle.new(ua),
-        PlayStation4.new(ua),
-        PlayStation3.new(ua),
-        PSVita.new(ua),
-        PSP.new(ua),
-        Iphone.new(ua),
-        Ipad.new(ua),
-        IpodTouch.new(ua),
-        Unknown.new(ua)
-      ].find(&:match?)
+      @subject ||= self.class.matchers
+                   .map {|matcher| matcher.new(ua) }
+                   .find(&:match?)
     end
 
     def id
