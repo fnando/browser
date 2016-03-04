@@ -2,6 +2,26 @@
 require "test_helper"
 
 class DeviceTest < Minitest::Test
+  class CustomDevice < Browser::Device::Base
+    def match?
+      ua =~ /Custom/
+    end
+
+    def id
+      :custom
+    end
+  end
+
+  test "extend matchers" do
+    Browser::Device.matchers.unshift(CustomDevice)
+    device = Browser::Device.new("Custom")
+    assert_equal :custom, device.id
+
+    Browser::Device.matchers.shift
+    device = Browser::Device.new("Custom")
+    assert_equal :unknown, device.id
+  end
+
   test "detect generic device" do
     device = Browser::Device.new("")
 

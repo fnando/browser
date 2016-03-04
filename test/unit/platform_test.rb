@@ -2,6 +2,26 @@
 require "test_helper"
 
 class PlatformTest < Minitest::Test
+  class CustomPlatform < Browser::Platform::Base
+    def match?
+      ua =~ /Custom/
+    end
+
+    def id
+      :custom
+    end
+  end
+
+  test "extend matchers" do
+    Browser::Platform.matchers.unshift(CustomPlatform)
+    platform = Browser::Platform.new("Custom")
+    assert_equal :custom, platform.id
+
+    Browser::Platform.matchers.shift
+    platform = Browser::Platform.new("Custom")
+    assert_equal :other, platform.id
+  end
+
   test "detect other" do
     platform = Browser::Platform.new("Other")
 

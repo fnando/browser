@@ -100,29 +100,6 @@ class BrowserTest < Minitest::Test
     assert_equal "0", browser.version
   end
 
-  test "sets meta" do
-    browser = Browser.new(Browser["CHROME"])
-    assert_kind_of Array, browser.meta
-  end
-
-  test "returns string representation" do
-    browser = Browser.new(Browser["CHROME"])
-    meta = browser.to_s
-
-    assert meta.include?("chrome")
-    assert meta.include?("webkit")
-    assert meta.include?("mac")
-    assert meta.include?("modern")
-  end
-
-  test "returns string representation for mobile" do
-    browser = Browser.new(Browser["BLACKBERRY"])
-    meta = browser.to_s
-
-    assert meta.include?("blackberry")
-    assert meta.include?("mobile")
-  end
-
   test "detects unknown id" do
     browser = Browser.new("Unknown")
     assert_equal :generic, browser.id
