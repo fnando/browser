@@ -5,25 +5,33 @@ module Browser
 
     attr_reader :ua
 
+    # Hold the list of platform matchers.
+    # Order is important.
+    def self.matchers
+      @matchers ||= [
+        AdobeAir,
+        ChromeOS,
+        WindowsMobile,
+        WindowsPhone,
+        Android,
+        BlackBerry,
+        IOS,
+        Mac,
+        FirefoxOS,
+        Windows,
+        Linux,
+        Other
+      ]
+    end
+
     def initialize(ua)
       @ua = ua
     end
 
     def subject
-      @subject ||= [
-        AdobeAir.new(ua),
-        ChromeOS.new(ua),
-        WindowsMobile.new(ua),
-        WindowsPhone.new(ua),
-        Android.new(ua),
-        BlackBerry.new(ua),
-        IOS.new(ua),
-        Mac.new(ua),
-        FirefoxOS.new(ua),
-        Windows.new(ua),
-        Linux.new(ua),
-        Other.new(ua)
-      ].find(&:match?)
+      @subject ||= self.class.matchers
+                   .map {|matcher| matcher.new(ua) }
+                   .find(&:match?)
     end
 
     def adobe_air?
