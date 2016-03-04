@@ -79,6 +79,24 @@ module Browser
     @root ||= Pathname.new(File.expand_path("../..", __FILE__))
   end
 
+  # Hold the list of browser matchers.
+  # Order is important.
+  def self.matchers
+    @matchers ||= [
+      Nokia,
+      UCBrowser,
+      PhantomJS,
+      BlackBerry,
+      Opera,
+      Edge,
+      InternetExplorer,
+      Firefox,
+      Chrome,
+      Safari,
+      Generic
+    ]
+  end
+
   # Define the rules which define a modern browser.
   # A rule must be a proc/lambda or any object that implements the method
   # === and accepts the browser object.
@@ -103,19 +121,7 @@ module Browser
   end
 
   def self.new(user_agent, **kwargs)
-    [
-      Nokia,
-      UCBrowser,
-      PhantomJS,
-      BlackBerry,
-      Opera,
-      Edge,
-      InternetExplorer,
-      Firefox,
-      Chrome,
-      Safari,
-      Generic,
-    ]
+    matchers
       .map {|klass| klass.new(user_agent || EMPTY_STRING, **kwargs) }
       .find(&:match?)
   end
