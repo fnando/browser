@@ -58,7 +58,6 @@ browser.device.id
 browser.device.name
 browser.device.blackberry_playbook?
 browser.device.console?
-browser.device.ios?
 browser.device.ipad?
 browser.device.iphone?
 browser.device.ipod_touch?
