@@ -96,7 +96,7 @@ browser.platform.ios?     # detect iOS
 browser.platform.ios?(9)  # detect specific iOS version
 browser.platform.ios_app?
 browser.platform.ios_webview?
-browser.platform.ios_webview? # request performed by ios' app webview 
+browser.platform.ios_webview? # request performed by ios' app webview
 browser.platform.linux?
 browser.platform.mac?
 browser.platform.other?
@@ -282,6 +282,10 @@ The class constructor now has a different signature. Change the instantiation fr
 
 - `ua`: must be a string representing the user agent.
 - `options`: must be a hash (for now it only accepts the `accept_language` option).
+
+##### `NoMethodError: undefined method 'user_agent'`
+
+`.ua` can now be used to retrieve the full User Agent string.
 
 ## Development
 
