@@ -6,12 +6,14 @@ module Browser
         :xbox_one
       end
 
+      DEVICE_NAME = "Xbox One" 
       def name
-        "Xbox One"
+        DEVICE_NAME
       end
 
+      MATCH_REGEX = /Xbox One/i
       def match?
-        ua =~ /Xbox One/i
+        ua =~ MATCH_REGEX
       end
     end
   end

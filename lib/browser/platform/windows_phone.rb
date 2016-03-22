@@ -2,20 +2,23 @@
 module Browser
   class Platform
     class WindowsPhone < Base
+      VERSION_REGEX = /Windows Phone ([\d.]+)/
       def version
-        ua[/Windows Phone ([\d.]+)/, 1]
+        ua[VERSION_REGEX, 1]
       end
 
+      PLATFORM_NAME = "Windows Phone"
       def name
-        "Windows Phone"
+        PLATFORM_NAME
       end
 
       def id
         :windows_phone
       end
 
+      MATCH_REGEX = /Windows Phone/
       def match?
-        ua =~ /Windows Phone/
+        ua =~ MATCH_REGEX
       end
     end
   end

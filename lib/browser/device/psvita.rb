@@ -6,12 +6,14 @@ module Browser
         :psvita
       end
 
+      DEVICE_NAME = "PlayStation Vita"
       def name
-        "PlayStation Vita"
+        DEVICE_NAME
       end
 
+      MATCH_REGEX = /Playstation Vita/
       def match?
-        ua =~ /Playstation Vita/
+        ua =~ MATCH_REGEX
       end
     end
   end

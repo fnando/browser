@@ -3,6 +3,8 @@ module Browser
   class Base
     include DetectVersion
 
+    DEFAULT_VERSION = '0.0'
+
     attr_reader :ua
 
     # Return an array with all preferred languages that this browser accepts.
@@ -70,7 +72,7 @@ module Browser
     end
 
     def msie_full_version
-      "0.0"
+      DEFAULT_VERSION
     end
 
     def msie_version
@@ -78,18 +80,21 @@ module Browser
     end
 
     # Detect if browser is WebKit-based.
+    WEBKIT_REGEX = /AppleWebKit/i
     def webkit?
-      ua =~ /AppleWebKit/i && !edge?
+      ua =~ WEBKIT_REGEX && !edge?
     end
 
     # Detect if browser is QuickTime
+    QUICKTIME_REGEX = /QuickTime/i
     def quicktime?
-      ua =~ /QuickTime/i
+      ua =~ QUICKTIME_REGEX
     end
 
     # Detect if browser is Apple CoreMedia.
+    COREMEDIA_REGEX = /CoreMedia/
     def core_media?
-      ua =~ /CoreMedia/
+      ua =~ COREMEDIA_REGEX
     end
 
     # Detect if browser is PhantomJS
@@ -103,7 +108,7 @@ module Browser
     end
 
     def safari_webapp_mode?
-      (device.ipad? || device.iphone?) && ua =~ /AppleWebKit/
+      (device.ipad? || device.iphone?) && ua =~ WEBKIT_REGEX
     end
 
     # Detect if browser is Firefox.
@@ -122,8 +127,9 @@ module Browser
     end
 
     # Detect if browser is Yandex.
+    YANDEX_REGEX = /YaBrowser/
     def yandex?
-      ua =~ /YaBrowser/
+      ua =~ YANDEX_REGEX
     end
 
     # Detect if browser is UCBrowser.
@@ -137,12 +143,14 @@ module Browser
     end
 
     # Detect if browser is Opera Mini.
+    OPERA_MINI_REGEX = /Opera Mini/
     def opera_mini?
-      ua =~ /Opera Mini/
+      ua =~ OPERA_MINI_REGEX
     end
 
+    WEBKIT_VERSION_REGEX = %r[AppleWebKit/([\d.]+)]
     def webkit_full_version
-      ua[%r[AppleWebKit/([\d.]+)], 1] || "0.0"
+      ua[WEBKIT_VERSION_REGEX, 1] || DEFAULT_VERSION
     end
 
     def known?

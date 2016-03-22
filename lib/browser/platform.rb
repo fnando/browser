@@ -113,49 +113,59 @@ module Browser
     end
 
     # http://msdn.microsoft.com/fr-FR/library/ms537503.aspx#PltToken
+    WINDOWS_XP_REGEX = /Windows NT 5\.[12]/
     def windows_xp?
-      windows? && ua =~ /Windows NT 5\.[12]/
+      windows? && ua =~ WINDOWS_XP_REGEX
     end
 
+    WINDOWS_VISTA_REGEX = /Windows NT 6\.0/
     def windows_vista?
-      windows? && ua =~ /Windows NT 6\.0/
+      windows? && ua =~ WINDOWS_VISTA_REGEX
     end
 
+    WINDOWS_7_REGEX = /Windows NT 6\.1/
     def windows7?
-      windows? && ua =~ /Windows NT 6\.1/
+      windows? && ua =~ WINDOWS_7_REGEX
     end
 
+    WINDOWS_8_REGEX = /Windows NT 6\.[2-3]/
     def windows8?
-      windows? && ua =~ /Windows NT 6\.[2-3]/
+      windows? && ua =~ WINDOWS_8_REGEX
     end
 
+    WINDOWS_8_1_REGEX = /Windows NT 6\.3/
     def windows8_1?
-      windows? && ua =~ /Windows NT 6\.3/
+      windows? && ua =~ WINDOWS_8_1_REGEX
     end
 
+    WINDOWS_10_REGEX = /Windows NT 10/
     def windows10?
-      windows? && ua =~ /Windows NT 10/
+      windows? && ua =~ WINDOWS_10_REGEX
     end
 
+    WINDOWS_RT_REGEX = /ARM/
     def windows_rt?
-      windows8? && ua =~ /ARM/
+      windows8? && ua =~ WINDOWS_RT_REGEX
     end
 
     # Detect if current platform is Windows in 64-bit architecture.
+    WINDOW_X64_REGEX = /(Win64|x64|Windows NT 5\.2)/
     def windows_x64?
-      windows? && ua =~ /(Win64|x64|Windows NT 5\.2)/
+      windows? && ua =~ WINDOW_X64_REGEX
     end
 
+    WINDOWS_WOW64_REGEX = /WOW64/i
     def windows_wow64?
-      windows? && ua =~ /WOW64/i
+      windows? && ua =~ WINDOWS_WOW64_REGEX
     end
 
     def windows_x64_inclusive?
       windows_x64? || windows_wow64?
     end
 
+    WINDOWS_TOUCH_REGEX = /Touch/
     def windows_touchscreen_desktop?
-      windows? && ua =~ /Touch/
+      windows? && ua =~ WINDOWS_TOUCH_REGEX
     end
   end
 end

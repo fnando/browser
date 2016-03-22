@@ -5,21 +5,27 @@ module Browser
       :chrome
     end
 
+    BROWSER_NAME = 'Chrome'
     def name
-      "Chrome"
+      BROWSER_NAME
     end
 
+    VERSION_REGEX_1 = %r[Chrome/([\d.]+)]
+    VERSION_REGEX_2 = %r[CriOS/([\d.]+)]
+    VERSION_REGEX_3 = %r[Safari/([\d.]+)]
+    VERSION_REGEX_4 = %r[AppleWebKit/([\d.]+)]
     def full_version
       # Each regex on its own line to enforce precedence.
-      ua[%r[Chrome/([\d.]+)], 1] ||
-        ua[%r[CriOS/([\d.]+)], 1] ||
-        ua[%r[Safari/([\d.]+)], 1] ||
-        ua[%r[AppleWebKit/([\d.]+)], 1] ||
-        "0.0"
+      ua[VERSION_REGEX_1, 1] ||
+        ua[VERSION_REGEX_2, 1] ||
+        ua[VERSION_REGEX_3, 1] ||
+        ua[VERSION_REGEX_4, 1] ||
+        DEFAULT_VERSION
     end
 
+    MATCH_REGEX = /Chrome|CriOS/
     def match?
-      ua =~ /Chrome|CriOS/ && !opera? && !edge?
+      ua =~ MATCH_REGEX && !opera? && !edge?
     end
   end
 end

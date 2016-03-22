@@ -5,18 +5,22 @@ module Browser
       :blackberry
     end
 
+    BROWSER_NAME = 'BlackBerry'
     def name
-      "BlackBerry"
+      BROWSER_NAME
     end
 
+    VERSION_REGEX_1 = %r[BlackBerry[\da-z]+/([\d.]+)]
+    VERSION_REGEX_2 = %r[Version/([\d.]+)]
     def full_version
-      ua[%r[BlackBerry[\da-z]+/([\d.]+)], 1] ||
-        ua[%r[Version/([\d.]+)], 1] ||
-        "0.0"
+      ua[VERSION_REGEX_1, 1] ||
+        ua[VERSION_REGEX_2, 1] ||
+        DEFAULT_VERSION
     end
 
+    MATCH_REGEX = /BlackBerry|BB10/
     def match?
-      ua =~ /BlackBerry|BB10/
+      ua =~ MATCH_REGEX
     end
   end
 end

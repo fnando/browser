@@ -5,16 +5,19 @@ module Browser
       :phantom_js
     end
 
+    BROWSER_NAME = "PhantomJS"
     def name
-      "PhantomJS"
+      BROWSER_NAME
     end
 
+    VERSION_REGEX = %r[PhantomJS/([\d.]+)]
     def full_version
-      ua[%r[PhantomJS/([\d.]+)], 1] || "0.0"
+      ua[VERSION_REGEX, 1] || DEFAULT_VERSION
     end
 
+    MATCH_REGEX = /PhantomJS/
     def match?
-      ua =~ /PhantomJS/
+      ua =~ MATCH_REGEX
     end
   end
 end

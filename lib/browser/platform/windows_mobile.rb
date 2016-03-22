@@ -2,20 +2,18 @@
 module Browser
   class Platform
     class WindowsMobile < Base
-      def version
-        "0"
-      end
-
+      PLATFORM_NAME = "Windows Mobile"
       def name
-        "Windows Mobile"
+        PLATFORM_NAME
       end
 
       def id
         :windows_mobile
       end
 
+      MATCH_REGEX = /Windows CE/
       def match?
-        ua =~ /Windows CE/
+        ua =~ MATCH_REGEX
       end
     end
   end

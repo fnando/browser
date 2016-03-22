@@ -6,12 +6,14 @@ module Browser
         :wiiu
       end
 
+      DEVICE_NAME = "Nintendo WiiU"
       def name
-        "Nintendo WiiU"
+        DEVICE_NAME
       end
 
+      MATCH_REGEX = /Nintendo WiiU/i
       def match?
-        ua =~ /Nintendo WiiU/i
+        ua =~ MATCH_REGEX
       end
     end
   end

@@ -6,12 +6,14 @@ module Browser
         :ps3
       end
 
+      DEVICE_NAME = "PlayStation 3"
       def name
-        "PlayStation 3"
+        DEVICE_NAME
       end
 
+      MATCH_REGEX = /PLAYSTATION 3/i
       def match?
-        ua =~ /PLAYSTATION 3/i
+        ua =~ MATCH_REGEX
       end
     end
   end

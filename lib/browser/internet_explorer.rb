@@ -14,17 +14,19 @@ module Browser
       :ie
     end
 
+    BROWSER_NAME = "Internet Explorer"
     def name
-      "Internet Explorer"
+      BROWSER_NAME
     end
 
     def full_version
       "#{ie_version}.0"
     end
 
-    def msie_full_version
-      (ua.match(%r{MSIE ([\d.]+)|Trident/.*?; rv:([\d.]+)}) && ($1 || $2)) ||
-        "0.0"
+    FULL_VERSION_REGEX = %r{MSIE ([\d.]+)|Trident/.*?; rv:([\d.]+)}
+    def msie_full_version 
+      (ua.match(FULL_VERSION_REGEX) && ($1 || $2)) ||
+        DEFAULT_VERSION
     end
 
     def msie_version
@@ -46,17 +48,21 @@ module Browser
       TRIDENT_MAPPING[trident_version] || msie_version
     end
 
+    TRIDENT_VERSION_REGEX = %r[Trident/([0-9.]+)]
     # Return the trident version.
     def trident_version
-      ua.match(%r[Trident/([0-9.]+)]) && $1
+      ua.match(TRIDENT_VERSION_REGEX) && $1
     end
 
+    MATCH_REGEX = /MSIE/
+    NOT_MATCH_REGEX = /Opera/
     def msie?
-      ua =~ /MSIE/ && ua !~ /Opera/
+      ua =~ MATCH_REGEX && ua !~ NOT_MATCH_REGEX
     end
 
+    MODERN_REGEX = %r[Trident/.*?; rv:(.*?)]
     def modern_ie?
-      ua =~ %r[Trident/.*?; rv:(.*?)]
+      ua =~ MODERN_REGEX
     end
   end
 end

@@ -2,12 +2,9 @@
 module Browser
   class Platform
     class Other < Base
-      def version
-        "0"
-      end
-
+      PLATFORM_NAME = 'Other'
       def name
-        "Other"
+        PLATFORM_NAME
       end
 
       def id
