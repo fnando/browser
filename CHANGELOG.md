@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.0.3
+
+- Fix issue with version detection when no actual version is provided (i.e. the user agent doesn't have any version information).
+
 ## v2.0.2
 
 - Fix issue when user agent is set to `nil`.
