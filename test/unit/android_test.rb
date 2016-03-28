@@ -90,4 +90,11 @@ class AndroidTest < Minitest::Test
     browser = Browser.new(Browser["ANDROID_NEXUS_PLAYER"])
     assert browser.platform.android?
   end
+
+  test "detect firefox for android without android version" do
+    browser = Browser.new(Browser["FIREFOX_ANDROID"])
+
+    assert browser.platform.android?
+    refute browser.platform.android?(5)
+  end
 end

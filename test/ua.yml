@@ -27,6 +27,7 @@ CHROME_OS: 'Mozilla/5.0 (X11; CrOS x86_64 3701.81.0) AppleWebKit/537.31 (KHTML, 
 COREMEDIA: 'Apple Mac OS X v10.6.4 CoreMedia v1.0.0.10F569'
 CUSTOM_APP: "Our App 0.0.1 (Linux; Android 4.0.3; HTC Ruby Build/IML74K; en_CA)"
 FIREFOX: 'Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8'
+FIREFOX_ANDROID: 'Mozilla/5.0 (Android; Mobile; rv:40.0) Gecko/40.0 Firefox/40.0'
 FIREFOX_IOS: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) FxiOS/1.2 Mobile/13C75 Safari/601.1.46'
 FIREFOX_MODERN: 'Mozilla/5.0 (X11; Ubuntu; Linux armv7l; rv:17.0) Gecko/20100101 Firefox/17.0'
 FIREFOX_OS: 'Mozilla/5.0 (Mobile; rv:18.0) Gecko/18.0 Firefox/18.0'
