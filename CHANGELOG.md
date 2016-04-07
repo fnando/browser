@@ -9,6 +9,7 @@
 - Detect Edge based on Chrome correctly.
 - Improve Yandex detection.
 - Add Sputnik (https://browser.sputnik.ru)
+- Detect Android devices.
 
 ## 2.6.1
 

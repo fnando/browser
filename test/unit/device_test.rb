@@ -238,4 +238,24 @@ class DeviceTest < Minitest::Test
       refute device.mobile?
     end
   end
+
+  {
+    "ANDROID_CUPCAKE" => "T-Mobile G1",
+    "ANDROID_DONUT" => "SonyEricssonX10i",
+    "ANDROID_ECLAIR_21" => "Nexus One",
+    "ANDROID_FROYO" => "HTC_DesireHD_A9191",
+    "ANDROID_GINGERBREAD" => "Sensation_4G",
+    "ANDROID_HONEYCOMB_30" => "Xoom",
+    "ANDROID_ICECREAM" => "sdk",
+    "ANDROID_JELLYBEAN_41" => "Nexus S",
+    "ANDROID_JELLYBEAN_42" => "Nexus 10",
+    "ANDROID_JELLYBEAN_43" => "Nexus 7",
+    "CUSTOM_APP" => "HTC Ruby",
+    "NOOK" => "NOOK BNTV250A"
+  }.each do |key, name|
+    test "detect device name of #{key} as #{name}" do
+      device = Browser::Device.new(Browser[key])
+      assert_equal name, device.name
+    end
+  end
 end

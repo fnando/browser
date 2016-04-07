@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "browser/device/base"
+require "browser/device/android"
 require "browser/device/unknown"
 require "browser/device/ipad"
 require "browser/device/ipod_touch"
@@ -45,6 +46,7 @@ module Browser
         Ipad,
         Iphone,
         IpodTouch,
+        Android,
         Unknown
       ]
     end
