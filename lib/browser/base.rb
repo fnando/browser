@@ -136,6 +136,13 @@ module Browser
       Nokia.new(ua).match?
     end
 
+    # Detect if browser is MicroMessenger.
+    def micro_messenger?
+      MicroMessenger.new(ua).match?
+    end
+
+    alias_method :wechat?, :micro_messenger?
+
     # Detect if browser is Opera Mini.
     def opera_mini?
       ua =~ /Opera Mini/

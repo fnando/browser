@@ -17,6 +17,7 @@ require "browser/generic"
 require "browser/phantom_js"
 require "browser/uc_browser"
 require "browser/nokia"
+require "browser/micro_messenger"
 
 require "browser/bot"
 require "browser/middleware"
@@ -93,6 +94,7 @@ module Browser
       Firefox,
       Chrome,
       Safari,
+      MicroMessenger,
       Generic
     ]
   end

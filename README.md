@@ -47,6 +47,7 @@ browser.version         # major version number
 browser.webkit?
 browser.webkit_full_version
 browser.yandex?
+browser.wechat?         # detect the MicroMessenger(WeChat)
 
 # Get bot info
 browser.bot.name
