@@ -1,5 +1,9 @@
 # Changelog
 
+## unreleased
+
+- Match MicroMessenger (WeChat).
+
 ## v2.0.3
 
 - Fix issue with version detection when no actual version is provided (i.e. the user agent doesn't have any version information).
