@@ -4,6 +4,7 @@
 
 - Add ltx71, Squider and Traackr to bots.
 - Match MicroMessenger (WeChat).
+- Match Weibo.
 
 ## v2.0.3
 

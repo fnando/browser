@@ -49,6 +49,7 @@ browser.webkit?
 browser.webkit_full_version
 browser.yandex?
 browser.wechat?         # detect the MicroMessenger(WeChat)
+browser.weibo?          # detect Weibo embedded browser (Sina Weibo)
 
 # Get bot info
 browser.bot.name

@@ -18,6 +18,7 @@ require "browser/phantom_js"
 require "browser/uc_browser"
 require "browser/nokia"
 require "browser/micro_messenger"
+require "browser/weibo"
 
 require "browser/bot"
 require "browser/middleware"
@@ -92,6 +93,7 @@ module Browser
       Edge,
       InternetExplorer,
       Firefox,
+      Weibo,                # must be placed before Chrome and Safari
       Chrome,
       Safari,
       MicroMessenger,
