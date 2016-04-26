@@ -6,8 +6,9 @@ module Browser
         :unknown
       end
 
+      DEVICE_NAME = 'Unknown'
       def name
-        "Unknown"
+        DEVICE_NAME
       end
 
       def match?

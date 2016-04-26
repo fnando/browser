@@ -2,20 +2,19 @@
 module Browser
   class Platform
     class FirefoxOS < Base
-      def version
-        "0"
-      end
-
+      PLATFORM_NAME = 'Firefox OS'
       def name
-        "Firefox OS"
+        PLATFORM_NAME
       end
 
       def id
         :firefox_os
       end
 
+      MATCH_REGEX = /Firefox/
+      NOT_MATCH_REGEX = /(Android|Linux|BlackBerry|Windows|Mac)/ 
       def match?
-        ua !~ /(Android|Linux|BlackBerry|Windows|Mac)/ && ua =~ /Firefox/
+        ua !~ NOT_MATCH_REGEX && ua =~ MATCH_REGEX
       end
     end
   end

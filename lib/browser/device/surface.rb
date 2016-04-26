@@ -6,12 +6,14 @@ module Browser
         :surface
       end
 
+      DEVICE_NAME = "Microsoft Surface"
       def name
-        "Microsoft Surface"
+        DEVICE_NAME
       end
 
+      MATCH_REGEX = /Touch/
       def match?
-        platform.windows_rt? && ua =~ /Touch/
+        platform.windows_rt? && ua =~ MATCH_REGEX
       end
 
       private

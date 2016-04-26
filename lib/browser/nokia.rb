@@ -5,16 +5,19 @@ module Browser
       :nokia
     end
 
+    BROWSER_NAME = "Nokia S40 Ovi Browser"
     def name
-      "Nokia S40 Ovi Browser"
+      BROWSER_NAME
     end
 
+    VERSION_REGEX = %r[S40OviBrowser/([\d.]+)]
     def full_version
-      ua[%r[S40OviBrowser/([\d.]+)], 1] || "0.0"
+      ua[VERSION_REGEX, 1] || DEFAULT_VERSION
     end
 
+    MATCH_REGEX = /S40OviBrowser/
     def match?
-      ua =~ /S40OviBrowser/
+      ua =~ MATCH_REGEX
     end
   end
 end

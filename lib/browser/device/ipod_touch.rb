@@ -6,12 +6,14 @@ module Browser
         :ipod_touch
       end
 
+      DEVICE_NAME = 'iPod Touch'
       def name
-        "iPod Touch"
+        DEVICE_NAME
       end
 
+      MATCH_REGEX = /iPod/
       def match?
-        ua =~ /iPod/
+        ua =~ MATCH_REGEX
       end
     end
   end

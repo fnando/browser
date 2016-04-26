@@ -2,20 +2,23 @@
 module Browser
   class Platform
     class Android < Base
+      MATCH_REGEX = /Android/
       def match?
-        ua =~ /Android/
+        ua =~ MATCH_REGEX
       end
 
+      PLATFORM_NAME = 'Android'
       def name
-        "Android"
+        PLATFORM_NAME
       end
 
       def id
         :android
       end
 
+      VERSION_REGEX = /Android ([\d.]+)/
       def version
-        ua[/Android ([\d.]+)/, 1]
+        ua[VERSION_REGEX, 1]
       end
     end
   end

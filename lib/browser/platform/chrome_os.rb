@@ -2,20 +2,23 @@
 module Browser
   class Platform
     class ChromeOS < Base
+      MATCH_REGEX = /CrOS/
       def match?
-        ua =~ /CrOS/
+        ua =~ MATCH_REGEX
       end
 
+      PLATFORM_NAME = "Chrome OS"
       def name
-        "Chrome OS"
+        PLATFORM_NAME
       end
 
       def id
         :chrome_os
       end
 
+      VERSION_REGEX = /CrOS(?: x86_64)? ([\d.]+)/
       def version
-        ua[/CrOS(?: x86_64)? ([\d.]+)/, 1]
+        ua[VERSION_REGEX, 1]
       end
     end
   end

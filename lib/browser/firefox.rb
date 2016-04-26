@@ -5,16 +5,19 @@ module Browser
       :firefox
     end
 
+    BROWSER_NAME = 'Firefox'
     def name
-      "Firefox"
+      BROWSER_NAME
     end
 
+    VERSION_REGEX = %r[(?:Firefox|FxiOS)/([\d.]+)]
     def full_version
-      ua[%r[(?:Firefox|FxiOS)/([\d.]+)], 1] || "0.0"
+      ua[VERSION_REGEX, 1] || DEFAULT_VERSION
     end
 
+    MATCH_REGEX = /Firefox|FxiOS/
     def match?
-      ua =~ /Firefox|FxiOS/
+      ua =~ MATCH_REGEX
     end
   end
 end

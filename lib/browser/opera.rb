@@ -5,16 +5,20 @@ module Browser
       :opera
     end
 
+    BROWSER_NAME = 'Opera'
     def name
-      "Opera"
+      BROWSER_NAME
     end
 
+    VERSION_REGEX_1 = %r[OPR/([\d.]+)] 
+    VERSION_REGEX_2 = %r[Version/([\d.]+)]
     def full_version
-      ua[%r[OPR/([\d.]+)], 1] || ua[%r[Version/([\d.]+)], 1] || "0.0"
+      ua[VERSION_REGEX_1, 1] || ua[VERSION_REGEX_2, 1] || DEFAULT_VERSION
     end
 
+    MATCH_REGEX = /(Opera|OPR)/
     def match?
-      ua =~ /(Opera|OPR)/
+      ua =~ MATCH_REGEX
     end
   end
 end

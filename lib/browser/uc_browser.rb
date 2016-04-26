@@ -1,20 +1,24 @@
 # frozen_string_literal: true
 module Browser
   class UCBrowser < Base
+
+    MATCH_REGEX = /UCBrowser/
+    VERSION_REGEX = %r[UCBrowser/([\d.]+)]
+    BROWSER_NAME = 'UCBrowser'
     def id
       :uc_browser
     end
 
     def name
-      "UCBrowser"
+      BROWSER_NAME
     end
 
     def full_version
-      ua[%r[UCBrowser/([\d.]+)], 1] || "0.0"
+      ua[VERSION_REGEX, 1] || DEFAULT_VERSION
     end
 
     def match?
-      ua =~ /UCBrowser/
+      ua =~ MATCH_REGEX
     end
   end
 end

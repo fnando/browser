@@ -2,20 +2,23 @@
 module Browser
   class Platform
     class BlackBerry < Base
+      MATCH_REGEX = /BB10|BlackBerry/
       def match?
-        ua =~ /BB10|BlackBerry/
+        ua =~ MATCH_REGEX
       end
 
+      PLATFORM_NAME = 'BlackBerry'
       def name
-        "BlackBerry"
+        PLATFORM_NAME
       end
 
       def id
         :blackberry
       end
 
+      VERSION_REGEX = %r[(?:Version|BlackBerry[\da-z]+)/([\d.]+)]
       def version
-        ua[%r[(?:Version|BlackBerry[\da-z]+)/([\d.]+)], 1]
+        ua[VERSION_REGEX, 1]
       end
     end
   end

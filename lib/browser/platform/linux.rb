@@ -2,20 +2,18 @@
 module Browser
   class Platform
     class Linux < Base
-      def version
-        "0"
-      end
-
+      PLATFORM_NAME = "Generic Linux"
       def name
-        "Generic Linux"
+        PLATFORM_NAME
       end
 
       def id
         :linux
       end
 
+      MATCH_REGEX = /Linux/
       def match?
-        ua =~ /Linux/
+        ua =~ MATCH_REGEX
       end
     end
   end

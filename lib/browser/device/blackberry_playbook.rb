@@ -6,12 +6,14 @@ module Browser
         :playbook
       end
 
+      DEVICE_NAME = 'BlackBerry Playbook'
       def name
-        "BlackBerry Playbook"
+        DEVICE_NAME
       end
 
+      MATCH_REGEX = /PlayBook.*?RIM Tablet/
       def match?
-        ua =~ /PlayBook.*?RIM Tablet/
+        ua =~ MATCH_REGEX
       end
     end
   end

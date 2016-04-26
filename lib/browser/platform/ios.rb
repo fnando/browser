@@ -6,7 +6,7 @@ module Browser
       VERSION_MATCHER = /OS ([\d.]+)/
 
       def version
-        ua[VERSION_MATCHER, 1] || "0"
+        ua[VERSION_MATCHER, 1] || VERSIONLESS_PLATFORM_IDENTIFIER
       end
 
       def name

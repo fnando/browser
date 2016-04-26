@@ -5,19 +5,26 @@ module Browser
       :safari
     end
 
+    BROWSER_NAME = 'Safari'
+
     def name
-      "Safari"
+      BROWSER_NAME
     end
 
+    VERSION_REGEX_1 = %r[Version/([\d.]+)]
+    VERSION_REGEX_2 = %r[Safari/([\d.]+)]
+    VERSION_REGEX_3 = %r[AppleWebKit/([\d.]+)]
     def full_version
-      ua[%r[Version/([\d.]+)], 1] ||
-        ua[%r[Safari/([\d.]+)], 1] ||
-        ua[%r[AppleWebKit/([\d.]+)], 1] ||
-        "0.0"
+      ua[VERSION_REGEX_1, 1] ||
+        ua[VERSION_REGEX_2, 1] ||
+        ua[VERSION_REGEX_3, 1] ||
+        DEFAULT_VERSION
     end
 
+    MATCH_REGEX = /Safari/
+    NOT_MATCH_REGEX = /Chrome|CriOS|PhantomJS|FxiOS/
     def match?
-      ua =~ /Safari/ && ua !~ /Chrome|CriOS|PhantomJS|FxiOS/
+      ua =~ MATCH_REGEX && ua !~ NOT_MATCH_REGEX
     end
   end
 end

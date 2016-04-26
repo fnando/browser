@@ -6,12 +6,14 @@ module Browser
         :psp
       end
 
+      DEVICE_NAME = "PlayStation Portable"
       def name
-        "PlayStation Portable"
+        DEVICE_NAME
       end
 
+      MATCH_REGEX = /PlayStation Portable/
       def match?
-        ua =~ /PlayStation Portable/
+        ua =~ MATCH_REGEX
       end
     end
   end

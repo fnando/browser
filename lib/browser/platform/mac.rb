@@ -2,20 +2,18 @@
 module Browser
   class Platform
     class Mac < Base
-      def version
-        "0"
-      end
-
+      PLATFORM_NAME = 'Macintosh'
       def name
-        "Macintosh"
+        PLATFORM_NAME
       end
 
       def id
         :mac
       end
 
+      MATCH_REGEX = /Mac/
       def match?
-        ua =~ /Mac/
+        ua =~ MATCH_REGEX
       end
     end
   end

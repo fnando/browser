@@ -6,12 +6,14 @@ module Browser
         :ipad
       end
 
+      DEVICE_NAME = 'iPad'
       def name
-        "iPad"
+        DEVICE_NAME
       end
 
+      MATCH_REGEX = /iPad/
       def match?
-        ua =~ /iPad/
+        ua =~ MATCH_REGEX
       end
     end
   end

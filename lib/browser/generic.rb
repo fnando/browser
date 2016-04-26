@@ -10,14 +10,17 @@ module Browser
       :generic
     end
 
+    BROWSER_NAME = "Generic Browser"
     def name
-      infer_name || "Generic Browser"
+      infer_name || BROWSER_NAME
     end
 
+    QUICKTIME_VERSION_REGEX = %r[(?:QuickTime)/([\d.]+)]
+    COREMEDIA_VERSION_REGEX = %r[CoreMedia v([\d.]+)]
     def full_version
-      ua[%r[(?:QuickTime)/([\d.]+)], 1] ||
-        ua[%r[CoreMedia v([\d.]+)], 1] ||
-        "0.0"
+      ua[QUICKTIME_VERSION_REGEX, 1] ||
+        ua[COREMEDIA_VERSION_REGEX, 1] ||
+        DEFAULT_VERSION
     end
 
     def match?

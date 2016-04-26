@@ -6,12 +6,14 @@ module Browser
         :kindle
       end
 
+      DEVICE_NAME = 'Kindle'
       def name
-        "Kindle"
+        DEVICE_NAME
       end
 
+      MATCH_REGEX = /Kindle/
       def match?
-        ua =~ /Kindle/
+        ua =~ MATCH_REGEX
       end
     end
   end

@@ -2,20 +2,18 @@
 module Browser
   class Platform
     class Windows < Base
-      def version
-        "0"
-      end
-
+      PLATFORM_NAME = 'Windows'
       def name
-        "Windows"
+        PLATFORM_NAME
       end
 
       def id
         :windows
       end
 
+      MATCH_REGEX = /Windows/
       def match?
-        ua =~ /Windows/
+        ua =~ MATCH_REGEX
       end
     end
   end
