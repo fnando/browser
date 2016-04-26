@@ -2,7 +2,7 @@
 
 ## unreleased
 
-- Add Squider and Traackr to bots.
+- Add ltx71, Squider and Traackr to bots.
 - Match MicroMessenger (WeChat).
 
 ## v2.0.3
