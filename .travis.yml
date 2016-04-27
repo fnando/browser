@@ -2,12 +2,15 @@ language: ruby
 sudo: false
 cache: bundler
 rvm:
-  - '2.2'
-  - '2.1'
-  - '2.0'
+- '2.3.1'
+- '2.2'
+- '2.1'
 gemfile:
-  - Gemfile
-  - gemfiles/rails3.gemfile
-script: "bundle exec rake"
+- Gemfile
+- gemfiles/rails3.gemfile
+script: bundle exec rake
 notifications:
   email: false
+env:
+  global:
+    secure: egPPk/jMVzOoZGkk8jcf1f1N++oI4p4hqtk53T2kpHChxpmR8sP/oFlAhebvqMhM8svbQx+lWTvdxPDj9GBQGsC4ekqubV6S0MNJQS4/F41PSEU+DFUzNU1PHiDO+/0AbIheTj15UIt8IC4NVaM236HuSdMDWOjVI3ydBsgJ/GY=

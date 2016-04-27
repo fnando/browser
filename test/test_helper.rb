@@ -1,4 +1,7 @@
 # frozen_string_literal: true
+require "codeclimate-test-reporter"
+CodeClimate::TestReporter.start
+
 ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile", __FILE__)
 require "bundler/setup"
 require "minitest/autorun"

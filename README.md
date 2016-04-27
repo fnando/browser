@@ -1,7 +1,8 @@
 # Browser
 
 [![Travis-CI](https://travis-ci.org/fnando/browser.png)](https://travis-ci.org/fnando/browser)
-[![CodeClimate](https://codeclimate.com/github/fnando/browser.png)](https://codeclimate.com/github/fnando/browser)
+[![Code Climate](https://codeclimate.com/github/fnando/browser/badges/gpa.svg)](https://codeclimate.com/github/fnando/browser)
+[![Test Coverage](https://codeclimate.com/github/fnando/browser/badges/coverage.svg)](https://codeclimate.com/github/fnando/browser/coverage)
 [![Gem](https://img.shields.io/gem/v/browser.svg)](https://rubygems.org/gems/browser)
 [![Gem](https://img.shields.io/gem/dt/browser.svg)](https://rubygems.org/gems/browser)
 
