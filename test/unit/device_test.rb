@@ -74,6 +74,7 @@ class DeviceTest < Minitest::Test
 
     assert device.console?
     assert device.xbox?
+    assert device.xbox_360?
     refute device.xbox_one?
     assert_equal :xbox_360, device.id
     assert_equal "Xbox 360", device.name
@@ -85,6 +86,7 @@ class DeviceTest < Minitest::Test
     assert device.console?
     assert device.xbox?
     assert device.xbox_one?
+    refute device.xbox_360?
     assert_equal :xbox_one, device.id
     assert_equal "Xbox One", device.name
   end
