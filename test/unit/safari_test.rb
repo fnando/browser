@@ -64,4 +64,10 @@ class SafariTest < Minitest::Test
     assert_equal "9", browser.version
     assert_equal "9.0.2", browser.full_version
   end
+
+  test "returns webkit version" do
+    browser = Browser.new(Browser["SAFARI9"])
+
+    assert_equal "601.3.9", browser.webkit_full_version
+  end
 end
