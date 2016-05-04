@@ -65,6 +65,18 @@ class SafariTest < Minitest::Test
     assert_equal "9.0.2", browser.full_version
   end
 
+  test "detect web app mode" do
+    browser = Browser.new(Browser["SAFARI_IPHONE_WEBAPP_MODE"])
+
+    assert browser.safari_webapp_mode?
+  end
+
+  test "reject regular safari as web app mode" do
+    browser = Browser.new(Browser["SAFARI9"])
+
+    refute browser.safari_webapp_mode?
+  end
+
   test "returns webkit version" do
     browser = Browser.new(Browser["SAFARI9"])
 
