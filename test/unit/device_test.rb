@@ -171,6 +171,13 @@ class DeviceTest < Minitest::Test
     assert_equal "TV", device.name
   end
 
+  test "detect unknown device" do
+    device = Browser::Device.new("")
+
+    assert device.unknown?
+    assert_equal "Unknown", device.name
+  end
+
   %w[
     ANDROID
     SYMBIAN
