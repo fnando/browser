@@ -60,4 +60,9 @@ class WindowsTest < Minitest::Test
     assert browser.platform.windows8?
     assert browser.platform.windows8_1?
   end
+
+  test "returns name" do
+    browser = Browser.new(Browser["WINDOWS8"])
+    assert_equal "Windows", browser.platform.name
+  end
 end
