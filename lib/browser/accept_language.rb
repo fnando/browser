@@ -12,6 +12,7 @@ module Browser
         .split(",")
         .map {|string| string.squeeze(" ").strip }
         .map {|part| new(part) }
+        .reject {|al| al.quality.zero? }
         .sort_by(&:quality)
         .reverse
     end
@@ -42,7 +43,14 @@ module Browser
     end
 
     def quality
-      @quality ||= Float(part[/;q=([\d.]+)/, 1] || 1.0)
+      @quality ||= Float(quality_value || 1.0)
+    end
+
+    private
+
+    def quality_value
+      qvalue = part[/;q=([\d.]+)/, 1]
+      qvalue =~ /\A0\.0?\z/ ? "0.0" : qvalue
     end
   end
 end

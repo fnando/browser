@@ -90,4 +90,13 @@ class AcceptLanguageTest < Minitest::Test
     assert_language result[3], code: "en", region: nil, quality: 0.4
     assert_language result[4], code: "fr", region: nil, quality: 0.2
   end
+
+  test "rejects quality values equals to zero (#241)" do
+    result = Browser::AcceptLanguage.parse("de-DE,ru;q=0.9,de;q=0.8,en;q=0.")
+
+    assert_equal 3, result.size
+    assert_language result[0], code: "de", region: "DE", quality: 1.0
+    assert_language result[1], code: "ru", region: nil, quality: 0.9
+    assert_language result[2], code: "de", region: nil, quality: 0.8
+  end
 end
