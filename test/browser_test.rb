@@ -88,6 +88,7 @@ class BrowserTest < Minitest::Test
     browser = Browser.new(Browser["PHANTOM_JS"])
 
     assert_equal "PhantomJS", browser.name
+    assert_equal :phantom_js, browser.id
     assert browser.phantom_js?
     assert browser.modern?
     assert_equal "1.9.0", browser.full_version
