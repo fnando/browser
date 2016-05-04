@@ -183,7 +183,10 @@ language.name
 #=> "English/United States"
 ```
 
-Result is always sorted in quality order from highest -> lowest. as per the HTTP spec, omitting the quality value implies 1.0.
+Result is always sorted in quality order from highest -> lowest. As per the HTTP spec: 
+
+- omitting the quality value implies 1.0.
+- quality value equal to zero means that is not accepted by the client.
 
 ### Internet Explorer
 
