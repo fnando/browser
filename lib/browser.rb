@@ -127,11 +127,4 @@ module Browser
       .map {|klass| klass.new(user_agent || EMPTY_STRING, **kwargs) }
       .find(&:match?)
   end
-
-  private
-
-  def deprecate(message)
-    offender = caller[1].to_s[/^(.*?\.rb:\d+).*?$/, 1]
-    $stderr << "\n#{message} (called from #{offender})\n"
-  end
 end
