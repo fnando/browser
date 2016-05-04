@@ -7,7 +7,7 @@ module Browser
       end
 
       def version
-        ua[%r[AdobeAIR/([\d.]+)]]
+        ua[%r[AdobeAIR/([\d.]+)], 1]
       end
 
       def name
