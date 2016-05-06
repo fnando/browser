@@ -143,6 +143,10 @@ module Browser
 
     alias_method :wechat?, :micro_messenger?
 
+    def weibo?
+      Weibo.new(ua).match?
+    end
+
     # Detect if browser is Opera Mini.
     def opera_mini?
       ua =~ /Opera Mini/
