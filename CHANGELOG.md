@@ -5,6 +5,7 @@
 - Add ltx71, Squider and Traackr to bots.
 - Match MicroMessenger (WeChat).
 - Match Weibo.
+- Detect Windows & Mac OS versions.
 
 ## v2.0.3
 
