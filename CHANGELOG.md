@@ -2,7 +2,7 @@
 
 ## unreleased
 
-- Add ltx71, Squider and Traackr to bots.
+- Add PrivacyAwareBot, ltx71, Squider and Traackr to bots.
 - Match MicroMessenger (WeChat).
 - Match Weibo.
 - Detect Windows & Mac OS versions.
