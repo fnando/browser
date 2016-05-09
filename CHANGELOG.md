@@ -1,6 +1,6 @@
 # Changelog
 
-## unreleased
+## v2.1.0
 
 - Add PrivacyAwareBot, ltx71, Squider and Traackr to bots.
 - Match Google Structured Data alternative bot.
