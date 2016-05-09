@@ -3,6 +3,7 @@
 ## unreleased
 
 - Add PrivacyAwareBot, ltx71, Squider and Traackr to bots.
+- Match Google Structured Data alternative bot.
 - Match MicroMessenger (WeChat).
 - Match Weibo.
 - Detect Windows & Mac OS versions.
