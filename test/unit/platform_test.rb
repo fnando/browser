@@ -22,12 +22,25 @@ class PlatformTest < Minitest::Test
     assert_equal :other, platform.id
   end
 
+  test "implements to_s" do
+    platform = Browser::Platform.new(Browser["IOS9"])
+    assert_equal "ios", platform.to_s
+  end
+
+  test "implements ==" do
+    platform = Browser::Platform.new(Browser["IOS9"])
+
+    assert platform == :ios
+    refute platform == :android
+  end
+
   test "detect other" do
     platform = Browser::Platform.new("Other")
 
     assert_equal "Other", platform.name
     assert_equal :other, platform.id
     assert_equal "0", platform.version
+    assert platform.other?
   end
 
   test "detect ios (iPhone)" do
