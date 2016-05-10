@@ -23,6 +23,7 @@ class WindowsTest < Minitest::Test
 
     assert browser.platform.windows?
     assert_equal browser.platform.version, "5.0"
+    assert browser.platform.windows?(["=5.0"])
   end
 
   test "detects windows_2000_sp1" do
@@ -30,6 +31,7 @@ class WindowsTest < Minitest::Test
 
     assert browser.platform.windows?
     assert_equal browser.platform.version, "5.01"
+    assert browser.platform.windows?(["=5.01"])
   end
 
   test "detects windows_xp" do
@@ -38,6 +40,7 @@ class WindowsTest < Minitest::Test
     assert browser.platform.windows?
     assert browser.platform.windows_xp?
     assert_equal browser.platform.version, "5.1"
+    assert browser.platform.windows?(["=5.1"])
   end
 
   test "detects windows_xp (64-bit)" do
@@ -47,6 +50,7 @@ class WindowsTest < Minitest::Test
     assert browser.platform.windows_xp?
     assert browser.platform.windows_x64?
     assert_equal browser.platform.version, "5.2"
+    assert browser.platform.windows?(["=5.2"])
   end
 
   test "detects windows_vista" do
@@ -55,6 +59,7 @@ class WindowsTest < Minitest::Test
     assert browser.platform.windows?
     assert browser.platform.windows_vista?
     assert_equal browser.platform.version, "6.0"
+    assert browser.platform.windows?(["=6.0"])
   end
 
   test "detects windows7" do
@@ -63,6 +68,7 @@ class WindowsTest < Minitest::Test
     assert browser.platform.windows?
     assert browser.platform.windows7?
     assert_equal browser.platform.version, "6.1"
+    assert browser.platform.windows?(["=6.1"])
   end
 
   test "detects windows8" do
@@ -72,6 +78,7 @@ class WindowsTest < Minitest::Test
     assert browser.platform.windows8?
     refute browser.platform.windows8_1?
     assert_equal browser.platform.version, "6.2"
+    assert browser.platform.windows?(["=6.2"])
   end
 
   test "detects windows8.1" do
@@ -81,6 +88,7 @@ class WindowsTest < Minitest::Test
     assert browser.platform.windows8?
     assert browser.platform.windows8_1?
     assert_equal browser.platform.version, "6.3"
+    assert browser.platform.windows?(["=6.3"])
   end
 
   test "detects windows10" do
@@ -89,6 +97,7 @@ class WindowsTest < Minitest::Test
     assert browser.platform.windows?
     assert browser.platform.windows10?
     assert_equal browser.platform.version, "10.0"
+    assert browser.platform.windows?(["=10.0"])
   end
 
   test "returns name" do

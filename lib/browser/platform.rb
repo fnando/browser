@@ -58,8 +58,8 @@ module Browser
       id == :mac
     end
 
-    def windows?
-      id == :windows
+    def windows?(expected_version = nil)
+      id == :windows && detect_version?(version, expected_version)
     end
 
     def firefox_os?

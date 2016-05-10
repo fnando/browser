@@ -1,5 +1,9 @@
 # Changelog
 
+## unreleased
+
+- `Browser::Platform#windows?` can now compare versions.
+
 ## v2.1.0
 
 - Add PrivacyAwareBot, ltx71, Squider and Traackr to bots.
