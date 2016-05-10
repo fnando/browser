@@ -73,6 +73,7 @@ class PlatformTest < Minitest::Test
     assert_equal :mac, platform.id
     assert platform.mac?
     assert_equal "10.6.4", platform.version
+    assert platform.mac?(["=10.6.4"])
   end
 
   test "detect firefox os" do

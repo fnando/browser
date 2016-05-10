@@ -3,6 +3,7 @@
 ## unreleased
 
 - `Browser::Platform#windows?` can now compare versions.
+- `Browser::Platform#mac?` can now compare versions.
 
 ## v2.1.0
 
