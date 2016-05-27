@@ -1,30 +1,62 @@
 # frozen_string_literal: true
+require "browser/device/base"
+require "browser/device/unknown"
+require "browser/device/ipad"
+require "browser/device/ipod_touch"
+require "browser/device/iphone"
+require "browser/device/playstation3"
+require "browser/device/playstation4"
+require "browser/device/psp"
+require "browser/device/psvita"
+require "browser/device/kindle"
+require "browser/device/kindle_fire"
+require "browser/device/wii"
+require "browser/device/wiiu"
+require "browser/device/blackberry_playbook"
+require "browser/device/surface"
+require "browser/device/tv"
+require "browser/device/xbox_one"
+require "browser/device/xbox_360"
+
 module Browser
   class Device
     attr_reader :ua
 
+    # list supported devises. (Order is IMPORTANT!)
+    #
+    # device id => device association class
+    SUPPORTED_DEVICES = {
+      xbox_one:      XboxOne,
+      xbox_360:      Xbox360,
+      surface:       Surface,
+      tv:            TV,
+      playbook:      BlackBerryPlaybook,
+      wiiu:          WiiU,
+      wii:           Wii,
+      kindle_fire:   KindleFire,
+      kindle:        Kindle,
+      ps3:           PlayStation3,
+      ps4:           PlayStation4,
+      psvita:        PSVita,
+      psp:           PSP,
+      iphone:        Iphone,
+      ipad:          Ipad,
+      ipod_touch:    IpodTouch,
+      unknown:       Unknown
+    }
+
+    # define detect method.
+    # xbox_360: Xbox360 # will produce: xbox_360?
+    SUPPORTED_DEVICES.keys.each do |name|
+      define_method "#{name}?" do
+        id == name.to_sym
+      end
+    end
+
     # Hold the list of device matchers.
     # Order is important.
     def self.matchers
-      @matchers ||= [
-        XboxOne,
-        Xbox360,
-        Surface,
-        TV,
-        BlackBerryPlaybook,
-        WiiU,
-        Wii,
-        KindleFire,
-        Kindle,
-        PlayStation4,
-        PlayStation3,
-        PSVita,
-        PSP,
-        Iphone,
-        Ipad,
-        IpodTouch,
-        Unknown
-      ]
+      @matchers ||= SUPPORTED_DEVICES.values
     end
 
     def initialize(ua)
@@ -59,74 +91,20 @@ module Browser
       detect_mobile? && !tablet?
     end
 
-    def ipad?
-      id == :ipad
-    end
-
-    def unknown?
-      id == :unknown
-    end
-
-    def ipod_touch?
-      id == :ipod_touch
-    end
     alias_method :ipod?, :ipod_touch?
-
-    def iphone?
-      id == :iphone
-    end
-
-    def ps3?
-      id == :ps3
-    end
     alias_method :playstation3?, :ps3?
-
-    def ps4?
-      id == :ps4
-    end
     alias_method :playstation4?, :ps4?
-    alias_method :playstation4?, :ps4?
-
-    def psp?
-      id == :psp
-    end
-
-    def playstation_vita?
-      id == :psvita
-    end
-    alias_method :vita?, :playstation_vita?
-    alias_method :psp_vita?, :playstation_vita?
+    alias_method :playstation_vita?, :psvita?
+    alias_method :vita?, :psvita?
+    alias_method :psp_vita?, :psvita?
 
     def kindle?
       id == :kindle || kindle_fire?
     end
 
-    def kindle_fire?
-      id == :kindle_fire
-    end
-
-    def nintendo_wii?
-      id == :wii
-    end
-    alias_method :wii?, :nintendo_wii?
-
-    def nintendo_wiiu?
-      id == :wiiu
-    end
-    alias_method :wiiu?, :nintendo_wiiu?
-
-    def blackberry_playbook?
-      id == :playbook
-    end
-    alias_method :playbook?, :blackberry_playbook?
-
-    def surface?
-      id == :surface
-    end
-
-    def tv?
-      id == :tv
-    end
+    alias_method :nintendo_wii?, :wii?
+    alias_method :nintendo_wiiu?, :wiiu?
+    alias_method :blackberry_playbook?, :playbook?
 
     # Detect if browser is Silk.
     def silk?
@@ -136,16 +114,6 @@ module Browser
     # Detect if browser is running under Xbox.
     def xbox?
       ua =~ /Xbox/
-    end
-
-    # Detect if browser is running under Xbox 360.
-    def xbox_360?
-      id == :xbox_360
-    end
-
-    # Detect if browser is running under Xbox One.
-    def xbox_one?
-      id == :xbox_one
     end
 
     # Detect if browser is running under PlayStation.
