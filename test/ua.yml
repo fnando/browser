@@ -122,3 +122,5 @@ YANDEX_BROWSER: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537
 MICRO_MESSENGER: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238 MicroMessenger/6.3.15 NetType/3G+ Language/zh_CN'
 WEIBO_IOS: 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H143 Weibo (iPhone7,2__weibo__5.7.1__iphone__os8.4)'
 WEIBO_ANDROID: 'Mozilla/5.0 (Linux; Android 5.0.2; vivo X5M Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36 Weibo (vivo-vivo X5M__weibo__5.7.1__android__android5.0.2)'
+QQ_BROWSER_IOS: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238 QQ/6.3.3.432 V1_IPH_SQ_6.3.3_1_APP_A Pixel/640 Core/UIWebView NetType/WIFI Mem/47'
+QQ_BROWSER_ANDROID: 'Mozilla/5.0 (Linux; Android 5.1.1; SM-N9108V Build/LMY47X) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile MQQBrowser/6.2 TBS/036222 Safari/537.36 V1_AND_SQ_6.2.0_320_YYB_D QQ/6.2.0.2655 NetType/WIFI WebP/0.3.0 Pixel/1440'
