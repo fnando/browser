@@ -1,4 +1,18 @@
 # frozen_string_literal: true
+require "browser/platform/base"
+require "browser/platform/ios"
+require "browser/platform/linux"
+require "browser/platform/windows"
+require "browser/platform/mac"
+require "browser/platform/windows_phone"
+require "browser/platform/windows_mobile"
+require "browser/platform/firefox_os"
+require "browser/platform/blackberry"
+require "browser/platform/android"
+require "browser/platform/other"
+require "browser/platform/chrome_os"
+require "browser/platform/adobe_air"
+
 module Browser
   class Platform
     include DetectVersion

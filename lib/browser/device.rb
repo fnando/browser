@@ -1,4 +1,23 @@
 # frozen_string_literal: true
+require "browser/device/base"
+require "browser/device/unknown"
+require "browser/device/ipad"
+require "browser/device/ipod_touch"
+require "browser/device/iphone"
+require "browser/device/playstation3"
+require "browser/device/playstation4"
+require "browser/device/psp"
+require "browser/device/psvita"
+require "browser/device/kindle"
+require "browser/device/kindle_fire"
+require "browser/device/wii"
+require "browser/device/wiiu"
+require "browser/device/blackberry_playbook"
+require "browser/device/surface"
+require "browser/device/tv"
+require "browser/device/xbox_one"
+require "browser/device/xbox_360"
+
 module Browser
   class Device
     attr_reader :ua
