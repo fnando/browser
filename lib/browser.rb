@@ -19,6 +19,7 @@ require "browser/uc_browser"
 require "browser/nokia"
 require "browser/micro_messenger"
 require "browser/weibo"
+require "browser/qq"
 
 require "browser/bot"
 require "browser/middleware"
@@ -94,6 +95,7 @@ module Browser
       InternetExplorer,
       Firefox,
       Weibo,                # must be placed before Chrome and Safari
+      QQ,                   # must be placed before Chrome and Safari
       Chrome,
       Safari,
       MicroMessenger,
