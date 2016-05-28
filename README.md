@@ -121,6 +121,12 @@ browser.platform.windows_x64_inclusive?
 browser.platform.windows_xp?
 ```
 
+### What's being detected?
+
+- For a list of platform detections, check [lib/browser/platform.rb](https://github.com/fnando/browser/blob/master/lib/browser/platform.rb)
+- For a list of device detections, check [lib/browser/device.rb](https://github.com/fnando/browser/blob/master/lib/browser/device.rb)
+- For a list of bot detections, check [bots.yml](https://github.com/fnando/browser/blob/master/bots.yml)
+
 ### What defines a modern browser?
 
 The current rules that define a modern browser are pretty loose:
