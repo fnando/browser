@@ -302,6 +302,10 @@ The class constructor now has a different signature. Change the instantiation fr
 
 ## Development
 
+### Versioning
+
+This library follows http://semver.org.
+
 ### Writing code
 
 Once you've made your great commits (include tests, please):
