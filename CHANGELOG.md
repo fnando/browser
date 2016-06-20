@@ -5,6 +5,7 @@
 - `Browser::Platform#windows?` can now compare versions.
 - `Browser::Platform#mac?` can now compare versions.
 - Detect QQ Browser.
+- Fix issue with Mac user agents that didn't include the version.
 
 ## v2.1.0
 

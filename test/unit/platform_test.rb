@@ -89,6 +89,11 @@ class PlatformTest < Minitest::Test
     assert platform.mac?(["=10.6.4"])
   end
 
+  test "return stub version for Mac user agent without version" do
+    platform = Browser::Platform.new("Macintosh")
+    assert_equal "0", platform.version
+  end
+
   test "detect firefox os" do
     platform = Browser::Platform.new(Browser["FIREFOX_OS"])
 
