@@ -1,6 +1,6 @@
 # Changelog
 
-## unreleased
+## v2.2.0
 
 - `Browser::Platform#windows?` can now compare versions.
 - `Browser::Platform#mac?` can now compare versions.
