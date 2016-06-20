@@ -4,6 +4,8 @@ module Browser
     class Mac < Base
       def version
         ua[/Mac OS X\s*([0-9_\.]+)?/, 1].gsub("_", ".")
+      rescue
+        "0"
       end
 
       def name
