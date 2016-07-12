@@ -21,6 +21,7 @@ require "browser/nokia"
 require "browser/micro_messenger"
 require "browser/weibo"
 require "browser/qq"
+require "browser/alipay"
 
 require "browser/bot"
 require "browser/middleware"
@@ -51,6 +52,7 @@ module Browser
       Firefox,
       Weibo,                # must be placed before Chrome and Safari
       QQ,                   # must be placed before Chrome and Safari
+      Alipay,               # must be placed before Chrome and Safari
       Chrome,
       Safari,
       MicroMessenger,

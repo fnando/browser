@@ -147,6 +147,10 @@ module Browser
       Weibo.new(ua).match?
     end
 
+    def alipay?
+      Alipay.new(ua).match?
+    end
+
     # Detect if browser is Opera Mini.
     def opera_mini?
       ua =~ /Opera Mini/
