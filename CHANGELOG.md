@@ -3,6 +3,7 @@
 ## unreleased
 
 - Add Stripe to bots.
+- Add Microsoft Bing bots (adldxbot, bingpreview, and msnbot-media).
 
 ## v2.2.0
 
