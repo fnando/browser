@@ -1,5 +1,9 @@
 # Changelog
 
+## unreleased
+
+- Add Stripe to bots.
+
 ## v2.2.0
 
 - `Browser::Platform#windows?` can now compare versions.
