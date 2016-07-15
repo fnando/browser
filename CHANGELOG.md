@@ -1,5 +1,9 @@
 # Changelog
 
+## unreleased
+
+- Add Microsoft Bing bots (adldxbot, bingpreview, and msnbot-media).
+
 ## v2.2.0
 
 - `Browser::Platform#windows?` can now compare versions.
