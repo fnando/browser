@@ -2,12 +2,17 @@ language: ruby
 sudo: false
 cache: bundler
 rvm:
-- '2.3.1'
-- '2.2'
-- '2.1'
+  - '2.3.1'
+  - '2.2.2'
+  - '2.1'
 gemfile:
-- Gemfile
-- gemfiles/rails3.gemfile
+  - Gemfile
+  - gemfiles/rails3.gemfile
+  - gemfiles/rails4.gemfile
+matrix:
+ exclude:
+   - rvm: '2.1'
+     gemfile: Gemfile
 script: bundle exec rake
 notifications:
   email: false
