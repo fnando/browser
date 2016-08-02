@@ -17,6 +17,7 @@ require "browser/device/surface"
 require "browser/device/tv"
 require "browser/device/xbox_one"
 require "browser/device/xbox_360"
+require "browser/device/facebook"
 
 module Browser
   class Device
@@ -39,6 +40,7 @@ module Browser
         PlayStation3,
         PSVita,
         PSP,
+        Facebook,
         Iphone,
         Ipad,
         IpodTouch,

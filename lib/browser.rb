@@ -21,6 +21,7 @@ require "browser/nokia"
 require "browser/micro_messenger"
 require "browser/weibo"
 require "browser/qq"
+require "browser/facebook"
 
 require "browser/bot"
 require "browser/middleware"
@@ -41,6 +42,7 @@ module Browser
   # Order is important.
   def self.matchers
     @matchers ||= [
+      Facebook,            # must be placed before Chrome and Safari
       Nokia,
       UCBrowser,
       PhantomJS,

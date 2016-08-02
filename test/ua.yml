@@ -124,3 +124,10 @@ WEIBO_IOS: 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4 like Mac OS X) AppleWebKit/60
 WEIBO_ANDROID: 'Mozilla/5.0 (Linux; Android 5.0.2; vivo X5M Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36 Weibo (vivo-vivo X5M__weibo__5.7.1__android__android5.0.2)'
 QQ_BROWSER_IOS: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238 QQ/6.3.3.432 V1_IPH_SQ_6.3.3_1_APP_A Pixel/640 Core/UIWebView NetType/WIFI Mem/47'
 QQ_BROWSER_ANDROID: 'Mozilla/5.0 (Linux; Android 5.1.1; SM-N9108V Build/LMY47X) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile MQQBrowser/6.2 TBS/036222 Safari/537.36 V1_AND_SQ_6.2.0_320_YYB_D QQ/6.2.0.2655 NetType/WIFI WebP/0.3.0 Pixel/1440'
+FACEBOOK_IOS_IPAD: 'Mozilla/5.0 (iPad; CPU OS 9_3_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13F69 [FBAN/FBIOS;FBAV/60.0.0.37.141;FBBV/34183777;FBRV/0;FBDV/iPad2,3;FBMD/iPad;FBSN/iPhone OS;FBSV/9.3.2;FBSS/1;FBCR/Verizon;FBID/tablet;FBLC/en_US;FBOP/5]'
+FACEBOOK_IOS_IPHONE: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_3 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13G34 [FBAN/FBIOS;FBAV/60.0.0.37.141;FBBV/34183777;FBRV/0;FBDV/iPhone8,2;FBMD/iPhone;FBSN/iPhone OS;FBSV/9.3.3;FBSS/3;FBCR/Verizon;FBID/phone;FBLC/en_US;FBOP/5]'
+FACEBOOK_WINDOWS: 'Mozilla/5.0 (Windows NT 10.0.10586.494; osmeta 8.3.34265222) AppleWebKit/602.1.1 (KHTML, like Gecko) Version/9.0 Safari/602.1.1 osmeta/8.3.34265222 Build/34265222 [FBAN/FBW;FBAV/60.0.0.36.138;FBBV/34282524;FBRV/0;FBDV/WindowsDevice;FBMD/HP ProBook 6560b;FBSN/Windows;FBSV/10.0.10586.494;FBSS/1;FBCR/;FBID/desktop;FBLC/en_US;FBOP/45]'
+FACEBOOK_ANDROID: 'Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; GT-I8190N Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30[FBAN/EMA;FBLC/en_US;FBAV/11.0.0.9.140;]'
+  
+  
+  

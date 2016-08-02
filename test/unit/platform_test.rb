@@ -49,7 +49,7 @@ class PlatformTest < Minitest::Test
     assert_equal "iOS (iPhone)", platform.name
     assert_equal :ios, platform.id
     assert platform.ios?
-    assert_equal "4", platform.version
+    assert_equal "4.0", platform.version
   end
 
   test "detect ios (iPad)" do
@@ -58,7 +58,7 @@ class PlatformTest < Minitest::Test
     assert_equal "iOS (iPad)", platform.name
     assert_equal :ios, platform.id
     assert platform.ios?
-    assert_equal "9", platform.version
+    assert_equal "9.0", platform.version
   end
 
   test "detect ios (iPod Touch)" do

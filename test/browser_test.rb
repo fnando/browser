@@ -17,6 +17,7 @@ class BrowserTest < Minitest::Test
     Chrome
     Edge
     Firefox
+    Facebook
     MSIE
     Opera
     PhantomJS
@@ -146,5 +147,63 @@ class BrowserTest < Minitest::Test
   test "does not know an unsupported browser" do
     browser = Browser.new("Fancy new browser")
     refute browser.known?
+  end
+
+  test "detects facebook ios" do
+    browser = Browser.new(Browser['FACEBOOK_IOS_IPAD'])
+    assert_equal "Facebook Browser", browser.name
+    assert browser.safari_webapp_mode?
+    assert browser.webkit?
+    assert browser.modern?
+    assert_equal "60.0.0.37.141", browser.full_version
+    assert_equal "60", browser.version
+    assert browser.platform.ios?
+    assert browser.device.ipad?
+  end
+
+  test "detects facebook ios on iphone" do
+    browser = Browser.new(Browser['FACEBOOK_IOS_IPHONE'])
+    assert_equal "Facebook Browser", browser.name
+    assert browser.safari_webapp_mode?
+    assert browser.webkit?
+    assert browser.modern?
+    assert_equal "60.0.0.37.141", browser.full_version
+    assert_equal "60", browser.version
+    assert browser.platform.ios?
+    assert browser.device.iphone?
+  end
+
+  test "detects facebook ios on ipad" do
+    browser = Browser.new(Browser['FACEBOOK_IOS_IPHONE'])
+    assert_equal "Facebook Browser", browser.name
+    assert browser.safari_webapp_mode?
+    assert browser.webkit?
+    assert browser.modern?
+    assert_equal "60.0.0.37.141", browser.full_version
+    assert_equal "60", browser.version
+    assert browser.platform.ios?
+    assert browser.device.iphone?
+  end
+
+  test "detects facebook android" do
+    browser = Browser.new(Browser['FACEBOOK_ANDROID'])
+    assert_equal "Facebook Browser", browser.name
+    assert browser.webkit?
+    assert browser.modern?
+    assert_equal "11.0.0.9.140", browser.full_version
+    assert_equal "11", browser.version
+    assert browser.platform.android?
+    assert browser.device.unknown?
+  end
+
+  test "detects facebook windows" do
+    browser = Browser.new(Browser['FACEBOOK_WINDOWS'])
+    assert_equal "Facebook Browser", browser.name
+    assert browser.webkit?
+    assert browser.modern?
+    assert_equal "60.0.0.36.138", browser.full_version
+    assert_equal "60", browser.version
+    assert browser.platform.windows?
+    assert_equal :desktop, browser.device.id
   end
 end
