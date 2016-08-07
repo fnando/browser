@@ -206,4 +206,15 @@ class BrowserTest < Minitest::Test
     assert browser.platform.windows?
     assert_equal :desktop, browser.device.id
   end
+
+  test "handles malformed facebook" do
+    browser = Browser.new(Browser['FACEBOOK_MALFORMED'])
+    assert_equal "Facebook Browser", browser.name
+    assert browser.webkit?
+    assert browser.modern?
+    assert_equal "61.0.0.53.158", browser.full_version
+    assert_equal "61", browser.version
+    assert browser.platform.ios?
+    assert_equal :iphone, browser.device.id
+  end
 end

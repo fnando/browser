@@ -7,7 +7,7 @@ module Browser
         super(ua)
 
         if match?
-          @meta = Hash[ (ua =~ %r(\[(FBAN/.*)\]) && $1.split(';') ).map{ |i| i.split( '/' ) } ]
+          @meta = Hash[ (ua =~ %r(\[(FBAN/.*)(?:\]|$)) && $1.split(';') ).map{ |i| i.split( '/' ) } ]
         end
       end
 

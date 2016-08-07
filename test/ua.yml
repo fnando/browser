@@ -128,6 +128,4 @@ FACEBOOK_IOS_IPAD: 'Mozilla/5.0 (iPad; CPU OS 9_3_2 like Mac OS X) AppleWebKit/6
 FACEBOOK_IOS_IPHONE: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_3 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13G34 [FBAN/FBIOS;FBAV/60.0.0.37.141;FBBV/34183777;FBRV/0;FBDV/iPhone8,2;FBMD/iPhone;FBSN/iPhone OS;FBSV/9.3.3;FBSS/3;FBCR/Verizon;FBID/phone;FBLC/en_US;FBOP/5]'
 FACEBOOK_WINDOWS: 'Mozilla/5.0 (Windows NT 10.0.10586.494; osmeta 8.3.34265222) AppleWebKit/602.1.1 (KHTML, like Gecko) Version/9.0 Safari/602.1.1 osmeta/8.3.34265222 Build/34265222 [FBAN/FBW;FBAV/60.0.0.36.138;FBBV/34282524;FBRV/0;FBDV/WindowsDevice;FBMD/HP ProBook 6560b;FBSN/Windows;FBSV/10.0.10586.494;FBSS/1;FBCR/;FBID/desktop;FBLC/en_US;FBOP/45]'
 FACEBOOK_ANDROID: 'Mozilla/5.0 (Linux; U; Android 4.1.2; en-us; GT-I8190N Build/JZO54K) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30[FBAN/EMA;FBLC/en_US;FBAV/11.0.0.9.140;]'
-  
-  
-  
+FACEBOOK_MALFORMED: "Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_3 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13G34 [FBAN/FBIOS;FBAV/61.0.0.53.158;FBBV/35251526;FBRV/0;FBDV/iPhone7,1;FBMD/iPhone;FBSN/iPhone OS;FBSV/9.3.3;FBSS/3;FBCR/"  
