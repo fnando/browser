@@ -4,8 +4,6 @@ require "test_helper"
 class AlipayTest < Minitest::Test
   test "detects alipay iOS" do
     browser = Browser.new(Browser["ALIPAY_IOS"])
-    puts browser.id
-    puts browser.name
 
     assert_equal :alipay, browser.id
     assert browser.alipay?

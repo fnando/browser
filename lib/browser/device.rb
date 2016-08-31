@@ -52,8 +52,8 @@ module Browser
 
     def subject
       @subject ||= self.class.matchers
-                   .map {|matcher| matcher.new(ua) }
-                   .find(&:match?)
+                       .map {|matcher| matcher.new(ua) }
+                       .find(&:match?)
     end
 
     def id
