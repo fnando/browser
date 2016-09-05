@@ -12,6 +12,12 @@ Rake::TestTask.new(:test) do |t|
   t.ruby_opts = %w[-rubygems]
 end
 
+require "rubocop/rake_task"
+desc "Run rubocop"
+task :rubocop do
+  RuboCop::RakeTask.new
+end
+
 desc "Run specs against all gemfiles"
 task "test:all" do
   %w[
@@ -23,4 +29,4 @@ task "test:all" do
   end
 end
 
-task default: "test"
+task default: [:test, :rubocop]

@@ -11,11 +11,11 @@ module Browser
       actual_version = parse_version(actual_version)
 
       Gem::Requirement.create(expected_version)
-        .satisfied_by?(Gem::Version.create(actual_version))
+                      .satisfied_by?(Gem::Version.create(actual_version))
     end
 
     def parse_version(version)
-      version.kind_of?(Numeric) ? "#{version}" : version
+      version.kind_of?(Numeric) ? version.to_s : version
     end
   end
 end

@@ -62,7 +62,8 @@ class AcceptLanguageTest < Minitest::Test
   end
 
   test "parses complex set" do
-    result = Browser::AcceptLanguage.parse("fr-CA,fr;q=0.8,en-US;q=0.6,en;q=0.4,*;q=0.1")
+    accept_language = "fr-CA,fr;q=0.8,en-US;q=0.6,en;q=0.4,*;q=0.1"
+    result = Browser::AcceptLanguage.parse(accept_language)
 
     assert_language result[0], code: "fr", region: "CA", quality: 1.0
     assert_language result[1], code: "fr", region: nil, quality: 0.8
@@ -72,7 +73,8 @@ class AcceptLanguageTest < Minitest::Test
   end
 
   test "handles random white spaces" do
-    result = Browser::AcceptLanguage.parse("fr-CA, fr;q=0.8,  en-US;q=0.6,en;q=0.4,    *;q=0.1")
+    accept_language = "fr-CA, fr;q=0.8,  en-US;q=0.6,en;q=0.4,    *;q=0.1"
+    result = Browser::AcceptLanguage.parse(accept_language)
 
     assert_language result[0], code: "fr", region: "CA", quality: 1.0
     assert_language result[1], code: "fr", region: nil, quality: 0.8
@@ -82,7 +84,8 @@ class AcceptLanguageTest < Minitest::Test
   end
 
   test "sorts based on quality" do
-    result = Browser::AcceptLanguage.parse("fr-CA,fr;q=0.2,en-US;q=0.6,en;q=0.4,*;q=0.5")
+    accept_language = "fr-CA,fr;q=0.2,en-US;q=0.6,en;q=0.4,*;q=0.5"
+    result = Browser::AcceptLanguage.parse(accept_language)
 
     assert_language result[0], code: "fr", region: "CA", quality: 1.0
     assert_language result[1], code: "en", region: "US", quality: 0.6

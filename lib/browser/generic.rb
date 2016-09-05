@@ -4,7 +4,7 @@ module Browser
     NAMES = {
       "QuickTime" => "QuickTime",
       "CoreMedia" => "Apple CoreMedia"
-    }
+    }.freeze
 
     def id
       :generic

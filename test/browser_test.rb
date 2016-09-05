@@ -124,8 +124,11 @@ class BrowserTest < Minitest::Test
   end
 
   test "returns all known languages" do
-    browser = Browser.new("", accept_language: "en-us,en;q=0.8,pt-br;q=0.5,pt;q=0.3")
-    assert_equal ["en-US", "en", "pt-BR", "pt"], browser.accept_language.map(&:full)
+    accept_language = "en-us,en;q=0.8,pt-br;q=0.5,pt;q=0.3"
+    browser = Browser.new("", accept_language: accept_language)
+    languages = browser.accept_language.map(&:full)
+
+    assert_equal ["en-US", "en", "pt-BR", "pt"], languages
   end
 
   test "removes duplicate items" do

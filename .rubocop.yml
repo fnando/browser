@@ -1,3 +1,16 @@
+AllCops:
+  Exclude:
+    - "bin/**/*"
+    - "gemfiles/**/*"
+    - "vendor/**/*"
+    - "Gemfile"
+    - "Rakefile"
+    - "*.gemspec"
+    - "config.ru"
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
 Style/FrozenStringLiteralComment:
   EnforcedStyle: always
 
@@ -58,7 +71,7 @@ SingleLineBlockParams:
 VariableInterpolation:
   Enabled: false
 
-TrailingComma:
+Style/TrailingCommaInLiteral:
   Enabled: false
 
 WhileUntilModifier:

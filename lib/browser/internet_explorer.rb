@@ -8,7 +8,7 @@ module Browser
       "6.0" => "10",
       "7.0" => "11",
       "8.0" => "12"
-    }
+    }.freeze
 
     def id
       :ie

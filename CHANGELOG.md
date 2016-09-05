@@ -2,9 +2,10 @@
 
 ## unreleased
 
-- Add Stripe to bots.
+- Add Stripe and Netcraft to bots.
 - Add Microsoft Bing bots (adldxbot, bingpreview, and msnbot-media).
 - Add Watchsumo to bots.
+- Match Alipay.
 
 ## v2.2.0
 

@@ -15,7 +15,9 @@ module Browser
   end
 
   def self.search_engine_user_agents
-    @search_engine_user_agents ||= YAML.load_file(Browser.root.join("test/ua_search_engines.yml"))
+    @search_engine_user_agents ||= begin
+      YAML.load_file(Browser.root.join("test/ua_search_engines.yml"))
+    end
   end
 
   def self.[](key)

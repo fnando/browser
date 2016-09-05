@@ -11,7 +11,7 @@ module Browser
     ACCEPT_REGEX = %r[(text/html|\*/\*)]
 
     def initialize(app, &block)
-      fail ArgumentError, "Browser::Middleware requires a block" unless block
+      raise ArgumentError, "Browser::Middleware requires a block" unless block
 
       @app = app
       @block = block
