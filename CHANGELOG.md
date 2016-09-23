@@ -5,6 +5,7 @@
 - Add Stripe and Netcraft to bots.
 - Add Microsoft Bing bots (adldxbot, bingpreview, and msnbot-media).
 - Match Alipay.
+- Add Google Stackdriver Uptime Check to bots.
 
 ## v2.2.0
 
