@@ -34,6 +34,7 @@ SQUIDER: 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Ge
 STRIPE: 'Stripe/1.0 (+https://stripe.com/docs/webhooks)'
 TINEYE: 'TinEye-bot/0.51 (see http://www.tineye.com/crawler.html)'
 TRAACKR: 'Traackr.com'
+WATCHSUMO: 'Mozilla/5.0 (compatible) WatchSumo/1.0.0 (http://www.watchsumo.com)'
 YAHOO_SLURP: 'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)'
 YANDEX_DIRECT: 'Mozilla/5.0 (compatible; YandexDirect/3.0; +http://yandex.com/bots)'
 YANDEX_METRIKA: 'Mozilla/5.0 (compatible; YandexMetrika/3.0; +http://yandex.com/bots)'
