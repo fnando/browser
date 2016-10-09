@@ -1,6 +1,7 @@
 ADLXBOT: 'Mozilla/5.0 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)'
 APPLE_BOT: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Applebot/0.1)'
 ASK: 'Mozilla/2.0 (compatible; Ask Jeeves/Teoma; +http://sp.ask.com/docs/about/tech_crawling.html)'
+AWS_ELB: ELB-HealthChecker/1.0
 BAIDU: 'Baiduspider+(+http://www.baidu.com/search/spider.htm)'
 BINGBOT: 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm)'
 BINGPREVIEW: 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b'
@@ -12,8 +13,8 @@ FACEBOOK_BOT: 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uat
 GOOGLE_BOT: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
 GOOGLE_PAGE_SPEED_INSIGHTS: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.4 (KHTML, like Gecko; Google Page Speed Insights) Chrome/22.0.1229 Safari/537.4'
 GOOGLE_STACKDRIVER_UPTIME_CHECKS: 'GoogleStackdriverMonitoring-UptimeChecks'
-GOOGLE_STRUCTURED_DATA_TESTING_TOOL: 'Mozilla/5.0 (compatible; X11; Linux x86_64; Google-StructuredDataTestingTool; +http://www.google.com/webmasters/tools/richsnippets)'
 GOOGLE_STRUCTURED_DATA_TESTING_TOOL2: 'Mozilla/5.0 (compatible; Google-Structured-Data-Testing-Tool +http://developers.google.com/structured-data/testing-tool/)'
+GOOGLE_STRUCTURED_DATA_TESTING_TOOL: 'Mozilla/5.0 (compatible; X11; Linux x86_64; Google-StructuredDataTestingTool; +http://www.google.com/webmasters/tools/richsnippets)'
 GRAPESHOT: 'Mozilla/5.0 (compatible; GrapeshotCrawler/2.0; +http://www.grapeshot.co.uk/crawler.php)'
 LINKDEXBOT: 'Mozilla/5.0 (compatible; linkdexbot/2.0; +http://www.linkdex.com/bots/)'
 LOAD_TIME_BOT: 'Mozilla/5.0 (compatible; LoadTimeBot/0.9; +http://www.loadtime.net/bot.html)'
@@ -23,8 +24,8 @@ MEGAINDEX_RU: 'Mozilla/5.0 (compatible; MegaIndex.ru/2.0; +https://www.megaindex
 MRCHROME: 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.107 Amigo/45.0.2454.107 MRCHROME SOC Safari/537.36'
 MSNBOT: 'msnbot/2.0b (+http://search.msn.com/msnbot.htm)'
 MSNBOT_MEDIA: 'msnbot-media/1.1 (+http://search.msn.com/msnbot.htm)'
-NETCRAFT: Mozilla/5.0 (compatible; NetcraftSurveyAgent/1.0; +info@netcraft.com)
 NETCRAFT2: Netcraft SSL Server Survey - contact info@netcraft.com
+NETCRAFT: Mozilla/5.0 (compatible; NetcraftSurveyAgent/1.0; +info@netcraft.com)
 PRIVACYAWAREBOT: 'Mozilla/5.0 (compatible; PrivacyAwareBot/1.1; +http://www.privacyaware.org)'
 QUERYSEEKER: 'QuerySeekerSpider ( http://queryseeker.com/bot.html )'
 SCRAPY: 'Scrapy/0.18.4 (+http://scrapy.org)'
