@@ -162,6 +162,12 @@ This adds a helper method called `browser`, that inspects your current user agen
 <% end %>
 ```
 
+If you want to use Browser on your Rails app but don't want to taint your controller, use the following line on your Gemfile:
+
+```ruby
+gem "browser", require: "browser/browser"
+```
+
 ### Accept Language
 
 Parses the accept-language header from an HTTP request and produces an array of language objects sorted by quality.
