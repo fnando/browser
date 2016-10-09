@@ -7,6 +7,7 @@
 - Add Watchsumo to bots.
 - Match Alipay.
 - Add Google Stackdriver Uptime Check to bots.
+- Add AWS ELB bot.
 
 ## v2.2.0
 
