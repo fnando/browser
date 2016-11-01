@@ -7,6 +7,7 @@
 - Add Google Stackdriver Uptime Check bot.
 - Add Microsoft Bing bots (adldxbot, bingpreview, and msnbot-media).
 - Add Stripe and Netcraft bots.
+- Add support for loading browser without extending Rails' helpers.
 - Add Watchsumo bot.
 - Match Alipay.
 
