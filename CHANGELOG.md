@@ -2,12 +2,13 @@
 
 ## unreleased
 
-- Add Stripe and Netcraft to bots.
-- Add Microsoft Bing bots (adldxbot, bingpreview, and msnbot-media).
-- Add Watchsumo to bots.
-- Match Alipay.
-- Add Google Stackdriver Uptime Check to bots.
 - Add AWS ELB bot.
+- Add CommonCrawl and Yahoo Ad Monitoring bots.
+- Add Google Stackdriver Uptime Check bot.
+- Add Microsoft Bing bots (adldxbot, bingpreview, and msnbot-media).
+- Add Stripe and Netcraft bots.
+- Add Watchsumo bot.
+- Match Alipay.
 
 ## v2.2.0
 
