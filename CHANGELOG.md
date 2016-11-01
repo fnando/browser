@@ -1,6 +1,6 @@
 # Changelog
 
-## unreleased
+## v2.3.0
 
 - Add AWS ELB bot.
 - Add CommonCrawl and Yahoo Ad Monitoring bots.
