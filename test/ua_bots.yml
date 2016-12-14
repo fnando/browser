@@ -27,11 +27,13 @@ MSNBOT: 'msnbot/2.0b (+http://search.msn.com/msnbot.htm)'
 MSNBOT_MEDIA: 'msnbot-media/1.1 (+http://search.msn.com/msnbot.htm)'
 NETCRAFT2: Netcraft SSL Server Survey - contact info@netcraft.com
 NETCRAFT: Mozilla/5.0 (compatible; NetcraftSurveyAgent/1.0; +info@netcraft.com)
+NEWRELICPINGER: NewRelicPinger/1.0 (12345)
 PRIVACYAWAREBOT: 'Mozilla/5.0 (compatible; PrivacyAwareBot/1.1; +http://www.privacyaware.org)'
 QUERYSEEKER: 'QuerySeekerSpider ( http://queryseeker.com/bot.html )'
 SCRAPY: 'Scrapy/0.18.4 (+http://scrapy.org)'
 SEOKICKS: 'Mozilla/5.0 (compatible; SEOkicks-Robot; +http://www.seokicks.de/robot.html)'
 SISTRIX: 'Mozilla/5.0 (compatible; SISTRIX Crawler; http://crawler.sistrix.net/)'
+SOCIALRANKIO: SocialRankIOBot; http://socialrank.io/about
 SQUIDER: 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.110 Safari/537.36 Squider/0.01'
 STRIPE: 'Stripe/1.0 (+https://stripe.com/docs/webhooks)'
 TINEYE: 'TinEye-bot/0.51 (see http://www.tineye.com/crawler.html)'
