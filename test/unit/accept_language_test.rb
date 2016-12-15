@@ -47,6 +47,24 @@ class AcceptLanguageTest < Minitest::Test
     end
   end
 
+  # region
+  test "returns region" do
+    language = Browser::AcceptLanguage.new("en-GB")
+    assert_equal "GB", language.region
+  end
+
+  test "returns formatted region" do
+    %w(en-gb en-Gb en-gB).each do |locale|
+      language = Browser::AcceptLanguage.new(locale)
+      assert_equal "GB", language.region
+    end
+  end
+
+  test "returns nil for language without region" do
+    language = Browser::AcceptLanguage.new("en")
+    assert_nil language.region
+  end
+
   # new
   test "parses language with quality" do
     language = Browser::AcceptLanguage.new("en-GB;q=0.8")
