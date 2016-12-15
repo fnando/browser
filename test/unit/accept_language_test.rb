@@ -4,7 +4,13 @@ require "test_helper"
 class AcceptLanguageTest < Minitest::Test
   def assert_language(item, expect = {})
     assert_equal expect[:code], item.code, "failed code comparison"
-    assert_equal expect[:region], item.region, "failed region comparison"
+
+    if expect[:region].nil?
+      assert_nil item.region, "failed region comparison"
+    else
+      assert_equal expect[:region], item.region, "failed region comparison"
+    end
+
     assert_equal expect[:quality], item.quality, "failed quality comparison"
   end
 
