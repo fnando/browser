@@ -32,7 +32,10 @@ module Browser
     end
 
     def code
-      @code ||= part[/\A([^-;]+)/, 1]
+      @code ||= begin
+        code = part[/\A([^-;]+)/, 1]
+        code.downcase if code
+      end
     end
 
     def region
