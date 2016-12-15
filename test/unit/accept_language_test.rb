@@ -41,7 +41,7 @@ class AcceptLanguageTest < Minitest::Test
   end
 
   test "returns formatted code" do
-    %w(EN-GB En-GB eN-GB).each do |locale|
+    %w[EN-GB En-GB eN-GB].each do |locale|
       language = Browser::AcceptLanguage.new(locale)
       assert_equal "en", language.code
     end
@@ -54,7 +54,7 @@ class AcceptLanguageTest < Minitest::Test
   end
 
   test "returns formatted region" do
-    %w(en-gb en-Gb en-gB).each do |locale|
+    %w[en-gb en-Gb en-gB].each do |locale|
       language = Browser::AcceptLanguage.new(locale)
       assert_equal "GB", language.region
     end
