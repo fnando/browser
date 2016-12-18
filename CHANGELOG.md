@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Customize bots, search engines, and bots exceptions yml files
+
 ## v2.3.0
 
 - Add AWS ELB bot.

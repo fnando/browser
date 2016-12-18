@@ -255,6 +255,8 @@ Browser used to detect empty user agents as bots, but this behavior has changed.
 Browser::Bot.detect_empty_ua!
 ```
 
+If you want to customize your list of bots, search engines, or bots exceptions, you can do so by placing your own yml file(s) in the Rails root folder. Those files will take priority over the gem's ones, which will act as a fallback.
+
 ### Middleware
 
 You can use the `Browser::Middleware` to redirect user agents.

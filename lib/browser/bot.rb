@@ -10,17 +10,17 @@ module Browser
     end
 
     def self.bots
-      @bots ||= YAML.load_file(Browser.root.join("bots.yml"))
+      @bots ||= YAML.load_file(preferred_path("bots.yml"))
     end
 
     def self.bot_exceptions
       @bot_exceptions ||= YAML
-                          .load_file(Browser.root.join("bot_exceptions.yml"))
+                          .load_file(preferred_path("bot_exceptions.yml"))
     end
 
     def self.search_engines
       @search_engines ||= YAML
-                          .load_file(Browser.root.join("search_engines.yml"))
+                          .load_file(preferred_path("search_engines.yml"))
     end
 
     attr_reader :ua
@@ -60,5 +60,20 @@ module Browser
     def downcased_ua
       @downcased_ua ||= ua.downcase
     end
+
+    def self.preferred_path(filename)
+      lookup_paths(filename).find {|path| File.exist?(path) }
+    end
+    private_class_method :preferred_path
+
+    def self.lookup_paths(filename)
+      # in order of priority
+      base_paths = []
+      base_paths << Rails.root if defined?(Rails)
+      base_paths << Browser.root
+
+      base_paths.map {|bp| bp.join(filename) }
+    end
+    private_class_method :lookup_paths
   end
 end
