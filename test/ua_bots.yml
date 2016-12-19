@@ -28,6 +28,7 @@ MSNBOT_MEDIA: 'msnbot-media/1.1 (+http://search.msn.com/msnbot.htm)'
 NETCRAFT2: Netcraft SSL Server Survey - contact info@netcraft.com
 NETCRAFT: Mozilla/5.0 (compatible; NetcraftSurveyAgent/1.0; +info@netcraft.com)
 PRIVACYAWAREBOT: 'Mozilla/5.0 (compatible; PrivacyAwareBot/1.1; +http://www.privacyaware.org)'
+PROXIMIC: 'Mozilla/5.0 (compatible; proximic; +http://www.proximic.com/info/spider.php)'
 QUERYSEEKER: 'QuerySeekerSpider ( http://queryseeker.com/bot.html )'
 SCRAPY: 'Scrapy/0.18.4 (+http://scrapy.org)'
 SEOKICKS: 'Mozilla/5.0 (compatible; SEOkicks-Robot; +http://www.seokicks.de/robot.html)'
