@@ -19,7 +19,7 @@ module Browser
     end
 
     def match?
-      ua =~ /Chrome|CriOS/ && !opera? && !edge?
+      ua =~ /Chrome|CriOS/ && !opera? && !yandex? && !edge?
     end
   end
 end
