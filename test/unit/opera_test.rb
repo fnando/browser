@@ -20,6 +20,7 @@ class OperaTest < Minitest::Test
     assert browser.opera?
     assert browser.webkit?
     assert browser.modern?
+    assert browser.chromium?
     refute browser.chrome?
     assert_equal "15.0.1147.44", browser.full_version
     assert_equal "15", browser.version

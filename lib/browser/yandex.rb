@@ -1,16 +1,16 @@
 # frozen_string_literal: true
 module Browser
-  class Chrome < Chromium
+  class Yandex < Chromium
     def id
-      :chrome
+      :yandex
     end
 
     def name
-      "Chrome"
+      "Yandex"
     end
 
     def match?
-      chromium? && !opera? && !yandex?
+      ua =~ /YaBrowser/
     end
   end
 end

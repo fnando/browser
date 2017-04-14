@@ -23,6 +23,7 @@ browser = Browser.new("Some User Agent", accept_language: "en-us")
 
 # General info
 browser.bot?
+browser.chromium? # Chromium-based (Chrome, Opera, Yandex)
 browser.chrome?
 browser.core_media?
 browser.edge?           # Newest MS browser

@@ -6,6 +6,7 @@ class ChromeTest < Minitest::Test
     browser = Browser.new(Browser["CHROME"])
 
     assert_equal "Chrome", browser.name
+    assert browser.chromium?
     assert browser.chrome?
     refute browser.safari?
     assert browser.webkit?
@@ -48,9 +49,11 @@ class ChromeTest < Minitest::Test
     browser = Browser.new(Browser["YANDEX_BROWSER"])
 
     assert browser.yandex?
-    assert browser.chrome?
+    assert browser.chromium?
+    refute browser.chrome?
     refute browser.safari?
     assert browser.webkit?
+
     assert_equal "41.0.2272.118", browser.full_version
     assert_equal "41", browser.version
   end

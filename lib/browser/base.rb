@@ -111,6 +111,11 @@ module Browser
       Firefox.new(ua).match?
     end
 
+    # Detect if browser is Chromium-based.
+    def chromium?
+      Chromium.new(ua).match?
+    end
+
     # Detect if browser is Chrome.
     def chrome?
       Chrome.new(ua).match?
@@ -123,7 +128,7 @@ module Browser
 
     # Detect if browser is Yandex.
     def yandex?
-      ua =~ /YaBrowser/
+      Yandex.new(ua).match?
     end
 
     # Detect if browser is UCBrowser.

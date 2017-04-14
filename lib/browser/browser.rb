@@ -8,6 +8,7 @@ require "browser/detect_version"
 require "browser/accept_language"
 require "browser/base"
 require "browser/safari"
+require "browser/chromium"
 require "browser/chrome"
 require "browser/internet_explorer"
 require "browser/firefox"
@@ -22,6 +23,7 @@ require "browser/micro_messenger"
 require "browser/weibo"
 require "browser/qq"
 require "browser/alipay"
+require "browser/yandex"
 
 require "browser/bot"
 require "browser/middleware"
@@ -52,7 +54,9 @@ module Browser
       Weibo,                # must be placed before Chrome and Safari
       QQ,                   # must be placed before Chrome and Safari
       Alipay,               # must be placed before Chrome and Safari
+      Yandex,
       Chrome,
+      Chromium,
       Safari,
       MicroMessenger,
       Generic
