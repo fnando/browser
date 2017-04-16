@@ -7,6 +7,7 @@
 - All browser detection methods can now compare versions.
 - All platform detection methods can now compare versions (except `#linux?` and `#firefox_os?`).
 - Add `browser/aliases`, so you can have methods on the base object (e.g. `browser.mobile?`). See README for instructions.
+- Remove official support for Rails 3 and Ruby 2.1.
 
 ## v2.3.0
 
