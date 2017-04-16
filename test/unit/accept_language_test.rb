@@ -4,15 +4,23 @@ require "test_helper"
 class AcceptLanguageTest < Minitest::Test
   def assert_language(item, expect = {})
     assert_equal expect[:code], item.code, "failed code comparison"
-    assert_equal expect[:region], item.region, "failed region comparison"
+
+    if expect[:region].nil?
+      assert_nil item.region, "failed region comparison"
+    else
+      assert_equal expect[:region], item.region, "failed region comparison"
+    end
+
     assert_equal expect[:quality], item.quality, "failed quality comparison"
   end
 
+  # full
   test "returns full language" do
     language = Browser::AcceptLanguage.new("en-GB")
     assert_equal "en-GB", language.full
   end
 
+  # name
   test "returns language name" do
     language = Browser::AcceptLanguage.new("en-GB")
     assert_equal "English/United Kingdom", language.name
@@ -26,6 +34,38 @@ class AcceptLanguageTest < Minitest::Test
     assert_nil language.name
   end
 
+  # code
+  test "returns code" do
+    language = Browser::AcceptLanguage.new("en-GB")
+    assert_equal "en", language.code
+  end
+
+  test "returns formatted code" do
+    %w[EN-GB En-GB eN-GB].each do |locale|
+      language = Browser::AcceptLanguage.new(locale)
+      assert_equal "en", language.code
+    end
+  end
+
+  # region
+  test "returns region" do
+    language = Browser::AcceptLanguage.new("en-GB")
+    assert_equal "GB", language.region
+  end
+
+  test "returns formatted region" do
+    %w[en-gb en-Gb en-gB].each do |locale|
+      language = Browser::AcceptLanguage.new(locale)
+      assert_equal "GB", language.region
+    end
+  end
+
+  test "returns nil for language without region" do
+    language = Browser::AcceptLanguage.new("en")
+    assert_nil language.region
+  end
+
+  # new
   test "parses language with quality" do
     language = Browser::AcceptLanguage.new("en-GB;q=0.8")
     assert_language language, code: "en", region: "GB", quality: 0.8
@@ -46,6 +86,7 @@ class AcceptLanguageTest < Minitest::Test
     assert_language language, code: "az", region: "AZ", quality: 1.0
   end
 
+  # parse
   test "parses multi-language set" do
     result = Browser::AcceptLanguage.parse("fr-CA,fr;q=0.8")
 
