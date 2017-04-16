@@ -16,13 +16,11 @@ class AcceptLanguageTest < Minitest::Test
     assert_equal expect[:quality], item.quality, "failed quality comparison"
   end
 
-  # full
   test "returns full language" do
     language = Browser::AcceptLanguage.new("en-GB")
     assert_equal "en-GB", language.full
   end
 
-  # name
   test "returns language name" do
     language = Browser::AcceptLanguage.new("en-GB")
     assert_equal "English/United Kingdom", language.name
@@ -36,7 +34,6 @@ class AcceptLanguageTest < Minitest::Test
     assert_nil language.name
   end
 
-  # code
   test "returns code" do
     language = Browser::AcceptLanguage.new("en-GB")
     assert_equal "en", language.code
@@ -49,7 +46,6 @@ class AcceptLanguageTest < Minitest::Test
     end
   end
 
-  # region
   test "returns region" do
     language = Browser::AcceptLanguage.new("en-GB")
     assert_equal "GB", language.region
@@ -67,7 +63,6 @@ class AcceptLanguageTest < Minitest::Test
     assert_nil language.region
   end
 
-  # new
   test "parses language with quality" do
     language = Browser::AcceptLanguage.new("en-GB;q=0.8")
     assert_language language, code: "en", region: "GB", quality: 0.8
@@ -88,7 +83,6 @@ class AcceptLanguageTest < Minitest::Test
     assert_language language, code: "az", region: "AZ", quality: 1.0
   end
 
-  # parse
   test "parses multi-language set" do
     result = Browser::AcceptLanguage.parse("fr-CA,fr;q=0.8")
 
