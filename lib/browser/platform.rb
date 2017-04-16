@@ -49,12 +49,12 @@ module Browser
                        .find(&:match?)
     end
 
-    def adobe_air?
-      id == :adobe_air
+    def adobe_air?(expected_version = nil)
+      id == :adobe_air && detect_version?(version, expected_version)
     end
 
-    def chrome_os?
-      id == :chrome_os
+    def chrome_os?(expected_version = nil)
+      id == :chrome_os && detect_version?(version, expected_version)
     end
 
     def android?(expected_version = nil)
