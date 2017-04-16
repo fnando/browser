@@ -121,6 +121,18 @@ browser.platform.windows_x64_inclusive?
 browser.platform.windows_xp?
 ```
 
+### Aliases
+
+To add aliases like `mobile?` and `tablet?` to the base object (e.g `browser.mobile?`), require the `browser/aliases` file and extend the Browser::Base object like the following:
+
+```ruby
+require "browser/aliases"
+Browser::Base.include(Browser::Aliases)
+
+browser = Browser.new("Some user agent")
+browser.mobile? #=> false
+```
+
 ### What's being detected?
 
 - For a list of platform detections, check [lib/browser/platform.rb](https://github.com/fnando/browser/blob/master/lib/browser/platform.rb)

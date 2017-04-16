@@ -6,6 +6,7 @@
 - Add Pinboard in-app browser to the bot exception list.
 - All browser detection methods can now compare versions.
 - All platform detection methods can now compare versions (except `#linux?` and `#firefox_os?`).
+- Add `browser/aliases`, so you can have methods on the base object (e.g. `browser.mobile?`). See README for instructions.
 
 ## v2.3.0
 
