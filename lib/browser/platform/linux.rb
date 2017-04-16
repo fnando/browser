@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Browser
   class Platform
     class Linux < Base

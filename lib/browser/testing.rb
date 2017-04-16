@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Browser
   def self.user_agents
     @user_agents ||= browser_user_agents

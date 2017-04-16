@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "browser/middleware/context/url_methods"
 
 module Browser

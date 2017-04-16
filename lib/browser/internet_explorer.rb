@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Browser
   class InternetExplorer < Base
     # https://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx#TriToken

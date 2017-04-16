@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 module Browser
   class Device
     class Xbox360 < Base

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "browser/platform/base"
 require "browser/platform/ios"
 require "browser/platform/linux"

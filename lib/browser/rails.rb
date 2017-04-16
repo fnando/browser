@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "rails/railtie"
 require "browser/action_controller"
 require "browser/middleware/context/additions"

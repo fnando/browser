@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "browser/meta/base"
 require "browser/meta/generic_browser"
 require "browser/meta/id"

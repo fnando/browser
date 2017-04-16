@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require "browser/device/base"
 require "browser/device/unknown"
 require "browser/device/ipad"
