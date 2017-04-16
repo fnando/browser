@@ -1,5 +1,8 @@
 # Changelog
 
+## unreleased
+- Add Proximic Spider bots.
+
 ## v2.3.0
 
 - Add AWS ELB bot.

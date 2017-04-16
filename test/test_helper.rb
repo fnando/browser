@@ -1,5 +1,5 @@
 # frozen_string_literal: true
-require "codeclimate-test-reporter"
+require "simplecov"
 SimpleCov.start
 
 ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile", __FILE__)
