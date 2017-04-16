@@ -1,7 +1,9 @@
 # Changelog
 
-## unreleased
-- Add Proximic Spider bots.
+## Unreleased
+
+- Add Proximic Spider, NewRelic pinger and SocialRank bots.
+- Add Pinboard in-app browser to the bot exception list.
 
 ## v2.3.0
 
