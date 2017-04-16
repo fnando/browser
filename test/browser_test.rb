@@ -74,6 +74,7 @@ class BrowserTest < Minitest::Test
     assert browser.quicktime?
     assert_equal "7.6.8", browser.full_version
     assert_equal "7", browser.version
+    assert browser.quicktime?(%w[>=7 <8])
   end
 
   test "detects core media" do
@@ -83,6 +84,7 @@ class BrowserTest < Minitest::Test
     assert browser.core_media?
     assert_equal "1.0.0.10", browser.full_version
     assert_equal "1", browser.version
+    assert browser.core_media?(%w[>=1 <2])
   end
 
   test "detects phantom.js" do
@@ -94,6 +96,7 @@ class BrowserTest < Minitest::Test
     assert browser.modern?
     assert_equal "1.9.0", browser.full_version
     assert_equal "1", browser.version
+    assert browser.phantom_js?(%w[>=1 <2])
   end
 
   test "returns a zero version" do

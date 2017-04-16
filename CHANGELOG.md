@@ -4,6 +4,7 @@
 
 - Add Proximic Spider, NewRelic pinger and SocialRank bots.
 - Add Pinboard in-app browser to the bot exception list.
+- All browser detection methods can now compare versions.
 
 ## v2.3.0
 

@@ -58,12 +58,12 @@ module Browser
     # Detect if browser is Microsoft Internet Explorer.
     def ie?(expected_version = nil)
       InternetExplorer.new(ua).match? &&
-        detect_version?(version, expected_version)
+        detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is Microsoft Edge.
-    def edge?
-      Edge.new(ua).match?
+    def edge?(expected_version = nil)
+      Edge.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
     def compatibility_view?
@@ -79,23 +79,26 @@ module Browser
     end
 
     # Detect if browser is WebKit-based.
-    def webkit?
-      ua =~ /AppleWebKit/i && !edge?
+    def webkit?(expected_version = nil)
+      ua =~ /AppleWebKit/i &&
+        !edge? &&
+        detect_version?(webkit_full_version, expected_version)
     end
 
     # Detect if browser is QuickTime
-    def quicktime?
-      ua =~ /QuickTime/i
+    def quicktime?(expected_version = nil)
+      ua =~ /QuickTime/i && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is Apple CoreMedia.
-    def core_media?
-      ua =~ /CoreMedia/
+    def core_media?(expected_version = nil)
+      ua =~ /CoreMedia/ && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is PhantomJS
-    def phantom_js?
-      PhantomJS.new(ua).match?
+    def phantom_js?(expected_version = nil)
+      PhantomJS.new(ua).match? &&
+        detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is Safari.
@@ -108,53 +111,55 @@ module Browser
     end
 
     # Detect if browser is Firefox.
-    def firefox?
-      Firefox.new(ua).match?
+    def firefox?(expected_version = nil)
+      Firefox.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is Chrome.
-    def chrome?
-      Chrome.new(ua).match?
+    def chrome?(expected_version = nil)
+      Chrome.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is Opera.
-    def opera?
-      Opera.new(ua).match?
+    def opera?(expected_version = nil)
+      Opera.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is Yandex.
-    def yandex?
-      ua =~ /YaBrowser/
+    def yandex?(expected_version = nil)
+      ua =~ /YaBrowser/ && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is UCBrowser.
-    def uc_browser?
-      UCBrowser.new(ua).match?
+    def uc_browser?(expected_version = nil)
+      UCBrowser.new(ua).match? &&
+        detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is Nokia S40 Ovi Browser.
-    def nokia?
-      Nokia.new(ua).match?
+    def nokia?(expected_version = nil)
+      Nokia.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is MicroMessenger.
-    def micro_messenger?
-      MicroMessenger.new(ua).match?
+    def micro_messenger?(expected_version = nil)
+      MicroMessenger.new(ua).match? &&
+        detect_version?(full_version, expected_version)
     end
 
     alias_method :wechat?, :micro_messenger?
 
-    def weibo?
-      Weibo.new(ua).match?
+    def weibo?(expected_version = nil)
+      Weibo.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
-    def alipay?
-      Alipay.new(ua).match?
+    def alipay?(expected_version = nil)
+      Alipay.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is Opera Mini.
-    def opera_mini?
-      ua =~ /Opera Mini/
+    def opera_mini?(expected_version = nil)
+      ua =~ /Opera Mini/ && detect_version?(full_version, expected_version)
     end
 
     def webkit_full_version

@@ -12,4 +12,9 @@ class MicroMessengerTest < Minitest::Test
     assert_equal "MicroMessenger", browser.name
     assert_equal :micro_messenger, browser.id
   end
+
+  test "detects version by range" do
+    browser = Browser.new(Browser["MICRO_MESSENGER"])
+    assert browser.wechat?(%w[>=6 <7])
+  end
 end
