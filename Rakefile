@@ -22,7 +22,7 @@ desc "Run specs against all gemfiles"
 task "test:all" do
   %w[
     Gemfile
-    gemfiles/rails3.gemfile
+    gemfiles/rails4.gemfile
   ].each do |gemfile|
     puts "=> Running with Gemfile: #{gemfile}"
     system "BUNDLE_GEMFILE=#{gemfile} rake test"
