@@ -88,4 +88,14 @@ class BotsTest < Minitest::Test
     assert browser.platform.android?
     refute browser.bot?
   end
+
+  test "extends list in runtime" do
+    browser = Browser.new("Faraday/0.9.2")
+    refute browser.bot?
+
+    Browser::Bot.bots["faraday"] = "Faraday"
+    assert browser.bot?
+
+    Browser::Bot.bots.delete("faraday")
+  end
 end
