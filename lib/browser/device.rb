@@ -40,8 +40,8 @@ module Browser
         PlayStation3,
         PSVita,
         PSP,
-        Iphone,
         Ipad,
+        Iphone,
         IpodTouch,
         Unknown
       ]
