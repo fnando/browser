@@ -5,7 +5,7 @@ require "browser"
 
 class PagesController < ActionController::Base
   def home
-    render text: "#{browser.name}:#{browser.accept_language.first.full}"
+    render html: "#{browser.name}:#{browser.accept_language.first.full}"
   end
 end
 
