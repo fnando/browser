@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v2.4.0
 
 - Add Google Drive API, Proximic Spider, NewRelic pinger and SocialRank bots.
 - Add Pinboard in-app browser to the bot exception list.
