@@ -37,6 +37,13 @@ class DeviceTest < Minitest::Test
     assert_equal "iPad", device.name
   end
 
+  test "detect old ipad" do
+    device = Browser::Device.new(Browser["IOS3"])
+    assert device.ipad?
+    assert_equal :ipad, device.id
+    assert_equal "iPad", device.name
+  end
+
   test "detect ipod" do
     device = Browser::Device.new(Browser["IPOD"])
     assert device.ipod_touch?
