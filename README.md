@@ -116,7 +116,6 @@ browser.platform.windows_touchscreen_desktop?
 browser.platform.windows_vista?
 browser.platform.windows_wow64?
 browser.platform.windows_x64?
-browser.platform.windows_x64?
 browser.platform.windows_x64_inclusive?
 browser.platform.windows_xp?
 ```
