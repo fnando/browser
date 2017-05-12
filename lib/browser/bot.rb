@@ -59,7 +59,7 @@ module Browser
     end
 
     def downcased_ua
-      @downcased_ua ||= ua.downcase
+      @downcased_ua ||= ua && ua.downcase || ""
     end
   end
 end
