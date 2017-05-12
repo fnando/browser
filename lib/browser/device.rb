@@ -105,7 +105,6 @@ module Browser
       id == :ps4
     end
     alias_method :playstation4?, :ps4?
-    alias_method :playstation4?, :ps4?
 
     def psp?
       id == :psp
