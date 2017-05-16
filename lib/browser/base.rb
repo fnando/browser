@@ -35,6 +35,16 @@ module Browser
       @platform ||= Platform.new(ua)
     end
 
+    # Detects if current user agent is from desktop browser
+    def desktop?
+      ua !~ /Mobile|webOS/
+    end
+
+    # Detects if current user agent is from mobile browser
+    def mobile?
+      ua =~ /Mobile|webOS/
+    end
+
     # Return the bot info.
     def bot
       @bot ||= Bot.new(ua)
