@@ -12,6 +12,8 @@ module Browser
 
     def full_version
       ua[%r[(?:Mobile MQQBrowser)/([\d.]+)]i, 1] ||
+        ua[%r[(?:QQBrowserLite)/([\d.]+)]i, 1] ||
+        ua[%r[(?:QQBrowser)/([\d.]+)]i, 1] ||
         ua[%r[(?:QQ)/([\d.]+)]i, 1] ||
         "0.0"
     end
