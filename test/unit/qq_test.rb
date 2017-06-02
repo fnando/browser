@@ -18,4 +18,20 @@ class QQTest < Minitest::Test
     assert_equal "QQ Browser", browser.name
     assert_equal :qq, browser.id
   end
+
+  test "detects QQ browser for Mac" do
+    browser = Browser.new(Browser["QQ_BROWSER_MAC"])
+
+    assert_equal "4.2.4753.400", browser.full_version
+    assert_equal "QQ Browser", browser.name
+    assert_equal :qq, browser.id
+  end
+
+  test "detects QQ browser lite for Mac" do
+    browser = Browser.new(Browser["QQ_BROWSER_MAC_LITE"])
+
+    assert_equal "1.0.4", browser.full_version
+    assert_equal "QQ Browser", browser.name
+    assert_equal :qq, browser.id
+  end
 end
