@@ -174,5 +174,10 @@ module Browser
     def proxy?
       nokia? || uc_browser? || opera_mini?
     end
+
+    # Detect if the browser is Electron.
+    def electron?(expected_version = nil)
+      Electron.new(ua).match? && detect_version?(full_version, expected_version)
+    end
   end
 end
