@@ -25,7 +25,8 @@ browser = Browser.new("Some User Agent", accept_language: "en-us")
 browser.bot?
 browser.chrome?
 browser.core_media?
-browser.edge?           # Newest MS browser
+browser.edge?                # Newest MS browser
+browser.electron?            # Electron Framework
 browser.firefox?
 browser.full_version
 browser.ie?
@@ -207,7 +208,7 @@ language.name
 #=> "English/United States"
 ```
 
-Result is always sorted in quality order from highest -> lowest. As per the HTTP spec: 
+Result is always sorted in quality order from highest -> lowest. As per the HTTP spec:
 
 - omitting the quality value implies 1.0.
 - quality value equal to zero means that is not accepted by the client.
