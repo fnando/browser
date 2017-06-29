@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Add support for QQ Browser Mac & Mac Lite.
+- Add support for Electron Framework.
+
 ## v2.4.0
 
 - Add Google Drive API, Proximic Spider, NewRelic pinger and SocialRank bots.
