@@ -7,7 +7,7 @@ module Browser
     extend ActiveSupport::Concern
 
     included do
-      helper_method :browser
+      helper_method(:browser) if respond_to?(:helper_method)
     end
 
     private
