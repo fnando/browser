@@ -14,6 +14,7 @@ require "browser/internet_explorer"
 require "browser/firefox"
 require "browser/edge"
 require "browser/opera"
+require "browser/otter_browser"
 require "browser/blackberry"
 require "browser/generic"
 require "browser/phantom_js"
@@ -51,6 +52,7 @@ module Browser
       Edge,
       InternetExplorer,
       Firefox,
+      OtterBrowser,
       Weibo,                # must be placed before Chrome and Safari
       QQ,                   # must be placed before Chrome and Safari
       Alipay,               # must be placed before Chrome and Safari
