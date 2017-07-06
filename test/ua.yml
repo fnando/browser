@@ -78,6 +78,7 @@ OPERA_ANDROID: 'Mozill/5.0 (Linux; Android 4.4.2; A1-810 Build/KOT49H) Apple/Web
 OPERA_MINI: 'Opera/9.80 (Android; Opera Mini/7.029952/28.2359;u; fr) Presto/2.8.119 Version/11.10'
 OPERA_MOBI: 'Opera/9.8 (Android 2.3.5; Linux; Opera Mobi/ADR-1205181138; U; en) Presto/2.10.254 Version/12.00'
 OPERA_NEXT: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.37 Safari/537.36 OPR/15.0.1147.44 (Edition Next)'
+OTTER_BROWSER: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/602.1 (KHTML, like Gecko) Otter/0.9.91'
 PHANTOM_JS: 'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.0 Safari/534.34'
 PLAYBOOK: 'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML, like Gecko) Version/7.2.1.0 Safari/536.2+'
 PLAYSTATION3: 'Mozilla/5.0 (PLAYSTATION 3; 3.55)'

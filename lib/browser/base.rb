@@ -178,6 +178,10 @@ module Browser
     # Detect if the browser is Electron.
     def electron?(expected_version = nil)
       Electron.new(ua).match? && detect_version?(full_version, expected_version)
+    
+    # Detect if browser is Otter Browser.
+    def otter_browser?(expected_version = nil)
+      ua =~ /Otter Browser/ && detect_version?(full_version, expected_version)
     end
   end
 end

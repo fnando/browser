@@ -39,6 +39,7 @@ browser.name                 # readable browser name
 browser.nokia?
 browser.opera?
 browser.opera_mini?
+browser.otter_browser?
 browser.phantom_js?
 browser.quicktime?
 browser.safari?
