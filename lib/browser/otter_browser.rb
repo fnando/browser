@@ -7,7 +7,7 @@ module Browser
     end
 
     def name
-      "Otter"
+      "Otter Browser"
     end
 
     def full_version
