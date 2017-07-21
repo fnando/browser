@@ -100,8 +100,7 @@ browser.platform.firefox_os?
 browser.platform.ios?     # detect iOS
 browser.platform.ios?(9)  # detect specific iOS version
 browser.platform.ios_app?
-browser.platform.ios_webview?
-browser.platform.ios_webview? # request performed by ios' app webview
+browser.platform.ios_webview? # request performed by webview in an iOS app
 browser.platform.linux?
 browser.platform.mac?
 browser.platform.other?
