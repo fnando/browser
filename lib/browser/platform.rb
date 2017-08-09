@@ -127,6 +127,13 @@ module Browser
       ios_app?
     end
 
+    # Detect if in an Android app webview (Lollipop and newer)
+    # https://developer.chrome.com/multidevice/user-agent#webview_user_agent
+    def android_app?
+      android? && ua =~ /\bwv\b/
+    end
+    alias_method :android_webview?, :android_app?
+
     # http://msdn.microsoft.com/fr-FR/library/ms537503.aspx#PltToken
     def windows_xp?
       windows? && ua =~ /Windows NT 5\.[12]/

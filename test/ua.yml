@@ -17,6 +17,7 @@ ANDROID_LOLLIPOP_50: Mozilla/5.0 (Linux; Android 5.0; Nexus 5 Build/LPX13D) Appl
 ANDROID_LOLLIPOP_51: Mozilla/5.0 (Linux; Android 5.1; Nexus 5 Build/LMY47I) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/40.0.0.0 Mobile Safari/537.36; DailymotionEmbedSDK 1.0
 ANDROID_NEXUS_PLAYER: Mozilla/5.0 (Linux; Android 5.0; Nexus Player Build/LRX21V) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/37.0.2062.0
 ANDROID_TV: Mozilla/5.0 (Linux; Android 5.0; ADT-1 Build/LRW87K) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36
+ANDROID_WEBVIEW: Mozilla/5.0 (Linux; Android 5.1.1; Nexus 5 Build/LMY48B; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/43.0.2357.65 Mobile Safari/537.36
 ANDROID_WITH_SAFARI: 'Mozilla/5.0 (Linux; U; Android 4.3; en-us; SCH-I535 Build/JSS15J) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30'
 BLACKBERRY10: 'Mozilla/5.0 (BB10; Touch) AppleWebKit/537.10+ (KHTML, like Gecko) Version/10.0.9.1675 Mobile Safari/537.10+'
 BLACKBERRY4: 'BlackBerry8100/4.2.1 Profile/MIDP-2.0 Configuration/CLDC-1.1 VendorID/103'
