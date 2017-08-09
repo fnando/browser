@@ -84,6 +84,12 @@ module Browser
         detect_version?(full_version, expected_version)
     end
 
+    # Detect if browser is Otter.
+    def otter?(expected_version = nil)
+      Otter.new(ua).match? &&
+        detect_version?(full_version, expected_version)
+    end
+
     # Detect if browser is WebKit-based.
     def webkit?(expected_version = nil)
       ua =~ /AppleWebKit/i &&

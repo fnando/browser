@@ -1,4 +1,6 @@
 ADOBE_AIR: 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X; de) AppleWebKit/533.19.4 (KHTML, like Gecko) AdobeAIR/13.0'
+ALIPAY_ANDROID: "Mozilla/5.0 (Linux; U; Android 4.2.1; zh-cn; HUAWEI G610-T00 Build/HuaweiG610-T00) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 AlipayDefined(nt:WIFI,ws:360|640|1.5) AliApp(AP/9.0.1.073001) AlipayClient/9.0.1.073001 GCanvas/1.4.2.15"
+ALIPAY_IOS: "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 AliApp(AP/2.3.4) AlipayClient/2.3.4"
 ANDROID: 'Android SDK 1.5r3: Mozilla/5.0 (Linux; U; Android 1.5; de-; sdk Build/CUPCAKE) AppleWebkit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1'
 ANDROID_CUPCAKE: Mozilla/5.0 (Linux; U; Android 1.5; en-gb; T-Mobile G1 Build/CRC1) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1
 ANDROID_DONUT: Mozilla/5.0 (Linux; U; Android 1.6; ar-us; SonyEricssonX10i Build/R2BA026) AppleWebKit/528.5+ (KHTML, like Gecko) Version/3.1.2 Mobile Safari/525.20.1
@@ -26,6 +28,7 @@ CHROME: 'Mozilla/5.0 (Macintosh; U; Intel Mac OS X 10_6_4; en-US) AppleWebKit/53
 CHROME_OS: 'Mozilla/5.0 (X11; CrOS x86_64 3701.81.0) AppleWebKit/537.31 (KHTML, like Gecko) Chrome/26.0.1410.57 Safari/537.31.'
 COREMEDIA: 'Apple Mac OS X v10.6.4 CoreMedia v1.0.0.10F569'
 CUSTOM_APP: "Our App 0.0.1 (Linux; Android 4.0.3; HTC Ruby Build/IML74K; en_CA)"
+ELECTRON: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Electron/1.4.12 Safari/537.36"
 FACEBOOK: Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60 [FBAN/FBIOS;FBAV/135.0.0.45.90;FBBV/66877072;FBDV/iPhone9,3;FBMD/iPhone;FBSN/iOS;FBSV/10.3.3;FBSS/2;FBCR/AT&T;FBID/phone;FBLC/en_US;FBOP/5;FBRV/0]
 FIREFOX: 'Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8'
 FIREFOX_ANDROID: 'Mozilla/5.0 (Android; Mobile; rv:40.0) Gecko/40.0 Firefox/40.0'
@@ -63,6 +66,7 @@ KINDLE_FIRE: 'Mozilla/5.0 (Linux; U; Android 2.3.4; en-us; Kindle Fire Build/GIN
 KINDLE_FIRE_HD: 'Mozilla/5.0 (Linux; U; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.4 Safari/535.19 Silk-Accelerated=true'
 KINDLE_FIRE_HD_MOBILE: 'Mozilla/5.0 (Linux; U; Android 4.0.3; en-us; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/3.4 Mobile Safari/535.19 Silk-Accelerated=true'
 LUMIA800: 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; XBLWP7; ZuneWP7'
+MICRO_MESSENGER: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238 MicroMessenger/6.3.15 NetType/3G+ Language/zh_CN'
 MIDP: MIDP-2.0
 MOBILE_CHROME: 'Mozilla/5.0 (iPhone; U; CPU iPhone OS 5_1_1 like Mac OS X; en) AppleWebKit/534.46.0 (KHTML, like Gecko) CriOS/19.0.1084.60 Mobile/9B206 Safari/7534.48.3'
 MS_EDGE: 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0'
@@ -79,12 +83,17 @@ OPERA_ANDROID: 'Mozill/5.0 (Linux; Android 4.4.2; A1-810 Build/KOT49H) Apple/Web
 OPERA_MINI: 'Opera/9.80 (Android; Opera Mini/7.029952/28.2359;u; fr) Presto/2.8.119 Version/11.10'
 OPERA_MOBI: 'Opera/9.8 (Android 2.3.5; Linux; Opera Mobi/ADR-1205181138; U; en) Presto/2.10.254 Version/12.00'
 OPERA_NEXT: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_4) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/28.0.1500.37 Safari/537.36 OPR/15.0.1147.44 (Edition Next)'
+OTTER: Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/602.1 (KHTML, like Gecko) Otter/0.9.91
 PHANTOM_JS: 'Mozilla/5.0 (Macintosh; Intel Mac OS X) AppleWebKit/534.34 (KHTML, like Gecko) PhantomJS/1.9.0 Safari/534.34'
 PLAYBOOK: 'Mozilla/5.0 (PlayBook; U; RIM Tablet OS 2.1.0; en-US) AppleWebKit/536.2+ (KHTML, like Gecko) Version/7.2.1.0 Safari/536.2+'
 PLAYSTATION3: 'Mozilla/5.0 (PLAYSTATION 3; 3.55)'
 PLAYSTATION4: 'Mozilla/5.0 (PlayStation 4 1.020) AppleWebKit/536.26 (KHTML, like Gecko)'
 PSP: 'Mozilla/4.0 (PSP (PlayStation Portable); 2.00)'
 PSP_VITA: 'Mozilla/5.0 (Playstation Vita 1.61) AppleWebKit/531.22.8 (KHTML, like Gecko) Silk/3.2'
+QQ_BROWSER_ANDROID: 'Mozilla/5.0 (Linux; Android 5.1.1; SM-N9108V Build/LMY47X) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile MQQBrowser/6.2 TBS/036222 Safari/537.36 V1_AND_SQ_6.2.0_320_YYB_D QQ/6.2.0.2655 NetType/WIFI WebP/0.3.0 Pixel/1440'
+QQ_BROWSER_IOS: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238 QQ/6.3.3.432 V1_IPH_SQ_6.3.3_1_APP_A Pixel/640 Core/UIWebView NetType/WIFI Mem/47'
+QQ_BROWSER_MAC: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4753.400'
+QQ_BROWSER_MAC_LITE: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/602.2.14 (KHTML, like Gecko) Version/10.0.1 Safari/602.2.14 QQBrowserLite/1.0.4'
 QUICKTIME: 'QuickTime/7.6.8 (qtver=7.6.8;os=Windows NT 5.1Service Pack 3)'
 SAFARI3: 'Mozilla/5.0 (Windows; U; Windows NT 6.0; en) AppleWebKit/522.15.5 (KHTML, like Gecko) Version/3.0.3 Safari/522.15.5'
 SAFARI4: 'Mozilla/5.0 (Windows; U; Windows NT 6.0; fr-ch) AppleWebKit/531.9 (KHTML, like Gecko) Version/4.0.3 Safari/531.9'
@@ -103,12 +112,14 @@ SURFACE: 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0; 
 SYMBIAN: 'Nokia5250/10.0.011 (SymbianOS/9.4; U; Series60/5.0 Mozilla/5.0; Profile/MIDP-2.1 Configuration/CLDC-1.1 ) AppleWebKit/525 (KHTML, like Gecko) Safari/525 3gpp-gba'
 TABLOID: 'Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13'
 UC_BROWSER: 'Mozilla/5.0 (Linux; U; Android 4.4.2; en-US; GT-I9500 Build/KOT49H) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 UCBrowser/9.9.4.484 U3/0.8.0 Mobile Safari/533.1'
-WINDOWS_2000: 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 5.0; Trident/6.0)'
-WINDOWS_2000_SP1: 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 5.01; Trident/6.0)'
+WEIBO_ANDROID: 'Mozilla/5.0 (Linux; Android 5.0.2; vivo X5M Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36 Weibo (vivo-vivo X5M__weibo__5.7.1__android__android5.0.2)'
+WEIBO_IOS: 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H143 Weibo (iPhone7,2__weibo__5.7.1__iphone__os8.4)'
+WINDOWS10: 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 10.0; Trident/6.0)'
 WINDOWS7: 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0) chromeframe/10.0.648.205'
 WINDOWS81: 'Mozilla/5.0 (IE 11.0; Windows NT 6.3; Trident/7.0; .NET4.0E; .NET4.0C; rv:11.0) like Gecko'
 WINDOWS8: 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)'
-WINDOWS10: 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 10.0; Trident/6.0)'
+WINDOWS_2000: 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 5.0; Trident/6.0)'
+WINDOWS_2000_SP1: 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 5.01; Trident/6.0)'
 WINDOWS_MOBILE: 'Mozilla/4.0 (compatible; MSIE 6.0; Windows CE; IEMobile 6.12)'
 WINDOWS_PHONE8: 'Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)'
 WINDOWS_PHONE: 'Mozilla/4.0 (compatible; MSIE 7.0; Windows Phone OS 7.0; Trident/3.1; IEMobile/7.0; DELL; Venue Pro)'
@@ -121,13 +132,3 @@ XBOX360: 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0; Xbox),
 XBOXONE: 'Mozilla/5.0 (Compatible; MSIE 10.0; Windows NT 6.2; Trident /6.0; Xbox; Xbox One)'
 XOOM: 'Mozilla/5.0 (Linux; U; Android 3.0; en-us; Xoom Build/HRI39) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13'
 YANDEX_BROWSER: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2272.118 YaBrowser/15.4.2272.3909 (beta) Yowser/2.0 Safari/537.36'
-MICRO_MESSENGER: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238 MicroMessenger/6.3.15 NetType/3G+ Language/zh_CN'
-WEIBO_IOS: 'Mozilla/5.0 (iPhone; CPU iPhone OS 8_4 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Mobile/12H143 Weibo (iPhone7,2__weibo__5.7.1__iphone__os8.4)'
-WEIBO_ANDROID: 'Mozilla/5.0 (Linux; Android 5.0.2; vivo X5M Build/LRX22G) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile Safari/537.36 Weibo (vivo-vivo X5M__weibo__5.7.1__android__android5.0.2)'
-QQ_BROWSER_IOS: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_3_1 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) Mobile/13E238 QQ/6.3.3.432 V1_IPH_SQ_6.3.3_1_APP_A Pixel/640 Core/UIWebView NetType/WIFI Mem/47'
-QQ_BROWSER_ANDROID: 'Mozilla/5.0 (Linux; Android 5.1.1; SM-N9108V Build/LMY47X) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/37.0.0.0 Mobile MQQBrowser/6.2 TBS/036222 Safari/537.36 V1_AND_SQ_6.2.0_320_YYB_D QQ/6.2.0.2655 NetType/WIFI WebP/0.3.0 Pixel/1440'
-QQ_BROWSER_MAC: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36 QQBrowser/4.2.4753.400'
-QQ_BROWSER_MAC_LITE: 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_1) AppleWebKit/602.2.14 (KHTML, like Gecko) Version/10.0.1 Safari/602.2.14 QQBrowserLite/1.0.4'
-ALIPAY_IOS: "Mozilla/5.0 (iPhone; CPU iPhone OS 7_0 like Mac OS X) AppleWebKit/537.51.1 (KHTML, like Gecko) Version/7.0 Mobile/11A465 Safari/9537.53 AliApp(AP/2.3.4) AlipayClient/2.3.4"
-ALIPAY_ANDROID: "Mozilla/5.0 (Linux; U; Android 4.2.1; zh-cn; HUAWEI G610-T00 Build/HuaweiG610-T00) AppleWebKit/534.30 (KHTML, like Gecko) Version/4.0 Mobile Safari/534.30 AlipayDefined(nt:WIFI,ws:360|640|1.5) AliApp(AP/9.0.1.073001) AlipayClient/9.0.1.073001 GCanvas/1.4.2.15"
-ELECTRON: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Electron/1.4.12 Safari/537.36"

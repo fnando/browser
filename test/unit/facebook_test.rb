@@ -8,6 +8,7 @@ class FacebookTest < Minitest::Test
 
     assert_equal "Facebook", browser.name
     assert browser.facebook?
+    assert :facebook, browser.id
     assert_equal "135.0.0.45.90", browser.full_version
     assert_equal "135", browser.version
   end

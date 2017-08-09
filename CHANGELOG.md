@@ -5,6 +5,7 @@
 - Add support for QQ Browser Mac & Mac Lite.
 - Add support for Electron Framework.
 - Add support for Facebook in-app browser.
+- Add support for Otter Browser.
 
 ## v2.4.0
 

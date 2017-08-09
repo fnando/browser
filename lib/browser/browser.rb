@@ -25,6 +25,7 @@ require "browser/qq"
 require "browser/alipay"
 require "browser/electron"
 require "browser/facebook"
+require "browser/otter"
 
 require "browser/bot"
 require "browser/middleware"
@@ -52,6 +53,7 @@ module Browser
       Edge,
       InternetExplorer,
       Firefox,
+      Otter,
       Facebook,             # must be placed before Chrome and Safari
       Weibo,                # must be placed before Chrome and Safari
       QQ,                   # must be placed before Chrome and Safari
