@@ -6,6 +6,7 @@
 - Add support for Electron Framework.
 - Add support for Facebook in-app browser.
 - Add support for Otter Browser.
+- Add Android webview detection.
 
 ## v2.4.0
 
