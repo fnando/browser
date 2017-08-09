@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## v2.5.0
 
 - Add support for QQ Browser Mac & Mac Lite.
 - Add support for Electron Framework.
