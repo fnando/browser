@@ -71,7 +71,7 @@ class ChromeTest < Minitest::Test
     assert_equal "26", browser.version
   end
 
-  test "detects chrome not opera when android build number contains 'Pixel Build/OPR'" do
+  test "detects chrome not opera when android build number contains 'OPR'" do
     browser = Browser.new(Browser["ANDROID_OREO"])
 
     assert browser.chrome?
