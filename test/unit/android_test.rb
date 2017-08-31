@@ -81,6 +81,12 @@ class AndroidTest < Minitest::Test
     assert browser.platform.android?(5.1)
   end
 
+  test "detect android oreo (8.0)" do
+    browser = Browser.new(Browser["ANDROID_OREO"])
+    assert browser.platform.android?
+    assert browser.platform.android?(8.0)
+  end
+
   test "detect android tv" do
     browser = Browser.new(Browser["ANDROID_TV"])
     assert browser.platform.android?

@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /(Opera|OPR)/
+      ua =~ /(Opera|OPR\/)/
     end
   end
 end
