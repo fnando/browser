@@ -1,5 +1,9 @@
 # Changelog
 
+## v2.5.1
+
+- Add Android Oreo detection
+
 ## v2.5.0
 
 - Add support for QQ Browser Mac & Mac Lite.
