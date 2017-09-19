@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Add WhatsApp detection
+
 ## v2.5.1
 
 - Add Android Oreo detection
