@@ -1,6 +1,6 @@
 # Changelog
 
-## v2.5.2
+## Unreleased
 - Add WhatsApp detection
 
 ## v2.5.1
