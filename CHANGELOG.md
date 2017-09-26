@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add Swiftype bot
 - Add WhatsApp detection
 
 ## v2.5.1
