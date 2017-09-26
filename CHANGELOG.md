@@ -2,8 +2,6 @@
 
 ## Unreleased
 - Add Swiftype bot
-
-## Unreleased
 - Add WhatsApp detection
 
 ## v2.5.1
