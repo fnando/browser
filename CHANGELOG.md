@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Add COMODO SSL Checker bot
 - Add Swiftype bot
 - Add WhatsApp detection
 
