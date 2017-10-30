@@ -80,12 +80,17 @@ class BotsTest < Minitest::Test
   end
 
   test "extends list in runtime" do
-    browser = Browser.new("Faraday/0.9.2")
+    browser = Browser.new(Browser["CHROME"])
     refute browser.bot?
 
-    Browser::Bot.bots["faraday"] = "Faraday"
+    Browser::Bot.bots["chrome"] = "Chrome"
     assert browser.bot?
 
-    Browser::Bot.bots.delete("faraday")
+    Browser::Bot.bots.delete("chrome")
+  end
+
+  test "detects unknown device/platform as bot" do
+    browser = Browser.new("Mozilla/4.0 (compatible;)")
+    assert browser.bot?
   end
 end

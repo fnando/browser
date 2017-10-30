@@ -38,7 +38,7 @@ module Browser
       return if allow_empty_ua?
       return if bot_exception?
 
-      browser.ua.empty? || detect_bot?
+      browser.ua.empty? || detect_bot? || unknown?
     end
 
     def search_engine?
@@ -69,6 +69,10 @@ module Browser
 
     def downcased_ua
       @downcased_ua ||= browser.ua.downcase
+    end
+
+    def unknown?
+      browser.device.unknown? && browser.platform.other?
     end
   end
 end
