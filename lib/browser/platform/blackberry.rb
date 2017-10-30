@@ -4,7 +4,7 @@ module Browser
   class Platform
     class BlackBerry < Base
       def match?
-        ua =~ /BB10|BlackBerry/
+        browser.ua =~ /BB10|BlackBerry/
       end
 
       def name
@@ -16,7 +16,7 @@ module Browser
       end
 
       def version
-        ua[%r[(?:Version|BlackBerry[\da-z]+)/([\d.]+)], 1]
+        browser.ua[%r[(?:Version|BlackBerry[\da-z]+)/([\d.]+)], 1]
       end
     end
   end

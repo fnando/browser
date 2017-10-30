@@ -4,11 +4,11 @@ module Browser
   class Platform
     class AdobeAir < Base
       def match?
-        ua =~ /AdobeAIR/
+        browser.ua =~ /AdobeAIR/
       end
 
       def version
-        ua[%r[AdobeAIR/([\d.]+)], 1]
+        browser.ua[%r[AdobeAIR/([\d.]+)], 1]
       end
 
       def name

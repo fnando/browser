@@ -28,17 +28,17 @@ module Browser
                           .load_file(Browser.root.join("search_engines.yml"))
     end
 
-    attr_reader :ua
+    attr_reader :browser
 
-    def initialize(ua)
-      @ua = ua.strip
+    def initialize(browser)
+      @browser = browser
     end
 
     def bot?
       return if allow_empty_ua?
       return if bot_exception?
 
-      ua.empty? || detect_bot?
+      browser.ua.empty? || detect_bot?
     end
 
     def search_engine?
@@ -56,7 +56,7 @@ module Browser
     private
 
     def allow_empty_ua?
-      self.class.allow_empty_ua? && ua.empty?
+      self.class.allow_empty_ua? && browser.ua.empty?
     end
 
     def bot_exception?
@@ -68,7 +68,7 @@ module Browser
     end
 
     def downcased_ua
-      @downcased_ua ||= ua.downcase
+      @downcased_ua ||= browser.ua.downcase
     end
   end
 end

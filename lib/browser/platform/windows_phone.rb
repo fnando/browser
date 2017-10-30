@@ -4,7 +4,7 @@ module Browser
   class Platform
     class WindowsPhone < Base
       def version
-        ua[/Windows Phone ([\d.]+)/, 1]
+        browser.ua[/Windows Phone ([\d.]+)/, 1]
       end
 
       def name
@@ -16,7 +16,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Windows Phone/
+        browser.ua =~ /Windows Phone/
       end
     end
   end

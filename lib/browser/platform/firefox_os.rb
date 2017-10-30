@@ -16,7 +16,8 @@ module Browser
       end
 
       def match?
-        ua !~ /(Android|Linux|BlackBerry|Windows|Mac)/ && ua =~ /Firefox/
+        browser.ua !~ /(Android|Linux|BlackBerry|Windows|Mac)/ &&
+          browser.ua =~ /Firefox/
       end
     end
   end

@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Xbox/i
+        browser.ua =~ /Xbox/i
       end
     end
   end

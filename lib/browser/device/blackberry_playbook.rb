@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /PlayBook.*?RIM Tablet/
+        browser.ua =~ /PlayBook.*?RIM Tablet/
       end
     end
   end

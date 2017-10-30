@@ -16,7 +16,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Windows CE/
+        browser.ua =~ /Windows CE/
       end
     end
   end

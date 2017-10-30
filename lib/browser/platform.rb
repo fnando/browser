@@ -18,7 +18,7 @@ module Browser
   class Platform
     include DetectVersion
 
-    attr_reader :ua
+    attr_reader :browser
 
     # Hold the list of platform matchers.
     # Order is important.
@@ -39,13 +39,13 @@ module Browser
       ]
     end
 
-    def initialize(ua)
-      @ua = ua
+    def initialize(browser)
+      @browser = browser
     end
 
     def subject
       @subject ||= self.class.matchers
-                       .map {|matcher| matcher.new(ua) }
+                       .map {|matcher| matcher.new(browser) }
                        .find(&:match?)
     end
 
@@ -119,7 +119,7 @@ module Browser
 
     # Detect if running on iOS app webview.
     def ios_app?
-      ios? && !ua.include?("Safari")
+      ios? && !browser.ua.include?("Safari")
     end
 
     # Detect if is iOS webview.
@@ -130,46 +130,46 @@ module Browser
     # Detect if in an Android app webview (Lollipop and newer)
     # https://developer.chrome.com/multidevice/user-agent#webview_user_agent
     def android_app?
-      android? && ua =~ /\bwv\b/
+      android? && browser.ua =~ /\bwv\b/
     end
     alias_method :android_webview?, :android_app?
 
     # http://msdn.microsoft.com/fr-FR/library/ms537503.aspx#PltToken
     def windows_xp?
-      windows? && ua =~ /Windows NT 5\.[12]/
+      windows? && browser.ua =~ /Windows NT 5\.[12]/
     end
 
     def windows_vista?
-      windows? && ua =~ /Windows NT 6\.0/
+      windows? && browser.ua =~ /Windows NT 6\.0/
     end
 
     def windows7?
-      windows? && ua =~ /Windows NT 6\.1/
+      windows? && browser.ua =~ /Windows NT 6\.1/
     end
 
     def windows8?
-      windows? && ua =~ /Windows NT 6\.[2-3]/
+      windows? && browser.ua =~ /Windows NT 6\.[2-3]/
     end
 
     def windows8_1?
-      windows? && ua =~ /Windows NT 6\.3/
+      windows? && browser.ua =~ /Windows NT 6\.3/
     end
 
     def windows10?
-      windows? && ua =~ /Windows NT 10/
+      windows? && browser.ua =~ /Windows NT 10/
     end
 
     def windows_rt?
-      windows8? && ua =~ /ARM/
+      windows8? && browser.ua =~ /ARM/
     end
 
     # Detect if current platform is Windows in 64-bit architecture.
     def windows_x64?
-      windows? && ua =~ /(Win64|x64|Windows NT 5\.2)/
+      windows? && browser.ua =~ /(Win64|x64|Windows NT 5\.2)/
     end
 
     def windows_wow64?
-      windows? && ua =~ /WOW64/i
+      windows? && browser.ua =~ /WOW64/i
     end
 
     def windows_x64_inclusive?
@@ -177,7 +177,7 @@ module Browser
     end
 
     def windows_touchscreen_desktop?
-      windows? && ua =~ /Touch/
+      windows? && browser.ua =~ /Touch/
     end
   end
 end

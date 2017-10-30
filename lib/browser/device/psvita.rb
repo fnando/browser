@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Playstation Vita/
+        browser.ua =~ /Playstation Vita/
       end
     end
   end

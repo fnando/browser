@@ -4,7 +4,7 @@ module Browser
   class Platform
     class ChromeOS < Base
       def match?
-        ua =~ /CrOS/
+        browser.ua =~ /CrOS/
       end
 
       def name
@@ -16,7 +16,7 @@ module Browser
       end
 
       def version
-        ua[/CrOS(?: x86_64)? ([\d.]+)/, 1]
+        browser.ua[/CrOS(?: x86_64)? ([\d.]+)/, 1]
       end
     end
   end
