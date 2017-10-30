@@ -47,14 +47,20 @@ module Browser
     end
 
     def quality
-      @quality ||= Float(quality_value || 1.0)
+      @quality ||= begin
+        Float(quality_value || 1.0)
+      rescue ArgumentError
+        0.1
+      end
     end
 
     private
 
     def quality_value
       qvalue = part[/;q=([\d.]+)/, 1]
-      qvalue =~ /\A0\.0?\z/ ? "0.0" : qvalue
+      qvalue = qvalue =~ /\A0\.0?\z/ ? "0.0" : qvalue
+      qvalue = qvalue.gsub(/\.+/, ".") if qvalue
+      qvalue
     end
   end
 end

@@ -3,6 +3,7 @@
 ## UNRELEASED
 
 - Add Google Site Verification to the bot list.
+- Handle invalid quality values that look like numbers.
 
 ## v2.5.2
 

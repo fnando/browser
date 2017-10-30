@@ -139,4 +139,12 @@ class AcceptLanguageTest < Minitest::Test
     assert_language result[1], code: "ru", region: nil, quality: 0.9
     assert_language result[2], code: "de", region: nil, quality: 0.8
   end
+
+  test "handles invalid quality values that look like a number" do
+    accept_language = "fr-CH, fr;q=0.9, en;q=0.8, de;q=0..7, *;q=0.5"
+    result = Browser::AcceptLanguage.parse(accept_language)
+
+    assert_equal 5, result.size
+    assert_language result[3], code: "de", region: nil, quality: 0.7
+  end
 end
