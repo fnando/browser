@@ -262,10 +262,10 @@ browser.platform.ios?
 
 ### Bots
 
-Browser used to detect empty user agents as bots, but this behavior has changed. If you want to bring this detection back, you can activate it through the following call:
+By default, empty user agents are considered bots. If you want to allow it, please call `Browser::Bot.allow_empty_ua!`.
 
 ```ruby
-Browser::Bot.detect_empty_ua!
+Browser::Bot.allow_empty_ua!
 ```
 
 ### Middleware
@@ -304,9 +304,13 @@ Rails.configuration.middleware.use Browser::Middleware do
 end
 ```
 
-### Migrating to v2
+### Migrating to v3
 
 #### Troubleshooting
+
+#### `NoMethodError: undefined method 'detect_empty_ua!'`
+
+Empty user agents are detected as bots by default. You don't have to call `Browser::Bot.detect_empty_ua!` anymore.
 
 ##### `TypeError: no implicit conversion of Hash into String`
 

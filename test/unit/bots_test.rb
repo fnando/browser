@@ -15,23 +15,20 @@ class BotsTest < Minitest::Test
     refute browser.bot?
   end
 
-  test "doesn't consider empty UA as bot" do
-    browser = Browser.new("")
-    refute browser.bot?
-  end
-
-  test "allows setting empty string as bots" do
-    Browser::Bot.detect_empty_ua!
+  test "considers empty UA as bot" do
     browser = Browser.new("")
 
     assert browser.bot?
+    assert_equal browser.bot.name, "Generic Bot"
   end
 
-  test "doesn't detect mozilla as a bot when considering empty UA" do
-    Browser::Bot.detect_empty_ua!
-    browser = Browser.new("Mozilla")
+  test "accepts empty string as user agents" do
+    Browser::Bot.allow_empty_ua!
+    browser = Browser.new("")
 
     refute browser.bot?
+
+    Browser::Bot.disallow_empty_ua!
   end
 
   test "returns bot name" do
@@ -40,13 +37,6 @@ class BotsTest < Minitest::Test
 
     browser = Browser.new(Browser["FACEBOOK_BOT"])
     assert_equal "Facebook Bot", browser.bot.name
-  end
-
-  test "returns bot name (empty string ua detection enabled)" do
-    Browser::Bot.detect_empty_ua!
-    browser = Browser.new("")
-
-    assert_equal browser.bot.name, "Generic Bot"
   end
 
   test "returns nil for non-bots" do

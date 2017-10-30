@@ -1,9 +1,10 @@
 # Changelog
 
-## UNRELEASED
+## Unreleased [BREAKING CHANGE]
 
 - Add Google Site Verification to the bot list.
 - Handle invalid quality values that look like numbers.
+- Remove Browser::Bot.detect_empty_ua! in favor of Browser::Bot.allow_empty_ua!
 
 ## v2.5.2
 
