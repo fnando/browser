@@ -74,6 +74,7 @@ gimmeusabot: "Gimme60 (gimme60.com)"
 go http package: "Go http library"
 google page speed insights: "Google Page Speed Insights"
 google Web Preview: "Google Instant Previews crawler"
+google-site-verification: Google-Site-Verification
 google-structured-data-testing-tool: "Google-StructuredDataTestingTool"
 google-structureddatatestingtool: "Google-StructuredDataTestingTool"
 googlebot: "Google Bot"

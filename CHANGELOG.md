@@ -1,5 +1,9 @@
 # Changelog
 
+## UNRELEASED
+
+- Add Google Site Verification to the bot list.
+
 ## v2.5.2
 
 - Add COMODO SSL Checker bot
