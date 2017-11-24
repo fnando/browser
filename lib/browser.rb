@@ -3,6 +3,7 @@
 # Load essential files
 require "browser/lite"
 
+require "browser/yandex"
 require "browser/alipay"
 require "browser/blackberry"
 require "browser/bot"

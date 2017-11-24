@@ -8,12 +8,8 @@ module Browser
     end
   end
 
-  class Chrome < Base
-    CHROME_REGEX = %r[Chrome/([\d.]+)]
-    CRIOS_REGEX = %r[CriOS/([\d.]+)]
-    SAFARI_REGEX = %r[Safari/([\d.]+)]
-    WEBKIT_REGEX = %r[AppleWebKit/([\d.]+)]
-    MATCH_REGEX = /Chrome|CriOS/
+  class Chrome < Chromium
+    MATCH_EXCLUSION_REGEX = /YaBrowser/
 
     def id
       :chrome
@@ -23,17 +19,8 @@ module Browser
       "Chrome"
     end
 
-    def full_version
-      # Each regex on its own line to enforce precedence.
-      ua[CHROME_REGEX, 1] ||
-        ua[CRIOS_REGEX, 1] ||
-        ua[SAFARI_REGEX, 1] ||
-        ua[WEBKIT_REGEX, 1] ||
-        "0.0"
-    end
-
     def match?
-      ua =~ MATCH_REGEX && !opera? && !edge?
+      chromium? && !opera? && !edge? && ua !~ MATCH_EXCLUSION_REGEX
     end
   end
 end

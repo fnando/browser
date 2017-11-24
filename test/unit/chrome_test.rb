@@ -10,6 +10,7 @@ class ChromeTest < Minitest::Test
     assert browser.chrome?
     refute browser.safari?
     assert browser.webkit?
+    assert browser.chromium?
     assert_equal "5.0.375.99", browser.full_version
     assert_equal "5", browser.version
   end
@@ -40,22 +41,6 @@ class ChromeTest < Minitest::Test
   test "detects chrome os" do
     browser = Browser.new(Browser["CHROME_OS"])
     assert browser.platform.chrome_os?
-  end
-
-  test "detects yandex browser" do
-    browser = Browser.new(Browser["YANDEX_BROWSER"])
-
-    assert browser.yandex?
-    assert browser.chrome?
-    refute browser.safari?
-    assert browser.webkit?
-    assert_equal "41.0.2272.118", browser.full_version
-    assert_equal "41", browser.version
-  end
-
-  test "detects yandex version by range" do
-    browser = Browser.new(Browser["YANDEX_BROWSER"])
-    assert browser.yandex?(%w[>=41 <42])
   end
 
   test "detects chrome frame" do

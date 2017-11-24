@@ -43,11 +43,6 @@ module Browser
       ua =~ CORE_MEDIA_REGEX && detect_version?(full_version, expected_version)
     end
 
-    # Detect if browser is Yandex.
-    def yandex?(expected_version = nil)
-      ua =~ YANDEX_REGEX && detect_version?(full_version, expected_version)
-    end
-
     def known?
       id != :generic
     end

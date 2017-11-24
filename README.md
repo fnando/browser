@@ -36,6 +36,7 @@ browser.known?               # has the browser been successfully detected?
 browser.meta                 # an array with several attributes
 browser.name                 # readable browser name
 browser.nokia?
+browser.chromium?
 browser.opera?
 browser.opera_mini?
 browser.phantom_js?
@@ -313,7 +314,8 @@ gem "browser",
               "browser/proxy",
               "browser/qq",
               "browser/uc_browser",
-              "browser/weibo"]
+              "browser/weibo",
+              "browser/yandex"]
 ```
 
 ### Migrating to v3
