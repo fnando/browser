@@ -1,5 +1,9 @@
 # frozen_string_literal: true
 
+require "browser/meta/device"
+require "browser/meta/mobile"
+require "browser/meta/tablet"
+
 require "browser/device/base"
 require "browser/device/unknown"
 require "browser/device/ipad"
@@ -20,6 +24,13 @@ require "browser/device/xbox_one"
 require "browser/device/xbox_360"
 
 module Browser
+  class Base
+    # Return the device info.
+    def device
+      @device ||= Device.new(self)
+    end
+  end
+
   class Device
     attr_reader :browser
 

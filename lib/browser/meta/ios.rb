@@ -7,5 +7,7 @@ module Browser
         "ios" if browser.platform.ios?
       end
     end
+
+    rules << IOS
   end
 end

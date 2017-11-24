@@ -1,6 +1,18 @@
 # frozen_string_literal: true
 
 module Browser
+  class Base
+    # Return the bot info.
+    def bot
+      @bot ||= Bot.new(self)
+    end
+
+    # Detect if current user agent is from a bot.
+    def bot?
+      bot.bot?
+    end
+  end
+
   class Bot
     def self.allow_empty_ua!
       @allow_empty_ua = true

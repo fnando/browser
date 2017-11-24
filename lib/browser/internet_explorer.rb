@@ -1,6 +1,26 @@
 # frozen_string_literal: true
 
 module Browser
+  class Base
+    # Detect if browser is Microsoft Internet Explorer.
+    def ie?(expected_version = nil)
+      InternetExplorer.new(ua).match? &&
+        detect_version?(full_version, expected_version)
+    end
+
+    def compatibility_view?
+      false
+    end
+
+    def msie_full_version
+      "0.0"
+    end
+
+    def msie_version
+      "0"
+    end
+  end
+
   class InternetExplorer < Base
     # https://msdn.microsoft.com/en-us/library/ms537503(v=vs.85).aspx#TriToken
     TRIDENT_MAPPING = {

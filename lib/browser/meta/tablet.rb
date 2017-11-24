@@ -7,5 +7,7 @@ module Browser
         "tablet" if browser.device.tablet?
       end
     end
+
+    rules << Tablet
   end
 end

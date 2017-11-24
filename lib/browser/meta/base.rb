@@ -1,19 +1,16 @@
 # frozen_string_literal: true
 
+require "set"
+
 module Browser
   module Meta
     def self.rules
       @rules ||= [
-        Device,
         GenericBrowser,
         Id,
         IE,
-        IOS,
-        Mobile,
-        Platform,
         Proxy,
         Safari,
-        Tablet,
         Webkit
       ]
     end

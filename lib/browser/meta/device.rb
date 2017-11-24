@@ -7,5 +7,7 @@ module Browser
         browser.device.id
       end
     end
+
+    rules << Device
   end
 end

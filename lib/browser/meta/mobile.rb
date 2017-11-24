@@ -7,5 +7,7 @@ module Browser
         "mobile" if browser.device.mobile?
       end
     end
+
+    rules << Mobile
   end
 end

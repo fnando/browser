@@ -26,4 +26,6 @@ module Browser
       ua =~ MATCH_REGEX
     end
   end
+
+  matchers.unshift(QQ)
 end

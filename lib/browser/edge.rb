@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 module Browser
+  class Base
+    # Detect if browser is Microsoft Edge.
+    def edge?(expected_version = nil)
+      Edge.new(ua).match? && detect_version?(full_version, expected_version)
+    end
+  end
+
   class Edge < InternetExplorer
     VERSION_REGEX = %r[Edge/([\d.]+)]
     MATCH_REGEX = %r[(Edge/[\d.]+|Trident/8)]

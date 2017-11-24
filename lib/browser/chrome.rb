@@ -1,6 +1,13 @@
 # frozen_string_literal: true
 
 module Browser
+  class Base
+    # Detect if browser is Chrome.
+    def chrome?(expected_version = nil)
+      Chrome.new(ua).match? && detect_version?(full_version, expected_version)
+    end
+  end
+
   class Chrome < Base
     CHROME_REGEX = %r[Chrome/([\d.]+)]
     CRIOS_REGEX = %r[CriOS/([\d.]+)]

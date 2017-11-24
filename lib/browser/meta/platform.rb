@@ -7,5 +7,7 @@ module Browser
         browser.platform.id
       end
     end
+
+    rules << Platform
   end
 end

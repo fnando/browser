@@ -14,21 +14,10 @@ module Browser
   # Order is important.
   def self.matchers
     @matchers ||= [
-      MicroMessenger,
-      Nokia,
-      UCBrowser,
-      PhantomJS,
-      BlackBerry,
-      Opera,
       Edge,
       InternetExplorer,
       Firefox,
-      Otter,
-      Facebook,             # must be placed before Chrome and Safari
-      Weibo,                # must be placed before Chrome and Safari
-      QQ,                   # must be placed before Chrome and Safari
-      Alipay,               # must be placed before Chrome and Safari
-      Electron,             # must be placed before Chrome and Safari
+      Opera,
       Chrome,
       Safari,
       Generic

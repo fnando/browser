@@ -4,12 +4,9 @@ module Browser
   class Base
     include DetectVersion
 
-    WEBKIT_REGEX = /AppleWebKit/i
     QUICKTIME_REGEX = /QuickTime/i
     CORE_MEDIA_REGEX = /CoreMedia/
     YANDEX_REGEX = /YaBrowser/
-    OPERA_MINI_REGEX = /Opera Mini/
-    WEBKIT_VERSION_REGEX = %r[AppleWebKit/([\d.]+)]
 
     attr_reader :ua
 
@@ -36,68 +33,6 @@ module Browser
       full_version.split(".").first
     end
 
-    # Return the platform.
-    def platform
-      @platform ||= Platform.new(self)
-    end
-
-    # Return the bot info.
-    def bot
-      @bot ||= Bot.new(self)
-    end
-
-    # Detect if current user agent is from a bot.
-    def bot?
-      bot.bot?
-    end
-
-    # Return the device info.
-    def device
-      @device ||= Device.new(self)
-    end
-
-    # Detect if browser is Microsoft Internet Explorer.
-    def ie?(expected_version = nil)
-      InternetExplorer.new(ua).match? &&
-        detect_version?(full_version, expected_version)
-    end
-
-    # Detect if browser is Microsoft Edge.
-    def edge?(expected_version = nil)
-      Edge.new(ua).match? && detect_version?(full_version, expected_version)
-    end
-
-    def compatibility_view?
-      false
-    end
-
-    def msie_full_version
-      "0.0"
-    end
-
-    def msie_version
-      "0"
-    end
-
-    # Detect if browser if Facebook.
-    def facebook?(expected_version = nil)
-      Facebook.new(ua).match? &&
-        detect_version?(full_version, expected_version)
-    end
-
-    # Detect if browser is Otter.
-    def otter?(expected_version = nil)
-      Otter.new(ua).match? &&
-        detect_version?(full_version, expected_version)
-    end
-
-    # Detect if browser is WebKit-based.
-    def webkit?(expected_version = nil)
-      ua =~ WEBKIT_REGEX &&
-        !edge? &&
-        detect_version?(webkit_full_version, expected_version)
-    end
-
     # Detect if browser is QuickTime
     def quicktime?(expected_version = nil)
       ua =~ QUICKTIME_REGEX && detect_version?(full_version, expected_version)
@@ -108,74 +43,9 @@ module Browser
       ua =~ CORE_MEDIA_REGEX && detect_version?(full_version, expected_version)
     end
 
-    # Detect if browser is PhantomJS
-    def phantom_js?(expected_version = nil)
-      PhantomJS.new(ua).match? &&
-        detect_version?(full_version, expected_version)
-    end
-
-    # Detect if browser is Safari.
-    def safari?(expected_version = nil)
-      Safari.new(ua).match? && detect_version?(version, expected_version)
-    end
-
-    def safari_webapp_mode?
-      (device.ipad? || device.iphone?) && ua =~ WEBKIT_REGEX
-    end
-
-    # Detect if browser is Firefox.
-    def firefox?(expected_version = nil)
-      Firefox.new(ua).match? && detect_version?(full_version, expected_version)
-    end
-
-    # Detect if browser is Chrome.
-    def chrome?(expected_version = nil)
-      Chrome.new(ua).match? && detect_version?(full_version, expected_version)
-    end
-
-    # Detect if browser is Opera.
-    def opera?(expected_version = nil)
-      Opera.new(ua).match? && detect_version?(full_version, expected_version)
-    end
-
     # Detect if browser is Yandex.
     def yandex?(expected_version = nil)
       ua =~ YANDEX_REGEX && detect_version?(full_version, expected_version)
-    end
-
-    # Detect if browser is UCBrowser.
-    def uc_browser?(expected_version = nil)
-      UCBrowser.new(ua).match? &&
-        detect_version?(full_version, expected_version)
-    end
-
-    # Detect if browser is Nokia S40 Ovi Browser.
-    def nokia?(expected_version = nil)
-      Nokia.new(ua).match? && detect_version?(full_version, expected_version)
-    end
-
-    # Detect if browser is MicroMessenger.
-    def micro_messenger?(expected_version = nil)
-      MicroMessenger.new(ua).match? &&
-        detect_version?(full_version, expected_version)
-    end
-    alias_method :wechat?, :micro_messenger?
-
-    def weibo?(expected_version = nil)
-      Weibo.new(ua).match? && detect_version?(full_version, expected_version)
-    end
-
-    def alipay?(expected_version = nil)
-      Alipay.new(ua).match? && detect_version?(full_version, expected_version)
-    end
-
-    # Detect if browser is Opera Mini.
-    def opera_mini?(expected_version = nil)
-      ua =~ OPERA_MINI_REGEX && detect_version?(full_version, expected_version)
-    end
-
-    def webkit_full_version
-      ua[WEBKIT_VERSION_REGEX, 1] || "0.0"
     end
 
     def known?
@@ -185,11 +55,6 @@ module Browser
     # Detect if browser is a proxy browser.
     def proxy?
       nokia? || uc_browser? || opera_mini?
-    end
-
-    # Detect if the browser is Electron.
-    def electron?(expected_version = nil)
-      Electron.new(ua).match? && detect_version?(full_version, expected_version)
     end
   end
 end

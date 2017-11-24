@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require "browser/meta/ios"
+require "browser/meta/platform"
+
 require "browser/platform/base"
 require "browser/platform/ios"
 require "browser/platform/linux"
@@ -15,6 +18,13 @@ require "browser/platform/chrome_os"
 require "browser/platform/adobe_air"
 
 module Browser
+  class Base
+    # Return the platform.
+    def platform
+      @platform ||= Platform.new(self)
+    end
+  end
+
   class Platform
     include DetectVersion
 
