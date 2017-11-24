@@ -405,6 +405,49 @@ Before using your time to code a new feature, open a ticket asking if it makes s
 
 Don't forget to add a new entry to `CHANGELOG.md`.
 
+#### Adding a new browser
+
+1. Add the user agent to `test/ua_bots.yml`.
+2. Create `browser/your_new_browser.rb`. Use the following code as your template.
+
+```ruby
+# frozen_string_literal: true
+
+module Browser
+  class Base
+    def your_new_browser?(expected_version = nil)
+      YourNewBrowser.new(ua).match? && detect_version?(full_version, expected_version)
+    end
+  end
+
+  class YourNewBrowser < Base
+    VERSION_REGEX = %r[YourNewBrowser/([\d.]+)]
+    MATCH_REGEX = /YourNewBrowser/
+
+    def id
+      :your_new_browser
+    end
+
+    def name
+      "Your New Browser"
+    end
+
+    def full_version
+      ua[VERSION_REGEX, 1] || "0.0"
+    end
+
+    def match?
+      ua =~ MATCH_REGEX
+    end
+  end
+end
+```
+
+3. Add `require "browser/your_new_browser"` to `lib/browser.rb`.
+4. Add tests for this new functionality.
+
+Don't forget to add a new entry to `CHANGELOG.md`.
+
 #### Adding a new bot
 
 1. Add the user agent to `test/ua_bots.yml`.
