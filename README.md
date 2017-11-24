@@ -423,17 +423,18 @@ module Browser
   class YourNewBrowser < Base
     VERSION_REGEX = %r[YourNewBrowser/([\d.]+)]
     MATCH_REGEX = /YourNewBrowser/
+    NAME = "Your New Browser".freeze
 
     def id
       :your_new_browser
     end
 
     def name
-      "Your New Browser"
+      NAME
     end
 
     def full_version
-      ua[VERSION_REGEX, 1] || "0.0"
+      ua[VERSION_REGEX, 1] || DEFAULT_FULL_VERSION
     end
 
     def match?
