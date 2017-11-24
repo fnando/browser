@@ -308,6 +308,43 @@ end
 
 #### Troubleshooting
 
+#### `browser.modern?` and `Browser.modern_rules` were removed
+
+Create a class that wraps the logic you want (e.g. a Rails helper method instantiates a class and passes the browser object to it. An example:
+
+```ruby
+class ModernBrowser
+  def initialize(browser)
+    @browser = browser
+  end
+
+  def modern?
+    # add your rules here
+  end
+end
+
+# app/helpers/application_helper.rb
+module ApplicationHelper
+  def modern_browser?
+    ModernBrowser.new(browser).modern?
+  end
+end
+```
+
+If you depend on the `modern` meta name, you can use something similar:
+
+```ruby
+module ApplicationHelper
+  def modern_browser?; end
+
+  def browser_meta
+    meta = browser.meta
+    meta << "modern" if modern_browser?
+    meta
+  end
+end
+```
+
 #### `NoMethodError: undefined method 'detect_empty_ua!'`
 
 Empty user agents are detected as bots by default. You don't have to call `Browser::Bot.detect_empty_ua!` anymore.

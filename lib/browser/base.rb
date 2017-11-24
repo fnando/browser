@@ -56,11 +56,6 @@ module Browser
       @device ||= Device.new(self)
     end
 
-    # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
-    def modern?
-      Browser.modern_rules.any? {|rule| rule === self } # rubocop:disable Metrics/LineLength, Style/CaseEquality
-    end
-
     # Detect if browser is Microsoft Internet Explorer.
     def ie?(expected_version = nil)
       InternetExplorer.new(ua).match? &&

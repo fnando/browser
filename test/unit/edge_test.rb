@@ -12,7 +12,6 @@ class EdgeTest < ActionController::TestCase
     assert_equal "12", browser.version
     assert browser.platform.windows10?
     assert browser.edge?
-    assert browser.modern?
     refute browser.webkit?
     refute browser.chrome?
     refute browser.safari?
@@ -30,7 +29,6 @@ class EdgeTest < ActionController::TestCase
     assert_equal "7", browser.msie_version
     assert browser.edge?
     assert browser.compatibility_view?
-    refute browser.modern?
     refute browser.webkit?
     refute browser.chrome?
     refute browser.safari?
@@ -47,7 +45,6 @@ class EdgeTest < ActionController::TestCase
     refute browser.platform.windows10?
     assert browser.platform.windows_phone?
     assert browser.edge?
-    assert browser.modern?
     refute browser.webkit?
     refute browser.chrome?
     refute browser.safari?

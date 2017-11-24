@@ -36,7 +36,6 @@ class MetaTest < Minitest::Test
     assert meta.include?("chrome")
     assert meta.include?("webkit")
     assert meta.include?("mac")
-    assert meta.include?("modern")
   end
 
   test "returns string representation for mobile" do

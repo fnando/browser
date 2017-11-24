@@ -9,7 +9,6 @@ class IosTest < Minitest::Test
     assert_equal "Safari", browser.name
     assert browser.safari?
     assert browser.webkit?
-    assert browser.modern?
     assert browser.platform.ios?
     refute browser.platform.mac?
     assert_equal "3.0", browser.full_version
@@ -22,7 +21,6 @@ class IosTest < Minitest::Test
     assert_equal "Safari", browser.name
     assert browser.safari?
     assert browser.webkit?
-    assert browser.modern?
     assert_equal "5.0.1", browser.full_version
     assert_equal "5", browser.version
   end
@@ -56,7 +54,6 @@ class IosTest < Minitest::Test
     assert_equal "Safari", browser.name
     assert browser.safari?
     assert browser.webkit?
-    assert browser.modern?
     assert browser.platform.ios?
     refute browser.platform.mac?
     assert_equal "4.0.4", browser.full_version
@@ -119,7 +116,6 @@ class IosTest < Minitest::Test
     assert meta.include?("ios")
     assert meta.include?("safari")
     assert meta.include?("safari3")
-    assert meta.include?("modern")
     assert meta.include?("mobile")
     refute meta.include?("tablet")
   end
@@ -131,7 +127,6 @@ class IosTest < Minitest::Test
     assert meta.include?("webkit")
     assert meta.include?("ios")
     assert meta.include?("safari")
-    assert meta.include?("modern")
     assert meta.include?("tablet")
     refute meta.include?("mobile")
   end

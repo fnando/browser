@@ -9,7 +9,6 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(6)
-    refute browser.modern?
     assert_equal "6.0", browser.full_version
     assert_equal "6", browser.version
   end
@@ -20,7 +19,6 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(7)
-    refute browser.modern?
     assert_equal "7.0", browser.full_version
     assert_equal "7", browser.version
   end
@@ -31,7 +29,6 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(8)
-    refute browser.modern?
     refute browser.compatibility_view?
     assert_equal "8.0", browser.full_version
     assert_equal "8", browser.version
@@ -43,7 +40,6 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(8)
-    refute browser.modern?
     assert browser.compatibility_view?
     assert_equal "8.0", browser.full_version
     assert_equal "8", browser.version
@@ -57,7 +53,6 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(9)
-    assert browser.modern?
     refute browser.compatibility_view?
     assert_equal "9.0", browser.full_version
     assert_equal "9", browser.version
@@ -69,7 +64,6 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(9)
-    refute browser.modern?
     assert browser.compatibility_view?
     assert_equal "9.0", browser.full_version
     assert_equal "9", browser.version
@@ -83,7 +77,6 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(10)
-    assert browser.modern?
     refute browser.compatibility_view?
     assert_equal "10.0", browser.full_version
     assert_equal "10", browser.version
@@ -95,7 +88,6 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(10)
-    refute browser.modern?
     assert browser.compatibility_view?
     assert_equal "10.0", browser.full_version
     assert_equal "10", browser.version
@@ -109,7 +101,6 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(11)
-    assert browser.modern?
     refute browser.compatibility_view?
     assert_equal "11.0", browser.full_version
     assert_equal "11", browser.version
@@ -121,7 +112,6 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(11)
-    refute browser.modern?
     assert browser.compatibility_view?
     assert_equal "11.0", browser.full_version
     assert_equal "11", browser.version
@@ -145,7 +135,6 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(11)
-    assert browser.modern?
     refute browser.compatibility_view?
     refute browser.platform.windows_rt?
     assert browser.platform.windows_touchscreen_desktop?
@@ -166,7 +155,6 @@ class IeTest < Minitest::Test
     refute browser.platform.windows10?
     refute browser.platform.windows_phone?
     refute browser.edge?
-    refute browser.modern?
     refute browser.device.mobile?
     refute browser.webkit?
     refute browser.chrome?

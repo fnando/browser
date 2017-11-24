@@ -35,29 +35,6 @@ module Browser
     ]
   end
 
-  # Set the rules that define a modern browser.
-  # A rule must be a proc/lambda or any object that implements the method
-  # === and accepts the browser object.
-  #
-  # To redefine all rules, clear the existing rules before adding your own.
-  #
-  #   # Only Chrome Canary is considered modern.
-  #   Browser.modern_rules.clear
-  #   Browser.modern_rules << -> b { b.chrome? && b.version >= "37" }
-  #
-  def self.modern_rules
-    @modern_rules ||= []
-  end
-
-  modern_rules.tap do |rules|
-    rules << ->(b) { b.webkit? }
-    rules << ->(b) { b.firefox? && b.version.to_i >= 17 }
-    rules << ->(b) { b.ie? && b.version.to_i >= 9 && !b.compatibility_view? }
-    rules << ->(b) { b.edge? && !b.compatibility_view? }
-    rules << ->(b) { b.opera? && b.version.to_i >= 12 }
-    rules << ->(b) { b.firefox? && b.device.tablet? && b.platform.android? && b.version.to_i >= 14 } # rubocop:disable Metrics/LineLength
-  end
-
   def self.new(user_agent, **kwargs)
     matchers
       .map {|klass| klass.new(user_agent || EMPTY_STRING, **kwargs) }

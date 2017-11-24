@@ -10,7 +10,6 @@ class ChromeTest < Minitest::Test
     assert browser.chrome?
     refute browser.safari?
     assert browser.webkit?
-    assert browser.modern?
     assert_equal "5.0.375.99", browser.full_version
     assert_equal "5", browser.version
   end
@@ -22,7 +21,6 @@ class ChromeTest < Minitest::Test
     assert browser.chrome?
     refute browser.safari?
     assert browser.webkit?
-    assert browser.modern?
     assert_equal "19.0.1084.60", browser.full_version
     assert_equal "19", browser.version
   end
@@ -35,7 +33,6 @@ class ChromeTest < Minitest::Test
     assert browser.platform.android?
     refute browser.safari?
     assert browser.webkit?
-    assert browser.modern?
     assert_equal "28.0.1500.94", browser.full_version
     assert_equal "28", browser.version
   end
