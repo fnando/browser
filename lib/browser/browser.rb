@@ -66,7 +66,7 @@ module Browser
     ]
   end
 
-  # Define the rules which define a modern browser.
+  # Set the rules that define a modern browser.
   # A rule must be a proc/lambda or any object that implements the method
   # === and accepts the browser object.
   #
