@@ -20,13 +20,13 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_development_dependency "bundler", ">= 0"
-  s.add_development_dependency "rake"
-  s.add_development_dependency "rails"
-  s.add_development_dependency "rack-test"
   s.add_development_dependency "minitest"
+  s.add_development_dependency "minitest-autotest"
   s.add_development_dependency "minitest-utils"
   s.add_development_dependency "pry-meta"
-  s.add_development_dependency "minitest-autotest"
-  s.add_development_dependency "codeclimate-test-reporter"
+  s.add_development_dependency "rack-test"
+  s.add_development_dependency "rails"
+  s.add_development_dependency "rake"
   s.add_development_dependency "rubocop"
+  s.add_development_dependency "simplecov"
 end

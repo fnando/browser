@@ -2,15 +2,21 @@ language: ruby
 sudo: false
 cache: bundler
 rvm:
-  - '2.4.2'
-  - '2.3.5'
+- 2.4.2
+- 2.3.5
 gemfile:
-  - Gemfile
-  - gemfiles/rails4.gemfile
-  - gemfiles/rails5.gemfile
+- Gemfile
+- gemfiles/rails4.gemfile
+- gemfiles/rails5.gemfile
 script: bundle exec rake
+before_script:
+- "curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter"
+- "chmod +x ./cc-test-reporter"
+- "./cc-test-reporter before-build"
+after_script:
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
 notifications:
   email: false
 env:
   global:
-    secure: egPPk/jMVzOoZGkk8jcf1f1N++oI4p4hqtk53T2kpHChxpmR8sP/oFlAhebvqMhM8svbQx+lWTvdxPDj9GBQGsC4ekqubV6S0MNJQS4/F41PSEU+DFUzNU1PHiDO+/0AbIheTj15UIt8IC4NVaM236HuSdMDWOjVI3ydBsgJ/GY=
+    secure: ZveOSsOC7zdZobMesdOkeeSVKpOs93AZOu8xgt8lM/x65ACgv1qoWOw356BcaR9NxGbxjYb2SOP6wg4mjyLVFrOKgHmLNTxQKnielIPrUvHT78aWnCxpAQj4eJ3P1leh/5K29OOaFruQiqkozWEGdO5YK+3/fQnvO2wmD02WhxU=
