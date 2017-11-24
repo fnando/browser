@@ -7,7 +7,7 @@ module Browser
       VERSION_MATCHER = /OS ([\d.]+)/
 
       def version
-        ua[VERSION_MATCHER, 1] || "0"
+        browser.ua[VERSION_MATCHER, 1] || "0"
       end
 
       def name
@@ -19,11 +19,11 @@ module Browser
       end
 
       def match?
-        ua =~ MATCHER
+        browser.ua =~ MATCHER
       end
 
       def device
-        ua[MATCHER, 1]
+        browser.ua[MATCHER, 1]
       end
     end
   end

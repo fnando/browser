@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /iPod/
+        browser.ua =~ /iPod/
       end
     end
   end

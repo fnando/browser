@@ -12,13 +12,7 @@ module Browser
       end
 
       def match?
-        platform.windows_rt? && ua =~ /Touch/
-      end
-
-      private
-
-      def platform
-        @platform ||= Platform.new(ua)
+        browser.platform.windows_rt? && browser.ua =~ /Touch/
       end
     end
   end

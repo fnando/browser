@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /iPad/
+        browser.ua =~ /iPad/
       end
     end
   end

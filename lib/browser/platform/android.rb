@@ -4,7 +4,7 @@ module Browser
   class Platform
     class Android < Base
       def match?
-        ua =~ /Android/
+        browser.ua =~ /Android/
       end
 
       def name
@@ -16,7 +16,7 @@ module Browser
       end
 
       def version
-        ua[/Android ([\d.]+)/, 1]
+        browser.ua[/Android ([\d.]+)/, 1]
       end
     end
   end

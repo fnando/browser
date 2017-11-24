@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Nintendo WiiU/i
+        browser.ua =~ /Nintendo WiiU/i
       end
     end
   end

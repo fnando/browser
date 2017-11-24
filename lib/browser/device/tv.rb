@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /(tv|Android.*?ADT-1|Nexus Player)/i
+        browser.ua =~ /(tv|Android.*?ADT-1|Nexus Player)/i
       end
     end
   end

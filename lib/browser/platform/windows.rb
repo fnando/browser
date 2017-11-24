@@ -4,7 +4,7 @@ module Browser
   class Platform
     class Windows < Base
       def version
-        ua[/Windows NT\s*([0-9_\.]+)?/, 1] || "0"
+        browser.ua[/Windows NT\s*([0-9_\.]+)?/, 1] || "0"
       end
 
       def name
@@ -16,7 +16,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Windows/
+        browser.ua =~ /Windows/
       end
     end
   end

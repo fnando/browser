@@ -16,7 +16,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Linux/
+        browser.ua =~ /Linux/
       end
     end
   end

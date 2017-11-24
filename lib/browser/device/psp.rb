@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /PlayStation Portable/
+        browser.ua =~ /PlayStation Portable/
       end
     end
   end

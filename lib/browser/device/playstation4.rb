@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /PLAYSTATION 4/i
+        browser.ua =~ /PLAYSTATION 4/i
       end
     end
   end

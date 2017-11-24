@@ -10,7 +10,7 @@ module Browser
     attr_reader :accept_language
 
     def initialize(ua, accept_language: nil)
-      @ua = ua
+      @ua = ua.strip
       @accept_language = AcceptLanguage.parse(accept_language)
     end
 
@@ -18,7 +18,6 @@ module Browser
     def meta
       Meta.get(self)
     end
-
     alias_method :to_a, :meta
 
     # Return meta representation as string.
@@ -32,12 +31,12 @@ module Browser
 
     # Return the platform.
     def platform
-      @platform ||= Platform.new(ua)
+      @platform ||= Platform.new(self)
     end
 
     # Return the bot info.
     def bot
-      @bot ||= Bot.new(ua)
+      @bot ||= Bot.new(self)
     end
 
     # Detect if current user agent is from a bot.
@@ -47,7 +46,7 @@ module Browser
 
     # Return the device info.
     def device
-      @device ||= Device.new(ua)
+      @device ||= Device.new(self)
     end
 
     # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
@@ -158,7 +157,6 @@ module Browser
       MicroMessenger.new(ua).match? &&
         detect_version?(full_version, expected_version)
     end
-
     alias_method :wechat?, :micro_messenger?
 
     def weibo?(expected_version = nil)

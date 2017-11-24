@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Kindle Fire|KFTT/
+        browser.ua =~ /Kindle Fire|KFTT/
       end
     end
   end

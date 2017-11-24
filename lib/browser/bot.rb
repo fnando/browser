@@ -2,12 +2,16 @@
 
 module Browser
   class Bot
-    def self.detect_empty_ua!
-      @detect_empty_ua = true
+    def self.allow_empty_ua!
+      @allow_empty_ua = true
     end
 
-    def self.detect_empty_ua?
-      @detect_empty_ua
+    def self.disallow_empty_ua!
+      @allow_empty_ua = false
+    end
+
+    def self.allow_empty_ua?
+      @allow_empty_ua
     end
 
     def self.bots
@@ -24,14 +28,17 @@ module Browser
                           .load_file(Browser.root.join("search_engines.yml"))
     end
 
-    attr_reader :ua
+    attr_reader :browser
 
-    def initialize(ua)
-      @ua = ua
+    def initialize(browser)
+      @browser = browser
     end
 
     def bot?
-      bot_with_empty_ua? || (!bot_exception? && detect_bot?)
+      return if allow_empty_ua?
+      return if bot_exception?
+
+      browser.ua.empty? || detect_bot? || unknown?
     end
 
     def search_engine?
@@ -40,14 +47,16 @@ module Browser
 
     def name
       return unless bot?
-      return "Generic Bot" if bot_with_empty_ua?
-      self.class.bots.find {|key, _| downcased_ua.include?(key) }.last
+
+      _, name = self.class.bots.find {|key, _| downcased_ua.include?(key) }
+
+      name || "Generic Bot"
     end
 
     private
 
-    def bot_with_empty_ua?
-      self.class.detect_empty_ua? && ua.strip == ""
+    def allow_empty_ua?
+      self.class.allow_empty_ua? && browser.ua.empty?
     end
 
     def bot_exception?
@@ -59,7 +68,11 @@ module Browser
     end
 
     def downcased_ua
-      @downcased_ua ||= ua.downcase
+      @downcased_ua ||= browser.ua.downcase
+    end
+
+    def unknown?
+      browser.device.unknown? && browser.platform.other?
     end
   end
 end

@@ -15,32 +15,31 @@ class BotsTest < Minitest::Test
     refute browser.bot?
   end
 
-  test "doesn't consider empty UA as bot" do
-    browser = Browser.new("")
-    refute browser.bot?
-  end
-
-  test "allows setting empty string as bots" do
-    Browser::Bot.detect_empty_ua!
+  test "considers empty UA as bot" do
     browser = Browser.new("")
 
     assert browser.bot?
+    assert_equal browser.bot.name, "Generic Bot"
   end
 
-  test "allows setting nil as user agent for bots" do
-    browser = Browser.new(nil)
+  test "accepts empty string as user agents" do
+    Browser::Bot.allow_empty_ua!
+    browser = Browser.new("")
+
     refute browser.bot?
 
-    Browser::Bot.detect_empty_ua!
+    Browser::Bot.disallow_empty_ua!
+  end
+
+  test "accepts nil as user agent for bots" do
     browser = Browser.new(nil)
     assert browser.bot?
-  end
 
-  test "doesn't detect mozilla as a bot when considering empty UA" do
-    Browser::Bot.detect_empty_ua!
-    browser = Browser.new("Mozilla")
-
+    Browser::Bot.allow_empty_ua!
+    browser = Browser.new(nil)
     refute browser.bot?
+
+    Browser::Bot.disallow_empty_ua!
   end
 
   test "returns bot name" do
@@ -49,13 +48,6 @@ class BotsTest < Minitest::Test
 
     browser = Browser.new(Browser["FACEBOOK_BOT"])
     assert_equal "Facebook Bot", browser.bot.name
-  end
-
-  test "returns bot name (empty string ua detection enabled)" do
-    Browser::Bot.detect_empty_ua!
-    browser = Browser.new("")
-
-    assert_equal browser.bot.name, "Generic Bot"
   end
 
   test "returns nil for non-bots" do
@@ -84,7 +76,6 @@ class BotsTest < Minitest::Test
     refute browser.platform.windows10?
     refute browser.platform.windows_phone?
     refute browser.edge?
-    refute browser.modern?
     refute browser.device.mobile?
     refute browser.webkit?
     refute browser.chrome?
@@ -99,12 +90,17 @@ class BotsTest < Minitest::Test
   end
 
   test "extends list in runtime" do
-    browser = Browser.new("Faraday/0.9.2")
+    browser = Browser.new(Browser["CHROME"])
     refute browser.bot?
 
-    Browser::Bot.bots["faraday"] = "Faraday"
+    Browser::Bot.bots["chrome"] = "Chrome"
     assert browser.bot?
 
-    Browser::Bot.bots.delete("faraday")
+    Browser::Bot.bots.delete("chrome")
+  end
+
+  test "detects unknown device/platform as bot" do
+    browser = Browser.new("Mozilla/4.0 (compatible;)")
+    assert browser.bot?
   end
 end

@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased [BREAKING CHANGE]
+
+- Remove Browser::Bot.detect_empty_ua! in favor of Browser::Bot.allow_empty_ua!
+- Detect unknown platform/device as bots.
+
 ## v2.5.3
 
 - Add Google Site Verification to the bot list.
