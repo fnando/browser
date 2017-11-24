@@ -4,13 +4,14 @@ module Browser
   class Platform
     class Linux < Base
       MATCH_REGEX = /Linux/
+      NAME = "Generic Linux".freeze
 
       def version
-        "0"
+        DEFAULT_VERSION
       end
 
       def name
-        "Generic Linux"
+        NAME
       end
 
       def id

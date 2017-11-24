@@ -4,13 +4,14 @@ module Browser
   class Platform
     class WindowsMobile < Base
       MATCH_REGEX = /Windows CE/
+      NAME = "Windows Mobile".freeze
 
       def version
-        "0"
+        DEFAULT_VERSION
       end
 
       def name
-        "Windows Mobile"
+        NAME
       end
 
       def id

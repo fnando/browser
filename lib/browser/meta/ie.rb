@@ -3,6 +3,9 @@
 module Browser
   module Meta
     class IE < Base
+      IE_LT_8 = "oldie lt-ie8 lt-ie9".freeze
+      IE_EQ_8 = "lt-ie9".freeze
+
       def version
         @version ||= browser.version.to_i
       end
@@ -11,9 +14,9 @@ module Browser
         return unless browser.ie?
 
         meta = []
-        meta << "oldie lt-ie8 lt-ie9" if version < 8
-        meta << "lt-ie9" if version == 8
-        meta.join(" ")
+        meta << IE_LT_8 if version < 8
+        meta << IE_EQ_8 if version == 8
+        meta.join(SPACE)
       end
     end
   end

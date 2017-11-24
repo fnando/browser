@@ -11,17 +11,18 @@ module Browser
   class Nokia < Base
     VERSION_REGEX = %r[S40OviBrowser/([\d.]+)]
     MATCH_REGEX = /S40OviBrowser/
+    NAME = "Nokia S40 Ovi Browser".freeze
 
     def id
       :nokia
     end
 
     def name
-      "Nokia S40 Ovi Browser"
+      NAME
     end
 
     def full_version
-      ua[VERSION_REGEX, 1] || "0.0"
+      ua[VERSION_REGEX, 1] || DEFAULT_FULL_VERSION
     end
 
     def match?

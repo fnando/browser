@@ -22,7 +22,7 @@ module Browser
     end
 
     def webkit_full_version
-      ua[WEBKIT_VERSION_REGEX, 1] || "0.0"
+      ua[WEBKIT_VERSION_REGEX, 1] || DEFAULT_FULL_VERSION
     end
   end
 
@@ -32,20 +32,21 @@ module Browser
     WEBKIT_REGEX = %r[AppleWebKit/([\d.]+)]
     MATCH_SAFARI_REGEX = /Safari/
     MATCH_EXCLUSION_REGEX = /Chrome|CriOS|PhantomJS|FxiOS/
+    NAME = "Safari".freeze
 
     def id
       :safari
     end
 
     def name
-      "Safari"
+      NAME
     end
 
     def full_version
       ua[VERSION_REGEX, 1] ||
         ua[SAFARI_REGEX, 1] ||
         ua[WEBKIT_REGEX, 1] ||
-        "0.0"
+        DEFAULT_FULL_VERSION
     end
 
     def match?

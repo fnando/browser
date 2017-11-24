@@ -19,7 +19,7 @@ module Browser
       ua[MQQ_VERSION_REGEX, 1] ||
         ua[QQ_LITE_VERSION_REGEX, 1] ||
         ua[QQ_VERSION_REGEX, 1] ||
-        "0.0"
+        DEFAULT_FULL_VERSION
     end
 
     def match?

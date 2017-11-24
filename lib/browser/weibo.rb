@@ -10,17 +10,18 @@ module Browser
   class Weibo < Base
     MATCH_REGEX = /__weibo__/i
     VERSION_REGEX = %r[(?:__weibo__)([\d.]+)]i
+    NAME = "Weibo".freeze
 
     def id
       :weibo
     end
 
     def name
-      "Weibo"
+      NAME
     end
 
     def full_version
-      ua[VERSION_REGEX, 1] || "0.0"
+      ua[VERSION_REGEX, 1] || DEFAULT_FULL_VERSION
     end
 
     def match?

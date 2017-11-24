@@ -5,13 +5,14 @@ module Browser
     class Android < Base
       MATCH_REGEX = /Android/
       VERSION_REGEX = /Android ([\d.]+)/
+      NAME = "Android".freeze
 
       def match?
         browser.ua =~ MATCH_REGEX
       end
 
       def name
-        "Android"
+        NAME.freeze
       end
 
       def id

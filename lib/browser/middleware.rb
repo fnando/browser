@@ -11,6 +11,11 @@ module Browser
     # Detect the ACCEPT header. IE8 send */*.
     ACCEPT_REGEX = %r[(text/html|\*/\*)]
 
+    CONTENT_TYPE = "Content-Type".freeze
+    TEXT_HTML = "text/html".freeze
+    LOCATION = "Location".freeze
+    ACCEPT = "HTTP_ACCEPT".freeze
+
     def initialize(app, &block)
       raise ArgumentError, "Browser::Middleware requires a block" unless block
 
@@ -47,7 +52,7 @@ module Browser
     end
 
     def redirect(path)
-      [302, {"Content-Type" => "text/html", "Location" => path}, []]
+      [302, {CONTENT_TYPE => TEXT_HTML, LOCATION => path}, []]
     end
 
     def run_app(env)
@@ -59,7 +64,7 @@ module Browser
     end
 
     def html?(request)
-      request.env["HTTP_ACCEPT"].to_s.match(ACCEPT_REGEX)
+      request.env[ACCEPT].to_s.match(ACCEPT_REGEX)
     end
 
     def assets?(request)

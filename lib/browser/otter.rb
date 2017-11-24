@@ -12,17 +12,18 @@ module Browser
   class Otter < Base
     VERSION_REGEX = %r[Otter/([\d.]+)]
     MATCH_REGEX = /Otter/
+    NAME = "Otter".freeze
 
     def id
       :otter
     end
 
     def name
-      "Otter"
+      NAME
     end
 
     def full_version
-      ua[VERSION_REGEX, 1] || "0.0"
+      ua[VERSION_REGEX, 1] || DEFAULT_FULL_VERSION
     end
 
     def match?

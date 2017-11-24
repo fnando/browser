@@ -6,7 +6,6 @@ module Browser
 
     QUICKTIME_REGEX = /QuickTime/i
     CORE_MEDIA_REGEX = /CoreMedia/
-    YANDEX_REGEX = /YaBrowser/
 
     attr_reader :ua
 
@@ -26,11 +25,11 @@ module Browser
 
     # Return meta representation as string.
     def to_s
-      meta.to_a.join(" ")
+      meta.to_a.join(SPACE)
     end
 
     def version
-      full_version.split(".").first
+      full_version.split(DOT).first || DEFAULT_VERSION
     end
 
     # Detect if browser is QuickTime

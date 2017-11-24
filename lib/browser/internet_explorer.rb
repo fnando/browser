@@ -13,11 +13,11 @@ module Browser
     end
 
     def msie_full_version
-      "0.0"
+      DEFAULT_FULL_VERSION
     end
 
     def msie_version
-      "0"
+      DEFAULT_VERSION
     end
   end
 
@@ -36,13 +36,14 @@ module Browser
     MSIE_REGEX = /MSIE/
     OPERA_REGEX = /Opera/
     MODERN_IE_REGEX = %r[Trident/.*?; rv:(.*?)]
+    NAME = "Internet Explorer".freeze
 
     def id
       :ie
     end
 
     def name
-      "Internet Explorer"
+      NAME
     end
 
     def full_version
@@ -51,11 +52,11 @@ module Browser
 
     def msie_full_version
       (ua.match(MSIE_VERSION_REGEX) && ($1 || $2)) ||
-        "0.0"
+        DEFAULT_FULL_VERSION
     end
 
     def msie_version
-      msie_full_version.split(".").first
+      msie_full_version.split(DOT).first
     end
 
     def match?

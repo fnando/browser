@@ -5,12 +5,14 @@ module Browser
     class Context
       attr_reader :browser, :request
 
+      ACCEPT_LANGUAGE = "HTTP_ACCEPT_LANGUAGE".freeze
+
       def initialize(request)
         @request = request
 
         @browser = Browser.new(
           request.user_agent,
-          accept_language: request.env["HTTP_ACCEPT_LANGUAGE"]
+          accept_language: request.env[ACCEPT_LANGUAGE]
         )
       end
 

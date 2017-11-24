@@ -19,17 +19,20 @@ module Browser
     OPR_REGEX = %r[OPR/([\d.]+)]
     VERSION_REGEX = %r[Version/([\d.]+)]
     MATCH_REGEX = /(Opera|OPR\/)/
+    NAME = "Opera".freeze
 
     def id
       :opera
     end
 
     def name
-      "Opera"
+      NAME
     end
 
     def full_version
-      ua[OPR_REGEX, 1] || ua[VERSION_REGEX, 1] || "0.0"
+      ua[OPR_REGEX, 1] ||
+        ua[VERSION_REGEX, 1] ||
+        DEFAULT_FULL_VERSION
     end
 
     def match?

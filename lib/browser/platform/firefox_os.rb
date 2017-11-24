@@ -5,13 +5,14 @@ module Browser
     class FirefoxOS < Base
       MATCH_EXCLUSION_REGEX = /(Android|Linux|BlackBerry|Windows|Mac)/
       MATCH_REGEX = /Firefox/
+      NAME = "Firefox OS".freeze
 
       def version
-        "0"
+        DEFAULT_VERSION
       end
 
       def name
-        "Firefox OS"
+        NAME
       end
 
       def id

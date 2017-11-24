@@ -5,13 +5,14 @@ module Browser
     class ChromeOS < Base
       MATCH_REGEX = /CrOS/
       VERSION_REGEX = /CrOS(?: x86_64)? ([\d.]+)/
+      NAME = "Chrome OS".freeze
 
       def match?
         browser.ua =~ MATCH_REGEX
       end
 
       def name
-        "Chrome OS"
+        NAME
       end
 
       def id

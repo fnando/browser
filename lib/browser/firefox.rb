@@ -11,17 +11,18 @@ module Browser
   class Firefox < Base
     VERSION_REGEX = %r[(?:Firefox|FxiOS)/([\d.]+)]
     MATCH_REGEX = /Firefox|FxiOS/
+    NAME = "Firefox".freeze
 
     def id
       :firefox
     end
 
     def name
-      "Firefox"
+      NAME
     end
 
     def full_version
-      ua[VERSION_REGEX, 1] || "0.0"
+      ua[VERSION_REGEX, 1] || DEFAULT_FULL_VERSION
     end
 
     def match?

@@ -5,19 +5,20 @@ module Browser
     BB_VERSION_REGEX = %r[BlackBerry[\da-z]+/([\d.]+)]
     VERSION_REGEX = %r[Version/([\d.]+)]
     MATCH_REGEX = /BlackBerry|BB10/
+    NAME = "BlackBerry".freeze
 
     def id
       :blackberry
     end
 
     def name
-      "BlackBerry"
+      NAME
     end
 
     def full_version
       ua[BB_VERSION_REGEX, 1] ||
         ua[VERSION_REGEX, 1] ||
-        "0.0"
+        DEFAULT_FULL_VERSION
     end
 
     def match?

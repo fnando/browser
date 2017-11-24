@@ -12,17 +12,18 @@ module Browser
   class UCBrowser < Base
     VERSION_REGEX = %r[UCBrowser/([\d.]+)]
     MATCH_REGEX = /UCBrowser/
+    NAME = "UCBrowser".freeze
 
     def id
       :uc_browser
     end
 
     def name
-      "UCBrowser"
+      NAME
     end
 
     def full_version
-      ua[VERSION_REGEX, 1] || "0.0"
+      ua[VERSION_REGEX, 1] || DEFAULT_FULL_VERSION
     end
 
     def match?

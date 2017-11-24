@@ -12,17 +12,18 @@ module Browser
   class PhantomJS < Base
     VERSION_REGEX = %r[PhantomJS/([\d.]+)]
     MATCH_REGEX = /PhantomJS/
+    NAME = "PhantomJS".freeze
 
     def id
       :phantom_js
     end
 
     def name
-      "PhantomJS"
+      NAME
     end
 
     def full_version
-      ua[VERSION_REGEX, 1] || "0.0"
+      ua[VERSION_REGEX, 1] || DEFAULT_FULL_VERSION
     end
 
     def match?

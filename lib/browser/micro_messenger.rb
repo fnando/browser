@@ -13,17 +13,18 @@ module Browser
   class MicroMessenger < Base
     VERSION_REGEX = %r[(?:MicroMessenger)/([\d.]+)]i
     MATCH_REGEX = /MicroMessenger/i
+    NAME = "MicroMessenger".freeze
 
     def id
       :micro_messenger
     end
 
     def name
-      "MicroMessenger"
+      NAME
     end
 
     def full_version
-      ua[VERSION_REGEX, 1] || "0.0"
+      ua[VERSION_REGEX, 1] || DEFAULT_FULL_VERSION
     end
 
     def match?

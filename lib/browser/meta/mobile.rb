@@ -3,8 +3,10 @@
 module Browser
   module Meta
     class Mobile < Base
+      META = "mobile".freeze
+
       def meta
-        "mobile" if browser.device.mobile?
+        META if browser.device.mobile?
       end
     end
 

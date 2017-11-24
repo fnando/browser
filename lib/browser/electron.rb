@@ -11,18 +11,19 @@ module Browser
   class Electron < Base
     VERSION_REGEX = %r[Electron/([\d.]+)]
     MATCH_REGEX = /Electron/
+    NAME = "Electron".freeze
 
     def id
       :electron
     end
 
     def name
-      "Electron"
+      NAME
     end
 
     def full_version
       ua[VERSION_REGEX, 1] ||
-        "0.0"
+        DEFAULT_FULL_VERSION
     end
 
     def match?

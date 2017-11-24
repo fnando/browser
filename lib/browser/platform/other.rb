@@ -3,12 +3,14 @@
 module Browser
   class Platform
     class Other < Base
+      NAME = "Other".freeze
+
       def version
-        "0"
+        DEFAULT_VERSION
       end
 
       def name
-        "Other"
+        NAME
       end
 
       def id

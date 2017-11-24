@@ -3,8 +3,10 @@
 module Browser
   module Meta
     class IOS < Base
+      META = "ios".freeze
+
       def meta
-        "ios" if browser.platform.ios?
+        META if browser.platform.ios?
       end
     end
 

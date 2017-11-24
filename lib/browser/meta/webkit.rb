@@ -3,8 +3,10 @@
 module Browser
   module Meta
     class Webkit < Base
+      META = "webkit".freeze
+
       def meta
-        "webkit" if browser.webkit?
+        META if browser.webkit?
       end
     end
   end

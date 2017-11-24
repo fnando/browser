@@ -11,13 +11,14 @@ module Browser
   class Edge < InternetExplorer
     VERSION_REGEX = %r[Edge/([\d.]+)]
     MATCH_REGEX = %r[(Edge/[\d.]+|Trident/8)]
+    NAME = "Microsoft Edge".freeze
 
     def id
       :edge
     end
 
     def name
-      "Microsoft Edge"
+      NAME
     end
 
     def full_version

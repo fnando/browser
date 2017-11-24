@@ -39,6 +39,7 @@ module Browser
     WINDOWS_64_REGEX = /(Win64|x64|Windows NT 5\.2)/
     WINDOWS_WOW64_REGEX = /WOW64/i
     WINDOWS_TOUCH_REGEX = /Touch/
+    SAFARI = "Safari".freeze
 
     attr_reader :browser
 
@@ -141,7 +142,7 @@ module Browser
 
     # Detect if running on iOS app webview.
     def ios_app?
-      ios? && !browser.ua.include?("Safari")
+      ios? && !browser.ua.include?(SAFARI)
     end
 
     # Detect if is iOS webview.

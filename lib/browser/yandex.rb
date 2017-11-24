@@ -4,19 +4,21 @@ module Browser
   class Base
     # Detect if browser is Yandex.
     def yandex?(expected_version = nil)
-      ua =~ YANDEX_REGEX && detect_version?(full_version, expected_version)
+      ua =~ Yandex::MATCH_REGEX &&
+        detect_version?(full_version, expected_version)
     end
   end
 
   class Yandex < Chromium
     MATCH_REGEX = /YaBrowser/
+    NAME = "Yandex".freeze
 
     def id
       :yandex
     end
 
     def name
-      "Yandex"
+      NAME
     end
 
     def match?

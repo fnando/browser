@@ -14,6 +14,8 @@ module Browser
   end
 
   class Bot
+    DEFAULT_NAME = "Generic Bot".freeze
+
     def self.allow_empty_ua!
       @allow_empty_ua = true
     end
@@ -65,7 +67,7 @@ module Browser
 
       _, name = self.class.bots.find {|key, _| downcased_ua.include?(key) }
 
-      name || "Generic Bot"
+      name || DEFAULT_NAME
     end
 
     private

@@ -10,13 +10,14 @@ module Browser
 
   class Chrome < Chromium
     MATCH_EXCLUSION_REGEX = /YaBrowser/
+    NAME = "Chrome".freeze
 
     def id
       :chrome
     end
 
     def name
-      "Chrome"
+      NAME
     end
 
     def match?

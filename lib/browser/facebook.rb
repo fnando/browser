@@ -12,13 +12,14 @@ module Browser
   class Facebook < Base
     VERSION_REGEX = %r[FBAV/([\d.]+)]
     MATCH_REGEX = /FBAV/
+    NAME = "Facebook".freeze
 
     def id
       :facebook
     end
 
     def name
-      "Facebook"
+      NAME
     end
 
     def full_version

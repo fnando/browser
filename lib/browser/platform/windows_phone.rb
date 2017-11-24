@@ -5,13 +5,14 @@ module Browser
     class WindowsPhone < Base
       MATCH_REGEX = /Windows Phone/
       VERSION_REGEX = /Windows Phone ([\d.]+)/
+      NAME = "Windows Phone".freeze
 
       def version
-        browser.ua[VERSION_REGEX, 1]
+        browser.ua[VERSION_REGEX, 1] || DEFAULT_VERSION
       end
 
       def name
-        "Windows Phone"
+        NAME
       end
 
       def id

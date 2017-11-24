@@ -5,13 +5,14 @@ module Browser
     class Windows < Base
       VERSION_REGEX = /Windows NT\s*([0-9_\.]+)?/
       MATCH_REGEX = /Windows/
+      NAME = "Windows".freeze
 
       def version
-        browser.ua[VERSION_REGEX, 1] || "0"
+        browser.ua[VERSION_REGEX, 1] || DEFAULT_VERSION
       end
 
       def name
-        "Windows"
+        NAME
       end
 
       def id

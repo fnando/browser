@@ -5,6 +5,7 @@ module Browser
     class AdobeAir < Base
       MATCH_REGEX = /AdobeAIR/
       VERSION_REGEX = %r[AdobeAIR/([\d.]+)]
+      NAME = "Adobe AIR".freeze
 
       def match?
         browser.ua =~ MATCH_REGEX
@@ -15,7 +16,7 @@ module Browser
       end
 
       def name
-        "Adobe AIR"
+        NAME
       end
 
       def id

@@ -14,13 +14,14 @@ module Browser
     SAFARI_VERSION_REGEX = %r[Safari/([\d.]+)]
     WEBKIT_VERSION_REGEX = %r[AppleWebKit/([\d.]+)]
     MATCH_REGEX = /Chrome|CriOS/
+    NAME = "Chromium".freeze
 
     def id
       :chromium
     end
 
     def name
-      "Chromium"
+      NAME
     end
 
     def full_version
@@ -29,7 +30,7 @@ module Browser
         ua[CRIOS_VERSION_REGEX, 1] ||
         ua[SAFARI_VERSION_REGEX, 1] ||
         ua[WEBKIT_VERSION_REGEX, 1] ||
-        "0.0"
+        DEFAULT_FULL_VERSION
     end
 
     def match?

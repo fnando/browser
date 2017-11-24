@@ -3,8 +3,10 @@
 module Browser
   module Meta
     class Proxy < Base
+      META = "proxy".freeze
+
       def meta
-        "proxy" if browser.proxy?
+        META if browser.proxy?
       end
     end
 

@@ -3,8 +3,10 @@
 module Browser
   module Meta
     class Tablet < Base
+      META = "tablet".freeze
+
       def meta
-        "tablet" if browser.device.tablet?
+        META if browser.device.tablet?
       end
     end
 
