@@ -4,3 +4,4 @@ doc
 log
 *.lock
 bin/
+/tmp

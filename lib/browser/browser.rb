@@ -33,6 +33,7 @@ require "browser/middleware"
 require "browser/platform"
 require "browser/device"
 require "browser/meta"
+require "browser/matchers"
 
 module Browser
   EMPTY_STRING = "".freeze
@@ -45,6 +46,7 @@ module Browser
   # Order is important.
   def self.matchers
     @matchers ||= [
+      MicroMessenger,
       Nokia,
       UCBrowser,
       PhantomJS,
@@ -61,7 +63,6 @@ module Browser
       Electron,             # must be placed before Chrome and Safari
       Chrome,
       Safari,
-      MicroMessenger,
       Generic
     ]
   end
