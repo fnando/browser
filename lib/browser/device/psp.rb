@@ -3,6 +3,8 @@
 module Browser
   class Device
     class PSP < Base
+      MATCH_REGEX = /PlayStation Portable/
+
       def id
         :psp
       end
@@ -12,7 +14,7 @@ module Browser
       end
 
       def match?
-        browser.ua =~ /PlayStation Portable/
+        browser.ua =~ MATCH_REGEX
       end
     end
   end

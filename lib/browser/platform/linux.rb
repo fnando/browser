@@ -3,6 +3,8 @@
 module Browser
   class Platform
     class Linux < Base
+      MATCH_REGEX = /Linux/
+
       def version
         "0"
       end
@@ -16,7 +18,7 @@ module Browser
       end
 
       def match?
-        browser.ua =~ /Linux/
+        browser.ua =~ MATCH_REGEX
       end
     end
   end

@@ -18,6 +18,18 @@ module Browser
   class Platform
     include DetectVersion
 
+    ANDROID_WEBVIEW_REGEX = /\bwv\b/
+    WINDOWS_XP_REGEX = /Windows NT 5\.[12]/
+    WINDOWS_VISTA_REGEX = /Windows NT 6\.0/
+    WINDOWS_7_REGEX = /Windows NT 6\.1/
+    WINDOWS_8_REGEX = /Windows NT 6\.[2-3]/
+    WINDOWS_81_REGEX = /Windows NT 6\.3/
+    WINDOWS_10_REGEX = /Windows NT 10/
+    WINDOWS_RT_REGEX = /ARM/
+    WINDOWS_64_REGEX = /(Win64|x64|Windows NT 5\.2)/
+    WINDOWS_WOW64_REGEX = /WOW64/i
+    WINDOWS_TOUCH_REGEX = /Touch/
+
     attr_reader :browser
 
     # Hold the list of platform matchers.
@@ -130,46 +142,46 @@ module Browser
     # Detect if in an Android app webview (Lollipop and newer)
     # https://developer.chrome.com/multidevice/user-agent#webview_user_agent
     def android_app?
-      android? && browser.ua =~ /\bwv\b/
+      android? && browser.ua =~ ANDROID_WEBVIEW_REGEX
     end
     alias_method :android_webview?, :android_app?
 
     # http://msdn.microsoft.com/fr-FR/library/ms537503.aspx#PltToken
     def windows_xp?
-      windows? && browser.ua =~ /Windows NT 5\.[12]/
+      windows? && browser.ua =~ WINDOWS_XP_REGEX
     end
 
     def windows_vista?
-      windows? && browser.ua =~ /Windows NT 6\.0/
+      windows? && browser.ua =~ WINDOWS_VISTA_REGEX
     end
 
     def windows7?
-      windows? && browser.ua =~ /Windows NT 6\.1/
+      windows? && browser.ua =~ WINDOWS_7_REGEX
     end
 
     def windows8?
-      windows? && browser.ua =~ /Windows NT 6\.[2-3]/
+      windows? && browser.ua =~ WINDOWS_8_REGEX
     end
 
     def windows8_1?
-      windows? && browser.ua =~ /Windows NT 6\.3/
+      windows? && browser.ua =~ WINDOWS_81_REGEX
     end
 
     def windows10?
-      windows? && browser.ua =~ /Windows NT 10/
+      windows? && browser.ua =~ WINDOWS_10_REGEX
     end
 
     def windows_rt?
-      windows8? && browser.ua =~ /ARM/
+      windows8? && browser.ua =~ WINDOWS_RT_REGEX
     end
 
     # Detect if current platform is Windows in 64-bit architecture.
     def windows_x64?
-      windows? && browser.ua =~ /(Win64|x64|Windows NT 5\.2)/
+      windows? && browser.ua =~ WINDOWS_64_REGEX
     end
 
     def windows_wow64?
-      windows? && browser.ua =~ /WOW64/i
+      windows? && browser.ua =~ WINDOWS_WOW64_REGEX
     end
 
     def windows_x64_inclusive?
@@ -177,7 +189,7 @@ module Browser
     end
 
     def windows_touchscreen_desktop?
-      windows? && browser.ua =~ /Touch/
+      windows? && browser.ua =~ WINDOWS_TOUCH_REGEX
     end
   end
 end

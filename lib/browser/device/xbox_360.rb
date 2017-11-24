@@ -3,6 +3,8 @@
 module Browser
   class Device
     class Xbox360 < Base
+      MATCH_REGEX = /Xbox/i
+
       def id
         :xbox_360
       end
@@ -12,7 +14,7 @@ module Browser
       end
 
       def match?
-        browser.ua =~ /Xbox/i
+        browser.ua =~ MATCH_REGEX
       end
     end
   end

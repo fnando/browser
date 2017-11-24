@@ -2,6 +2,9 @@
 
 module Browser
   class Otter < Base
+    VERSION_REGEX = %r[Otter/([\d.]+)]
+    MATCH_REGEX = /Otter/
+
     def id
       :otter
     end
@@ -11,11 +14,11 @@ module Browser
     end
 
     def full_version
-      ua[%r[Otter/([\d.]+)], 1] || "0.0"
+      ua[VERSION_REGEX, 1] || "0.0"
     end
 
     def match?
-      ua =~ /Otter/
+      ua =~ MATCH_REGEX
     end
   end
 end

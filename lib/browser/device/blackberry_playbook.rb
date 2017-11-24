@@ -3,6 +3,8 @@
 module Browser
   class Device
     class BlackBerryPlaybook < Base
+      MATCH_REGEX = /PlayBook.*?RIM Tablet/
+
       def id
         :playbook
       end
@@ -12,7 +14,7 @@ module Browser
       end
 
       def match?
-        browser.ua =~ /PlayBook.*?RIM Tablet/
+        browser.ua =~ MATCH_REGEX
       end
     end
   end

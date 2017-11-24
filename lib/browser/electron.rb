@@ -2,6 +2,9 @@
 
 module Browser
   class Electron < Base
+    VERSION_REGEX = %r[Electron/([\d.]+)]
+    MATCH_REGEX = /Electron/
+
     def id
       :electron
     end
@@ -11,12 +14,12 @@ module Browser
     end
 
     def full_version
-      ua[%r[Electron/([\d.]+)], 1] ||
+      ua[VERSION_REGEX, 1] ||
         "0.0"
     end
 
     def match?
-      ua =~ /Electron/
+      ua =~ MATCH_REGEX
     end
   end
 end

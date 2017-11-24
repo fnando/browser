@@ -3,6 +3,8 @@
 module Browser
   class Device
     class Ipad < Base
+      MATCH_REGEX = /iPad/
+
       def id
         :ipad
       end
@@ -12,7 +14,7 @@ module Browser
       end
 
       def match?
-        browser.ua =~ /iPad/
+        browser.ua =~ MATCH_REGEX
       end
     end
   end

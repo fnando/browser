@@ -1,45 +1,13 @@
 # frozen_string_literal: true
 
-require "set"
-require "yaml"
-require "pathname"
-
-require "browser/version"
-require "browser/detect_version"
-require "browser/accept_language"
-require "browser/base"
-require "browser/safari"
-require "browser/chrome"
-require "browser/internet_explorer"
-require "browser/firefox"
-require "browser/edge"
-require "browser/opera"
-require "browser/blackberry"
-require "browser/generic"
-require "browser/phantom_js"
-require "browser/uc_browser"
-require "browser/nokia"
-require "browser/micro_messenger"
-require "browser/weibo"
-require "browser/qq"
-require "browser/alipay"
-require "browser/electron"
-require "browser/facebook"
-require "browser/otter"
-
-require "browser/bot"
-require "browser/middleware"
-
-require "browser/platform"
-require "browser/device"
-require "browser/meta"
-require "browser/matchers"
-
 module Browser
   EMPTY_STRING = "".freeze
 
   def self.root
-    @root ||= Pathname.new(File.expand_path("../../..", __FILE__))
+    @root ||= begin
+      require "pathname"
+      Pathname.new(File.expand_path("../../..", __FILE__))
+    end
   end
 
   # Hold the list of browser matchers.

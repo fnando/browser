@@ -2,6 +2,9 @@
 
 module Browser
   class UCBrowser < Base
+    VERSION_REGEX = %r[UCBrowser/([\d.]+)]
+    MATCH_REGEX = /UCBrowser/
+
     def id
       :uc_browser
     end
@@ -11,11 +14,11 @@ module Browser
     end
 
     def full_version
-      ua[%r[UCBrowser/([\d.]+)], 1] || "0.0"
+      ua[VERSION_REGEX, 1] || "0.0"
     end
 
     def match?
-      ua =~ /UCBrowser/
+      ua =~ MATCH_REGEX
     end
   end
 end

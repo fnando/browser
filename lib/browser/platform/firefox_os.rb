@@ -3,6 +3,9 @@
 module Browser
   class Platform
     class FirefoxOS < Base
+      MATCH_EXCLUSION_REGEX = /(Android|Linux|BlackBerry|Windows|Mac)/
+      MATCH_REGEX = /Firefox/
+
       def version
         "0"
       end
@@ -16,8 +19,8 @@ module Browser
       end
 
       def match?
-        browser.ua !~ /(Android|Linux|BlackBerry|Windows|Mac)/ &&
-          browser.ua =~ /Firefox/
+        browser.ua !~ MATCH_EXCLUSION_REGEX &&
+          browser.ua =~ MATCH_REGEX
       end
     end
   end

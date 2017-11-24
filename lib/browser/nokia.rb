@@ -2,6 +2,9 @@
 
 module Browser
   class Nokia < Base
+    VERSION_REGEX = %r[S40OviBrowser/([\d.]+)]
+    MATCH_REGEX = /S40OviBrowser/
+
     def id
       :nokia
     end
@@ -11,11 +14,11 @@ module Browser
     end
 
     def full_version
-      ua[%r[S40OviBrowser/([\d.]+)], 1] || "0.0"
+      ua[VERSION_REGEX, 1] || "0.0"
     end
 
     def match?
-      ua =~ /S40OviBrowser/
+      ua =~ MATCH_REGEX
     end
   end
 end

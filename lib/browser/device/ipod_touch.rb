@@ -3,6 +3,8 @@
 module Browser
   class Device
     class IpodTouch < Base
+      MATCH_REGEX = /iPod/
+
       def id
         :ipod_touch
       end
@@ -12,7 +14,7 @@ module Browser
       end
 
       def match?
-        browser.ua =~ /iPod/
+        browser.ua =~ MATCH_REGEX
       end
     end
   end

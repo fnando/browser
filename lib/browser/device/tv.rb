@@ -3,6 +3,8 @@
 module Browser
   class Device
     class TV < Base
+      MATCH_REGEX = /(tv|Android.*?ADT-1|Nexus Player)/i
+
       def id
         :tv
       end
@@ -12,7 +14,7 @@ module Browser
       end
 
       def match?
-        browser.ua =~ /(tv|Android.*?ADT-1|Nexus Player)/i
+        browser.ua =~ MATCH_REGEX
       end
     end
   end

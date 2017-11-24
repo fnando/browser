@@ -2,6 +2,9 @@
 
 module Browser
   class PhantomJS < Base
+    VERSION_REGEX = %r[PhantomJS/([\d.]+)]
+    MATCH_REGEX = /PhantomJS/
+
     def id
       :phantom_js
     end
@@ -11,11 +14,11 @@ module Browser
     end
 
     def full_version
-      ua[%r[PhantomJS/([\d.]+)], 1] || "0.0"
+      ua[VERSION_REGEX, 1] || "0.0"
     end
 
     def match?
-      ua =~ /PhantomJS/
+      ua =~ MATCH_REGEX
     end
   end
 end

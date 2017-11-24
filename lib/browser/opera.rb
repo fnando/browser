@@ -2,6 +2,10 @@
 
 module Browser
   class Opera < Base
+    OPR_REGEX = %r[OPR/([\d.]+)]
+    VERSION_REGEX = %r[Version/([\d.]+)]
+    MATCH_REGEX = /(Opera|OPR\/)/
+
     def id
       :opera
     end
@@ -11,11 +15,11 @@ module Browser
     end
 
     def full_version
-      ua[%r[OPR/([\d.]+)], 1] || ua[%r[Version/([\d.]+)], 1] || "0.0"
+      ua[OPR_REGEX, 1] || ua[VERSION_REGEX, 1] || "0.0"
     end
 
     def match?
-      ua =~ /(Opera|OPR\/)/
+      ua =~ MATCH_REGEX
     end
   end
 end

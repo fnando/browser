@@ -3,12 +3,15 @@
 module Browser
   class Platform
     class AdobeAir < Base
+      MATCH_REGEX = /AdobeAIR/
+      VERSION_REGEX = %r[AdobeAIR/([\d.]+)]
+
       def match?
-        browser.ua =~ /AdobeAIR/
+        browser.ua =~ MATCH_REGEX
       end
 
       def version
-        browser.ua[%r[AdobeAIR/([\d.]+)], 1]
+        browser.ua[VERSION_REGEX, 1]
       end
 
       def name

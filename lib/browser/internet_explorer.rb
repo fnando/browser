@@ -11,6 +11,12 @@ module Browser
       "8.0" => "12"
     }.freeze
 
+    MSIE_VERSION_REGEX = %r{MSIE ([\d.]+)|Trident/.*?; rv:([\d.]+)}
+    TRIDENT_VERSION_REGEX = %r[Trident/([0-9.]+)]
+    MSIE_REGEX = /MSIE/
+    OPERA_REGEX = /Opera/
+    MODERN_IE_REGEX = %r[Trident/.*?; rv:(.*?)]
+
     def id
       :ie
     end
@@ -24,7 +30,7 @@ module Browser
     end
 
     def msie_full_version
-      (ua.match(%r{MSIE ([\d.]+)|Trident/.*?; rv:([\d.]+)}) && ($1 || $2)) ||
+      (ua.match(MSIE_VERSION_REGEX) && ($1 || $2)) ||
         "0.0"
     end
 
@@ -49,15 +55,15 @@ module Browser
 
     # Return the trident version.
     def trident_version
-      ua.match(%r[Trident/([0-9.]+)]) && $1
+      ua.match(TRIDENT_VERSION_REGEX) && $1
     end
 
     def msie?
-      ua =~ /MSIE/ && ua !~ /Opera/
+      ua =~ MSIE_REGEX && ua !~ OPERA_REGEX
     end
 
     def modern_ie?
-      ua =~ %r[Trident/.*?; rv:(.*?)]
+      ua =~ MODERN_IE_REGEX
     end
   end
 end

@@ -2,6 +2,9 @@
 
 module Browser
   class MicroMessenger < Base
+    VERSION_REGEX = %r[(?:MicroMessenger)/([\d.]+)]i
+    MATCH_REGEX = /MicroMessenger/i
+
     def id
       :micro_messenger
     end
@@ -11,11 +14,11 @@ module Browser
     end
 
     def full_version
-      ua[%r[(?:MicroMessenger)/([\d.]+)]i, 1] || "0.0"
+      ua[VERSION_REGEX, 1] || "0.0"
     end
 
     def match?
-      ua =~ /MicroMessenger/i
+      ua =~ MATCH_REGEX
     end
   end
 end

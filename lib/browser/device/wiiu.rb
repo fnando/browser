@@ -3,6 +3,8 @@
 module Browser
   class Device
     class WiiU < Base
+      MATCH_REGEX = /Nintendo WiiU/i
+
       def id
         :wiiu
       end
@@ -12,7 +14,7 @@ module Browser
       end
 
       def match?
-        browser.ua =~ /Nintendo WiiU/i
+        browser.ua =~ MATCH_REGEX
       end
     end
   end

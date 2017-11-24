@@ -3,11 +3,11 @@
 module Browser
   class Platform
     class IOS < Base
-      MATCHER = /(iPhone|iPad|iPod)/
-      VERSION_MATCHER = /OS ([\d.]+)/
+      MATCH_REGEX = /(iPhone|iPad|iPod)/
+      VERSION_REGEX = /OS ([\d.]+)/
 
       def version
-        browser.ua[VERSION_MATCHER, 1] || "0"
+        browser.ua[VERSION_REGEX, 1] || "0"
       end
 
       def name
@@ -19,11 +19,11 @@ module Browser
       end
 
       def match?
-        browser.ua =~ MATCHER
+        browser.ua =~ MATCH_REGEX
       end
 
       def device
-        browser.ua[MATCHER, 1]
+        browser.ua[MATCH_REGEX, 1]
       end
     end
   end

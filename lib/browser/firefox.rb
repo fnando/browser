@@ -2,6 +2,9 @@
 
 module Browser
   class Firefox < Base
+    VERSION_REGEX = %r[(?:Firefox|FxiOS)/([\d.]+)]
+    MATCH_REGEX = /Firefox|FxiOS/
+
     def id
       :firefox
     end
@@ -11,11 +14,11 @@ module Browser
     end
 
     def full_version
-      ua[%r[(?:Firefox|FxiOS)/([\d.]+)], 1] || "0.0"
+      ua[VERSION_REGEX, 1] || "0.0"
     end
 
     def match?
-      ua =~ /Firefox|FxiOS/
+      ua =~ MATCH_REGEX
     end
   end
 end

@@ -4,6 +4,13 @@ module Browser
   class Base
     include DetectVersion
 
+    WEBKIT_REGEX = /AppleWebKit/i
+    QUICKTIME_REGEX = /QuickTime/i
+    CORE_MEDIA_REGEX = /CoreMedia/
+    YANDEX_REGEX = /YaBrowser/
+    OPERA_MINI_REGEX = /Opera Mini/
+    WEBKIT_VERSION_REGEX = %r[AppleWebKit/([\d.]+)]
+
     attr_reader :ua
 
     # Return an array with all preferred languages that this browser accepts.
@@ -91,19 +98,19 @@ module Browser
 
     # Detect if browser is WebKit-based.
     def webkit?(expected_version = nil)
-      ua =~ /AppleWebKit/i &&
+      ua =~ WEBKIT_REGEX &&
         !edge? &&
         detect_version?(webkit_full_version, expected_version)
     end
 
     # Detect if browser is QuickTime
     def quicktime?(expected_version = nil)
-      ua =~ /QuickTime/i && detect_version?(full_version, expected_version)
+      ua =~ QUICKTIME_REGEX && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is Apple CoreMedia.
     def core_media?(expected_version = nil)
-      ua =~ /CoreMedia/ && detect_version?(full_version, expected_version)
+      ua =~ CORE_MEDIA_REGEX && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is PhantomJS
@@ -118,7 +125,7 @@ module Browser
     end
 
     def safari_webapp_mode?
-      (device.ipad? || device.iphone?) && ua =~ /AppleWebKit/
+      (device.ipad? || device.iphone?) && ua =~ WEBKIT_REGEX
     end
 
     # Detect if browser is Firefox.
@@ -138,7 +145,7 @@ module Browser
 
     # Detect if browser is Yandex.
     def yandex?(expected_version = nil)
-      ua =~ /YaBrowser/ && detect_version?(full_version, expected_version)
+      ua =~ YANDEX_REGEX && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is UCBrowser.
@@ -169,11 +176,11 @@ module Browser
 
     # Detect if browser is Opera Mini.
     def opera_mini?(expected_version = nil)
-      ua =~ /Opera Mini/ && detect_version?(full_version, expected_version)
+      ua =~ OPERA_MINI_REGEX && detect_version?(full_version, expected_version)
     end
 
     def webkit_full_version
-      ua[%r[AppleWebKit/([\d.]+)], 1] || "0.0"
+      ua[WEBKIT_VERSION_REGEX, 1] || "0.0"
     end
 
     def known?

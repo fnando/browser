@@ -3,8 +3,11 @@
 module Browser
   class Platform
     class WindowsPhone < Base
+      MATCH_REGEX = /Windows Phone/
+      VERSION_REGEX = /Windows Phone ([\d.]+)/
+
       def version
-        browser.ua[/Windows Phone ([\d.]+)/, 1]
+        browser.ua[VERSION_REGEX, 1]
       end
 
       def name
@@ -16,7 +19,7 @@ module Browser
       end
 
       def match?
-        browser.ua =~ /Windows Phone/
+        browser.ua =~ MATCH_REGEX
       end
     end
   end

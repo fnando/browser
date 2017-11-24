@@ -3,8 +3,11 @@
 module Browser
   class Platform
     class Mac < Base
+      VERSION_REGEX = /Mac OS X\s*([0-9_\.]+)?/
+      MATCH_REGEX = /Mac/
+
       def version
-        (browser.ua[/Mac OS X\s*([0-9_\.]+)?/, 1] || "0").tr("_", ".")
+        (browser.ua[VERSION_REGEX, 1] || "0").tr("_", ".")
       end
 
       def name
@@ -16,7 +19,7 @@ module Browser
       end
 
       def match?
-        browser.ua =~ /Mac/
+        browser.ua =~ MATCH_REGEX
       end
     end
   end

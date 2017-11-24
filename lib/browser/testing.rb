@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require "yaml"
+
 module Browser
   def self.user_agents
     @user_agents ||= browser_user_agents

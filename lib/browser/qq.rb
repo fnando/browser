@@ -2,6 +2,11 @@
 
 module Browser
   class QQ < Base
+    MATCH_REGEX = /QQ/i
+    MQQ_VERSION_REGEX = %r[(?:Mobile MQQBrowser)/([\d.]+)]i
+    QQ_LITE_VERSION_REGEX = %r[(?:QQBrowserLite)/([\d.]+)]i
+    QQ_VERSION_REGEX = %r[(?:QQ(?:Browser)?)/([\d.]+)]i
+
     def id
       :qq
     end
@@ -11,15 +16,14 @@ module Browser
     end
 
     def full_version
-      ua[%r[(?:Mobile MQQBrowser)/([\d.]+)]i, 1] ||
-        ua[%r[(?:QQBrowserLite)/([\d.]+)]i, 1] ||
-        ua[%r[(?:QQBrowser)/([\d.]+)]i, 1] ||
-        ua[%r[(?:QQ)/([\d.]+)]i, 1] ||
+      ua[MQQ_VERSION_REGEX, 1] ||
+        ua[QQ_LITE_VERSION_REGEX, 1] ||
+        ua[QQ_VERSION_REGEX, 1] ||
         "0.0"
     end
 
     def match?
-      ua =~ /QQ/i
+      ua =~ MATCH_REGEX
     end
   end
 end

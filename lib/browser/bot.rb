@@ -15,7 +15,10 @@ module Browser
     end
 
     def self.bots
-      @bots ||= YAML.load_file(Browser.root.join("bots.yml"))
+      @bots ||= begin
+        require "yaml"
+        YAML.load_file(Browser.root.join("bots.yml"))
+      end
     end
 
     def self.bot_exceptions

@@ -2,6 +2,12 @@
 
 module Browser
   class Safari < Base
+    VERSION_REGEX = %r[Version/([\d.]+)]
+    SAFARI_REGEX = %r[Safari/([\d.]+)]
+    WEBKIT_REGEX = %r[AppleWebKit/([\d.]+)]
+    MATCH_SAFARI_REGEX = /Safari/
+    MATCH_EXCLUSION_REGEX = /Chrome|CriOS|PhantomJS|FxiOS/
+
     def id
       :safari
     end
@@ -11,14 +17,14 @@ module Browser
     end
 
     def full_version
-      ua[%r[Version/([\d.]+)], 1] ||
-        ua[%r[Safari/([\d.]+)], 1] ||
-        ua[%r[AppleWebKit/([\d.]+)], 1] ||
+      ua[VERSION_REGEX, 1] ||
+        ua[SAFARI_REGEX, 1] ||
+        ua[WEBKIT_REGEX, 1] ||
         "0.0"
     end
 
     def match?
-      ua =~ /Safari/ && ua !~ /Chrome|CriOS|PhantomJS|FxiOS/
+      ua =~ MATCH_SAFARI_REGEX && ua !~ MATCH_EXCLUSION_REGEX
     end
   end
 end

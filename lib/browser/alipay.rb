@@ -2,6 +2,9 @@
 
 module Browser
   class Alipay < Base
+    MATCH_REGEX = /AlipayClient/i
+    VERSION_REGEX = %r[(?:AlipayClient)/([\d.]+)]i
+
     def id
       :alipay
     end
@@ -11,11 +14,11 @@ module Browser
     end
 
     def full_version
-      ua[%r[(?:AlipayClient)/([\d.]+)]i, 1] || "0.0"
+      ua[VERSION_REGEX, 1] || "0.0"
     end
 
     def match?
-      ua =~ /AlipayClient/i
+      ua =~ MATCH_REGEX
     end
   end
 end

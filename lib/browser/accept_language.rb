@@ -3,7 +3,10 @@
 module Browser
   class AcceptLanguage
     def self.languages
-      @languages ||= YAML.load_file(Browser.root.join("languages.yml"))
+      @languages ||= begin
+        require "yaml"
+        YAML.load_file(Browser.root.join("languages.yml"))
+      end
     end
 
     def self.parse(accept_language)

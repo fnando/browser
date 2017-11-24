@@ -3,6 +3,8 @@
 module Browser
   class Platform
     class WindowsMobile < Base
+      MATCH_REGEX = /Windows CE/
+
       def version
         "0"
       end
@@ -16,7 +18,7 @@ module Browser
       end
 
       def match?
-        browser.ua =~ /Windows CE/
+        browser.ua =~ MATCH_REGEX
       end
     end
   end

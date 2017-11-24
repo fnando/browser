@@ -3,6 +3,8 @@
 module Browser
   class Device
     class PlayStation3 < Base
+      MATCH_REGEX = /PLAYSTATION 3/i
+
       def id
         :ps3
       end
@@ -12,7 +14,7 @@ module Browser
       end
 
       def match?
-        browser.ua =~ /PLAYSTATION 3/i
+        browser.ua =~ MATCH_REGEX
       end
     end
   end

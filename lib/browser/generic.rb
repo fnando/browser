@@ -7,6 +7,9 @@ module Browser
       "CoreMedia" => "Apple CoreMedia"
     }.freeze
 
+    QUICKTIME_VERSION_REGEX = %r[(?:QuickTime)/([\d.]+)]
+    CORE_MEDIA_VERSION_REGEX = %r[CoreMedia v([\d.]+)]
+
     def id
       :generic
     end
@@ -16,8 +19,8 @@ module Browser
     end
 
     def full_version
-      ua[%r[(?:QuickTime)/([\d.]+)], 1] ||
-        ua[%r[CoreMedia v([\d.]+)], 1] ||
+      ua[QUICKTIME_VERSION_REGEX, 1] ||
+        ua[CORE_MEDIA_VERSION_REGEX, 1] ||
         "0.0"
     end
 

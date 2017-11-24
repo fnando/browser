@@ -3,8 +3,11 @@
 module Browser
   class Platform
     class Windows < Base
+      VERSION_REGEX = /Windows NT\s*([0-9_\.]+)?/
+      MATCH_REGEX = /Windows/
+
       def version
-        browser.ua[/Windows NT\s*([0-9_\.]+)?/, 1] || "0"
+        browser.ua[VERSION_REGEX, 1] || "0"
       end
 
       def name
@@ -16,7 +19,7 @@ module Browser
       end
 
       def match?
-        browser.ua =~ /Windows/
+        browser.ua =~ MATCH_REGEX
       end
     end
   end

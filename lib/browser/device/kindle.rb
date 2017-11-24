@@ -3,6 +3,8 @@
 module Browser
   class Device
     class Kindle < Base
+      MATCH_REGEX = /Kindle/
+
       def id
         :kindle
       end
@@ -12,7 +14,7 @@ module Browser
       end
 
       def match?
-        browser.ua =~ /Kindle/
+        browser.ua =~ MATCH_REGEX
       end
     end
   end

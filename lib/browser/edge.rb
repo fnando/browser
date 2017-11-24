@@ -2,6 +2,9 @@
 
 module Browser
   class Edge < InternetExplorer
+    VERSION_REGEX = %r[Edge/([\d.]+)]
+    MATCH_REGEX = %r[(Edge/[\d.]+|Trident/8)]
+
     def id
       :edge
     end
@@ -11,11 +14,11 @@ module Browser
     end
 
     def full_version
-      ua[%r[Edge/([\d.]+)], 1] || super
+      ua[VERSION_REGEX, 1] || super
     end
 
     def match?
-      ua =~ %r[(Edge/[\d.]+|Trident/8)]
+      ua =~ MATCH_REGEX
     end
   end
 end

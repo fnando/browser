@@ -2,6 +2,9 @@
 
 module Browser
   class Facebook < Base
+    VERSION_REGEX = %r[FBAV/([\d.]+)]
+    MATCH_REGEX = /FBAV/
+
     def id
       :facebook
     end
@@ -11,11 +14,11 @@ module Browser
     end
 
     def full_version
-      ua[%r[FBAV/([\d.]+)], 1]
+      ua[VERSION_REGEX, 1]
     end
 
     def match?
-      ua =~ /FBAV/
+      ua =~ MATCH_REGEX
     end
   end
 end
