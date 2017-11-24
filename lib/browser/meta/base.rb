@@ -9,7 +9,6 @@ module Browser
         GenericBrowser,
         Id,
         IE,
-        Proxy,
         Safari,
         Webkit
       ]

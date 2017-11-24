@@ -51,10 +51,5 @@ module Browser
     def known?
       id != :generic
     end
-
-    # Detect if browser is a proxy browser.
-    def proxy?
-      nokia? || uc_browser? || opera_mini?
-    end
   end
 end

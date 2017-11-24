@@ -284,6 +284,38 @@ Rails.configuration.middleware.use Browser::Middleware do
 end
 ```
 
+### Lightweight Mode
+
+You may want to use just a small subset of Browser's functionalities, and that's perfectly fine. To avoid wasting memory with things you won't use, you can load `browser/lite.rb` and load just what you want.
+
+In your Gemfile, add something like the following:
+
+```ruby
+gem "browser", require: "browser/lite"
+```
+
+This will only load mainstream browsers (Safari, Chrome, Opera, IE/Edge, Firefox) and meta data for theses browsers. To load other browsers and/or additional detection like platform/device, you must require other files. The following example lists every file you can additionally load:
+
+```ruby
+gem "browser",
+    require: ["browser/lite",
+              "browser/alipay",
+              "browser/blackberry",
+              "browser/bot",
+              "browser/device",
+              "browser/electron",
+              "browser/facebook",
+              "browser/micro_messenger",
+              "browser/nokia",
+              "browser/otter",
+              "browser/phantom_js",
+              "browser/platform",
+              "browser/proxy",
+              "browser/qq",
+              "browser/uc_browser",
+              "browser/weibo"]
+```
+
 ### Migrating to v3
 
 #### Troubleshooting

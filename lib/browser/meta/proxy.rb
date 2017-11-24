@@ -7,5 +7,7 @@ module Browser
         "proxy" if browser.proxy?
       end
     end
+
+    rules << Proxy
   end
 end

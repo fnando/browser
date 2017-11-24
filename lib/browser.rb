@@ -18,5 +18,6 @@ require "browser/platform"
 require "browser/qq"
 require "browser/uc_browser"
 require "browser/weibo"
+require "browser/proxy"
 
 require "browser/middleware"
