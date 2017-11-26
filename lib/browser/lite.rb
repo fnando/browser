@@ -1,13 +1,12 @@
 # frozen_string_literal: true
 
 module Browser
-  SPACE = " ".freeze
-  DOT = ".".freeze
-  DEFAULT_VERSION = "0".freeze
-  DEFAULT_FULL_VERSION = "0.0".freeze
   COMMA = ",".freeze
-  SPACE = " ".freeze
+  DEFAULT_FULL_VERSION = "0.0".freeze
+  DEFAULT_VERSION = "0".freeze
+  DOT = ".".freeze
   HYPHEN = "-".freeze
+  SPACE = " ".freeze
 end
 
 require "browser/version"
