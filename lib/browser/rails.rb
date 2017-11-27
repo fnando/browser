@@ -11,8 +11,10 @@ module Browser
     initializer "browser" do
       ActiveSupport.on_load(:action_controller) do
         ::ActionController::Base.send :include, Browser::ActionController
-        Browser::Middleware::Context.send :include,
-                                          Browser::Middleware::Context::Additions
+        Browser::Middleware::Context.send(
+          :include,
+          Browser::Middleware::Context::Additions
+        )
       end
     end
   end
