@@ -4,6 +4,7 @@
 
 - Add Google Site Verification to the bot list.
 - Handle invalid quality values that look like numbers.
+- Add CloudFlare's AlwaysOnline to the bot list.
 
 ## v2.5.2
 
