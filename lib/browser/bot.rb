@@ -47,7 +47,7 @@ module Browser
     private
 
     def bot_with_empty_ua?
-      self.class.detect_empty_ua? && ua.strip == ""
+      self.class.detect_empty_ua? && ua.to_s.strip == ""
     end
 
     def bot_exception?
