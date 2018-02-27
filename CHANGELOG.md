@@ -1,6 +1,6 @@
 # Changelog
 
-## UNRELEASED
+## v2.5.3
 
 - Add Google Site Verification to the bot list.
 - Handle invalid quality values that look like numbers.
