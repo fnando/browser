@@ -9,7 +9,6 @@ Rake::TestTask.new(:test) do |t|
   t.test_files = FileList["test/**/*_test.rb"]
   t.verbose = true
   t.warning = false
-  t.ruby_opts = %w[-rubygems]
 end
 
 require "rubocop/rake_task"
