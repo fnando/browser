@@ -4,27 +4,28 @@
 
 - Add Google Site Verification to the bot list.
 - Handle invalid quality values that look like numbers.
-- Add Barkrowler bot
-- Add AlwaysOnline bot: CloudFlare
-- Add News aggregator crawler: AndersPink, BuzzBot
-- Add Domain crawler: CipaCrawler
-- Add Job bot: JobSeeker's
-- Add Apparel crawler: TeeRaid
-- Add Search engine crawler: SemanticBot, Mappy
-- Add Copyright crawler: Copypants' BotPants
-- Add SEO bots: SEOdiver, SeoAudit, WebCeo
-- Add Woriobot from Zite
-- Add BUbiNG bot
+- Add Barkrowler bot.
+- Add AlwaysOnline bot: CloudFlare.
+- Add News aggregator crawler: AndersPink, BuzzBot.
+- Add Domain crawler: CipaCrawler.
+- Add Job bot: JobSeeker's.
+- Add Apparel crawler: TeeRaid.
+- Add Search engine crawler: SemanticBot, Mappy.
+- Add Copyright crawler: Copypants' BotPants.
+- Add SEO bots: SEOdiver, SeoAudit, WebCeo.
+- Add Woriobot from Zite.
+- Add BUbiNG bot.
+- Add Paessler bot.
 
 ## v2.5.2
 
-- Add COMODO SSL Checker bot
-- Add Swiftype bot
-- Add WhatsApp detection
+- Add COMODO SSL Checker bot.
+- Add Swiftype bot.
+- Add WhatsApp detection.
 
 ## v2.5.1
 
-- Add Android Oreo detection
+- Add Android Oreo detection.
 
 ## v2.5.0
 
@@ -90,4 +91,4 @@
 - `Browser#bot` now returns a `Browser::Bot` instance.
 - Safari running as web app mode is not recognized as Safari anymore.
 - ruby-2.3+ will always activate frozen strings.
-- [List of all commits since last release](https://github.com/fnando/browser/compare/v1.1.0...v2.0.0)
+- [List of all commits since last release](https://github.com/fnando/browser/compare/v1.1.0...v2.0.0).

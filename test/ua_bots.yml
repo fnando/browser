@@ -10,13 +10,13 @@ BINGBOT: 'Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm
 BINGPREVIEW: 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b'
 BUBING: 'BUbiNG (+http://law.di.unimi.it/BUbiNG.html)'
 BUZZBOT: 'Buzzbot/1.0 (Buzzbot; http://www.buzzstream.com; buzzbot@buzzstream.com)'
-COPYPANTS: 'Mozilla/5.0 (compatible; BotPants/1.0; Linux; +info@copypants.com) KHTML/3.5.5 (like Gecko)'
+CIPACRAWLER: 'CipaCrawler/3.0 (info@domaincrawler.com; http://www.domaincrawler.com/www.example.com)'
 CLOUDFLARE: "Mozilla/5.0 (compatible; CloudFlare-AlwaysOnline/1.0; +http://www.cloudflare.com/always-online) AppleWebKit/534.34"
 COMMONCRAWL: 'CCBot/2.0 (http://commoncrawl.org/faq/)'
 COMODO_SSL_CHECKER: 'COMODO SSL Checker'
+COPYPANTS: 'Mozilla/5.0 (compatible; BotPants/1.0; Linux; +info@copypants.com) KHTML/3.5.5 (like Gecko)'
 DAUMOA: Mozilla/5.0 (compatible; MSIE or Firefox mutant; not on Windows server;) Daumoa 4.0
 DOMAINAREANIMATOR: 'Domain Re-Animator Bot (http://domainreanimator.com) - support@domainreanimator.com'
-CIPACRAWLER: 'CipaCrawler/3.0 (info@domaincrawler.com; http://www.domaincrawler.com/www.example.com)'
 DOT_BOT: 'Mozilla/5.0 (compatible; DotBot/1.1; http://www.opensiteexplorer.org/dotbot, help@moz.com)'
 DUCKDUCKGO: 'DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)'
 FACEBOOK_BOT: 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)'
@@ -40,6 +40,7 @@ MSNBOT_MEDIA: 'msnbot-media/1.1 (+http://search.msn.com/msnbot.htm)'
 NETCRAFT2: Netcraft SSL Server Survey - contact info@netcraft.com
 NETCRAFT: Mozilla/5.0 (compatible; NetcraftSurveyAgent/1.0; +info@netcraft.com)
 NEWRELICPINGER: NewRelicPinger/1.0 (12345)
+PAESSLER: Mozilla/5.0 (compatible; PRTG Network Monitor (www.paessler.com); Windows)
 PRIVACYAWAREBOT: 'Mozilla/5.0 (compatible; PrivacyAwareBot/1.1; +http://www.privacyaware.org)'
 PROXIMIC: 'Mozilla/5.0 (compatible; proximic; +http://www.proximic.com/info/spider.php)'
 QUERYSEEKER: 'QuerySeekerSpider ( http://queryseeker.com/bot.html )'
@@ -57,8 +58,8 @@ TEERAID: 'Mozilla/5.0 (compatible; TeeRaidBot; +https://teeraid.com/bot/)'
 TINEYE: 'TinEye-bot/0.51 (see http://www.tineye.com/crawler.html)'
 TRAACKR: 'Traackr.com'
 WATCHSUMO: 'Mozilla/5.0 (compatible) WatchSumo/1.0.0 (http://www.watchsumo.com)'
-WHATSAPP: 'WhatsApp/2.17.38 Mozilla/5.0 (Linux; U; Android 6.1; en-us; DV Build/Donut) AppleWebKit/537.36 (KHTML, like Gecko) Safari/537.36'
 WEBCEO: 'Mozilla/5.0 (compatible; online-webceo-bot/1.0; +http://online.webceo.com)'
+WHATSAPP: 'WhatsApp/2.17.38 Mozilla/5.0 (Linux; U; Android 6.1; en-us; DV Build/Donut) AppleWebKit/537.36 (KHTML, like Gecko) Safari/537.36'
 WORIOBOT: 'Mozilla/5.0 (compatible; woriobot +http://worio.com)'
 YAHOO_AD_MONITORING: 'Mozilla/5.0 (compatible; Yahoo Ad monitoring; https://help.yahoo.com/kb/yahoo-ad-monitoring-SLN24857.html)'
 YAHOO_SLURP: 'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)'
