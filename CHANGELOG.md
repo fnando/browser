@@ -4,6 +4,7 @@
 
 - Add Google Site Verification to the bot list.
 - Handle invalid quality values that look like numbers.
+- Add Barkrowler bot
 - Add AlwaysOnline bot: CloudFlare
 - Add News aggregator crawler: AndersPink, BuzzBot
 - Add Domain crawler: CipaCrawler
