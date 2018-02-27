@@ -13,7 +13,7 @@ class PlatformTest < Minitest::Test
     end
   end
 
-  test "extend matchers" do
+  test "extends matchers" do
     Browser::Platform.matchers.unshift(CustomPlatform)
     browser = Browser.new("Custom")
     assert_equal :custom, browser.platform.id
@@ -35,7 +35,7 @@ class PlatformTest < Minitest::Test
     refute browser.platform == :android
   end
 
-  test "detect other" do
+  test "detects other" do
     browser = Browser.new("Other")
 
     assert_equal "Other", browser.platform.name
@@ -44,7 +44,7 @@ class PlatformTest < Minitest::Test
     assert browser.platform.other?
   end
 
-  test "detect ios (iPhone)" do
+  test "detects ios (iPhone)" do
     browser = Browser.new(Browser["IOS4"])
 
     assert_equal "iOS (iPhone)", browser.platform.name
@@ -53,7 +53,7 @@ class PlatformTest < Minitest::Test
     assert_equal "4", browser.platform.version
   end
 
-  test "detect ios (iPad)" do
+  test "detects ios (iPad)" do
     browser = Browser.new(Browser["IOS9"])
 
     assert_equal "iOS (iPad)", browser.platform.name
@@ -62,7 +62,7 @@ class PlatformTest < Minitest::Test
     assert_equal "9", browser.platform.version
   end
 
-  test "detect ios (iPod Touch)" do
+  test "detects ios (iPod Touch)" do
     browser = Browser.new(Browser["IPOD"])
 
     assert_equal "iOS (iPod)", browser.platform.name
@@ -71,7 +71,7 @@ class PlatformTest < Minitest::Test
     assert_equal "0", browser.platform.version
   end
 
-  test "detect linux" do
+  test "detects linux" do
     browser = Browser.new(Browser["FIREFOX"])
 
     assert_equal "Generic Linux", browser.platform.name
@@ -80,7 +80,7 @@ class PlatformTest < Minitest::Test
     assert_equal "0", browser.platform.version
   end
 
-  test "detect mac" do
+  test "detects mac" do
     browser = Browser.new(Browser["SAFARI"])
 
     assert_equal "Macintosh", browser.platform.name
@@ -90,12 +90,12 @@ class PlatformTest < Minitest::Test
     assert browser.platform.mac?(["=10.6.4"])
   end
 
-  test "return stub version for Mac user agent without version" do
+  test "returns stub version for Mac user agent without version" do
     browser = Browser.new("Macintosh")
     assert_equal "0", browser.platform.version
   end
 
-  test "detect firefox os" do
+  test "detects firefox os" do
     browser = Browser.new(Browser["FIREFOX_OS"])
 
     assert_equal "Firefox OS", browser.platform.name
@@ -104,7 +104,7 @@ class PlatformTest < Minitest::Test
     assert_equal "0", browser.platform.version
   end
 
-  test "detect windows phone" do
+  test "detects windows phone" do
     browser = Browser.new(Browser["MS_EDGE_MOBILE"])
 
     assert_equal "Windows Phone", browser.platform.name
@@ -113,7 +113,7 @@ class PlatformTest < Minitest::Test
     assert_equal "10.0", browser.platform.version
   end
 
-  test "detect windows mobile" do
+  test "detects windows mobile" do
     browser = Browser.new(Browser["WINDOWS_MOBILE"])
 
     assert_equal "Windows Mobile", browser.platform.name
@@ -122,7 +122,7 @@ class PlatformTest < Minitest::Test
     assert_equal "0", browser.platform.version
   end
 
-  test "detect blackberry 10" do
+  test "detects blackberry 10" do
     browser = Browser.new(Browser["BLACKBERRY10"])
 
     assert_equal "BlackBerry", browser.platform.name
@@ -131,7 +131,7 @@ class PlatformTest < Minitest::Test
     assert_equal "10.0.9.1675", browser.platform.version
   end
 
-  test "detect blackberry 4" do
+  test "detects blackberry 4" do
     browser = Browser.new(Browser["BLACKBERRY4"])
 
     assert_equal "BlackBerry", browser.platform.name
@@ -140,7 +140,7 @@ class PlatformTest < Minitest::Test
     assert_equal "4.2.1", browser.platform.version
   end
 
-  test "detect blackberry 4 (other)" do
+  test "detects blackberry 4 (other)" do
     browser = Browser.new(Browser["BLACKBERRY"])
 
     assert_equal "BlackBerry", browser.platform.name
@@ -149,7 +149,7 @@ class PlatformTest < Minitest::Test
     assert_equal "4.1.0", browser.platform.version
   end
 
-  test "detect blackberry 5" do
+  test "detects blackberry 5" do
     browser = Browser.new(Browser["BLACKBERRY5"])
 
     assert_equal "BlackBerry", browser.platform.name
@@ -158,7 +158,7 @@ class PlatformTest < Minitest::Test
     assert_equal "5.0.0.93", browser.platform.version
   end
 
-  test "detect blackberry 6" do
+  test "detects blackberry 6" do
     browser = Browser.new(Browser["BLACKBERRY6"])
 
     assert_equal "BlackBerry", browser.platform.name
@@ -167,7 +167,7 @@ class PlatformTest < Minitest::Test
     assert_equal "6.0.0.141", browser.platform.version
   end
 
-  test "detect blackberry 7" do
+  test "detects blackberry 7" do
     browser = Browser.new(Browser["BLACKBERRY7"])
 
     assert_equal "BlackBerry", browser.platform.name
@@ -176,7 +176,7 @@ class PlatformTest < Minitest::Test
     assert_equal "7.0.0.1", browser.platform.version
   end
 
-  test "detect android" do
+  test "detects android" do
     browser = Browser.new(Browser["ANDROID_CUPCAKE"])
 
     assert_equal "Android", browser.platform.name
@@ -185,7 +185,7 @@ class PlatformTest < Minitest::Test
     assert_equal "1.5", browser.platform.version
   end
 
-  test "detect chrome os" do
+  test "detects chrome os" do
     browser = Browser.new(Browser["CHROME_OS"])
 
     assert_equal "Chrome OS", browser.platform.name
@@ -195,7 +195,7 @@ class PlatformTest < Minitest::Test
     assert_equal "3701.81.0", browser.platform.version
   end
 
-  test "detect adobe air" do
+  test "detects adobe air" do
     browser = Browser.new(Browser["ADOBE_AIR"])
 
     assert browser.platform.adobe_air?

@@ -9,7 +9,7 @@ class MetaTest < Minitest::Test
     end
   end
 
-  test "extend rules" do
+  test "extends rules" do
     Browser::Meta.rules.unshift(CustomRule)
 
     browser = Browser.new("Custom")

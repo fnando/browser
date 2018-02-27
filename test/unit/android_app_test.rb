@@ -5,11 +5,11 @@ require "test_helper"
 class AndroidAppTest < Minitest::Test
   let(:browser) { Browser.new(Browser["ANDROID_WEBVIEW"]) }
 
-  test "detect as android" do
+  test "detects as android" do
     assert browser.platform.android?
   end
 
-  test "detect as webview" do
+  test "detects as webview" do
     assert browser.platform.android_webview?
   end
 

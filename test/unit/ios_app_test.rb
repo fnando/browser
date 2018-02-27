@@ -5,7 +5,7 @@ require "test_helper"
 class IosAppTest < Minitest::Test
   let(:browser) { Browser.new(Browser["IOS_WEBVIEW"]) }
 
-  test "detect as ios" do
+  test "detects as ios" do
     assert browser.platform.ios?
   end
 
@@ -13,7 +13,7 @@ class IosAppTest < Minitest::Test
     refute browser.safari?
   end
 
-  test "detect as webview" do
+  test "detects as webview" do
     assert browser.platform.ios_webview?
   end
 end

@@ -13,7 +13,7 @@ class DeviceTest < Minitest::Test
     end
   end
 
-  test "extend matchers" do
+  test "extends matchers" do
     Browser::Device.matchers.unshift(CustomDevice)
     browser = Browser.new("Custom")
     assert_equal :custom, browser.device.id
@@ -23,28 +23,28 @@ class DeviceTest < Minitest::Test
     assert_equal :unknown, browser.device.id
   end
 
-  test "detect generic device" do
+  test "detects generic device" do
     browser = Browser.new("")
 
     assert browser.device.unknown?
     assert_equal :unknown, browser.device.id
   end
 
-  test "detect ipad" do
+  test "detects ipad" do
     browser = Browser.new(Browser["IOS9"])
     assert browser.device.ipad?
     assert_equal :ipad, browser.device.id
     assert_equal "iPad", browser.device.name
   end
 
-  test "detect old ipad" do
+  test "detects old ipad" do
     browser = Browser.new(Browser["IOS3"])
     assert browser.device.ipad?
     assert_equal :ipad, browser.device.id
     assert_equal "iPad", browser.device.name
   end
 
-  test "detect ipod" do
+  test "detects ipod" do
     browser = Browser.new(Browser["IPOD"])
     assert browser.device.ipod_touch?
     assert browser.device.ipod?
@@ -52,14 +52,14 @@ class DeviceTest < Minitest::Test
     assert_equal "iPod Touch", browser.device.name
   end
 
-  test "detect iphone" do
+  test "detects iphone" do
     browser = Browser.new(Browser["IOS8"])
     assert browser.device.iphone?
     assert_equal :iphone, browser.device.id
     assert_equal "iPhone", browser.device.name
   end
 
-  test "detect ps3" do
+  test "detects ps3" do
     browser = Browser.new(Browser["PLAYSTATION3"])
     assert browser.device.ps3?
     assert browser.device.playstation3?
@@ -68,7 +68,7 @@ class DeviceTest < Minitest::Test
     assert_equal "PlayStation 3", browser.device.name
   end
 
-  test "detect ps4" do
+  test "detects ps4" do
     browser = Browser.new(Browser["PLAYSTATION4"])
     assert browser.device.ps4?
     assert browser.device.playstation4?
@@ -99,14 +99,14 @@ class DeviceTest < Minitest::Test
     assert_equal "Xbox One", browser.device.name
   end
 
-  test "detect psp" do
+  test "detects psp" do
     browser = Browser.new(Browser["PSP"])
     assert browser.device.psp?
     assert_equal :psp, browser.device.id
     assert_equal "PlayStation Portable", browser.device.name
   end
 
-  test "detect psvita" do
+  test "detects psvita" do
     browser = Browser.new(Browser["PSP_VITA"])
     assert browser.device.playstation_vita?
     assert browser.device.vita?
@@ -114,7 +114,7 @@ class DeviceTest < Minitest::Test
     assert_equal "PlayStation Vita", browser.device.name
   end
 
-  test "detect kindle" do
+  test "detects kindle" do
     browser = Browser.new(Browser["KINDLE"])
     assert browser.device.kindle?
     assert_equal :kindle, browser.device.id
@@ -127,7 +127,7 @@ class DeviceTest < Minitest::Test
     KINDLE_FIRE_HD
     KINDLE_FIRE_HD_MOBILE
   ].each do |key|
-    test "detect #{key} as kindle fire" do
+    test "detects #{key} as kindle fire" do
       browser = Browser.new(Browser[key])
 
       assert browser.device.kindle?
@@ -137,7 +137,7 @@ class DeviceTest < Minitest::Test
     end
   end
 
-  test "detect wii" do
+  test "detects wii" do
     browser = Browser.new(Browser["NINTENDO_WII"])
     assert browser.device.nintendo_wii?
     assert browser.device.console?
@@ -147,7 +147,7 @@ class DeviceTest < Minitest::Test
     assert_equal "Nintendo Wii", browser.device.name
   end
 
-  test "detect wiiu" do
+  test "detects wiiu" do
     browser = Browser.new(Browser["NINTENDO_WIIU"])
     assert browser.device.nintendo_wiiu?
     assert browser.device.wiiu?
@@ -157,7 +157,7 @@ class DeviceTest < Minitest::Test
     assert_equal "Nintendo WiiU", browser.device.name
   end
 
-  test "detect blackberry playbook" do
+  test "detects blackberry playbook" do
     browser = Browser.new(Browser["PLAYBOOK"])
     assert browser.device.playbook?
     assert browser.device.blackberry_playbook?
@@ -165,21 +165,21 @@ class DeviceTest < Minitest::Test
     assert_equal "BlackBerry Playbook", browser.device.name
   end
 
-  test "detect surface" do
+  test "detects surface" do
     browser = Browser.new(Browser["SURFACE"])
     assert browser.device.surface?
     assert_equal :surface, browser.device.id
     assert_equal "Microsoft Surface", browser.device.name
   end
 
-  test "detect tv" do
+  test "detects tv" do
     browser = Browser.new(Browser["SMART_TV"])
     assert browser.device.tv?
     assert_equal :tv, browser.device.id
     assert_equal "TV", browser.device.name
   end
 
-  test "detect unknown device" do
+  test "detects unknown device" do
     browser = Browser.new("")
 
     assert browser.device.unknown?
@@ -204,7 +204,7 @@ class DeviceTest < Minitest::Test
     OPERA_MOBI
     KINDLE_FIRE_HD_MOBILE
   ].each do |key|
-    test "detect #{key} as mobile" do
+    test "detects #{key} as mobile" do
       browser = Browser.new(Browser[key])
       assert browser.device.mobile?
       refute browser.device.tablet?
@@ -222,7 +222,7 @@ class DeviceTest < Minitest::Test
     FIREFOX_TABLET
     NEXUS7
   ].each do |key|
-    test "detect #{key} as tablet" do
+    test "detects #{key} as tablet" do
       browser = Browser.new(Browser[key])
       assert browser.device.tablet?
       refute browser.device.mobile?

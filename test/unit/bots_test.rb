@@ -4,7 +4,7 @@ require "test_helper"
 
 class BotsTest < Minitest::Test
   Browser.bot_user_agents.each do |key, ua|
-    test "detect #{key} as bot" do
+    test "detects #{key} as bot" do
       browser = Browser.new(ua)
       assert browser.bot?
     end
