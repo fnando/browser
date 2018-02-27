@@ -13,6 +13,7 @@
 - Add Copyright crawler: Copypants' BotPants
 - Add SEO bots: SEOdiver, SeoAudit, WebCeo
 - Add Woriobot from Zite
+- Add BUbiNG bot
 
 ## v2.5.2
 
