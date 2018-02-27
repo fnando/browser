@@ -27,6 +27,15 @@ class BotsTest < Minitest::Test
     assert browser.bot?
   end
 
+  test "allows setting nil as user agent for bots" do
+    browser = Browser.new(nil)
+    refute browser.bot?
+
+    Browser::Bot.detect_empty_ua!
+    browser = Browser.new(nil)
+    assert browser.bot?
+  end
+
   test "doesn't detect mozilla as a bot when considering empty UA" do
     Browser::Bot.detect_empty_ua!
     browser = Browser.new("Mozilla")
