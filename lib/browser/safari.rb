@@ -31,7 +31,7 @@ module Browser
     SAFARI_REGEX = %r[Safari/([\d.]+)]
     WEBKIT_REGEX = %r[AppleWebKit/([\d.]+)]
     MATCH_SAFARI_REGEX = /Safari/
-    MATCH_EXCLUSION_REGEX = /Chrome|CriOS|PhantomJS|FxiOS/
+    MATCH_EXCLUSION_REGEX = /Chrome|CriOS|PhantomJS|FxiOS|FBAV|IEMobile/
     NAME = "Safari".freeze
 
     def id
