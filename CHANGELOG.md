@@ -4,6 +4,7 @@
 
 - Add Google Site Verification to the bot list.
 - Handle invalid quality values that look like numbers.
+- Add Barkrowler bot
 
 ## v2.5.2
 
