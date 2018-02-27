@@ -4,6 +4,15 @@
 
 - Add Google Site Verification to the bot list.
 - Handle invalid quality values that look like numbers.
+- Add AlwaysOnline bot: CloudFlare
+- Add News aggregator crawler: AndersPink, BuzzBot
+- Add Domain crawler: CipaCrawler
+- Add Job bot: JobSeeker's
+- Add Apparel crawler: TeeRaid
+- Add Search engine crawler: SemanticBot, Mappy
+- Add Copyright crawler: Copypants' BotPants
+- Add SEO bots: SEOdiver, SeoAudit, WebCeo
+- Add Woriobot from Zite
 - Add BUbiNG bot
 
 ## v2.5.2
