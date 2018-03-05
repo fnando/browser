@@ -1,5 +1,9 @@
 # Changelog
 
+## UNRELEASED
+
+- Add GarlikCrawler, ImplisenseBot and WikiDo bots.
+
 ## v2.5.3
 
 - Add Google Site Verification to the bot list.
