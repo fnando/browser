@@ -3,7 +3,7 @@
 require "simplecov"
 SimpleCov.start
 
-ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../../Gemfile", __FILE__)
+ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../Gemfile", __dir__)
 require "bundler/setup"
 require "minitest/autorun"
 require "minitest/utils"

@@ -72,10 +72,16 @@ SingleLineBlockParams:
 VariableInterpolation:
   Enabled: false
 
-Style/TrailingCommaInLiteral:
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
   Enabled: false
 
 WhileUntilModifier:
+  Enabled: false
+
+Naming/UncommunicativeMethodParamName:
   Enabled: false
 
 PredicateName:

@@ -6,7 +6,7 @@ module Browser
   def self.root
     @root ||= begin
       require "pathname"
-      Pathname.new(File.expand_path("../../..", __FILE__))
+      Pathname.new(File.expand_path("../..", __dir__))
     end
   end
 
