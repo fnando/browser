@@ -38,7 +38,7 @@ module Browser
   EMPTY_STRING = "".freeze
 
   def self.root
-    @root ||= Pathname.new(File.expand_path("../../..", __FILE__))
+    @root ||= Pathname.new(File.expand_path("../..", __dir__))
   end
 
   # Hold the list of browser matchers.
