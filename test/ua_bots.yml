@@ -19,8 +19,10 @@ DAUMOA: Mozilla/5.0 (compatible; MSIE or Firefox mutant; not on Windows server;)
 DOMAINAREANIMATOR: 'Domain Re-Animator Bot (http://domainreanimator.com) - support@domainreanimator.com'
 DOT_BOT: 'Mozilla/5.0 (compatible; DotBot/1.1; http://www.opensiteexplorer.org/dotbot, help@moz.com)'
 DUCKDUCKGO: 'DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)'
+EZPUBLISH: 'eZ Publish Link Validator'
 FACEBOOK_BOT: 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)'
 GARLIK: 'GarlikCrawler/1.2 (http://garlik.com/, crawler@garlik.com)'
+GERMCRAWLER: 'GermCrawler'
 GOOGLE_BOT: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
 GOOGLE_PAGE_SPEED_INSIGHTS: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.4 (KHTML, like Gecko; Google Page Speed Insights) Chrome/22.0.1229 Safari/537.4'
 GOOGLE_SITE_VERIFICATION: Mozilla/5.0 (compatible; Google-Site-Verification/1.0)
@@ -46,6 +48,8 @@ NEWRELICPINGER: NewRelicPinger/1.0 (12345)
 PAESSLER: Mozilla/5.0 (compatible; PRTG Network Monitor (www.paessler.com); Windows)
 PRIVACYAWAREBOT: 'Mozilla/5.0 (compatible; PrivacyAwareBot/1.1; +http://www.privacyaware.org)'
 PROXIMIC: 'Mozilla/5.0 (compatible; proximic; +http://www.proximic.com/info/spider.php)'
+PUINCRAWLER: 'Pu_iN Crawler (+http://semanticjuice.com/)'
+QUICKCRAWLER: "Quick-Crawler (+https://www.scrapinghub.com/)"
 QUERYSEEKER: 'QuerySeekerSpider ( http://queryseeker.com/bot.html )'
 SCRAPY: 'Scrapy/0.18.4 (+http://scrapy.org)'
 SEMANTICBOT: 'Mozilla/5.0 (compatible; Semanticbot/1.0; +http://sempi.tech/bot.html)'
@@ -70,3 +74,5 @@ YAHOO_SLURP: 'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/
 YANDEX_DIRECT: 'Mozilla/5.0 (compatible; YandexDirect/3.0; +http://yandex.com/bots)'
 YANDEX_METRIKA: 'Mozilla/5.0 (compatible; YandexMetrika/3.0; +http://yandex.com/bots)'
 YANGA: 'Yanga WorldSearch Bot v1.1/beta (http://www.yanga.co.uk/)'
+ZOOMBOT: 'ZoomBot (Linkbot 1.0 http://suite.seozoom.it/bot.html)'
+ZOOMINFOBOT: 'ZoominfoBot (zoominfobot at zoominfo dot com)'
