@@ -35,6 +35,7 @@ LOAD_TIME_BOT: 'Mozilla/5.0 (compatible; LoadTimeBot/0.9; +http://www.loadtime.n
 LTX71: 'ltx71 - (http://ltx71.com/)'
 MAIL_RU: 'Mozilla/5.0 (compatible; Linux x86_64; Mail.RU_Bot/2.0; +http://go.mail.ru/help/robots)'
 MAPPYDATA: 'Mozilla/5.0 (compatible; Mappy/1.0; +http://mappydata.net/bot/)'
+MASTODONBOT: 'http.rb/3.0.0 (Mastodon/2.2.0; +https://mstdn.io/)'
 MEGAINDEX_RU: 'Mozilla/5.0 (compatible; MegaIndex.ru/2.0; +https://www.megaindex.ru/?tab=linkAnalyze)'
 MRCHROME: 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/45.0.2454.107 Amigo/45.0.2454.107 MRCHROME SOC Safari/537.36'
 MSNBOT: 'msnbot/2.0b (+http://search.msn.com/msnbot.htm)'

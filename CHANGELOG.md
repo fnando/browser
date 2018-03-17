@@ -3,6 +3,7 @@
 ## UNRELEASED
 
 - Add GarlikCrawler, ImplisenseBot and WikiDo bots.
+- Add Mastodon URL expander bot.
 
 ## v2.5.3
 
