@@ -12,6 +12,7 @@
 - Add Go 1.1 package http bot.
 - Add MauiBot.
 - Add SiteCheck-sitecrawl bot.
+- Add PR-CY.RU bot.
 
 ## v2.5.3
 

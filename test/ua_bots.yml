@@ -52,6 +52,7 @@ NETCRAFT2: Netcraft SSL Server Survey - contact info@netcraft.com
 NETCRAFT: Mozilla/5.0 (compatible; NetcraftSurveyAgent/1.0; +info@netcraft.com)
 NEWRELICPINGER: NewRelicPinger/1.0 (12345)
 PAESSLER: Mozilla/5.0 (compatible; PRTG Network Monitor (www.paessler.com); Windows)
+PR-CY_RU: Mozilla/5.0 (compatible; PR-CY.RU; + https://a.pr-cy.ru)
 PRIVACYAWAREBOT: "Mozilla/5.0 (compatible; PrivacyAwareBot/1.1; +http://www.privacyaware.org)"
 PROXIMIC: "Mozilla/5.0 (compatible; proximic; +http://www.proximic.com/info/spider.php)"
 PUINCRAWLER: "Pu_iN Crawler (+http://semanticjuice.com/)"
