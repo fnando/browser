@@ -1,6 +1,9 @@
 # Changelog
 
 ## UNRELEASED
+- Make `Browser::Device#mobile?` default to `false`.
+
+## UNRELEASED
 
 - Add GarlikCrawler, ImplisenseBot and WikiDo bots.
 - Add Mastodon URL expander bot.
