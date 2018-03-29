@@ -186,6 +186,11 @@ class DeviceTest < Minitest::Test
     assert_equal "Unknown", device.name
   end
 
+  test "mobile? defaults to false" do
+    device = Browser::Device.new("")
+    assert_equal device.mobile?, false
+  end
+
   %w[
     ANDROID
     SYMBIAN
