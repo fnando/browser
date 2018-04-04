@@ -23,6 +23,7 @@ EZPUBLISH: 'eZ Publish Link Validator'
 FACEBOOK_BOT: 'facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)'
 GARLIK: 'GarlikCrawler/1.2 (http://garlik.com/, crawler@garlik.com)'
 GERMCRAWLER: 'GermCrawler'
+GO_1.1_PACKAGE_HTTP: 'Go 1.1 package http'
 GOOGLE_BOT: 'Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)'
 GOOGLE_PAGE_SPEED_INSIGHTS: 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.4 (KHTML, like Gecko; Google Page Speed Insights) Chrome/22.0.1229 Safari/537.4'
 GOOGLE_SITE_VERIFICATION: Mozilla/5.0 (compatible; Google-Site-Verification/1.0)

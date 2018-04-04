@@ -82,6 +82,7 @@ gigabot: "Gigabot spider"
 gimme60bot: "Gimme60 (gimme60.com)"
 gimmeusabot: "Gimme60 (gimme60.com)"
 go http package: "Go http library"
+go 1.1 package http: "Go 1.1 package http"
 google page speed insights: "Google Page Speed Insights"
 google Web Preview: "Google Instant Previews crawler"
 google-site-verification: Google-Site-Verification
