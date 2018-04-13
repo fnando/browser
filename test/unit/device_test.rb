@@ -120,6 +120,8 @@ class DeviceTest < Minitest::Test
     assert_equal :kindle, device.id
     assert_equal "Kindle", device.name
     refute device.silk?
+    silk_device = Browser::Device.new(Browser["KINDLE_FIRE_HD_MOBILE"])
+    assert silk_device.silk?
   end
 
   %w[

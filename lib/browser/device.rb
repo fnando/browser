@@ -149,12 +149,12 @@ module Browser
 
     # Detect if browser is Silk.
     def silk?
-      ua =~ /Silk/
+      ua.include?('Silk')
     end
 
     # Detect if browser is running under Xbox.
     def xbox?
-      ua =~ /Xbox/
+      ua.include?('Xbox')
     end
 
     # Detect if browser is running under Xbox 360.
