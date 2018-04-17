@@ -11,6 +11,7 @@
 - Add Snapshat.
 - Add Go 1.1 package http bot.
 - Add MauiBot.
+- Add SiteCheck-sitecrawl bot.
 
 ## v2.5.3
 
