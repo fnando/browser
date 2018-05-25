@@ -14,6 +14,7 @@
 - Add SiteCheck-sitecrawl bot.
 - Add PR-CY.RU bot.
 - Add AdsTxtCrawler bot.
+- Add HTTrack bot.
 
 ## v2.5.3
 
