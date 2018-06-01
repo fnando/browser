@@ -13,6 +13,7 @@
 - Add MauiBot.
 - Add SiteCheck-sitecrawl bot.
 - Add PR-CY.RU bot.
+- Add AdsTxtCrawler bot.
 
 ## v2.5.3
 
