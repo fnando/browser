@@ -5,6 +5,7 @@
 - Add GarlikCrawler, ImplisenseBot and WikiDo bots.
 - Add Mastodon URL expander bot.
 - Add eZ Publish Link Validator, GermCrawler, Pu_iN Crawler, ZoomBot, and ZoominfoBot bots.
+- Add AdsTxtCrawler bot.
 
 ## v2.5.3
 
