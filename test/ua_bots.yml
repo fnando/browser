@@ -90,5 +90,6 @@ YAHOO_SLURP: "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/
 YANDEX_DIRECT: "Mozilla/5.0 (compatible; YandexDirect/3.0; +http://yandex.com/bots)"
 YANDEX_METRIKA: "Mozilla/5.0 (compatible; YandexMetrika/3.0; +http://yandex.com/bots)"
 YANGA: "Yanga WorldSearch Bot v1.1/beta (http://www.yanga.co.uk/)"
+ZABBIX: "Zabbix"
 ZOOMBOT: "ZoomBot (Linkbot 1.0 http://suite.seozoom.it/bot.html)"
 ZOOMINFOBOT: "ZoominfoBot (zoominfobot at zoominfo dot com)"
