@@ -41,6 +41,7 @@ module Browser
     def name
       return unless bot?
       return "Generic Bot" if bot_with_empty_ua?
+
       self.class.bots.find {|key, _| downcased_ua.include?(key) }.last
     end
 
