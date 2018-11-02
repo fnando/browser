@@ -15,7 +15,7 @@ module Browser
 
     DEVICE_ALIASES = %w[
       blackberry_playbook? console? ipad? iphone? ipod_touch? kindle?
-      kindle_fire? mobile? nintendo? nintendo_wii? nintendo_wiiu? playbook?
+      kindle_fire? mobile? nintendo? nintendo_wii? nintendo_wiiu? nintendo_switch? playbook?
       playstation3? playstation4? playstation? playstation_vita? ps3? ps4? psp?
       psp_vita? silk? surface? tablet? tv? vita? wii? wiiu? xbox? xbox_360?
       xbox_one?
