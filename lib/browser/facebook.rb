@@ -11,11 +11,13 @@ module Browser
     end
 
     def full_version
-      ua[%r[FBAV/([\d.]+)], 1]
+      ua[%r[FBAV/([\d.]+)], 1] ||
+        ua[%r[AppleWebKit/([\d.]+)], 0] ||
+        "0.0"
     end
 
     def match?
-      ua =~ /FBAV/
+      ua =~ /(FBAV|FBAN)/
     end
   end
 end

@@ -32,6 +32,8 @@ COREMEDIA: 'Apple Mac OS X v10.6.4 CoreMedia v1.0.0.10F569'
 CUSTOM_APP: "Our App 0.0.1 (Linux; Android 4.0.3; HTC Ruby Build/IML74K; en_CA)"
 ELECTRON: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/53.0.2785.143 Electron/1.4.12 Safari/537.36"
 FACEBOOK: Mozilla/5.0 (iPhone; CPU iPhone OS 10_3_3 like Mac OS X) AppleWebKit/603.3.8 (KHTML, like Gecko) Mobile/14G60 [FBAN/FBIOS;FBAV/135.0.0.45.90;FBBV/66877072;FBDV/iPhone9,3;FBMD/iPhone;FBSN/iOS;FBSV/10.3.3;FBSS/2;FBCR/AT&T;FBID/phone;FBLC/en_US;FBOP/5;FBRV/0]
+FACEBOOK_IOS: 'Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/16D57 [FBAN/FBIOS;FBDV/iPhone11,2;FBMD/iPhone;FBSN/iOS;FBSV/12.1.4;FBSS/3;FBCR/KPN NL;FBID/phone;FBLC/en_GB;FBOP/5]'
+FACEBOOK_ANDROID: 'Mozilla/5.0 (Linux; Android 9; ONEPLUS A6003 Build/PKQ1.180716.001; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/73.0.3683.90 Mobile Safari/537.36 [FB_IAB/FB4A;FBAV/214.0.0.43.83;]'
 FIREFOX: 'Mozilla/5.0 (X11; U; Linux i686; pl-PL; rv:1.9.0.2) Gecko/20121223 Ubuntu/9.25 (jaunty) Firefox/3.8'
 FIREFOX_ANDROID: 'Mozilla/5.0 (Android; Mobile; rv:40.0) Gecko/40.0 Firefox/40.0'
 FIREFOX_IOS: 'Mozilla/5.0 (iPhone; CPU iPhone OS 9_2 like Mac OS X) AppleWebKit/601.1.46 (KHTML, like Gecko) FxiOS/1.2 Mobile/13C75 Safari/601.1.46'
