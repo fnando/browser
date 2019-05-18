@@ -48,10 +48,10 @@ module Browser
 
     def quality
       @quality ||= begin
-        Float(quality_value || 1.0)
-      rescue ArgumentError
-        0.1
-      end
+                     Float(quality_value || 1.0)
+                   rescue ArgumentError
+                     0.1
+                   end
     end
 
     private
