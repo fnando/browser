@@ -6,10 +6,12 @@ require "browser/middleware/context"
 module Browser
   class Middleware
     # Detect the most common assets.
-    ASSETS_REGEX = /\.(css|png|jpe?g|gif|js|svg|ico|flv|mov|m4v|ogg|swf)\z/i
+    # rubocop:disable Metrics/LineLength
+    ASSETS_REGEX = /\.(css|png|jpe?g|gif|js|svg|ico|flv|mov|m4v|ogg|swf)\z/.freeze
+    # rubocop:enable Metrics/LineLength
 
     # Detect the ACCEPT header. IE8 send */*.
-    ACCEPT_REGEX = %r[(text/html|\*/\*)]
+    ACCEPT_REGEX = %r[(text/html|\*/\*)].freeze
 
     def initialize(app, &block)
       raise ArgumentError, "Browser::Middleware requires a block" unless block
