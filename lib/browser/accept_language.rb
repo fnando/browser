@@ -35,14 +35,14 @@ module Browser
     def code
       @code ||= begin
         code = part[/\A([^-;]+)/, 1]
-        code.downcase if code
+        code&.downcase
       end
     end
 
     def region
       @region ||= begin
         region = part[/\A(?:.*?)-([^;-]+)/, 1]
-        region.upcase if region
+        region&.upcase
       end
     end
 
