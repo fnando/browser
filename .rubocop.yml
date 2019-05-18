@@ -100,13 +100,11 @@ DotPosition:
 SpaceBeforeBlockBraces:
   EnforcedStyle: space
 
-SpaceInsideBlockBraces:
-  EnforcedStyle: no_space
-
 DoubleNegation:
   Enabled: false
 
 SpaceInsideBlockBraces:
+  EnforcedStyle: no_space
   SpaceBeforeBlockParameters: false
 
 SpaceInsideHashLiteralBraces:
