@@ -9,6 +9,15 @@ class PagesController < ActionController::Base
   end
 end
 
+class PotsController < ActionController::API
+  def index
+    render json: {
+      isBot: browser.bot?,
+      acceptLanguages: browser.accept_language.map(&:full)
+    }
+  end
+end
+
 class SampleApp < Rails::Application
   config.secret_token = "99f19f08db7a37bdcb9d6701f54dca"
   config.secret_key_base = "99f19f08db7a37bdcb9d6701f54dca"
@@ -29,6 +38,8 @@ class SampleApp < Rails::Application
     }
 
     get "/home", to: "pages#home"
+
+    get "/api/pages", to: "pots#index"
   end
 
   config.middleware.use Browser::Middleware do
