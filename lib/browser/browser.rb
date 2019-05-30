@@ -35,7 +35,7 @@ require "browser/device"
 require "browser/meta"
 
 module Browser
-  EMPTY_STRING = "".freeze
+  EMPTY_STRING = ""
 
   def self.root
     @root ||= Pathname.new(File.expand_path("../..", __dir__))
