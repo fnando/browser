@@ -7,7 +7,6 @@ rvm:
   - '2.3.6'
 gemfile:
   - Gemfile
-  - gemfiles/rails4.gemfile
   - gemfiles/rails5.gemfile
 script: bundle exec rake
 notifications:
