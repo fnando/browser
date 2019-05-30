@@ -2,9 +2,10 @@ language: ruby
 sudo: false
 cache: bundler
 rvm:
-  - '2.5.0'
-  - '2.4.3'
-  - '2.3.6'
+  - '2.6.3'
+  - '2.5.5'
+  - '2.4.6'
+  - '2.3.8'
 gemfile:
   - Gemfile
   - gemfiles/rails5.gemfile
