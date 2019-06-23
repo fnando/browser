@@ -69,6 +69,7 @@ WEBCEO: 'Mozilla/5.0 (compatible; online-webceo-bot/1.0; +http://online.webceo.c
 WHATSAPP: 'WhatsApp/2.17.38 Mozilla/5.0 (Linux; U; Android 6.1; en-us; DV Build/Donut) AppleWebKit/537.36 (KHTML, like Gecko) Safari/537.36'
 WIKIDO: 'WikiDo/1.1 (http://wikido.com; crawler@wikido.com)'
 WORIOBOT: 'Mozilla/5.0 (compatible; woriobot +http://worio.com)'
+WOORANK: 'Mozilla/5.0 (compatible; woorankreview/2.0; +https://www.woorank.com/)'
 YAHOO_AD_MONITORING: 'Mozilla/5.0 (compatible; Yahoo Ad monitoring; https://help.yahoo.com/kb/yahoo-ad-monitoring-SLN24857.html)'
 YAHOO_SLURP: 'Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/us/ysearch/slurp)'
 YANDEX_DIRECT: 'Mozilla/5.0 (compatible; YandexDirect/3.0; +http://yandex.com/bots)'
