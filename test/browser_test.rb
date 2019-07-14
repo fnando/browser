@@ -132,7 +132,7 @@ class BrowserTest < Minitest::Test
     browser = Browser.new("", accept_language: accept_language)
     languages = browser.accept_language.map(&:full)
 
-    assert_equal ["en-US", "en", "pt-BR", "pt"], languages
+    assert_equal %w[en-US en pt-BR pt], languages
   end
 
   test "removes duplicate items" do

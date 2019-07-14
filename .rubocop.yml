@@ -99,13 +99,11 @@ DotPosition:
 SpaceBeforeBlockBraces:
   EnforcedStyle: space
 
-SpaceInsideBlockBraces:
-  EnforcedStyle: no_space
-
 DoubleNegation:
   Enabled: false
 
 SpaceInsideBlockBraces:
+  EnforcedStyle: space
   SpaceBeforeBlockParameters: false
 
 SpaceInsideHashLiteralBraces:
@@ -130,3 +128,9 @@ Style/CollectionMethods:
     inject: 'reduce'
     detect: 'find'
     find_all: 'select'
+
+Style/SafeNavigation:
+  Enabled: false
+
+Layout/RescueEnsureAlignment:
+  Enabled: false

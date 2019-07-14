@@ -3,8 +3,8 @@
 module Browser
   class Platform
     class IOS < Base
-      MATCHER = /(iPhone|iPad|iPod)/
-      VERSION_MATCHER = /OS ([\d.]+)/
+      MATCHER = /(iPhone|iPad|iPod)/.freeze
+      VERSION_MATCHER = /OS ([\d.]+)/.freeze
 
       def version
         ua[VERSION_MATCHER, 1] || "0"
