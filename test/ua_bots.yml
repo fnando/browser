@@ -15,7 +15,8 @@ CLOUDFLARE: "Mozilla/5.0 (compatible; CloudFlare-AlwaysOnline/1.0; +http://www.c
 COMMONCRAWL: "CCBot/2.0 (http://commoncrawl.org/faq/)"
 COMODO_SSL_CHECKER: "COMODO SSL Checker"
 COPYPANTS: "Mozilla/5.0 (compatible; BotPants/1.0; Linux; +info@copypants.com) KHTML/3.5.5 (like Gecko)"
-DAUMOA: Mozilla/5.0 (compatible; MSIE or Firefox mutant; not on Windows server;) Daumoa 4.0
+DATANYZE: "Mozilla/5.0 (X11; Datanyze; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36"
+DAUMOA: "Mozilla/5.0 (compatible; MSIE or Firefox mutant; not on Windows server;) Daumoa 4.0"
 DOMAINAREANIMATOR: "Domain Re-Animator Bot (http://domainreanimator.com) - support@domainreanimator.com"
 DOT_BOT: "Mozilla/5.0 (compatible; DotBot/1.1; http://www.opensiteexplorer.org/dotbot, help@moz.com)"
 DUCKDUCKGO: "DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)"
