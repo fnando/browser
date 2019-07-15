@@ -7,7 +7,7 @@ module Browser
     end
 
     def name
-      'Instagram'
+      "Instagram"
     end
 
     def full_version
