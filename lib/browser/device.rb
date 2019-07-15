@@ -15,6 +15,7 @@ require "browser/device/wii"
 require "browser/device/wiiu"
 require "browser/device/blackberry_playbook"
 require "browser/device/surface"
+require "browser/device/switch"
 require "browser/device/tv"
 require "browser/device/xbox_one"
 require "browser/device/xbox_360"
@@ -34,6 +35,7 @@ module Browser
         BlackBerryPlaybook,
         WiiU,
         Wii,
+        Switch,
         KindleFire,
         Kindle,
         PlayStation4,
@@ -134,6 +136,11 @@ module Browser
     end
     alias_method :wiiu?, :nintendo_wiiu?
 
+    def nintendo_switch?
+      id == :switch
+    end
+    alias_method :switch?, :nintendo_switch?
+
     def blackberry_playbook?
       id == :playbook
     end
@@ -174,7 +181,7 @@ module Browser
 
     # Detect if browser is Nintendo.
     def nintendo?
-      wii? || wiiu?
+      wii? || wiiu? || switch?
     end
 
     # Detect if browser is console (currently Xbox, PlayStation, or Nintendo).
