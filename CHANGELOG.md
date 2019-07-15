@@ -10,6 +10,7 @@
 - Add Updown.io monitor bot.
 - Add Snapshat.
 - Add Go 1.1 package http bot.
+- Add MauiBot.
 
 ## v2.5.3
 
