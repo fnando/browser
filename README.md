@@ -245,7 +245,7 @@ This behavior changed in `v1.0.0`; previously there wasn't a way of getting the 
 
 ### Safari
 
-iOS webviews and web apps aren't detect as Safari anymore, so be aware of that if that's your case. You can use a combination of platform and webkit detection to do whatever you want.
+iOS webviews and web apps aren't detected as Safari anymore, so be aware of that if that's your case. You can use a combination of platform and webkit detection to do whatever you want.
 
 ```ruby
 # iPad's Safari running as web app mode.
