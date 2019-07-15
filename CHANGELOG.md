@@ -5,10 +5,14 @@
 - Add GarlikCrawler, ImplisenseBot and WikiDo bots.
 - Add Mastodon URL expander bot.
 - Add eZ Publish Link Validator, GermCrawler, Pu_iN Crawler, ZoomBot, and ZoominfoBot bots.
-- Add Datanyze bot
+- Add Datanyze bot.
 - Add support for Instagram in-app browser.
 - Add Updown.io monitor bot.
-- Add Snapshat.
+- Add Snapshat detection.
+- Add Instagram detection.
+- Add Nintendo Switch detection.
+- Add WooRank bot.
+- Add Trendsmap bot.
 - Add Go 1.1 package http bot.
 - Add MauiBot.
 - Add SiteCheck-sitecrawl bot.
@@ -19,6 +23,14 @@
 - Add DataFeedWatch bot.
 - Add Zabbix bot.
 - Add TangibleeBot.
+- Add Jooble bot.
+- Add Fyre bot.
+- Drop Rails 4 official support.
+- Fix accept-language sorting (If HTTP-header has value `en,fr`—without qualities—the first language should be `en` instead of `fr`).
+- Ignore malformed strings when comparing versions.
+- Fix Facebook detection on newer apps.
+- Change precedence for bot detection when common libs are used.
+- Add Yandex's search browser to the exception list.
 
 
 ## v2.5.3
