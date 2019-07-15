@@ -6,6 +6,7 @@
 - Add Mastodon URL expander bot.
 - Add eZ Publish Link Validator, GermCrawler, Pu_iN Crawler, ZoomBot, and ZoominfoBot bots.
 - Add support for Instagram in-app browser.
+- Add Updown.io monitor bot.
 
 ## v2.5.3
 
