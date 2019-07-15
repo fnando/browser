@@ -105,6 +105,11 @@ class BrowserTest < Minitest::Test
     assert_equal "0", browser.version
   end
 
+  test "ignores malformed strings when comparing versions" do
+    browser = Browser.new("Chrome/65.0.3325.99.FreeBrowser.3.0.5")
+    refute browser.chrome?(">=65")
+  end
+
   test "detects unknown id" do
     browser = Browser.new("Unknown")
     assert_equal :generic, browser.id
