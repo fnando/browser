@@ -14,8 +14,7 @@ module Browser
         .map {|string| string.squeeze(" ").strip }
         .map {|part| new(part) }
         .reject {|al| al.quality.zero? }
-        .sort_by(&:quality)
-        .reverse
+        .sort_by.with_index {|al, idx| [-al.quality, idx] }
     end
 
     attr_reader :part

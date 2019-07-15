@@ -131,6 +131,16 @@ class AcceptLanguageTest < Minitest::Test
     assert_language result[4], code: "fr", region: nil, quality: 0.2
   end
 
+  test "sorts the same quality in a descending priority" do
+    accept_language = "fr-CA,fr;q=0.2,en-US;q=0.2,en"
+    result = Browser::AcceptLanguage.parse(accept_language)
+
+    assert_language result[0], code: "fr", region: "CA", quality: 1.0
+    assert_language result[1], code: "en", region: nil, quality: 1.0
+    assert_language result[2], code: "fr", region: nil, quality: 0.2
+    assert_language result[3], code: "en", region: "US", quality: 0.2
+  end
+
   test "rejects quality values equals to zero (#241)" do
     result = Browser::AcceptLanguage.parse("de-DE,ru;q=0.9,de;q=0.8,en;q=0.")
 
