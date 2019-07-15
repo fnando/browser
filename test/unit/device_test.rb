@@ -157,6 +157,16 @@ class DeviceTest < Minitest::Test
     assert_equal "Nintendo WiiU", device.name
   end
 
+  test "detect switch" do
+    device = Browser::Device.new(Browser["NINTENDO_SWITCH"])
+    assert device.nintendo_switch?
+    assert device.switch?
+    assert device.console?
+    assert device.nintendo?
+    assert_equal :switch, device.id
+    assert_equal "Nintendo Switch", device.name
+  end
+
   test "detect blackberry playbook" do
     device = Browser::Device.new(Browser["PLAYBOOK"])
     assert device.playbook?
