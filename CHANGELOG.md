@@ -15,6 +15,11 @@
 - Add PR-CY.RU bot.
 - Add AdsTxtCrawler bot.
 - Add HTTrack bot.
+- Add Google Shopping bot.
+- Add DataFeedWatch bot.
+- Add Zabbix bot.
+- Add TangibleeBot.
+
 
 ## v2.5.3
 
