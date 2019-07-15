@@ -105,6 +105,11 @@ class BrowserTest < Minitest::Test
     assert_equal "0", browser.version
   end
 
+  test "ignores malformed strings when comparing versions" do
+    browser = Browser.new("Chrome/65.0.3325.99.FreeBrowser.3.0.5")
+    refute browser.chrome?(">=65")
+  end
+
   test "detects unknown id" do
     browser = Browser.new("Unknown")
     assert_equal :generic, browser.id
@@ -132,7 +137,7 @@ class BrowserTest < Minitest::Test
     browser = Browser.new("", accept_language: accept_language)
     languages = browser.accept_language.map(&:full)
 
-    assert_equal ["en-US", "en", "pt-BR", "pt"], languages
+    assert_equal %w[en-US en pt-BR pt], languages
   end
 
   test "removes duplicate items" do

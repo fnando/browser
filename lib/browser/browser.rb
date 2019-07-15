@@ -26,6 +26,7 @@ require "browser/alipay"
 require "browser/electron"
 require "browser/facebook"
 require "browser/otter"
+require "browser/instagram"
 
 require "browser/bot"
 require "browser/middleware"
@@ -35,7 +36,7 @@ require "browser/device"
 require "browser/meta"
 
 module Browser
-  EMPTY_STRING = "".freeze
+  EMPTY_STRING = ""
 
   def self.root
     @root ||= Pathname.new(File.expand_path("../..", __dir__))
@@ -55,6 +56,7 @@ module Browser
       Firefox,
       Otter,
       Facebook,             # must be placed before Chrome and Safari
+      Instagram,            # must be placed before Chrome and Safari
       Weibo,                # must be placed before Chrome and Safari
       QQ,                   # must be placed before Chrome and Safari
       Alipay,               # must be placed before Chrome and Safari

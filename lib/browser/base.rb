@@ -78,6 +78,12 @@ module Browser
       "0"
     end
 
+    # Detect if browser is Instagram.
+    def instagram?(expected_version = nil)
+      Instagram.new(ua).match? &&
+        detect_version?(full_version, expected_version)
+    end
+
     # Detect if browser if Facebook.
     def facebook?(expected_version = nil)
       Facebook.new(ua).match? &&

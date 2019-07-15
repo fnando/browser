@@ -13,6 +13,8 @@ module Browser
 
       Gem::Requirement.create(expected_version)
                       .satisfied_by?(Gem::Version.create(actual_version))
+    rescue ArgumentError
+      false
     end
 
     def parse_version(version)

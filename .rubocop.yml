@@ -99,13 +99,11 @@ DotPosition:
 SpaceBeforeBlockBraces:
   EnforcedStyle: space
 
-SpaceInsideBlockBraces:
-  EnforcedStyle: no_space
-
 DoubleNegation:
   Enabled: false
 
 SpaceInsideBlockBraces:
+  EnforcedStyle: space
   SpaceBeforeBlockParameters: false
 
 SpaceInsideHashLiteralBraces:
@@ -113,20 +111,26 @@ SpaceInsideHashLiteralBraces:
 
 PercentLiteralDelimiters:
   PreferredDelimiters:
-    '%':  '[]'
-    '%i': '[]'
-    '%q': '[]'
-    '%Q': '[]'
-    '%r': '[]'
-    '%s': '[]'
-    '%w': '[]'
-    '%W': '[]'
-    '%x': '[]'
+    "%":  "[]"
+    "%i": "[]"
+    "%q": "[]"
+    "%Q": "[]"
+    "%r": "[]"
+    "%s": "[]"
+    "%w": "[]"
+    "%W": "[]"
+    "%x": "[]"
 
 Style/CollectionMethods:
   PreferredMethods:
-    collect: 'map'
-    collect!: 'map!'
-    inject: 'reduce'
-    detect: 'find'
-    find_all: 'select'
+    collect: "map"
+    collect!: "map!"
+    inject: "reduce"
+    detect: "find"
+    find_all: "select"
+
+Style/SafeNavigation:
+  Enabled: false
+
+Layout/RescueEnsureAlignment:
+  Enabled: false
