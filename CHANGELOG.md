@@ -7,6 +7,7 @@
 - Add eZ Publish Link Validator, GermCrawler, Pu_iN Crawler, ZoomBot, and ZoominfoBot bots.
 - Add support for Instagram in-app browser.
 - Add Updown.io monitor bot.
+- Add Snapshat.
 
 ## v2.5.3
 
