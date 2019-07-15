@@ -60,6 +60,7 @@ SEO_AUDIT: "Mozilla/5.0 (compatible; seo-audit-check-bot/1.0)"
 SEODIVER: "Mozilla/5.0 (compatible; SEOdiver/1.0; +http://www.seodiver.com/bot)"
 SEOKICKS: "Mozilla/5.0 (compatible; SEOkicks-Robot; +http://www.seokicks.de/robot.html)"
 SISTRIX: "Mozilla/5.0 (compatible; SISTRIX Crawler; http://crawler.sistrix.net/)"
+SNAPCHAT: "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Snapchat/10.37.1.1 (iPhone9,4; iOS 11.4; gzip)"
 SOCIALRANKIO: SocialRankIOBot; http://socialrank.io/about
 SQUIDER: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.110 Safari/537.36 Squider/0.01"
 STRIPE: "Stripe/1.0 (+https://stripe.com/docs/webhooks)"
