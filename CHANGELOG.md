@@ -8,6 +8,7 @@
 - Add support for Instagram in-app browser.
 - Add Updown.io monitor bot.
 - Add Snapshat.
+- Add Go 1.1 package http bot.
 
 ## v2.5.3
 

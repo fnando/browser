@@ -275,6 +275,7 @@ zyborg: "Zyborg"
 
 # Generic lib user agents go here.
 eventmachine httpclient: "Ruby http library"
+go 1.1 package http: "Go 1.1 package http"
 htmlparser: "HTMLParser"
 http_request2: "HTTP_Request2"
 httpclient: "HTTPClient"
