@@ -2,9 +2,9 @@ language: ruby
 sudo: false
 cache: bundler
 rvm:
+  - "2.6.0"
   - "2.5.0"
-  - "2.4.3"
-  - "2.3.6"
+  - "2.4.0"
 gemfile:
   - Gemfile
   - gemfiles/rails4.gemfile

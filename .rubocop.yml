@@ -111,7 +111,7 @@ SpaceInsideHashLiteralBraces:
 
 PercentLiteralDelimiters:
   PreferredDelimiters:
-    "%":  '[]'
+    "%":  "[]"
     "%i": "[]"
     "%q": "[]"
     "%Q": "[]"

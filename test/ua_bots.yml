@@ -33,6 +33,7 @@ GRAPESHOT: "Mozilla/5.0 (compatible; GrapeshotCrawler/2.0; +http://www.grapeshot
 IMPLISENSEBOT: "ImplisenseBot 1.0"
 JOBSEEKER: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) JobBot/5.0 (compatible; +http://www.jobseeker.com.au/bot.html) Safari/538.1"
 LINKDEXBOT: "Mozilla/5.0 (compatible; linkdexbot/2.0; +http://www.linkdex.com/bots/)"
+LINKEDIN: "LinkedInBot/1.0 (compatible; Mozilla/5.0; Jakarta Commons-HttpClient/3.1 +http://www.linkedin.com)"
 LOAD_TIME_BOT: "Mozilla/5.0 (compatible; LoadTimeBot/0.9; +http://www.loadtime.net/bot.html)"
 LTX71: "ltx71 - (http://ltx71.com/)"
 MAIL_RU: "Mozilla/5.0 (compatible; Linux x86_64; Mail.RU_Bot/2.0; +http://go.mail.ru/help/robots)"
