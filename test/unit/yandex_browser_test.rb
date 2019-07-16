@@ -9,6 +9,7 @@ class YandexTest < Minitest::Test
     assert browser.yandex_browser?
     refute browser.safari?
     refute browser.chrome?
+    assert browser.webkit?
     assert_equal "Yandex Browser", browser.name
     assert_equal :yandex_browser, browser.id
   end
@@ -21,6 +22,12 @@ class YandexTest < Minitest::Test
     refute browser.chrome?
     assert_equal "Yandex Browser", browser.name
     assert_equal :yandex_browser, browser.id
+  end
+
+  test "detects correct version" do
+    browser = Browser.new(Browser["YANDEX_BROWSER_DESKTOP"])
+    assert_equal "19.6.0.1583", browser.full_version
+    assert_equal "19", browser.version
   end
 
   test "detects version by range" do
