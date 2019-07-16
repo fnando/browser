@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Also include controller extensions to `ActionController::Base`.
+
 ## 2.6.0
 
 - Add GarlikCrawler, ImplisenseBot and WikiDo bots.
