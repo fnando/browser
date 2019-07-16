@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.6.1
 
 - Also include controller extensions to `ActionController::Base`.
 
