@@ -1,6 +1,6 @@
 # Changelog
 
-## UNRELEASED
+## 2.6.0
 
 - Add GarlikCrawler, ImplisenseBot and WikiDo bots.
 - Add Mastodon URL expander bot.
