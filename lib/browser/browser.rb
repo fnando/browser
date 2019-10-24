@@ -27,6 +27,8 @@ require "browser/electron"
 require "browser/facebook"
 require "browser/otter"
 require "browser/instagram"
+require "browser/yandex"
+require "browser/sputnik"
 
 require "browser/bot"
 require "browser/middleware"
@@ -55,6 +57,8 @@ module Browser
       InternetExplorer,
       Firefox,
       Otter,
+      Sputnik,              # must be placed before Chrome and Safari
+      Yandex,               # must be placed before Chrome and Safari
       Facebook,             # must be placed before Chrome and Safari
       Instagram,            # must be placed before Chrome and Safari
       Weibo,                # must be placed before Chrome and Safari

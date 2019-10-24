@@ -3,6 +3,8 @@
 ## 2.6.1
 
 - Also include controller extensions to `ActionController::Base`.
+- Add support for Sputnik browser
+- Add support for Yandex browser
 
 ## 2.6.0
 

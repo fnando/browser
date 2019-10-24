@@ -145,7 +145,7 @@ module Browser
 
     # Detect if browser is Yandex.
     def yandex?(expected_version = nil)
-      ua =~ /YaBrowser/ && detect_version?(full_version, expected_version)
+      Yandex.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is UCBrowser.
@@ -173,6 +173,11 @@ module Browser
 
     def alipay?(expected_version = nil)
       Alipay.new(ua).match? && detect_version?(full_version, expected_version)
+    end
+
+    # Detect if browser is Sputnik.
+    def sputnik?(expected_version = nil)
+      Sputnik.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is Opera Mini.
