@@ -10,14 +10,13 @@ module Browser
 
     initializer "browser" do
       ActiveSupport.on_load(:action_controller) do
-        ::ActionController::Base.send :include, Browser::ActionController
+        ::ActionController::Base.include(Browser::ActionController)
 
         if defined?(::ActionController::Metal)
-          ::ActionController::Metal.send :include, Browser::ActionController
+          ::ActionController::Metal.include(Browser::ActionController)
         end
 
-        Browser::Middleware::Context.send(
-          :include,
+        Browser::Middleware::Context.include(
           Browser::Middleware::Context::Additions
         )
       end
