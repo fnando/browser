@@ -1,106 +1,23 @@
+---
+
 AllCops:
   Exclude:
-    - "bin/**/*"
-    - "gemfiles/**/*"
-    - "vendor/**/*"
-    - "Gemfile"
-    - "Rakefile"
+    - bin/**/*
+    - gemfiles/**/*
+    - vendor/**/*
+    - Gemfile
+    - Rakefile
     - "*.gemspec"
-    - "config.ru"
-
-Style/Alias:
-  EnforcedStyle: prefer_alias_method
-
-Style/FrozenStringLiteralComment:
-  EnforcedStyle: always
-
-Style/ClassCheck:
-  EnforcedStyle: kind_of?
-
-Metrics/LineLength:
-  Max: 80
-
-Style/BlockDelimiters:
-  Enabled: false
-
-Style/RegexpLiteral:
-  Enabled: false
-
-Metrics/AbcSize:
-  Enabled: false
-
-Style/PerlBackrefs:
-  Enabled: false
-
-Metrics/ClassLength:
-  Enabled: false
-
-Metrics/CyclomaticComplexity:
-  Enabled: false
-
-Style/Documentation:
-  Enabled: false
-
-Style/Encoding:
-  Enabled: false
-
-Naming/FileName:
-  Enabled: false
-
-Style/IfUnlessModifier:
-  Enabled: false
-
-Metrics/MethodLength:
-  Enabled: false
-
-Style/ModuleFunction:
-  Enabled: false
-
-Style/OneLineConditional:
-  Enabled: false
-
-Metrics/ParameterLists:
-  Enabled: false
-
-Style/Proc:
-  Enabled: false
-
-Style/SingleLineBlockParams:
-  Enabled: false
-
-Style/VariableInterpolation:
-  Enabled: false
-
-Style/TrailingCommaInArrayLiteral:
-  Enabled: false
-
-Style/TrailingCommaInHashLiteral:
-  Enabled: false
-
-Style/WhileUntilModifier:
-  Enabled: false
-
-Naming/UncommunicativeMethodParamName:
-  Enabled: false
-
-Naming/PredicateName:
-  NamePrefixBlacklist:
-    - is_
-
-Style/StringLiterals:
-  EnforcedStyle: double_quotes
-  SupportedStyles:
-    - single_quotes
-    - double_quotes
+    - config.ru
 
 Layout/DotPosition:
   EnforcedStyle: leading
 
+Layout/RescueEnsureAlignment:
+  Enabled: false
+
 Layout/SpaceBeforeBlockBraces:
   EnforcedStyle: space
-
-Style/DoubleNegation:
-  Enabled: false
 
 Layout/SpaceInsideBlockBraces:
   EnforcedStyle: space
@@ -109,9 +26,75 @@ Layout/SpaceInsideBlockBraces:
 Layout/SpaceInsideHashLiteralBraces:
   Enabled: false
 
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 80
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ParameterLists:
+  Enabled: false
+
+Naming/FileName:
+  Enabled: false
+
+Naming/PredicateName:
+  NamePrefixBlacklist:
+    - is_
+
+Naming/UncommunicativeMethodParamName:
+  Enabled: false
+
+Style/Alias:
+  EnforcedStyle: prefer_alias_method
+
+Style/BlockDelimiters:
+  Enabled: false
+
+Style/ClassCheck:
+  EnforcedStyle: kind_of?
+
+Style/CollectionMethods:
+  PreferredMethods:
+    collect: map
+    collect!: map!
+    inject: reduce
+    detect: find
+    find_all: select
+
+Style/Documentation:
+  Enabled: false
+
+Style/DoubleNegation:
+  Enabled: false
+
+Style/Encoding:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  EnforcedStyle: always
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/ModuleFunction:
+  Enabled: false
+
+Style/OneLineConditional:
+  Enabled: false
+
 Style/PercentLiteralDelimiters:
   PreferredDelimiters:
-    "%":  "[]"
+    "%": "[]"
     "%i": "[]"
     "%q": "[]"
     "%Q": "[]"
@@ -121,16 +104,35 @@ Style/PercentLiteralDelimiters:
     "%W": "[]"
     "%x": "[]"
 
-Style/CollectionMethods:
-  PreferredMethods:
-    collect: "map"
-    collect!: "map!"
-    inject: "reduce"
-    detect: "find"
-    find_all: "select"
+Style/PerlBackrefs:
+  Enabled: false
+
+Style/Proc:
+  Enabled: false
+
+Style/RegexpLiteral:
+  Enabled: false
 
 Style/SafeNavigation:
   Enabled: false
 
-Layout/RescueEnsureAlignment:
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+  SupportedStyles:
+    - single_quotes
+    - double_quotes
+
+Style/TrailingCommaInArrayLiteral:
+  Enabled: false
+
+Style/TrailingCommaInHashLiteral:
+  Enabled: false
+
+Style/VariableInterpolation:
+  Enabled: false
+
+Style/WhileUntilModifier:
   Enabled: false
