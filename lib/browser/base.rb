@@ -84,6 +84,12 @@ module Browser
         detect_version?(full_version, expected_version)
     end
 
+    # Detect if browser is Snapchat.
+    def snapchat?(expected_version = nil)
+      Snapchat.new(ua).match? &&
+        detect_version?(full_version, expected_version)
+    end
+
     # Detect if browser if Facebook.
     def facebook?(expected_version = nil)
       Facebook.new(ua).match? &&
