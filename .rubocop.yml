@@ -32,43 +32,43 @@ Metrics/AbcSize:
 Style/PerlBackrefs:
   Enabled: false
 
-ClassLength:
+Metrics/ClassLength:
   Enabled: false
 
-CyclomaticComplexity:
+Metrics/CyclomaticComplexity:
   Enabled: false
 
-Documentation:
+Style/Documentation:
   Enabled: false
 
-Encoding:
+Style/Encoding:
   Enabled: false
 
-FileName:
+Naming/FileName:
   Enabled: false
 
-IfUnlessModifier:
+Style/IfUnlessModifier:
   Enabled: false
 
-MethodLength:
+Metrics/MethodLength:
   Enabled: false
 
-ModuleFunction:
+Style/ModuleFunction:
   Enabled: false
 
-OneLineConditional:
+Style/OneLineConditional:
   Enabled: false
 
-ParameterLists:
+Metrics/ParameterLists:
   Enabled: false
 
-Proc:
+Style/Proc:
   Enabled: false
 
-SingleLineBlockParams:
+Style/SingleLineBlockParams:
   Enabled: false
 
-VariableInterpolation:
+Style/VariableInterpolation:
   Enabled: false
 
 Style/TrailingCommaInArrayLiteral:
@@ -77,39 +77,39 @@ Style/TrailingCommaInArrayLiteral:
 Style/TrailingCommaInHashLiteral:
   Enabled: false
 
-WhileUntilModifier:
+Style/WhileUntilModifier:
   Enabled: false
 
 Naming/UncommunicativeMethodParamName:
   Enabled: false
 
-PredicateName:
+Naming/PredicateName:
   NamePrefixBlacklist:
     - is_
 
-StringLiterals:
+Style/StringLiterals:
   EnforcedStyle: double_quotes
   SupportedStyles:
     - single_quotes
     - double_quotes
 
-DotPosition:
+Layout/DotPosition:
   EnforcedStyle: leading
 
-SpaceBeforeBlockBraces:
+Layout/SpaceBeforeBlockBraces:
   EnforcedStyle: space
 
-DoubleNegation:
+Style/DoubleNegation:
   Enabled: false
 
-SpaceInsideBlockBraces:
+Layout/SpaceInsideBlockBraces:
   EnforcedStyle: space
   SpaceBeforeBlockParameters: false
 
-SpaceInsideHashLiteralBraces:
+Layout/SpaceInsideHashLiteralBraces:
   Enabled: false
 
-PercentLiteralDelimiters:
+Style/PercentLiteralDelimiters:
   PreferredDelimiters:
     "%":  "[]"
     "%i": "[]"
