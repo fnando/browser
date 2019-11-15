@@ -11,7 +11,7 @@ module Browser
     end
 
     def full_version
-      ua[%r[Instagram ([\d.]+)], 1]
+      ua[%r[Instagram[ /]([\d.]+)], 1]
     end
 
     def match?
