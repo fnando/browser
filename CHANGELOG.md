@@ -1,5 +1,9 @@
 # Changelog
 
+## UNRELEASED
+
+- Handle instagram user agents that have a slash instead of a space
+
 ## 2.6.1
 
 - Also include controller extensions to `ActionController::Base`.
