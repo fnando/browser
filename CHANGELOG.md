@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add more Slack bots.
+
 ## 2.6.1
 
 - Also include controller extensions to `ActionController::Base`.
