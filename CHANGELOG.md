@@ -10,6 +10,7 @@
 - Improve Yandex detection.
 - Add Sputnik (https://browser.sputnik.ru)
 - Detect Android devices.
+- Add ScoutURLMonitor to the bot list.
 
 ## 2.6.1
 
