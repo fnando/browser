@@ -49,13 +49,16 @@ browser.version         # major version number
 browser.webkit?
 browser.webkit_full_version
 browser.yandex?
-browser.wechat?         # detect the MicroMessenger(WeChat)
-browser.weibo?          # detect Weibo embedded browser (Sina Weibo)
+browser.wechat?
+browser.weibo?
+browser.yandex?
+browser.sputnik?
 
 # Get bot info
 browser.bot.name
 browser.bot.search_engine?
 browser.bot?
+Browser::Bot.why?(ua) # shows which user agent was the offender
 
 # Get device info
 browser.device
