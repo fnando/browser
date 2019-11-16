@@ -99,7 +99,7 @@ module Browser
     # Detect if browser is WebKit-based.
     def webkit?(expected_version = nil)
       ua =~ /AppleWebKit/i &&
-        !edge? &&
+        (!edge? || Edge.new(ua).chrome_based?) &&
         detect_version?(webkit_full_version, expected_version)
     end
 
