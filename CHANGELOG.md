@@ -5,6 +5,8 @@
 - Add more Slack bots.
 - Handle instagram user agents that have a slash instead of a space.
 - Add `Browser::Bot.why?(ua)` to help debugging why a user agent is considered bot.
+- Promote Snapchat to a browser (it was detected as a bot previously).
+- Detect Edge based on Chrome correctly.
 
 ## 2.6.1
 
