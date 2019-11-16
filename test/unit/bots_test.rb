@@ -114,4 +114,11 @@ class BotsTest < Minitest::Test
     assert browser.bot?
     assert_equal "LinkedIn", browser.bot.name
   end
+
+  test "tells why user agent is considered a bot" do
+    id, name = Browser::Bot.why?(Browser.bot_user_agents["LINKEDIN"])
+
+    assert_equal "linkedinbot", id
+    assert_equal "LinkedIn", name
+  end
 end
