@@ -53,6 +53,22 @@ class EdgeTest < ActionController::TestCase
     refute browser.safari?
   end
 
+  test "detects Microsoft Edge based on Chrome" do
+    browser = Browser.new(Browser["MS_EDGE_CHROME"])
+
+    assert_equal :edge, browser.id
+    assert_equal "Microsoft Edge", browser.name
+    assert_equal "79.0.309.18", browser.full_version
+    assert_equal "79", browser.version
+    assert browser.platform.mac?
+    refute browser.platform.windows?
+    assert browser.edge?
+    assert browser.modern?
+    assert browser.webkit?
+    assert browser.chrome?
+    refute browser.safari?
+  end
+
   test "detects version by range" do
     browser = Browser.new(Browser["MS_EDGE"])
     assert browser.edge?(%w[>=12 <13])

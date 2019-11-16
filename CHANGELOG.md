@@ -4,6 +4,7 @@
 
 - Add more Slack bots.
 - Handle instagram user agents that have a slash instead of a space.
+- Detect Edge based on Chrome correctly.
 
 ## 2.6.1
 

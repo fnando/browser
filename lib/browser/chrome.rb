@@ -20,7 +20,7 @@ module Browser
     end
 
     def match?
-      ua =~ /Chrome|CriOS/ && !opera? && !edge?
+      ua =~ /Chrome|CriOS/ && !opera? && (!edge? || Edge.new(ua).chrome_based?)
     end
   end
 end
