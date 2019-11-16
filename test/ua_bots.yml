@@ -1,3 +1,4 @@
+---
 ADLXBOT: "Mozilla/5.0 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)"
 ADS_TXT_CRAWLER: "AdsTxtCrawler/1.0"
 ANDERSPINK: "Mozilla/5.0 (compatible; AndersPinkBot/1.0; +http://anderspink.com/bot.html)"
@@ -61,6 +62,7 @@ PROXIMIC: "Mozilla/5.0 (compatible; proximic; +http://www.proximic.com/info/spid
 PUINCRAWLER: "Pu_iN Crawler (+http://semanticjuice.com/)"
 QUERYSEEKER: "QuerySeekerSpider ( http://queryseeker.com/bot.html )"
 QUICKCRAWLER: "Quick-Crawler (+https://www.scrapinghub.com/)"
+SCOUT_URL_MONITOR: ScoutURLMonitor/6.2.2
 SCRAPY: "Scrapy/0.18.4 (+http://scrapy.org)"
 SEMANTICBOT: "Mozilla/5.0 (compatible; Semanticbot/1.0; +http://sempi.tech/bot.html)"
 SEO_AUDIT: "Mozilla/5.0 (compatible; seo-audit-check-bot/1.0)"
