@@ -21,8 +21,9 @@ module Browser
 
     def match?
       ua =~ /Chrome|CriOS/ &&
-        ua !~ /PhantomJS|FxiOS|YaBrowser/ && !opera? &&
-        (!edge? || Edge.new(ua).chrome_based?)
+        ua !~ /PhantomJS|FxiOS|YaBrowser|SputnikBrowser/ &&
+        !opera? &&
+        !edge?
     end
   end
 end

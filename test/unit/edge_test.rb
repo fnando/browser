@@ -65,7 +65,7 @@ class EdgeTest < ActionController::TestCase
     assert browser.edge?
     assert browser.modern?
     assert browser.webkit?
-    assert browser.chrome?
+    refute browser.chrome?
     refute browser.safari?
   end
 
