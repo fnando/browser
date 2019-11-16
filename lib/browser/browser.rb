@@ -27,6 +27,7 @@ require "browser/electron"
 require "browser/facebook"
 require "browser/otter"
 require "browser/instagram"
+require "browser/yandex"
 require "browser/snapchat"
 
 require "browser/bot"
@@ -63,6 +64,7 @@ module Browser
       QQ,                   # must be placed before Chrome and Safari
       Alipay,               # must be placed before Chrome and Safari
       Electron,             # must be placed before Chrome and Safari
+      Yandex,               # must be placed before Chrome and Safari
       Chrome,
       Safari,
       MicroMessenger,
