@@ -27,6 +27,7 @@ require "browser/electron"
 require "browser/facebook"
 require "browser/otter"
 require "browser/instagram"
+require "browser/snapchat"
 
 require "browser/bot"
 require "browser/middleware"
@@ -57,6 +58,7 @@ module Browser
       Otter,
       Facebook,             # must be placed before Chrome and Safari
       Instagram,            # must be placed before Chrome and Safari
+      Snapchat,             # must be placed before Chrome and Safari
       Weibo,                # must be placed before Chrome and Safari
       QQ,                   # must be placed before Chrome and Safari
       Alipay,               # must be placed before Chrome and Safari
