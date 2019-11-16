@@ -1,21 +1,21 @@
 # frozen_string_literal: true
 
 module Browser
-  class Instagram < Base
+  class Snapchat < Base
     def id
-      :instagram
+      :snapchat
     end
 
     def name
-      "Instagram"
+      "Snapchat"
     end
 
     def full_version
-      ua[%r[Instagram[ /]([\d.]+)], 1]
+      ua[%r[Snapchat/([\d.]+)], 1]
     end
 
     def match?
-      ua =~ /Instagram/
+      ua =~ /Snapchat/
     end
   end
 end

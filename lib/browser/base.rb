@@ -52,7 +52,7 @@ module Browser
 
     # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
     def modern?
-      Browser.modern_rules.any? {|rule| rule === self } # rubocop:disable Metrics/LineLength, Style/CaseEquality
+      Browser.modern_rules.any? {|rule| rule === self } # rubocop:disable Style/CaseEquality
     end
 
     # Detect if browser is Microsoft Internet Explorer.
@@ -84,6 +84,12 @@ module Browser
         detect_version?(full_version, expected_version)
     end
 
+    # Detect if browser is Snapchat.
+    def snapchat?(expected_version = nil)
+      Snapchat.new(ua).match? &&
+        detect_version?(full_version, expected_version)
+    end
+
     # Detect if browser if Facebook.
     def facebook?(expected_version = nil)
       Facebook.new(ua).match? &&
@@ -99,7 +105,7 @@ module Browser
     # Detect if browser is WebKit-based.
     def webkit?(expected_version = nil)
       ua =~ /AppleWebKit/i &&
-        !edge? &&
+        (!edge? || Edge.new(ua).chrome_based?) &&
         detect_version?(webkit_full_version, expected_version)
     end
 

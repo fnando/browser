@@ -24,6 +24,11 @@ class SampleApp < Rails::Application
   config.eager_load = true
   config.active_support.deprecation = :log
 
+  # Introduced by Rails 6.
+  if config.respond_to?(:hosts)
+    config.hosts << "example.org"
+  end
+
   routes.append do
     default_headers = {"Content-Type" => "text/html"}
 

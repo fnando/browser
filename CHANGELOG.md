@@ -1,5 +1,12 @@
 # Changelog
 
+## Unreleased
+
+- Add more Slack bots.
+- Handle instagram user agents that have a slash instead of a space.
+- Promote Snapchat to a browser (it was detected as a bot previously).
+- Detect Edge based on Chrome correctly.
+
 ## 2.6.1
 
 - Also include controller extensions to `ActionController::Base`.

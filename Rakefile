@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "bundler"
 require "bundler/setup"
 Bundler::GemHelper.install_tasks
@@ -28,4 +30,4 @@ task "test:all" do
   end
 end
 
-task default: [:test, :rubocop]
+task default: %i[test rubocop]
