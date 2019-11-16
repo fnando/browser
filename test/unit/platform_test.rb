@@ -62,6 +62,27 @@ class PlatformTest < Minitest::Test
     assert_equal "9", platform.version
   end
 
+  test "detect specific minor iOS (iPhone)" do
+    platform = Browser::Platform.new(Browser["IOS8_3"])
+
+    assert_equal "iOS (iPhone)", platform.name
+    assert_equal :ios, platform.id
+    assert platform.ios?
+    assert platform.ios?(8.3)
+    assert_equal "8.3", platform.version
+  end
+
+  test "detect specific patch iOS (iPhone)" do
+    platform = Browser::Platform.new(Browser["IOS8_1_2"])
+
+    assert_equal "iOS (iPhone)", platform.name
+    assert_equal :ios, platform.id
+    assert platform.ios?
+    assert platform.ios?("8.1.2")
+    assert platform.ios?("<8.2")
+    assert_equal "8.1.2", platform.version
+  end
+
   test "detect ios (iPod Touch)" do
     platform = Browser::Platform.new(Browser["IPOD"])
 
