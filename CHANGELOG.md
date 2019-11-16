@@ -4,6 +4,7 @@
 
 - Add more Slack bots.
 - Handle instagram user agents that have a slash instead of a space.
+- Add `Browser::Bot.why?(ua)` to help debugging why a user agent is considered bot.
 
 ## 2.6.1
 

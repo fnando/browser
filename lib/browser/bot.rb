@@ -24,6 +24,11 @@ module Browser
                           .load_file(Browser.root.join("search_engines.yml"))
     end
 
+    def self.why?(ua)
+      downcased_ua = ua.downcase
+      bots.find {|key, _| downcased_ua.include?(key) }
+    end
+
     attr_reader :ua
 
     def initialize(ua)
