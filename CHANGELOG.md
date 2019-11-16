@@ -7,6 +7,7 @@
 - Promote Snapchat to a browser (it was detected as a bot previously).
 - Detect Edge based on Chrome correctly.
 - Improve Yandex detection.
+- Add Sputnik (https://browser.sputnik.ru)
 
 ## 2.6.1
 

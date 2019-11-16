@@ -28,6 +28,7 @@ require "browser/facebook"
 require "browser/otter"
 require "browser/instagram"
 require "browser/yandex"
+require "browser/sputnik"
 require "browser/snapchat"
 
 require "browser/bot"
@@ -65,6 +66,7 @@ module Browser
       Alipay,               # must be placed before Chrome and Safari
       Electron,             # must be placed before Chrome and Safari
       Yandex,               # must be placed before Chrome and Safari
+      Sputnik,              # must be placed before Chrome and Safari
       Chrome,
       Safari,
       MicroMessenger,
