@@ -151,7 +151,7 @@ module Browser
 
     # Detect if browser is Yandex.
     def yandex?(expected_version = nil)
-      YandexBrowser.new(ua) && detect_version?(full_version, expected_version)
+      Yandex.new(ua) && detect_version?(full_version, expected_version)
     end
     alias_method :yandex_browser?, :yandex?
 

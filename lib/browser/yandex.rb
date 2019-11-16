@@ -1,13 +1,13 @@
 # frozen_string_literal: true
 
 module Browser
-  class YandexBrowser < Base
+  class Yandex < Base
     def id
-      :yandex_browser
+      :yandex
     end
 
     def name
-      "Yandex Browser"
+      "Yandex"
     end
 
     def full_version

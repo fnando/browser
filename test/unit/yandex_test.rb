@@ -10,8 +10,8 @@ class YandexTest < Minitest::Test
     refute browser.safari?
     refute browser.chrome?
     assert browser.webkit?
-    assert_equal "Yandex Browser", browser.name
-    assert_equal :yandex_browser, browser.id
+    assert_equal "Yandex", browser.name
+    assert_equal :yandex, browser.id
   end
 
   test "detects Yandex on non-iOS devices" do
@@ -20,8 +20,8 @@ class YandexTest < Minitest::Test
     assert browser.yandex_browser?
     refute browser.safari?
     refute browser.chrome?
-    assert_equal "Yandex Browser", browser.name
-    assert_equal :yandex_browser, browser.id
+    assert_equal "Yandex", browser.name
+    assert_equal :yandex, browser.id
   end
 
   test "detects correct version" do
