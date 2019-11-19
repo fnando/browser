@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Handle Snapchat user agents that have a space or an empty string instead of a slash before the version.
+
 ## 2.7.0
 
 - Add more Slack bots.
