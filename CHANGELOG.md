@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 2.7.0
 
 - Add more Slack bots.
 - Handle instagram user agents that have a slash instead of a space.
