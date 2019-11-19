@@ -1,8 +1,11 @@
 # Changelog
 
-## 2.7.0
+## Unreleased
 
 - Handle Snapchat user agents that have a space or an empty string instead of a slash before the version.
+
+## 2.7.0
+
 - Add more Slack bots.
 - Handle instagram user agents that have a slash instead of a space.
 - Add `Browser::Bot.why?(ua)` to help debugging why a user agent is considered bot.
