@@ -11,7 +11,7 @@ module Browser
     end
 
     def full_version
-      ua[%r[Snapchat( ?|/)([\d.]+)], 2]
+      ua[%r[Snapchat( ?|/)([\d.]+)], 2] || "0.0"
     end
 
     def match?
