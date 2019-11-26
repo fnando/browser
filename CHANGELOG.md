@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Handle Snapchat user agents that have a space or an empty string instead of a slash before the version.
+- Fix iOS 10+ version detection.
 
 ## 2.7.0
 

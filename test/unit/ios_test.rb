@@ -105,6 +105,13 @@ class IosTest < Minitest::Test
     refute browser.platform.mac?
   end
 
+  test "detects ios12" do
+    browser = Browser.new(Browser["IOS12"])
+    assert browser.platform.ios?
+    assert browser.platform.ios?(12)
+    refute browser.platform.mac?
+  end
+
   test "don't detect as two different versions" do
     browser = Browser.new(Browser["IOS8"])
     assert browser.platform.ios?(8)
