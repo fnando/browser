@@ -16,7 +16,14 @@ end
 require "rubocop/rake_task"
 desc "Run rubocop"
 task :rubocop do
-  RuboCop::RakeTask.new
+  RuboCop::RakeTask.new do |t|
+    t.options += %w[
+      --display-style-guide
+      --display-cop-names
+      --extra-details
+      --auto-correct
+    ]
+  end
 end
 
 desc "Run specs against all gemfiles"
