@@ -36,7 +36,7 @@ Metrics/CyclomaticComplexity:
   Enabled: false
 
 Metrics/LineLength:
-  Enabled: 80
+  Max: 80
 
 Metrics/MethodLength:
   Enabled: false
