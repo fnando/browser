@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Handle Snapchat user agents that have a space or an empty string instead of a slash before the version.
+- Add fallback versions for instagram and snapchat to avoid NoMethodErrors on unexpected user agents.
 
 ## 2.7.0
 
