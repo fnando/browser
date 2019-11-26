@@ -11,7 +11,7 @@ module Browser
     end
 
     def full_version
-      ua[%r[(?:__weibo__)([\d.]+)]i, 1] || "0.0"
+      ua[/(?:__weibo__)([\d.]+)/i, 1] || "0.0"
     end
 
     def match?

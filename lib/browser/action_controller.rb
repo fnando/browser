@@ -10,9 +10,7 @@ module Browser
       helper_method(:browser) if respond_to?(:helper_method)
     end
 
-    private
-
-    def browser
+    private def browser
       @browser ||= Browser.new(
         request.headers["User-Agent"],
         accept_language: request.headers["Accept-Language"]

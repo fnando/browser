@@ -11,7 +11,7 @@ module Browser
     end
 
     def full_version
-      ua[%r[Electron/([\d.]+)], 1] ||
+      ua[%r{Electron/([\d.]+)}, 1] ||
         "0.0"
     end
 

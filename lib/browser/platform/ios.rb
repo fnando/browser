@@ -4,7 +4,8 @@ module Browser
   class Platform
     class IOS < Base
       MATCHER = /(iPhone|iPad|iPod)/.freeze
-      VERSION_MATCHER = /OS ((?<major>\d+)_(?<minor>\d+)_?(?<patch>\d+)?)/.freeze # rubocop:disable Metrics/LineLength
+      VERSION_MATCHER =
+        /OS ((?<major>\d+)_(?<minor>\d+)_?(?<patch>\d+)?)/.freeze
 
       def version
         matches = VERSION_MATCHER.match(ua)

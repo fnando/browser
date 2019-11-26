@@ -193,7 +193,7 @@ module Browser
     end
 
     def webkit_full_version
-      ua[%r[AppleWebKit/([\d.]+)], 1] || "0.0"
+      ua[%r{AppleWebKit/([\d.]+)}, 1] || "0.0"
     end
 
     def known?

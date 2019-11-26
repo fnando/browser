@@ -11,7 +11,7 @@ module Browser
     end
 
     def full_version
-      ua[%r[S40OviBrowser/([\d.]+)], 1] || "0.0"
+      ua[%r{S40OviBrowser/([\d.]+)}, 1] || "0.0"
     end
 
     def match?

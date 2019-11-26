@@ -10,7 +10,7 @@ module Browser
       /\.(css|png|jpe?g|gif|js|svg|ico|flv|mov|m4v|ogg|swf)\z/i.freeze
 
     # Detect the ACCEPT header. IE8 send */*.
-    ACCEPT_REGEX = %r[(text/html|\*/\*)].freeze
+    ACCEPT_REGEX = %r{(text/html|\*/\*)}.freeze
 
     def initialize(app, &block)
       raise ArgumentError, "Browser::Middleware requires a block" unless block

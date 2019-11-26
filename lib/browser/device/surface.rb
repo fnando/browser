@@ -15,9 +15,7 @@ module Browser
         platform.windows_rt? && ua =~ /Touch/
       end
 
-      private
-
-      def platform
+      private def platform
         @platform ||= Platform.new(ua)
       end
     end

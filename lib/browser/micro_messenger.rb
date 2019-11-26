@@ -11,7 +11,7 @@ module Browser
     end
 
     def full_version
-      ua[%r[(?:MicroMessenger)/([\d.]+)]i, 1] || "0.0"
+      ua[%r{(?:MicroMessenger)/([\d.]+)}i, 1] || "0.0"
     end
 
     def match?

@@ -12,10 +12,10 @@ module Browser
 
     def full_version
       # Each regex on its own line to enforce precedence.
-      ua[%r[Chrome/([\d.]+)], 1] ||
-        ua[%r[CriOS/([\d.]+)], 1] ||
-        ua[%r[Safari/([\d.]+)], 1] ||
-        ua[%r[AppleWebKit/([\d.]+)], 1] ||
+      ua[%r{Chrome/([\d.]+)}, 1] ||
+        ua[%r{CriOS/([\d.]+)}, 1] ||
+        ua[%r{Safari/([\d.]+)}, 1] ||
+        ua[%r{AppleWebKit/([\d.]+)}, 1] ||
         "0.0"
     end
 

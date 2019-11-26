@@ -7,9 +7,7 @@ module Browser
         "#{browser.id} #{browser.id}#{browser.version}" if generic?
       end
 
-      private
-
-      def generic?
+      private def generic?
         !browser.safari? && !browser.chrome?
       end
     end

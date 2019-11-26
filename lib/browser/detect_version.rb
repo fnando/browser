@@ -2,9 +2,7 @@
 
 module Browser
   module DetectVersion
-    private
-
-    def detect_version?(actual_version, expected_version)
+    private def detect_version?(actual_version, expected_version)
       return true unless expected_version
       return false if expected_version && !actual_version
 
@@ -17,8 +15,8 @@ module Browser
       false
     end
 
-    def parse_version(version)
-      version.kind_of?(Numeric) ? version.to_s : version
+    private def parse_version(version)
+      version.is_a?(Numeric) ? version.to_s : version
     end
   end
 end

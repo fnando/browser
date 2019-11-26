@@ -16,7 +16,7 @@ module Browser
       end
 
       def version
-        ua[%r[(?:Version|BlackBerry[\da-z]+)/([\d.]+)], 1]
+        ua[%r{(?:Version|BlackBerry[\da-z]+)/([\d.]+)}, 1]
       end
     end
   end

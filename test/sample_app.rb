@@ -25,9 +25,7 @@ class SampleApp < Rails::Application
   config.active_support.deprecation = :log
 
   # Introduced by Rails 6.
-  if config.respond_to?(:hosts)
-    config.hosts << "example.org"
-  end
+  config.hosts << "example.org" if config.respond_to?(:hosts)
 
   routes.append do
     default_headers = {"Content-Type" => "text/html"}
