@@ -29,6 +29,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rails"
   s.add_development_dependency "rake"
   s.add_development_dependency "rubocop"
-  s.add_development_dependency "rubocop-fnando"
+  s.add_development_dependency "rubocop-fnando", "~> 0.0.3"
   s.add_development_dependency "simplecov"
 end
