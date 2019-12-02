@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+## 2.7.1
+
 - Handle Snapchat user agents that have a space or an empty string instead of a slash before the version.
 - Fix iOS 10+ version detection.
 - Add fallback versions for instagram and snapchat to avoid NoMethodErrors on unexpected user agents.
