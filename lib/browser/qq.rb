@@ -19,7 +19,7 @@ module Browser
     end
 
     def match?
-      ua =~ /QQ/i
+      ua =~ /QQ\/|QQBrowser/i
     end
   end
 end

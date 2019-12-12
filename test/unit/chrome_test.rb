@@ -61,6 +61,13 @@ class ChromeTest < Minitest::Test
     assert browser.chrome?
   end
 
+  test "detects chrome on android 10" do
+    browser = Browser.new(Browser["ANRDOID_Q"])
+
+    assert browser.chrome?
+    assert_equal "78", browser.version
+  end
+
   test "detects version by range" do
     browser = Browser.new(Browser["CHROME"])
     assert browser.chrome?(%w[>=5 <6])
