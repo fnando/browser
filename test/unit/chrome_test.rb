@@ -65,6 +65,7 @@ class ChromeTest < Minitest::Test
     browser = Browser.new(Browser["ANRDOID_Q"])
 
     assert browser.chrome?
+    assert_equal "Chrome", browser.name
     assert_equal "78", browser.version
   end
 
