@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add ArchiveTeam's ArchiveBot to the bot list.
+
 ## 2.7.1
 
 - Handle Snapchat user agents that have a space or an empty string instead of a slash before the version.
