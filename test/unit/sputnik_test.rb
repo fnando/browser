@@ -7,6 +7,7 @@ class SputnikTest < Minitest::Test
     browser = Browser.new(Browser["SPUTNIK"])
 
     assert_equal "Sputnik", browser.name
+    assert_equal :sputnik, browser.id
     assert browser.sputnik?
     refute browser.chrome?
     refute browser.safari?

@@ -84,7 +84,6 @@ class BotsTest < Minitest::Test
     refute browser.platform.windows10?
     refute browser.platform.windows_phone?
     refute browser.edge?
-    refute browser.modern?
     refute browser.device.mobile?
     refute browser.webkit?
     refute browser.chrome?

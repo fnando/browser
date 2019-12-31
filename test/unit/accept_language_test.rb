@@ -157,4 +157,10 @@ class AcceptLanguageTest < Minitest::Test
     assert_equal 5, result.size
     assert_language result[3], code: "de", region: nil, quality: 0.7
   end
+
+  test "sets default quality value for invalid strings" do
+    result = Browser::AcceptLanguage.parse(";q=0.0.0.0")
+
+    assert_equal 0.1, result[0].quality
+  end
 end

@@ -17,13 +17,11 @@ class KindleTest < Minitest::Test
     browser = Browser.new(Browser["KINDLE_FIRE_HD"])
 
     assert browser.webkit?
-    assert browser.modern?
   end
 
   test "detects kindle fire hd mobile" do
     browser = Browser.new(Browser["KINDLE_FIRE_HD_MOBILE"])
 
     assert browser.webkit?
-    assert browser.modern?
   end
 end

@@ -8,7 +8,6 @@ class FirefoxTest < Minitest::Test
 
     assert_equal "Firefox", browser.name
     assert browser.firefox?
-    refute browser.modern?
     assert_equal "3.8", browser.full_version
     assert_equal "3", browser.version
   end
@@ -29,7 +28,6 @@ class FirefoxTest < Minitest::Test
     assert_equal :firefox, browser.id
     assert_equal "Firefox", browser.name
     assert browser.firefox?
-    assert browser.modern?
     assert_equal "17.0", browser.full_version
     assert_equal "17", browser.version
   end
@@ -40,7 +38,6 @@ class FirefoxTest < Minitest::Test
     assert_equal :firefox, browser.id
     assert_equal "Firefox", browser.name
     assert browser.firefox?
-    assert browser.modern?
     assert browser.platform.android?
     assert_equal "14.0", browser.full_version
     assert_equal "14", browser.version
