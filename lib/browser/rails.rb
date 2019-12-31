@@ -12,7 +12,7 @@ module Browser
       ActiveSupport.on_load(:action_controller) do
         ::ActionController::Base.include(Browser::ActionController)
 
-        ::ActionController::Metal.include(Browser::ActionController) if defined?(::ActionController::Metal) # rubocop:disable Metrics/LineLength
+        ::ActionController::Metal.include(Browser::ActionController) if defined?(::ActionController::Metal) # rubocop:disable Layout/LineLength
 
         Browser::Middleware::Context.include(
           Browser::Middleware::Context::Additions
