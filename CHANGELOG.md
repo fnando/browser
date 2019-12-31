@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Fix QQ Browser detection.
+
 ## 2.7.1
 
 - Handle Snapchat user agents that have a space or an empty string instead of a slash before the version.
