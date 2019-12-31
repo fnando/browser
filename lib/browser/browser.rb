@@ -94,7 +94,7 @@ module Browser
     rules << ->(b) { b.ie? && b.version.to_i >= 9 && !b.compatibility_view? }
     rules << ->(b) { b.edge? && !b.compatibility_view? }
     rules << ->(b) { b.opera? && b.version.to_i >= 12 }
-    rules << ->(b) { b.firefox? && b.device.tablet? && b.platform.android? && b.version.to_i >= 14 } # rubocop:disable Metrics/LineLength
+    rules << ->(b) { b.firefox? && b.device.tablet? && b.platform.android? && b.version.to_i >= 14 } # rubocop:disable Layout/LineLength
   end
 
   def self.new(user_agent, **kwargs)

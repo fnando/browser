@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Add ArchiveTeam's ArchiveBot to the bot list.
+- Fix QQ Browser detection.
 
 ## 2.7.1
 
