@@ -16,6 +16,7 @@ apis-google: APIs-Google
 appengine-google: "Google App Engine"
 applebot: "Apple Bot"
 archive.org_bot: "Internet Archive (archive.org)"
+archiveteam archivebot: "ArchiveTeam ArchiveBot"
 ask jeeves: "Ask Jeeves"
 asynchttpclient: "Java http and WebSocket client library"
 awe.sm: "Awe.sm URL expander"
