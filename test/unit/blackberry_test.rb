@@ -9,7 +9,6 @@ class BlackberryTest < Minitest::Test
     assert_equal "BlackBerry", browser.name
     refute browser.device.tablet?
     assert browser.device.mobile?
-    refute browser.modern?
     assert_equal "4.1.0", browser.full_version
     assert_equal "4", browser.version
   end
@@ -18,7 +17,6 @@ class BlackberryTest < Minitest::Test
     browser = Browser.new(Browser["BLACKBERRY4"])
 
     assert_equal "BlackBerry", browser.name
-    refute browser.modern?
     assert_equal "4.2.1", browser.full_version
     assert_equal "4", browser.version
   end
@@ -29,7 +27,6 @@ class BlackberryTest < Minitest::Test
     assert_equal "BlackBerry", browser.name
     refute browser.device.tablet?
     assert browser.device.mobile?
-    refute browser.modern?
     assert_equal "5.0.0.93", browser.full_version
     assert_equal "5", browser.version
   end
@@ -40,7 +37,6 @@ class BlackberryTest < Minitest::Test
     assert_equal "BlackBerry", browser.name
     refute browser.device.tablet?
     assert browser.device.mobile?
-    assert browser.modern?
     assert_equal "6.0.0.141", browser.full_version
     assert_equal "6", browser.version
   end
@@ -51,7 +47,6 @@ class BlackberryTest < Minitest::Test
     assert_equal "BlackBerry", browser.name
     refute browser.device.tablet?
     assert browser.device.mobile?
-    assert browser.modern?
     assert_equal "7.0.0.1", browser.full_version
     assert_equal "7", browser.version
   end
@@ -62,7 +57,6 @@ class BlackberryTest < Minitest::Test
     assert_equal "BlackBerry", browser.name
     refute browser.device.tablet?
     assert browser.device.mobile?
-    assert browser.modern?
     assert_equal "10.0.9.1675", browser.full_version
     assert_equal "10", browser.version
   end

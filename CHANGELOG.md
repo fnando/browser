@@ -4,6 +4,7 @@
 
 - Add ArchiveTeam's ArchiveBot to the bot list.
 - Fix QQ Browser detection.
+- Update modern rules.
 
 ## 2.7.1
 

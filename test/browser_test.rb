@@ -39,7 +39,6 @@ class BrowserTest < Minitest::Test
     assert browser.platform.android?
     assert browser.safari?
     assert browser.webkit?
-    assert browser.modern?
     assert_equal "3.1.2", browser.full_version
     assert_equal "3", browser.version
   end
@@ -51,7 +50,6 @@ class BrowserTest < Minitest::Test
     assert browser.platform.android?
     assert browser.safari?
     assert browser.webkit?
-    assert browser.modern?
     assert_equal "4.0", browser.full_version
     assert_equal "4", browser.version
   end
@@ -62,7 +60,6 @@ class BrowserTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.device.surface?
     assert browser.ie?
-    assert browser.modern?
     assert_equal "10.0", browser.full_version
     assert_equal "10", browser.version
   end
@@ -93,7 +90,6 @@ class BrowserTest < Minitest::Test
     assert_equal "PhantomJS", browser.name
     assert_equal :phantom_js, browser.id
     assert browser.phantom_js?
-    assert browser.modern?
     assert_equal "1.9.0", browser.full_version
     assert_equal "1", browser.version
     assert browser.phantom_js?(%w[>=1 <2])
