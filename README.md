@@ -272,6 +272,14 @@ Browser used to detect empty user agents as bots, but this behavior has changed.
 Browser::Bot.detect_empty_ua!
 ```
 
+To add custom matchers, you can add a callable object to `Browser::Bot.matchers`. The following example matches everything that has a `fetcher` or `crawler` word on it. The bot name will always be `General Bot`.
+
+```ruby
+Browser::Bot.matchers << ->(ua) { ua =~ /(fetcher|crawler)/i }
+```
+
+To clear all matchers, including the ones that are bundled, use `Browser::Bot.matchers.clear`.
+
 ### Middleware
 
 You can use the `Browser::Middleware` to redirect user agents.

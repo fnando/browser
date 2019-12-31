@@ -120,4 +120,12 @@ class BotsTest < Minitest::Test
     assert_equal "linkedinbot", id
     assert_equal "LinkedIn", name
   end
+
+  test "adds custom bot matcher" do
+    Browser::Bot.matchers << ->(ua) { ua =~ /fetcher/ }
+    browser = Browser.new("MetaFetcher/1.0")
+
+    assert browser.bot?
+    assert_equal "Generic Bot", browser.bot.name
+  end
 end

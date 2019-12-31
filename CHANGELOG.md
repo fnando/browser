@@ -5,6 +5,7 @@
 - Add ArchiveTeam's ArchiveBot to the bot list.
 - Fix QQ Browser detection.
 - Update modern rules.
+- You can now define new bot matchers by adding a callable object to `Browser::Bot.matchers`.
 
 ## 2.7.1
 
