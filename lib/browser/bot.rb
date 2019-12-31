@@ -2,6 +2,27 @@
 
 module Browser
   class Bot
+    GENERIC_NAME = "Generic Bot"
+
+    def self.bot_list_matcher
+      lambda do |ua|
+        bots.any? {|key, _| ua.include?(key) }
+      end
+    end
+
+    def self.empty_ua_matcher
+      lambda do |ua|
+        detect_empty_ua? && ua == ""
+      end
+    end
+
+    def self.matchers
+      @matchers ||= [
+        empty_ua_matcher,
+        bot_list_matcher
+      ]
+    end
+
     def self.detect_empty_ua!
       @detect_empty_ua = true
     end
@@ -25,45 +46,37 @@ module Browser
     end
 
     def self.why?(ua)
-      downcased_ua = ua.downcase
-      bots.find {|key, _| downcased_ua.include?(key) }
+      ua = ua.downcase.strip
+      bots.find {|key, _| ua.include?(key) }
     end
 
     attr_reader :ua
 
     def initialize(ua)
-      @ua = ua
+      @ua = ua.downcase.strip
     end
 
     def bot?
-      bot_with_empty_ua? || (!bot_exception? && detect_bot?)
+      !bot_exception? && detect_bot?
     end
 
     def search_engine?
-      self.class.search_engines.any? {|key, _| downcased_ua.include?(key) }
+      self.class.search_engines.any? {|key, _| ua.include?(key) }
     end
 
     def name
       return unless bot?
-      return "Generic Bot" if bot_with_empty_ua?
+      return GENERIC_NAME if ua == ""
 
-      self.class.bots.find {|key, _| downcased_ua.include?(key) }.last
-    end
-
-    private def bot_with_empty_ua?
-      self.class.detect_empty_ua? && ua.strip == ""
+      self.class.bots.find {|key, _| ua.include?(key) }&.last || GENERIC_NAME
     end
 
     private def bot_exception?
-      self.class.bot_exceptions.any? {|key| downcased_ua.include?(key) }
+      self.class.bot_exceptions.any? {|key| ua.include?(key) }
     end
 
     private def detect_bot?
-      self.class.bots.any? {|key, _| downcased_ua.include?(key) }
-    end
-
-    private def downcased_ua
-      @downcased_ua ||= ua.downcase
+      self.class.matchers.any? {|matcher| matcher.call(ua) }
     end
   end
 end
