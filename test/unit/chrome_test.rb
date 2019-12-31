@@ -62,7 +62,7 @@ class ChromeTest < Minitest::Test
   end
 
   test "detects chrome on android 10" do
-    browser = Browser.new(Browser["ANRDOID_Q"])
+    browser = Browser.new(Browser["ANDROID_Q"])
 
     assert browser.chrome?
     assert_equal "Chrome", browser.name
