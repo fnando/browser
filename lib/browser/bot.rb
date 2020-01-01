@@ -72,5 +72,6 @@ module Browser
     end
 
     private :ua
+    private :browser
   end
 end
