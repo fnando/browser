@@ -7,6 +7,8 @@
 - Update modern rules.
 - You can now define new bot matchers by adding a callable object to `Browser::Bot.matchers`.
 - Fix `browser.yandex?` and `browser.sputnik?`.
+- [BREAKING CHANGE] Removed methods to enable the bot's empty user agent detection (`Browser::Bot.detect_empty_ua!` and `Browser::Bot.detect_empty_ua?`).
+- [BREAKING CHANGE] Bot detection is now more aggressive by default. It matches empty user agents, anything that matches `crawl|fetch|search|monitoring|spider|bot`, and anything listed under https://github.com/fnando/browser/blob/master/bots.yml.
 
 ## 2.7.1
 
