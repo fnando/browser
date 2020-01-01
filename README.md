@@ -58,7 +58,8 @@ browser.sputnik?
 browser.bot.name
 browser.bot.search_engine?
 browser.bot?
-Browser::Bot.why?(ua) # shows which user agent was the offender
+browser.bot.why? # shows which matcher detected this user agent as a bot.
+Browser::Bot.why?(ua)
 
 # Get device info
 browser.device
@@ -146,21 +147,21 @@ browser.mobile? #=> false
 
 ### What defines a modern browser?
 
-The current rules that define a modern browser are pretty loose:
+The current rules that define a modern browser are pretty loose.
 
-* Webkit
-* IE9+
-* Microsoft Edge
-* Firefox 17+
-* Firefox Tablet 14+
-* Opera 12+
+* Chrome 65+
+* Safari 10+
+* Firefox 52+
+* IE11+
+* Microsoft Edge 39+
+* Opera 50+
 
 You can define your own rules. A rule must be a proc/lambda or any object that implements the method === and accepts the browser object. To redefine all rules, clear the existing rules before adding your own.
 
 ```ruby
-# Only Chrome Canary is considered modern.
+# Only Google Chrome 79+ is considered modern.
 Browser.modern_rules.clear
-Browser.modern_rules << -> b { b.chrome? && b.version.to_i >= 37 }
+Browser.modern_rules << -> b { b.chrome? && b.version.to_i >= 79 }
 ```
 
 ### Rails integration
@@ -213,7 +214,7 @@ language.name
 #=> "English/United States"
 ```
 
-Result is always sorted in quality order from highest -> lowest. As per the HTTP spec:
+Result is always sorted in quality order from highest to lowest. As per the HTTP spec:
 
 - omitting the quality value implies 1.0.
 - quality value equal to zero means that is not accepted by the client.
