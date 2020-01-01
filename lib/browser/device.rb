@@ -204,5 +204,8 @@ module Browser
     private def platform
       @platform ||= Platform.new(ua)
     end
+
+    private :subject
+    private :ua
   end
 end

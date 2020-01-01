@@ -179,5 +179,8 @@ module Browser
     def windows_touchscreen_desktop?
       windows? && ua =~ /Touch/
     end
+
+    private :subject
+    private :ua
   end
 end

@@ -78,5 +78,7 @@ module Browser
     private def detect_bot?
       self.class.matchers.any? {|matcher| matcher.call(ua) }
     end
+
+    private :ua
   end
 end
