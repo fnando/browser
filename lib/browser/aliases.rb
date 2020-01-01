@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "browser"
+require_relative "../browser"
 require "forwardable"
 
 module Browser

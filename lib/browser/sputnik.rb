@@ -11,10 +11,7 @@ module Browser
     end
 
     def full_version
-      # Each regex on its own line to enforce precedence.
-      ua[%r{SputnikBrowser/([\d.]+)}, 1] ||
-        ua[%r{Chrome/([\d.]+)}, 1] ||
-        "0.0"
+      ua[%r{SputnikBrowser/([\d.]+)}, 1] || "0.0"
     end
 
     def match?

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require "uri"
-require "browser/middleware/context"
+require_relative "middleware/context"
 
 module Browser
   class Middleware

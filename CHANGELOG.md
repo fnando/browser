@@ -6,6 +6,7 @@
 - Fix QQ Browser detection.
 - Update modern rules.
 - You can now define new bot matchers by adding a callable object to `Browser::Bot.matchers`.
+- Fix `browser.yandex?` and `browser.sputnik?`.
 
 ## 2.7.1
 

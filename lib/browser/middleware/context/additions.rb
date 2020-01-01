@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "browser/middleware/context/url_methods"
+require_relative "url_methods"
 
 module Browser
   class Middleware

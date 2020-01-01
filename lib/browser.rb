@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-require "browser/browser"
-require "browser/rails" if defined?(::Rails)
+require_relative "browser/browser"
+require_relative "browser/rails" if defined?(::Rails)

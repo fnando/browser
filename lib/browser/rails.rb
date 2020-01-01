@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
 require "rails/railtie"
-require "browser/action_controller"
-require "browser/middleware/context/additions"
+require_relative "action_controller"
+require_relative "middleware/context/additions"
 
 module Browser
   class Railtie < Rails::Railtie

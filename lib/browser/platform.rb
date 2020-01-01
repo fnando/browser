@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
-require "browser/platform/base"
-require "browser/platform/ios"
-require "browser/platform/linux"
-require "browser/platform/windows"
-require "browser/platform/mac"
-require "browser/platform/windows_phone"
-require "browser/platform/windows_mobile"
-require "browser/platform/firefox_os"
-require "browser/platform/blackberry"
-require "browser/platform/android"
-require "browser/platform/other"
-require "browser/platform/chrome_os"
-require "browser/platform/adobe_air"
+require_relative "platform/base"
+require_relative "platform/ios"
+require_relative "platform/linux"
+require_relative "platform/windows"
+require_relative "platform/mac"
+require_relative "platform/windows_phone"
+require_relative "platform/windows_mobile"
+require_relative "platform/firefox_os"
+require_relative "platform/blackberry"
+require_relative "platform/android"
+require_relative "platform/other"
+require_relative "platform/chrome_os"
+require_relative "platform/adobe_air"
 
 module Browser
   class Platform

@@ -151,12 +151,12 @@ module Browser
 
     # Detect if browser is Sputnik.
     def sputnik?(expected_version = nil)
-      Sputnik.new(ua) && detect_version?(full_version, expected_version)
+      Sputnik.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is Yandex.
     def yandex?(expected_version = nil)
-      Yandex.new(ua) && detect_version?(full_version, expected_version)
+      Yandex.new(ua).match? && detect_version?(full_version, expected_version)
     end
     alias_method :yandex_browser?, :yandex?
 
