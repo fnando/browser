@@ -15,47 +15,12 @@ class BotsTest < Minitest::Test
     refute browser.bot?
   end
 
-  test "doesn't consider empty UA as bot" do
-    browser = Browser.new("")
-    refute browser.bot?
-  end
-
-  test "allows setting empty string as bots" do
-    Browser::Bot.detect_empty_ua!
-    browser = Browser.new("")
-
-    assert browser.bot?
-  end
-
-  test "allows setting nil as user agent for bots" do
-    browser = Browser.new(nil)
-    refute browser.bot?
-
-    Browser::Bot.detect_empty_ua!
-    browser = Browser.new(nil)
-    assert browser.bot?
-  end
-
-  test "doesn't detect mozilla as a bot when considering empty UA" do
-    Browser::Bot.detect_empty_ua!
-    browser = Browser.new("Mozilla")
-
-    refute browser.bot?
-  end
-
   test "returns bot name" do
     browser = Browser.new(Browser["GOOGLE_BOT"])
     assert_equal "Google Bot", browser.bot.name
 
     browser = Browser.new(Browser["FACEBOOK_BOT"])
     assert_equal "Facebook Bot", browser.bot.name
-  end
-
-  test "returns bot name (empty string ua detection enabled)" do
-    Browser::Bot.detect_empty_ua!
-    browser = Browser.new("")
-
-    assert_equal browser.bot.name, "Generic Bot"
   end
 
   test "returns nil for non-bots" do
@@ -115,17 +80,32 @@ class BotsTest < Minitest::Test
   end
 
   test "tells why user agent is considered a bot" do
-    id, name = Browser::Bot.why?(Browser.bot_user_agents["LINKEDIN"])
+    matcher = Browser::Bot.why?(Browser.bot_user_agents["LINKEDIN"])
 
-    assert_equal "linkedinbot", id
-    assert_equal "LinkedIn", name
+    assert_equal Browser::Bot::KnownBotsMatcher, matcher
   end
 
   test "adds custom bot matcher" do
-    Browser::Bot.matchers << ->(ua) { ua =~ /fetcher/ }
-    browser = Browser.new("MetaFetcher/1.0")
+    Browser::Bot.matchers << ->(ua, _) { ua =~ /some-script/ }
+    browser = Browser.new("some-script")
 
     assert browser.bot?
     assert_equal "Generic Bot", browser.bot.name
+  end
+
+  %w[
+    content-fetcher
+    content-crawler
+    some-search-engine
+    monitoring-service
+    content-spider
+    some-bot
+  ].each do |ua|
+    test "detects user agents based on keywords (#{ua})" do
+      browser = Browser.new(ua)
+
+      assert browser.bot?
+      assert_equal Browser::Bot::KeywordMatcher, browser.bot.why?
+    end
   end
 end

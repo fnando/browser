@@ -267,19 +267,30 @@ browser.platform.ios?
 
 ### Bots
 
-Browser used to detect empty user agents as bots, but this behavior has changed. If you want to bring this detection back, you can activate it through the following call:
+The bot detection is quite aggressive. Anything that matches at least one of the following requirements will be considered a bot.
+
+- Empty user agent string
+- User agent that matches `/crawl|fetch|search|monitoring|spider|bot/`
+- Any known bot listed under [bots.yml](https://github.com/fnando/browser/blob/master/bots.yml)
+
+To add custom matchers, you can add a callable object to `Browser::Bot.matchers`. The following example matches everything that has a `externalhit` substring on it. The bot name will always be `General Bot`.
 
 ```ruby
-Browser::Bot.detect_empty_ua!
+Browser::Bot.matchers << ->(ua, _browser) { ua =~ /externalhit/i }
 ```
 
-To add custom matchers, you can add a callable object to `Browser::Bot.matchers`. The following example matches everything that has a `fetcher` or `crawler` word on it. The bot name will always be `General Bot`.
+To clear all matchers, including the ones that are bundled, use `Browser::Bot.matchers.clear`. You can re-add built-in matchers by doing the following:
 
 ```ruby
-Browser::Bot.matchers << ->(ua) { ua =~ /(fetcher|crawler)/i }
+Browser::Bot.matchers += Browser::Bot.default_matchers
 ```
 
-To clear all matchers, including the ones that are bundled, use `Browser::Bot.matchers.clear`.
+To restore v2's bot detection, remove the following matchers:
+
+```ruby
+Browser::Bot.matchers.delete(Browser::Bot::KeywordMatcher)
+Browser::Bot.matchers.delete(Browser::Bot::EmptyUserAgentMatcher)
+```
 
 ### Middleware
 

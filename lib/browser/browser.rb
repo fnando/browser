@@ -32,6 +32,10 @@ require_relative "sputnik"
 require_relative "snapchat"
 
 require_relative "bot"
+require_relative "bot/empty_user_agent_matcher"
+require_relative "bot/keyword_matcher"
+require_relative "bot/known_bots_matcher"
+
 require_relative "middleware"
 require_relative "platform"
 require_relative "device"

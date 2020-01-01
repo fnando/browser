@@ -4,60 +4,53 @@ module Browser
   class Bot
     GENERIC_NAME = "Generic Bot"
 
-    def self.bot_list_matcher
-      lambda do |ua|
-        bots.any? {|key, _| ua.include?(key) }
-      end
-    end
-
-    def self.empty_ua_matcher
-      lambda do |ua|
-        detect_empty_ua? && ua == ""
-      end
-    end
-
     def self.matchers
-      @matchers ||= [
-        empty_ua_matcher,
-        bot_list_matcher
+      @matchers ||= default_matchers
+    end
+
+    def self.default_matchers
+      [
+        EmptyUserAgentMatcher,
+        KnownBotsMatcher,
+        KeywordMatcher
       ]
     end
 
-    def self.detect_empty_ua!
-      @detect_empty_ua = true
-    end
-
-    def self.detect_empty_ua?
-      @detect_empty_ua
+    def self.load_yaml(path)
+      YAML.load_file(Browser.root.join(path))
     end
 
     def self.bots
-      @bots ||= YAML.load_file(Browser.root.join("bots.yml"))
+      @bots ||= load_yaml("bots.yml")
     end
 
     def self.bot_exceptions
-      @bot_exceptions ||= YAML
-                          .load_file(Browser.root.join("bot_exceptions.yml"))
+      @bot_exceptions ||= load_yaml("bot_exceptions.yml")
     end
 
     def self.search_engines
-      @search_engines ||= YAML
-                          .load_file(Browser.root.join("search_engines.yml"))
+      @search_engines ||= load_yaml("search_engines.yml")
     end
 
     def self.why?(ua)
       ua = ua.downcase.strip
-      bots.find {|key, _| ua.include?(key) }
+      browser = Browser.new(ua)
+      matchers.find {|matcher| matcher.call(ua, browser) }
     end
 
-    attr_reader :ua
+    attr_reader :ua, :browser
 
     def initialize(ua)
       @ua = ua.downcase.strip
+      @browser = Browser.new(@ua)
     end
 
     def bot?
       !bot_exception? && detect_bot?
+    end
+
+    def why?
+      self.class.matchers.find {|matcher| matcher.call(ua, self) }
     end
 
     def search_engine?
@@ -66,7 +59,6 @@ module Browser
 
     def name
       return unless bot?
-      return GENERIC_NAME if ua == ""
 
       self.class.bots.find {|key, _| ua.include?(key) }&.last || GENERIC_NAME
     end
@@ -76,9 +68,10 @@ module Browser
     end
 
     private def detect_bot?
-      self.class.matchers.any? {|matcher| matcher.call(ua) }
+      self.class.matchers.any? {|matcher| matcher.call(ua, browser) }
     end
 
     private :ua
+    private :browser
   end
 end
