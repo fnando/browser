@@ -40,6 +40,7 @@ GOOGLE_STRUCTURED_DATA_TESTING_TOOL: "Mozilla/5.0 (compatible; X11; Linux x86_64
 GRAPESHOT: "Mozilla/5.0 (compatible; GrapeshotCrawler/2.0; +http://www.grapeshot.co.uk/crawler.php)"
 HTTRACK: "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)"
 IMPLISENSEBOT: "ImplisenseBot 1.0"
+JAUNT: "Jaunt/1.5"
 JOBSEEKER: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/538.1 (KHTML, like Gecko) JobBot/5.0 (compatible; +http://www.jobseeker.com.au/bot.html) Safari/538.1"
 JOOBLE: "Mozilla/5.0 (compatible; Jooblebot/2.0; Windows NT 6.1; WOW64; +http://jooble.org/jooble-bot) Mobile"
 LINKDEXBOT: "Mozilla/5.0 (compatible; linkdexbot/2.0; +http://www.linkdex.com/bots/)"
