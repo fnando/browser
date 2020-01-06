@@ -96,7 +96,7 @@ module Browser
     rules << ->(b) { b.safari? && b.version.to_i >= 10 }
     rules << ->(b) { b.firefox? && b.version.to_i >= 52 }
     rules << ->(b) { b.ie? && b.version.to_i >= 11 && !b.compatibility_view? }
-    rules << ->(b) { b.edge? && b.version.to_i >= 39 && !b.compatibility_view? }
+    rules << ->(b) { b.edge? && b.version.to_i >= 15 }
     rules << ->(b) { b.opera? && b.version.to_i >= 50 }
   end
 
