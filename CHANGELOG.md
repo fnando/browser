@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Fix issue with MS Edge detection as a modern browser.
+
+## 3.0.0
+
 - Add ArchiveTeam's ArchiveBot to the bot list.
 - Fix QQ Browser detection.
 - Update modern rules.
