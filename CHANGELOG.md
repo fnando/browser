@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Nothing yet.
+
+## 3.0.1
+
 - Fix issue with MS Edge detection as a modern browser.
 
 ## 3.0.0
