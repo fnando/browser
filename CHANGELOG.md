@@ -4,6 +4,10 @@
 
 - Nothing yet.
 
+## 3.0.2
+
+- Remove .bundle directory from package.
+
 ## 3.0.1
 
 - Fix issue with MS Edge detection as a modern browser.
