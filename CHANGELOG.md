@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Nothing yet.
+
+# 3.0.3
+
 - Deprecate `Browser.modern_rules` and `Browser::Base#modern?`. Theses methods will be removed on the next major released, or by June 1st 2020.
 
 ## 3.0.2
