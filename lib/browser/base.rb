@@ -52,6 +52,11 @@ module Browser
 
     # Return true if browser is modern (Webkit, Firefox 17+, IE9+, Opera 12+).
     def modern?
+      warn <<~TEXT
+        Browser::Base#modern? is now deprecated.
+        Check https://github.com/fnando/browser/issues/435 for details.
+      TEXT
+
       Browser.modern_rules.any? {|rule| rule === self } # rubocop:disable Style/CaseEquality
     end
 

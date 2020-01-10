@@ -24,3 +24,11 @@ module Minitest
     end
   end
 end
+
+# Override Browser::Base#warn, so we don't output deprecation messages.
+module Browser
+  class Base
+    def warn(*)
+    end
+  end
+end

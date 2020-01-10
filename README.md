@@ -34,7 +34,6 @@ browser.ie?(6)               # detect specific IE version
 browser.ie?([">8", "<10"])   # detect specific IE (IE9).
 browser.known?               # has the browser been successfully detected?
 browser.meta                 # an array with several attributes
-browser.modern?              # Webkit, Firefox 17+, IE 9+ and Opera 12+
 browser.name                 # readable browser name
 browser.nokia?
 browser.opera?
@@ -145,23 +144,26 @@ browser.mobile? #=> false
 - For a list of device detections, check [lib/browser/device.rb](https://github.com/fnando/browser/blob/master/lib/browser/device.rb)
 - For a list of bot detections, check [bots.yml](https://github.com/fnando/browser/blob/master/bots.yml)
 
-### What defines a modern browser?
+### Detecting modern browsers
 
-The current rules that define a modern browser are pretty loose.
-
-* Chrome 65+
-* Safari 10+
-* Firefox 52+
-* IE11+
-* Microsoft Edge 39+
-* Opera 50+
-
-You can define your own rules. A rule must be a proc/lambda or any object that implements the method === and accepts the browser object. To redefine all rules, clear the existing rules before adding your own.
+To detect whether a browser can be considered as modern or not, create a method that abstracts your versioning constraints. The following example will consider any of the following browsers as a modern:
 
 ```ruby
-# Only Google Chrome 79+ is considered modern.
-Browser.modern_rules.clear
-Browser.modern_rules << -> b { b.chrome? && b.version.to_i >= 79 }
+# Expects an Browser instance,
+# like in `Browser.new(user_agent, accept_language: language)`.
+def modern_browser?(browser)
+  [
+    browser.chrome? && browser.version.to_i >= 65,
+    browser.safari? && browser.version.to_i >= 10,
+    browser.firefox? && browser.version.to_i >= 52,
+    browser.ie? && browser.version.to_i >= 11 && !browser.compatibility_view?,
+    browser.edge? && browser.version.to_i >= 15,
+    browser.opera? && browser.version.to_i >= 50,
+    browser.facebook?
+      && browser.safari_webapp_mode?
+      && browser.webkit_full_version.to_i >= 602
+  ].any?
+end
 ```
 
 ### Rails integration
@@ -240,9 +242,6 @@ browser.msie_full_version
 
 browser.compatibility_view?
 #=> true
-
-browser.modern?
-#=> false
 ```
 
 This behavior changed in `v1.0.0`; previously there wasn't a way of getting the real browser version.
@@ -298,7 +297,7 @@ You can use the `Browser::Middleware` to redirect user agents.
 
 ```ruby
 use Browser::Middleware do
-  redirect_to "/upgrade" unless browser.modern?
+  redirect_to "/upgrade" if browser.ie?
 end
 ```
 
@@ -306,17 +305,7 @@ If you're using Rails, you can use the route helper methods. Just add something 
 
 ```ruby
 Rails.configuration.middleware.use Browser::Middleware do
-  redirect_to upgrade_path unless browser.modern?
-end
-```
-
-Notice that you can have multiple conditionals.
-
-```ruby
-Rails.configuration.middleware.use Browser::Middleware do
-  next if browser.bot.search_engine?
-  redirect_to upgrade_path(browser: "oldie") if browser.ie? && !browser.modern?
-  redirect_to upgrade_path(browser: "oldfx") if browser.firefox? && !browser.modern?
+  redirect_to upgrade_path if browser.ie?
 end
 ```
 
@@ -324,7 +313,7 @@ If you need access to the `Rack::Request` object (e.g. to exclude a path), you c
 
 ```ruby
 Rails.configuration.middleware.use Browser::Middleware do
-  redirect_to upgrade_path unless browser.modern? || request.env["PATH_INFO"] == "/exclude_me"
+  redirect_to upgrade_path if browser.ie? && request.env["PATH_INFO"] != "/exclude_me"
 end
 ```
 
