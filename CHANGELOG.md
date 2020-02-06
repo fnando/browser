@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Nothing yet.
+- Add SeobilityBot to the bot list.
 
 # 3.0.3
 
