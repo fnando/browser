@@ -27,4 +27,4 @@
 
 ## Report
 
-[Visit <http://user-agent.herokuapp.com> and paste the URL here]
+[Visit <https://user-agent.herokuapp.com> and paste the URL here]
