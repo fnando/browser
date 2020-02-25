@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-- Nothing yet.
+- Add Chrome Lighthouse to bot list.
 
 # 3.0.3
 
