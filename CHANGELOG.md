@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 4.0.0
 
 - Add Chrome Lighthouse to bot list.
 - Add SeobilityBot to the bot list.
