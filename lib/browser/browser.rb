@@ -77,29 +77,6 @@ module Browser
     ]
   end
 
-  # Define the rules which define a modern browser.
-  # A rule must be a proc/lambda or any object that implements the method
-  # === and accepts the browser object.
-  #
-  # To redefine all rules, clear the existing rules before adding your own.
-  #
-  #   # Only Chrome Canary is considered modern.
-  #   Browser.modern_rules.clear
-  #   Browser.modern_rules << -> b { b.chrome? && b.version >= "37" }
-  #
-  def self.modern_rules
-    @modern_rules ||= []
-  end
-
-  modern_rules.tap do |rules|
-    rules << ->(b) { b.chrome? && b.version.to_i >= 65 }
-    rules << ->(b) { b.safari? && b.version.to_i >= 10 }
-    rules << ->(b) { b.firefox? && b.version.to_i >= 52 }
-    rules << ->(b) { b.ie? && b.version.to_i >= 11 && !b.compatibility_view? }
-    rules << ->(b) { b.edge? && b.version.to_i >= 15 }
-    rules << ->(b) { b.opera? && b.version.to_i >= 50 }
-  end
-
   def self.new(user_agent, **kwargs)
     matchers
       .map {|klass| klass.new(user_agent || EMPTY_STRING, **kwargs) }

@@ -6,6 +6,7 @@
 - Add SeobilityBot to the bot list.
 - Detect Mac-based platforms differently, depending on the version; "Mac OS X"
   will be returned for versions prior to 10.12, and "macOS" for newer versions.
+- Remove `Browser.modern_rules` and `Browser::Base#modern?`.
 
 # 3.0.3
 

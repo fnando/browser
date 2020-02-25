@@ -10,7 +10,6 @@ module Browser
         IE,
         IOS,
         Mobile,
-        Modern,
         Platform,
         Proxy,
         Safari,
