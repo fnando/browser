@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Add Chrome Lighthouse to bot list.
+- Add SeobilityBot to the bot list.
 
 # 3.0.3
 

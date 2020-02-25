@@ -69,6 +69,7 @@ SCOUT_URL_MONITOR: ScoutURLMonitor/6.2.2
 SCRAPY: "Scrapy/0.18.4 (+http://scrapy.org)"
 SEMANTICBOT: "Mozilla/5.0 (compatible; Semanticbot/1.0; +http://sempi.tech/bot.html)"
 SEO_AUDIT: "Mozilla/5.0 (compatible; seo-audit-check-bot/1.0)"
+SEOBILITYBOT: "SeobilityBot (SEO Tool; https://www.seobility.net/sites/bot.html)"
 SEODIVER: "Mozilla/5.0 (compatible; SEOdiver/1.0; +http://www.seodiver.com/bot)"
 SEOKICKS: "Mozilla/5.0 (compatible; SEOkicks-Robot; +http://www.seokicks.de/robot.html)"
 SISTRIX: "Mozilla/5.0 (compatible; SISTRIX Crawler; http://crawler.sistrix.net/)"
