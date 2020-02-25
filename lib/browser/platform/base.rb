@@ -3,10 +3,11 @@
 module Browser
   class Platform
     class Base
-      attr_reader :ua
+      attr_reader :ua, :platform
 
-      def initialize(ua)
+      def initialize(ua, platform = nil)
         @ua = ua
+        @platform = platform
       end
 
       def match?

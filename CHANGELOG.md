@@ -4,10 +4,13 @@
 
 - Add Chrome Lighthouse to bot list.
 - Add SeobilityBot to the bot list.
+- Detect Mac-based platforms differently, depending on the version; "Mac OS X"
+  will be returned for versions prior to 10.12, and "macOS" for newer versions.
 
 # 3.0.3
 
-- Deprecate `Browser.modern_rules` and `Browser::Base#modern?`. Theses methods will be removed on the next major released, or by June 1st 2020.
+- Deprecate `Browser.modern_rules` and `Browser::Base#modern?`. Theses methods
+  will be removed on the next major released, or by June 1st 2020.
 
 ## 3.0.2
 
@@ -22,23 +25,32 @@
 - Add ArchiveTeam's ArchiveBot to the bot list.
 - Fix QQ Browser detection.
 - Update modern rules.
-- You can now define new bot matchers by adding a callable object to `Browser::Bot.matchers`.
+- You can now define new bot matchers by adding a callable object to
+  `Browser::Bot.matchers`.
 - Fix `browser.yandex?` and `browser.sputnik?`.
-- [BREAKING CHANGE] Removed methods to enable the bot's empty user agent detection (`Browser::Bot.detect_empty_ua!` and `Browser::Bot.detect_empty_ua?`).
-- [BREAKING CHANGE] Bot detection is now more aggressive by default. It matches empty user agents, anything that matches `crawl|fetch|search|monitoring|spider|bot`, and anything listed under https://github.com/fnando/browser/blob/master/bots.yml.
+- [BREAKING CHANGE] Removed methods to enable the bot's empty user agent
+  detection (`Browser::Bot.detect_empty_ua!` and
+  `Browser::Bot.detect_empty_ua?`).
+- [BREAKING CHANGE] Bot detection is now more aggressive by default. It matches
+  empty user agents, anything that matches
+  `crawl|fetch|search|monitoring|spider|bot`, and anything listed under
+  https://github.com/fnando/browser/blob/master/bots.yml.
 - Add Jaunt to the bot list.
 
 ## 2.7.1
 
-- Handle Snapchat user agents that have a space or an empty string instead of a slash before the version.
+- Handle Snapchat user agents that have a space or an empty string instead of a
+  slash before the version.
 - Fix iOS 10+ version detection.
-- Add fallback versions for instagram and snapchat to avoid NoMethodErrors on unexpected user agents.
+- Add fallback versions for instagram and snapchat to avoid NoMethodErrors on
+  unexpected user agents.
 
 ## 2.7.0
 
 - Add more Slack bots.
 - Handle instagram user agents that have a slash instead of a space.
-- Add `Browser::Bot.why?(ua)` to help debugging why a user agent is considered bot.
+- Add `Browser::Bot.why?(ua)` to help debugging why a user agent is considered
+  bot.
 - Promote Snapchat to a browser (it was detected as a bot previously).
 - Detect Edge based on Chrome correctly.
 - Improve Yandex detection.
@@ -54,7 +66,8 @@
 
 - Add GarlikCrawler, ImplisenseBot and WikiDo bots.
 - Add Mastodon URL expander bot.
-- Add eZ Publish Link Validator, GermCrawler, Pu_iN Crawler, ZoomBot, and ZoominfoBot bots.
+- Add eZ Publish Link Validator, GermCrawler, Pu_iN Crawler, ZoomBot, and
+  ZoominfoBot bots.
 - Add Datanyze bot.
 - Add support for Instagram in-app browser.
 - Add Updown.io monitor bot.
@@ -76,12 +89,12 @@
 - Add Jooble bot.
 - Add Fyre bot.
 - Drop Rails 4 official support.
-- Fix accept-language sorting (If HTTP-header has value `en,fr`—without qualities—the first language should be `en` instead of `fr`).
+- Fix accept-language sorting (If HTTP-header has value `en,fr`—without
+  qualities—the first language should be `en` instead of `fr`).
 - Ignore malformed strings when comparing versions.
 - Fix Facebook detection on newer apps.
 - Change precedence for bot detection when common libs are used.
 - Add Yandex's search browser to the exception list.
-
 
 ## v2.5.3
 
@@ -123,8 +136,10 @@
 - Add Google Drive API, Proximic Spider, NewRelic pinger and SocialRank bots.
 - Add Pinboard in-app browser to the bot exception list.
 - All browser detection methods can now compare versions.
-- All platform detection methods can now compare versions (except `#linux?` and `#firefox_os?`).
-- Add `browser/aliases`, so you can have methods on the base object (e.g. `browser.mobile?`). See README for instructions.
+- All platform detection methods can now compare versions (except `#linux?` and
+  `#firefox_os?`).
+- Add `browser/aliases`, so you can have methods on the base object (e.g.
+  `browser.mobile?`). See README for instructions.
 - Remove official support for Rails 3 and Ruby 2.1.
 
 ## v2.3.0
@@ -155,7 +170,8 @@
 
 ## v2.0.3
 
-- Fix issue with version detection when no actual version is provided (i.e. the user agent doesn't have any version information).
+- Fix issue with version detection when no actual version is provided (i.e. the
+  user agent doesn't have any version information).
 
 ## v2.0.2
 
@@ -168,9 +184,12 @@
 
 ## v2.0.0
 
-- `Browser#platform` now returns instance of `Browser::Platform`, instead of a `String`. It contains information about the platform (software).
-- `Browser#device` was added. It returns information about the device (hardware).
-- `Browser#accept_language` now returns a list of `Browser::AcceptLanguage` objects.
+- `Browser#platform` now returns instance of `Browser::Platform`, instead of a
+  `String`. It contains information about the platform (software).
+- `Browser#device` was added. It returns information about the device
+  (hardware).
+- `Browser#accept_language` now returns a list of `Browser::AcceptLanguage`
+  objects.
 - `Browser#bot` now returns a `Browser::Bot` instance.
 - Safari running as web app mode is not recognized as Safari anymore.
 - ruby-2.3+ will always activate frozen strings.

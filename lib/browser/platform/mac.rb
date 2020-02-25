@@ -8,7 +8,9 @@ module Browser
       end
 
       def name
-        "Macintosh"
+        return "macOS" if platform.mac?(">= 10.12")
+
+        "Mac OS X"
       end
 
       def id

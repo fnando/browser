@@ -45,7 +45,7 @@ module Browser
 
     def subject
       @subject ||= self.class.matchers
-                       .map {|matcher| matcher.new(ua) }
+                       .map {|matcher| matcher.new(ua, self) }
                        .find(&:match?)
     end
 
