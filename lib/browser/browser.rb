@@ -30,6 +30,7 @@ require_relative "instagram"
 require_relative "yandex"
 require_relative "sputnik"
 require_relative "snapchat"
+require_relative "duck_duck_go"
 
 require_relative "bot"
 require_relative "bot/empty_user_agent_matcher"
@@ -70,6 +71,7 @@ module Browser
       Electron,             # must be placed before Chrome and Safari
       Yandex,               # must be placed before Chrome and Safari
       Sputnik,              # must be placed before Chrome and Safari
+      DuckDuckGo,           # must be placed before Chrome and Safari
       Chrome,
       Safari,
       MicroMessenger,

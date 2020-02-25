@@ -18,7 +18,13 @@ module Browser
     end
 
     def match?
-      ua =~ /Safari/ && ua !~ /Chrome|CriOS|PhantomJS|FxiOS|YaBrowser/
+      ua =~ /Safari/ &&
+        ua !~ /PhantomJS|FxiOS/ &&
+        !edge? &&
+        !chrome? &&
+        !duck_duck_go? &&
+        !yandex? &&
+        !sputnik?
     end
   end
 end

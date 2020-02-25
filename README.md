@@ -25,6 +25,7 @@ browser = Browser.new("Some User Agent", accept_language: "en-us")
 browser.bot?
 browser.chrome?
 browser.core_media?
+browser.duck_duck_go?
 browser.edge?                # Newest MS browser
 browser.electron?            # Electron Framework
 browser.firefox?

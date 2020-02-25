@@ -27,3 +27,9 @@ Style/Alias:
 
 Lint/RedundantCopDisableDirective:
   Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false

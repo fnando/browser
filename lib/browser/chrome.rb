@@ -21,9 +21,12 @@ module Browser
 
     def match?
       ua =~ /Chrome|CriOS/ &&
-        ua !~ /PhantomJS|FxiOS|YaBrowser|SputnikBrowser|ArchiveBot/ &&
+        ua !~ /PhantomJS|FxiOS|ArchiveBot/ &&
         !opera? &&
-        !edge?
+        !edge? &&
+        !duck_duck_go? &&
+        !yandex? &&
+        !sputnik?
     end
   end
 end

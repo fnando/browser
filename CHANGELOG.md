@@ -7,6 +7,7 @@
 - Detect Mac-based platforms differently, depending on the version; "Mac OS X"
   will be returned for versions prior to 10.12, and "macOS" for newer versions.
 - Remove `Browser.modern_rules` and `Browser::Base#modern?`.
+- Add DuckDuckGo browser.
 
 # 3.0.3
 
