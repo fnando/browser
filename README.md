@@ -318,21 +318,6 @@ Rails.configuration.middleware.use Browser::Middleware do
 end
 ```
 
-### Migrating to v2
-
-#### Troubleshooting
-
-##### `TypeError: no implicit conversion of Hash into String`
-
-The class constructor now has a different signature. Change the instantiation from `Browser.new(options)` to `Browser.new(ua, options)`, where:
-
-- `ua`: must be a string representing the user agent.
-- `options`: must be a hash (for now it only accepts the `accept_language` option).
-
-##### `NoMethodError: undefined method 'user_agent'`
-
-`.ua` can now be used to retrieve the full User Agent string.
-
 ## Development
 
 ### Versioning
