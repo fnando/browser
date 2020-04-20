@@ -192,6 +192,11 @@ module Browser
       ua =~ /DuckDuckGo/ && detect_version?(full_version, expected_version)
     end
 
+    # Detect if browser is Samsung.
+    def samsung_browser?(expected_version = nil)
+      ua =~ /SamsungBrowser/ && detect_version?(full_version, expected_version)
+    end
+
     def webkit_full_version
       ua[%r{AppleWebKit/([\d.]+)}, 1] || "0.0"
     end
