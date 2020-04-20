@@ -8,6 +8,7 @@
   will be returned for versions prior to 10.12, and "macOS" for newer versions.
 - Remove `Browser.modern_rules` and `Browser::Base#modern?`.
 - Add DuckDuckGo browser.
+- Add Samsung browser.
 
 # 3.0.3
 
