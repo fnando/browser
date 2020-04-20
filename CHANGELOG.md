@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add Samsung browser.
+
 ## 4.0.0
 
 - Add Chrome Lighthouse to bot list.
