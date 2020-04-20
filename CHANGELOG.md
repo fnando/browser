@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Add Samsung browser.
+- Add Google Image Proxy to the bot list.
 
 ## 4.0.0
 
