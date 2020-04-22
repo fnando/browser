@@ -5,6 +5,7 @@
 - Add Samsung browser.
 - Add The Knowledge AI bot to the bot list.
 - Add Go HttpClient to the bot list.
+- Fix MicroMessenger detection on Android
 
 ## 4.0.0
 
