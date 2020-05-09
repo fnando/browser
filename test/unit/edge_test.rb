@@ -65,8 +65,50 @@ class EdgeTest < ActionController::TestCase
     refute browser.safari?
   end
 
+  test "detects Microsoft Edge Mobile on iOS" do
+    browser = Browser.new(Browser["MS_EDGE_IOS"])
+
+    assert_equal :edge, browser.id
+    assert_equal "Microsoft Edge", browser.name
+    assert_equal "44.5.0.10", browser.full_version
+    assert_equal "44", browser.version
+    refute browser.platform.windows10?
+    refute browser.platform.windows_phone?
+    assert browser.platform.ios?
+    assert browser.edge?
+    refute browser.webkit?
+    refute browser.chrome?
+    refute browser.safari?
+  end
+
+  test "detects Microsoft Edge Mobile on Android" do
+    browser = Browser.new(Browser["MS_EDGE_ANDROID"])
+
+    assert_equal :edge, browser.id
+    assert_equal "Microsoft Edge", browser.name
+    assert_equal "44.11.2.4122", browser.full_version
+    assert_equal "44", browser.version
+    refute browser.platform.windows10?
+    refute browser.platform.windows_phone?
+    assert browser.platform.android?
+    assert browser.edge?
+    refute browser.webkit?
+    refute browser.chrome?
+    refute browser.safari?
+  end
+
   test "detects version by range" do
     browser = Browser.new(Browser["MS_EDGE"])
     assert browser.edge?(%w[>=12 <13])
+  end
+
+  test "detects version by range on iOS" do
+    browser = Browser.new(Browser["MS_EDGE_IOS"])
+    assert browser.edge?(%w[>=43 <45])
+  end
+
+  test "detects version by range on Android" do
+    browser = Browser.new(Browser["MS_EDGE_ANDROID"])
+    assert browser.edge?(%w[>=43 <45])
   end
 end

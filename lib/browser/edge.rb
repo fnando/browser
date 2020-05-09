@@ -11,11 +11,11 @@ module Browser
     end
 
     def full_version
-      ua[%r{(?:Edge|Edg)/([\d.]+)}, 1] || super
+      ua[%r{(?:Edge|Edg|EdgiOS|EdgA)/([\d.]+)}, 1] || super
     end
 
     def match?
-      ua =~ %r{((?:Edge|Edg)/[\d.]+|Trident/8)}
+      ua =~ %r{((?:Edge|Edg|EdgiOS|EdgA)/[\d.]+|Trident/8)}
     end
 
     def chrome_based?
