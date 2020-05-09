@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+Nothing
+
+## 4.1.0
+
 - Add Samsung browser.
 - Add Google Image Proxy to the bot list.
 - Add The Knowledge AI bot to the bot list.
