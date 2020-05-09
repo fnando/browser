@@ -67,6 +67,7 @@ module Browser
       Instagram,            # must be placed before Chrome and Safari
       Snapchat,             # must be placed before Chrome and Safari
       Weibo,                # must be placed before Chrome and Safari
+      MicroMessenger,       # must be placed before QQ
       QQ,                   # must be placed before Chrome and Safari
       Alipay,               # must be placed before Chrome and Safari
       Electron,             # must be placed before Chrome and Safari
@@ -76,7 +77,6 @@ module Browser
       SamsungBrowser,       # must be placed before Chrome and Safari
       Chrome,
       Safari,
-      MicroMessenger,
       Generic
     ]
   end
