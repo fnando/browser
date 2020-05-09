@@ -6,6 +6,7 @@
 - Add Google Image Proxy to the bot list.
 - Add The Knowledge AI bot to the bot list.
 - Add Go HttpClient to the bot list.
+- Fix Microsoft Edge detection on Android and iOS.
 - Fix MicroMessenger detection on Android
 
 ## 4.0.0
