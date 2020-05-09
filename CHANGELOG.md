@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Add Samsung browser.
+- Add Google Image Proxy to the bot list.
 - Add The Knowledge AI bot to the bot list.
 - Add Go HttpClient to the bot list.
 - Fix MicroMessenger detection on Android
