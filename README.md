@@ -43,6 +43,7 @@ browser.phantom_js?
 browser.quicktime?
 browser.safari?
 browser.safari_webapp_mode?
+browser.samsung_browser?
 browser.to_s            # the meta info joined by space
 browser.uc_browser?
 browser.version         # major version number
