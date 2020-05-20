@@ -8,7 +8,7 @@ Gem::Specification.new do |s|
   s.platform              = Gem::Platform::RUBY
   s.authors               = ["Nando Vieira"]
   s.email                 = ["fnando.vieira@gmail.com"]
-  s.homepage              = "http://github.com/fnando/browser"
+  s.homepage              = "https://github.com/fnando/browser"
   s.summary               = "Do some browser detection with Ruby."
   s.description           = s.summary
   s.license               = "MIT"
