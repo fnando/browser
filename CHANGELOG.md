@@ -2,7 +2,7 @@
 
 ## Unreleased
 
-Nothing
+- Fix Chrome Lighthouse detection.
 
 ## 4.1.0
 
