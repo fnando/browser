@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Fix Chrome Lighthouse detection.
+- Add Skype to bot list.
 
 ## 4.1.0
 
