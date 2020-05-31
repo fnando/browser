@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 4.2.0
 
 - Fix Chrome Lighthouse detection.
 - Add Skype to bot list.
