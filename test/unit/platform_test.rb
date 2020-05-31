@@ -20,7 +20,7 @@ class PlatformTest < Minitest::Test
 
     Browser::Platform.matchers.shift
     platform = Browser::Platform.new("Custom")
-    assert_equal :other, platform.id
+    assert_equal :unknown_platform, platform.id
   end
 
   test "implements to_s" do
@@ -35,13 +35,13 @@ class PlatformTest < Minitest::Test
     refute platform == :android
   end
 
-  test "detect other" do
-    platform = Browser::Platform.new("Other")
+  test "detect unknown platforms" do
+    platform = Browser::Platform.new("Unknown")
 
-    assert_equal "Other", platform.name
-    assert_equal :other, platform.id
+    assert_equal "Unknown", platform.name
+    assert_equal :unknown_platform, platform.id
     assert_equal "0", platform.version
-    assert platform.other?
+    assert platform.unknown?
   end
 
   test "detect ios (iPhone)" do

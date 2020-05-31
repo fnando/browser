@@ -202,7 +202,11 @@ module Browser
     end
 
     def known?
-      id != :generic
+      !unknown?
+    end
+
+    def unknown?
+      id == :unknown_browser
     end
 
     # Detect if browser is a proxy browser.

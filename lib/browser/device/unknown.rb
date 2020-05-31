@@ -4,7 +4,7 @@ module Browser
   class Device
     class Unknown < Base
       def id
-        :unknown
+        :unknown_device
       end
 
       def name

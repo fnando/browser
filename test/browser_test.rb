@@ -106,14 +106,13 @@ class BrowserTest < Minitest::Test
     refute browser.chrome?(">=65")
   end
 
-  test "detects unknown id" do
+  test "detects unknown browser" do
     browser = Browser.new("Unknown")
-    assert_equal :generic, browser.id
-  end
 
-  test "detects unknown name" do
-    browser = Browser.new("Unknown")
-    assert_equal "Generic Browser", browser.name
+    assert browser.unknown?
+    refute browser.known?
+    assert_equal :unknown_browser, browser.id
+    assert_equal "Unknown Browser", browser.name
   end
 
   test "returns empty language set for missing accept language" do

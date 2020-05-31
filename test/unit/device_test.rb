@@ -20,14 +20,14 @@ class DeviceTest < Minitest::Test
 
     Browser::Device.matchers.shift
     device = Browser::Device.new("Custom")
-    assert_equal :unknown, device.id
+    assert_equal :unknown_device, device.id
   end
 
   test "detect generic device" do
     device = Browser::Device.new("")
 
     assert device.unknown?
-    assert_equal :unknown, device.id
+    assert_equal :unknown_device, device.id
   end
 
   test "detect ipad" do

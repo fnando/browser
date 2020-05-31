@@ -15,7 +15,7 @@ require_relative "firefox"
 require_relative "edge"
 require_relative "opera"
 require_relative "blackberry"
-require_relative "generic"
+require_relative "unknown"
 require_relative "phantom_js"
 require_relative "uc_browser"
 require_relative "nokia"
@@ -77,7 +77,7 @@ module Browser
       SamsungBrowser,       # must be placed before Chrome and Safari
       Chrome,
       Safari,
-      Generic
+      Unknown
     ]
   end
 

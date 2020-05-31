@@ -45,4 +45,13 @@ class MetaTest < Minitest::Test
     assert meta.include?("blackberry")
     assert meta.include?("mobile")
   end
+
+  test "returns string representation for unknown platform/device/browser" do
+    browser = Browser.new("Unknown")
+    meta = browser.to_s
+
+    assert meta.include?("unknown_platform")
+    assert meta.include?("unknown_device")
+    assert meta.include?("unknown_browser")
+  end
 end

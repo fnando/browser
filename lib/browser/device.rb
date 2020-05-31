@@ -88,7 +88,7 @@ module Browser
     end
 
     def unknown?
-      id == :unknown
+      id == :unknown_device
     end
 
     def ipod_touch?

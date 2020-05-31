@@ -2,17 +2,17 @@
 
 module Browser
   class Platform
-    class Other < Base
+    class Unknown < Base
       def version
         "0"
       end
 
       def name
-        "Other"
+        "Unknown"
       end
 
       def id
-        :other
+        :unknown_platform
       end
 
       def match?

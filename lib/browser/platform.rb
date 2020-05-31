@@ -10,7 +10,7 @@ require_relative "platform/windows_mobile"
 require_relative "platform/firefox_os"
 require_relative "platform/blackberry"
 require_relative "platform/android"
-require_relative "platform/other"
+require_relative "platform/unknown"
 require_relative "platform/chrome_os"
 require_relative "platform/adobe_air"
 
@@ -35,7 +35,7 @@ module Browser
         FirefoxOS,
         Windows,
         Linux,
-        Other
+        Unknown
       ]
     end
 
@@ -61,8 +61,8 @@ module Browser
       id == :android && detect_version?(version, expected_version)
     end
 
-    def other?
-      id == :other
+    def unknown?
+      id == :unknown_platform
     end
 
     def linux?

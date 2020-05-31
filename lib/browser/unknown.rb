@@ -1,18 +1,18 @@
 # frozen_string_literal: true
 
 module Browser
-  class Generic < Base
+  class Unknown < Base
     NAMES = {
       "QuickTime" => "QuickTime",
       "CoreMedia" => "Apple CoreMedia"
     }.freeze
 
     def id
-      :generic
+      :unknown_browser
     end
 
     def name
-      infer_name || "Generic Browser"
+      infer_name || "Unknown Browser"
     end
 
     def full_version

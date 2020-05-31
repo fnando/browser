@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- Rename `Browser::Platform#other?` to `Browser::Platform#unknown?`
+- Unknown platforms now return `:unknown_platform` as the id
+- Unknown devices now return `:unknown_device` as the id
+- Unknown browsers now return `:unknown_browser` as the id
+- All the changes above affect how `browser.meta` is composed
+- Add method `Browser::Base#unknown?`
+
 ## 4.2.0
 
 - Fix Chrome Lighthouse detection.
