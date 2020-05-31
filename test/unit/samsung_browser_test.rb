@@ -13,6 +13,7 @@ class SamsungBrowserTest < Minitest::Test
     assert_equal "11.1", browser.full_version
     assert_equal "Samsung Browser", browser.name
     refute browser.chrome?
+    refute browser.safari?
   end
 
   test "detects version by range" do

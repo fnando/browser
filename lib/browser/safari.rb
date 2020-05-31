@@ -22,6 +22,7 @@ module Browser
         ua !~ /PhantomJS|FxiOS/ &&
         !edge? &&
         !chrome? &&
+        !samsung_browser? &&
         !duck_duck_go? &&
         !yandex? &&
         !sputnik?
