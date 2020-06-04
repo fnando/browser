@@ -122,7 +122,7 @@ module Browser
 
     # Detect if browser is Safari.
     def safari?(expected_version = nil)
-      Safari.new(ua).match? && detect_version?(version, expected_version)
+      Safari.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
     def safari_webapp_mode?

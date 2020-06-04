@@ -7,7 +7,7 @@ class SafariTest < Minitest::Test
     browser = Browser.new(Browser["SAFARI3"])
 
     assert browser.safari?
-    assert browser.safari?(3)
+    assert browser.safari?("~>3.0")
     assert_equal "3", browser.version
     assert_equal "3.0.3", browser.full_version
   end
@@ -16,7 +16,7 @@ class SafariTest < Minitest::Test
     browser = Browser.new(Browser["SAFARI4"])
 
     assert browser.safari?
-    assert browser.safari?(4)
+    assert browser.safari?("~>4.0")
     assert_equal "4", browser.version
     assert_equal "4.0.3", browser.full_version
   end
@@ -25,7 +25,7 @@ class SafariTest < Minitest::Test
     browser = Browser.new(Browser["SAFARI5"])
 
     assert browser.safari?
-    assert browser.safari?(5)
+    assert browser.safari?("~>5.0")
     assert_equal "5", browser.version
     assert_equal "5.0.3", browser.full_version
   end
@@ -34,7 +34,7 @@ class SafariTest < Minitest::Test
     browser = Browser.new(Browser["SAFARI6"])
 
     assert browser.safari?
-    assert browser.safari?(6)
+    assert browser.safari?("~>6.0")
     assert_equal "6", browser.version
     assert_equal "6.0", browser.full_version
   end
@@ -43,7 +43,7 @@ class SafariTest < Minitest::Test
     browser = Browser.new(Browser["SAFARI7"])
 
     assert browser.safari?
-    assert browser.safari?(7)
+    assert browser.safari?("~>7.0")
     assert_equal "7", browser.version
     assert_equal "7.0", browser.full_version
   end
@@ -52,7 +52,7 @@ class SafariTest < Minitest::Test
     browser = Browser.new(Browser["SAFARI8"])
 
     assert browser.safari?
-    assert browser.safari?(8)
+    assert browser.safari?("~>8.0")
     assert_equal "8", browser.version
     assert_equal "8.0", browser.full_version
   end
@@ -61,7 +61,7 @@ class SafariTest < Minitest::Test
     browser = Browser.new(Browser["SAFARI9"])
 
     assert browser.safari?
-    assert browser.safari?(9)
+    assert browser.safari?("~>9.0")
     assert_equal "9", browser.version
     assert_equal "9.0.2", browser.full_version
   end
@@ -87,5 +87,10 @@ class SafariTest < Minitest::Test
   test "detects webkit version by range" do
     browser = Browser.new(Browser["SAFARI9"])
     assert browser.webkit?(%w[>=601 <602])
+  end
+
+  test "detects safari version by range" do
+    browser = Browser.new(Browser["SAFARI9"])
+    assert browser.safari?(%w[>=9.0 <10])
   end
 end
