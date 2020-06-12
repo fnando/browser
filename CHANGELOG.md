@@ -11,6 +11,7 @@
 - Fix issue with `Browser::Base#safari?` matching full version
 - Add Maxthon detection
 - Add Google Search App detection
+- Add FullStory to the bot list.
 
 ## 4.2.0
 
