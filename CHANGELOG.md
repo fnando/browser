@@ -14,6 +14,7 @@
 - Add FullStory to the bot list.
 - Add Charlotte to the bot list.
 - Add Echobox to the bot list.
+- Add Yandex's search browser to the exception list.
 
 ## 4.2.0
 
