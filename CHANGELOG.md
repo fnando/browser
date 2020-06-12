@@ -18,6 +18,7 @@
 - Add Cubot devices to the exception list.
 - Add NAVER search app to the exception list.
 - Add MiuiQuickSearchBox to the exception list.
+- Add MEIZU_AppSearch to the exception list.
 
 ## 4.2.0
 
