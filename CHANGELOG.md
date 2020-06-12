@@ -15,6 +15,7 @@
 - Add Charlotte to the bot list.
 - Add Echobox to the bot list.
 - Add Yandex's search browser to the exception list.
+- Add Cubot devices to the exception list.
 
 ## 4.2.0
 
