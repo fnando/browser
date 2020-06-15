@@ -13,6 +13,7 @@ BINGBOT: "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm
 BINGPREVIEW: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b"
 BUBING: "BUbiNG (+http://law.di.unimi.it/BUbiNG.html)"
 BUZZBOT: "Buzzbot/1.0 (Buzzbot; http://www.buzzstream.com; buzzbot@buzzstream.com)"
+CHARLOTTE: "Mozilla/5.0 (compatible; Charlotte/1.1; http://www.searchme.com/support/)"
 CHROME_LIGHTHOUSE: "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3694.0 Mobile Safari/537.36 Chrome-Lighthouse"
 CIPACRAWLER: "CipaCrawler/3.0 (info@domaincrawler.com; http://www.domaincrawler.com/www.example.com)"
 CLOUDFLARE: "Mozilla/5.0 (compatible; CloudFlare-AlwaysOnline/1.0; +http://www.cloudflare.com/always-online) AppleWebKit/534.34"
