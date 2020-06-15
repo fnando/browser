@@ -26,6 +26,7 @@ DAUMOA: "Mozilla/5.0 (compatible; MSIE or Firefox mutant; not on Windows server;
 DOMAINAREANIMATOR: "Domain Re-Animator Bot (http://domainreanimator.com) - support@domainreanimator.com"
 DOT_BOT: "Mozilla/5.0 (compatible; DotBot/1.1; http://www.opensiteexplorer.org/dotbot, help@moz.com)"
 DUCKDUCKGO: "DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)"
+ECHOBOX: "Mozilla/5.0 (compatible; EchoboxBot/1.0; hash/w4mwnpbXf3MFAbxOkJRw; +http://www.echobox.com)"
 EZPUBLISH: "eZ Publish Link Validator"
 FACEBOOK_BOT: "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)"
 FULLSTORY_BOT: "FullStoryBot/1.0 (+https://www.fullstory.com)"
