@@ -10,6 +10,7 @@
 - Add method `Browser::Base#unknown?`
 - Fix issue with `Browser::Base#safari?` matching full version
 - Add Maxthon detection
+- Add Google Search App detection
 
 ## 4.2.0
 

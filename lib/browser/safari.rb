@@ -26,7 +26,8 @@ module Browser
         !duck_duck_go? &&
         !yandex? &&
         !sputnik? &&
-        !maxthon?
+        !maxthon? &&
+        !google_search_app?
     end
   end
 end
