@@ -197,6 +197,10 @@ module Browser
       ua =~ /SamsungBrowser/ && detect_version?(full_version, expected_version)
     end
 
+    def maxthon?(expected_version = nil)
+      Maxthon.new(ua).match? && detect_version?(full_version, expected_version)
+    end
+
     def webkit_full_version
       ua[%r{AppleWebKit/([\d.]+)}, 1] || "0.0"
     end
