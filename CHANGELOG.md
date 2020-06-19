@@ -9,6 +9,7 @@
 - All the changes above affect how `browser.meta` is composed
 - Add method `Browser::Base#unknown?`
 - Fix issue with `Browser::Base#safari?` matching full version
+- Add Maxthon detection
 
 ## 4.2.0
 
