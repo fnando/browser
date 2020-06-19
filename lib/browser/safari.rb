@@ -25,7 +25,8 @@ module Browser
         !samsung_browser? &&
         !duck_duck_go? &&
         !yandex? &&
-        !sputnik?
+        !sputnik? &&
+        !maxthon?
     end
   end
 end
