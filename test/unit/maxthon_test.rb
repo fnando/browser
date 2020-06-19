@@ -3,7 +3,6 @@
 require "test_helper"
 
 class MaxthonTest < Minitest::Test
-
   test "detects Maxthon" do
     browser = Browser.new(Browser["MAXTHON"])
     assert browser.maxthon?
