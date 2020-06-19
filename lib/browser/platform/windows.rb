@@ -4,7 +4,7 @@ module Browser
   class Platform
     class Windows < Base
       def version
-        ua[/Windows NT\s*([0-9_\.]+)?/, 1] || "0"
+        ua[/Windows NT\s*([0-9_.]+)?/, 1] || "0"
       end
 
       def name
