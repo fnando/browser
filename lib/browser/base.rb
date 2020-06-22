@@ -201,6 +201,11 @@ module Browser
       Maxthon.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
+    def mail_master?(expected_version = nil)
+      MailMaster.new(ua).match? &&
+        detect_version?(full_version, expected_version)
+    end
+
     # Detect if browser is Google Search App
     def google_search_app?(expected_version = nil)
       ua =~ /GSA/ && detect_version?(full_version, expected_version)

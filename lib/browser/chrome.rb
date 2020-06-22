@@ -29,6 +29,7 @@ module Browser
         !sputnik? &&
         !samsung_browser? &&
         !maxthon? &&
+        !mail_master? &&
         !google_search_app?
     end
   end

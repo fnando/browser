@@ -11,6 +11,7 @@
 - Fix issue with `Browser::Base#safari?` matching full version
 - Add Maxthon detection
 - Add Google Search App detection
+- Add Mail Master mail app for iOS & Android detection
 
 ## 4.2.0
 

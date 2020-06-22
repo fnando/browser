@@ -33,6 +33,7 @@ require_relative "snapchat"
 require_relative "duck_duck_go"
 require_relative "samsung_browser"
 require_relative "maxthon"
+require_relative "mail_master"
 require_relative "google_search_app"
 
 require_relative "bot"
@@ -78,6 +79,7 @@ module Browser
       DuckDuckGo,           # must be placed before Chrome and Safari
       SamsungBrowser,       # must be placed before Chrome and Safari
       Maxthon,              # must be placed before Chrome and Safari
+      MailMaster,           # must be placed before Chrome and Safari
       GoogleSearchApp,      # must be placed before Chrome and Safari
       Chrome,
       Safari,
