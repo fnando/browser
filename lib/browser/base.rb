@@ -197,6 +197,11 @@ module Browser
       ua =~ /SamsungBrowser/ && detect_version?(full_version, expected_version)
     end
 
+    def miui_browser?(expected_version = nil)
+      MiuiBrowser.new(ua).match? &&
+        detect_version?(full_version, expected_version)
+    end
+
     def maxthon?(expected_version = nil)
       Maxthon.new(ua).match? && detect_version?(full_version, expected_version)
     end
