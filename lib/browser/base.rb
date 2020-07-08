@@ -213,6 +213,7 @@ module Browser
       Maxthon.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
+    # Detect if browser is NetEase Mail Master.
     def mail_master?(expected_version = nil)
       MailMaster.new(ua).match? &&
         detect_version?(full_version, expected_version)
