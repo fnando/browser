@@ -29,6 +29,7 @@ module Browser
         !yandex? &&
         !sputnik? &&
         !maxthon? &&
+        !sougou_browser? &&
         !google_search_app?
     end
   end

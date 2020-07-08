@@ -14,6 +14,7 @@
 - Add Huawei Browser detection
 - Fix Duck Duck Go browser that was being recognized as a bot.
 - Add Miui Browser detection
+- Add Sougou Browser detection
 
 ## 4.2.0
 
