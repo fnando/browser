@@ -23,6 +23,7 @@ module Browser
         !edge? &&
         !chrome? &&
         !samsung_browser? &&
+        !huawei_browser? &&
         !duck_duck_go? &&
         !yandex? &&
         !sputnik? &&

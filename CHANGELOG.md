@@ -11,6 +11,7 @@
 - Fix issue with `Browser::Base#safari?` matching full version
 - Add Maxthon detection
 - Add Google Search App detection
+- Add Huawei Browser detection
 
 ## 4.2.0
 
