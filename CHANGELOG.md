@@ -17,6 +17,7 @@
 - Add `Browser::Base#qq?`
 - Fix QQ detection
 - Fix Alipay detection
+- Add Sougou Browser detection
 
 ## 4.2.0
 

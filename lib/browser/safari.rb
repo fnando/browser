@@ -32,6 +32,7 @@ module Browser
         !maxthon? &&
         !qq? &&
         !alipay? &&
+        !sougou_browser? &&
         !google_search_app?
     end
   end
