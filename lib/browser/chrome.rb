@@ -28,6 +28,7 @@ module Browser
         !yandex? &&
         !sputnik? &&
         !samsung_browser? &&
+        !huawei_browser? &&
         !maxthon? &&
         !google_search_app?
     end
