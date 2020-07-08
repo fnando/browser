@@ -28,6 +28,8 @@ module Browser
         !yandex? &&
         !sputnik? &&
         !samsung_browser? &&
+        !huawei_browser? &&
+        !miui_browser? &&
         !maxthon? &&
         !mail_master? &&
         !google_search_app?

@@ -11,6 +11,9 @@
 - Fix issue with `Browser::Base#safari?` matching full version
 - Add Maxthon detection
 - Add Google Search App detection
+- Add Huawei Browser detection
+- Fix Duck Duck Go browser that was being recognized as a bot.
+- Add Miui Browser detection
 - Add Mail Master mail app for iOS & Android detection
 
 ## 4.2.0
