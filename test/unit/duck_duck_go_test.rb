@@ -9,6 +9,7 @@ class DuckDuckGoTest < Minitest::Test
     refute browser.safari?
     refute browser.chrome?
     assert browser.webkit?
+    refute browser.bot?
     assert_equal "DuckDuckGo", browser.name
     assert_equal :duckduckgo, browser.id
   end
@@ -18,6 +19,7 @@ class DuckDuckGoTest < Minitest::Test
     assert browser.duck_duck_go?
     refute browser.safari?
     refute browser.chrome?
+    refute browser.bot?
     assert_equal "DuckDuckGo", browser.name
     assert_equal :duckduckgo, browser.id
   end

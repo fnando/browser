@@ -13,6 +13,7 @@
 - Add Google Search App detection
 - Add Huawei Browser detection
 - Add Miui Browser detection
+- Fix Duck Duck Go browser that was being recognized as a bot.
 
 ## 4.2.0
 
