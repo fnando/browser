@@ -22,6 +22,7 @@ module Browser
         ua !~ /PhantomJS|FxiOS/ &&
         !edge? &&
         !chrome? &&
+        !opera? &&
         !samsung_browser? &&
         !huawei_browser? &&
         !miui_browser? &&
