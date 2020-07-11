@@ -31,6 +31,7 @@ module Browser
         !huawei_browser? &&
         !miui_browser? &&
         !maxthon? &&
+        !qq? &&
         !google_search_app?
     end
   end
