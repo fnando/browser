@@ -30,6 +30,7 @@ module Browser
         !yandex? &&
         !sputnik? &&
         !maxthon? &&
+        !mail_master? &&
         !google_search_app?
     end
   end

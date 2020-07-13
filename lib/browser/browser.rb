@@ -35,6 +35,7 @@ require_relative "samsung_browser"
 require_relative "huawei_browser"
 require_relative "miui_browser"
 require_relative "maxthon"
+require_relative "mail_master"
 require_relative "google_search_app"
 
 require_relative "bot"
@@ -82,6 +83,7 @@ module Browser
       HuaweiBrowser,        # must be placed before Chrome and Safari
       MiuiBrowser,          # must be placed before Chrome and Safari
       Maxthon,              # must be placed before Chrome and Safari
+      MailMaster,           # must be placed before Chrome and Safari
       GoogleSearchApp,      # must be placed before Chrome and Safari
       Chrome,
       Safari,
