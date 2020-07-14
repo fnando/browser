@@ -31,6 +31,7 @@ module Browser
         !sputnik? &&
         !maxthon? &&
         !qq? &&
+        !alipay? &&
         !google_search_app?
     end
   end
