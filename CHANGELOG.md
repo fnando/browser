@@ -16,6 +16,7 @@
 - Add Miui Browser detection
 - Add `Browser::Base#qq?`
 - Fix QQ detection
+- Fix Alipay detection
 
 ## 4.2.0
 
