@@ -52,6 +52,7 @@ browser.webkit?
 browser.webkit_full_version
 browser.yandex?
 browser.wechat?
+browser.qq?
 browser.weibo?
 browser.yandex?
 browser.sputnik?
