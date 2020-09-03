@@ -12,8 +12,10 @@
 - Add Maxthon detection
 - Add Google Search App detection
 - Add Huawei Browser detection
-- Fix Duck Duck Go browser that was being recognized as a bot.
+- Fix Duck Duck Go browser that was being recognized as a bot
 - Add Miui Browser detection
+- Add `Browser::Base#qq?`
+- Fix QQ detection
 
 ## 4.2.0
 
