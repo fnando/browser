@@ -32,6 +32,7 @@ module Browser
         !miui_browser? &&
         !maxthon? &&
         !qq? &&
+        !sougou_browser? &&
         !google_search_app?
     end
   end

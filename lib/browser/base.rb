@@ -209,12 +209,20 @@ module Browser
         detect_version?(full_version, expected_version)
     end
 
+    # Detect if browser is Maxthon.
     def maxthon?(expected_version = nil)
       Maxthon.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
+    # Detect if browser is QQ.
     def qq?(expected_version = nil)
       QQ.new(ua).match? && detect_version?(full_version, expected_version)
+    end
+
+    # Detect if browser is Sougou.
+    def sougou_browser?(expected_version = nil)
+      SougouBrowser.new(ua).match? &&
+        detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is Google Search App
