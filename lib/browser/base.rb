@@ -219,7 +219,7 @@ module Browser
       QQ.new(ua).match? && detect_version?(full_version, expected_version)
     end
 
-    # Detect if browser is Sougou
+    # Detect if browser is Sougou.
     def sougou_browser?(expected_version = nil)
       SougouBrowser.new(ua).match? &&
         detect_version?(full_version, expected_version)

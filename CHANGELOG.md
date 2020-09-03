@@ -2,22 +2,22 @@
 
 ## Unreleased
 
-- Rename `Browser::Platform#other?` to `Browser::Platform#unknown?`
-- Unknown platforms now return `:unknown_platform` as the id
-- Unknown devices now return `:unknown_device` as the id
-- Unknown browsers now return `:unknown_browser` as the id
-- All the changes above affect how `browser.meta` is composed
-- Add method `Browser::Base#unknown?`
-- Fix issue with `Browser::Base#safari?` matching full version
-- Add Maxthon detection
-- Add Google Search App detection
-- Add Huawei Browser detection
-- Fix Duck Duck Go browser that was being recognized as a bot
-- Add Miui Browser detection
-- Add `Browser::Base#qq?`
-- Fix QQ detection
-- Fix Alipay detection
-- Add Sougou Browser detection
+- Rename `Browser::Platform#other?` to `Browser::Platform#unknown?`.
+- Unknown platforms now return `:unknown_platform` as the id.
+- Unknown devices now return `:unknown_device` as the id.
+- Unknown browsers now return `:unknown_browser` as the id.
+- All the changes above affect how `browser.meta` is composed.
+- Add method `Browser::Base#unknown?`.
+- Fix issue with `Browser::Base#safari?` matching full version.
+- Add Maxthon detection.
+- Add Google Search App detection.
+- Add Huawei Browser detection.
+- Fix Duck Duck Go browser that was being recognized as a bot.
+- Add Miui Browser detection.
+- Add `Browser::Base#qq?`.
+- Fix QQ detection.
+- Fix Alipay detection.
+- Add Sougou Browser detection.
 
 ## 4.2.0
 
