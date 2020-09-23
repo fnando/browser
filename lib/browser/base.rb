@@ -10,6 +10,9 @@ module Browser
     attr_reader :accept_language
 
     def initialize(ua, accept_language: nil)
+      validate_size(:user_agent, ua.to_s)
+      validate_size(:accept_language, accept_language.to_s)
+
       @ua = ua
       @accept_language = AcceptLanguage.parse(accept_language)
     end
@@ -250,6 +253,17 @@ module Browser
     # Detect if the browser is Electron.
     def electron?(expected_version = nil)
       Electron.new(ua).match? && detect_version?(full_version, expected_version)
+    end
+
+    private def validate_size(subject, input)
+      actual_bytesize = input.bytesize
+      size_limit = Browser.public_send("#{subject}_size_limit")
+
+      return if actual_bytesize < size_limit
+
+      raise Error,
+            "#{subject} cannot be larger than #{size_limit} bytes; " \
+            "actual size is #{actual_bytesize}"
     end
   end
 end

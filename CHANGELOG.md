@@ -18,6 +18,10 @@
 - Fix QQ detection.
 - Fix Alipay detection.
 - Add Sougou Browser detection.
+- User agent has a size limit of 512 bytes. This can be customized through 
+  `Browser.user_agent_size_limit`.
+- Accept-Language has a size limit of 256 bytes. This can be customized through
+  `Browser.accept_language_size_limit`.
 
 ## 4.2.0
 

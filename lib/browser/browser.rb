@@ -51,9 +51,19 @@ require_relative "meta"
 module Browser
   EMPTY_STRING = ""
 
+  Error = Class.new(StandardError)
+
   def self.root
     @root ||= Pathname.new(File.expand_path("../..", __dir__))
   end
+
+  class << self
+    attr_accessor :user_agent_size_limit
+    attr_accessor :accept_language_size_limit
+  end
+
+  self.user_agent_size_limit = 512
+  self.accept_language_size_limit = 256
 
   # Hold the list of browser matchers.
   # Order is important.

@@ -154,4 +154,22 @@ class BrowserTest < Minitest::Test
     browser = Browser.new("Fancy new browser")
     refute browser.known?
   end
+
+  test "rejects user agent larger than 512 bytes" do
+    message = "user_agent cannot be larger than 512 bytes; actual size is " \
+              "513 bytes"
+
+    assert_raises(Browser::Error, message) do
+      Browser.new("a" * 513)
+    end
+  end
+
+  test "rejects accept language larger than 256 bytes" do
+    message = "accept_language cannot be larger than 256 bytes; actual size " \
+              "is 257 bytes"
+
+    assert_raises(Browser::Error, message) do
+      Browser.new("Chrome", accept_language: "a" * 257)
+    end
+  end
 end
