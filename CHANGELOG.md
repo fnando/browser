@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 5.0.0
 
 - Rename `Browser::Platform#other?` to `Browser::Platform#unknown?`.
 - Unknown platforms now return `:unknown_platform` as the id.
