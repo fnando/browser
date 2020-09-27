@@ -90,6 +90,7 @@ browser.device.tv?
 browser.device.vita?
 browser.device.wii?
 browser.device.wiiu?
+browser.device.samsung?
 browser.device.switch?
 browser.device.xbox?
 browser.device.xbox_360?
@@ -352,7 +353,7 @@ end
 
 ### Restrictions
 
-- User agent has a size limit of 512 bytes. This can be customized through 
+- User agent has a size limit of 512 bytes. This can be customized through
   `Browser.user_agent_size_limit=(size)`.
 - Accept-Language has a size limit of 256 bytes. This can be customized through
   `Browser.accept_language_size_limit=(size)`.
