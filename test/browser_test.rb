@@ -169,7 +169,7 @@ class BrowserTest < Minitest::Test
               "is 257 bytes"
 
     assert_raises(Browser::Error, message) do
-      Browser.new("Chrome", accept_language: "a" * 257)
+      Browser.new("Chrome", accept_language: "a" * 257).accept_language
     end
   end
 end

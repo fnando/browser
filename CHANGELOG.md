@@ -3,6 +3,8 @@
 ## Unreleased
 
 - Add Samsung device detection.
+- Delay parsing `Accept-Language` until `Browser::Base#accept_language` is
+  called for the first time.
 
 ## 5.0.0
 

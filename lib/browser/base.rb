@@ -6,20 +6,24 @@ module Browser
 
     attr_reader :ua
 
-    # Return an array with all preferred languages that this browser accepts.
-    attr_reader :accept_language
-
     def initialize(ua, accept_language: nil)
       validate_size(:user_agent, ua.to_s)
-      validate_size(:accept_language, accept_language.to_s)
 
       @ua = ua
-      @accept_language = AcceptLanguage.parse(accept_language)
+      @accept_language_raw = accept_language.to_s
     end
 
     # Return a meta info about this browser.
     def meta
       Meta.get(self)
+    end
+
+    # Return an array with all preferred languages that this browser accepts.
+    def accept_language
+      @accept_language ||= begin
+        validate_size(:accept_language, @accept_language_raw)
+        AcceptLanguage.parse(@accept_language_raw)
+      end
     end
 
     alias_method :to_a, :meta
