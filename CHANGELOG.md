@@ -1,7 +1,9 @@
 # Changelog
 
 ## Unreleased
-- Changed to delay parsing AcceptLanguage until `Browser::Base#accept_language called first.
+
+- Delay parsing `Accept-Language` until `Browser::Base#accept_language` is
+  called for the first time.
 
 ## 5.0.0
 
@@ -21,7 +23,7 @@
 - Fix QQ detection.
 - Fix Alipay detection.
 - Add Sougou Browser detection.
-- User agent has a size limit of 512 bytes. This can be customized through 
+- User agent has a size limit of 512 bytes. This can be customized through
   `Browser.user_agent_size_limit`.
 - Accept-Language has a size limit of 256 bytes. This can be customized through
   `Browser.accept_language_size_limit`.
