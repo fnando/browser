@@ -1,5 +1,8 @@
 # Changelog
 
+## Unreleased
+- Changed to delay parsing AcceptLanguage until `Browser::Base#accept_language called first.
+
 ## 5.0.0
 
 - Rename `Browser::Platform#other?` to `Browser::Platform#unknown?`.
