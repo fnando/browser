@@ -63,7 +63,7 @@ module Browser
   end
 
   self.user_agent_size_limit = 512
-  self.accept_language_size_limit = 256
+  self.accept_language_size_limit = 1024
 
   # Hold the list of browser matchers.
   # Order is important.
