@@ -155,21 +155,35 @@ class BrowserTest < Minitest::Test
     refute browser.known?
   end
 
-  test "rejects user agent larger than 512 bytes" do
-    message = "user_agent cannot be larger than 512 bytes; actual size is " \
-              "513 bytes"
+  test "rejects user agent larger than 2048 bytes" do
+    message = "user_agent cannot be larger than 2048 bytes; actual size is " \
+              "2049 bytes"
 
-    assert_raises(Browser::Error, message) do
-      Browser.new("a" * 513)
-    end
+    error =
+      begin
+        Browser.new("a" * 2049)
+        nil
+      rescue Browser::Error => error
+        error
+      end
+
+    refute_nil error
+    assert_equal message, error.message
   end
 
-  test "rejects accept language larger than 256 bytes" do
-    message = "accept_language cannot be larger than 256 bytes; actual size " \
-              "is 257 bytes"
+  test "rejects accept language larger than 2048 bytes" do
+    message = "accept_language cannot be larger than 2048 bytes; actual size " \
+              "is 2049 bytes"
 
-    assert_raises(Browser::Error, message) do
-      Browser.new("Chrome", accept_language: "a" * 257).accept_language
-    end
+    error =
+      begin
+        Browser.new("Chrome", accept_language: "a" * 2049).accept_language
+        nil
+      rescue Browser::Error => error
+        error
+      end
+
+    refute_nil error
+    assert_equal message, error.message
   end
 end

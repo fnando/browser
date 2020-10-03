@@ -4,6 +4,8 @@
 
 - Delay parsing `Accept-Language` until `Browser::Base#accept_language` is
   called for the first time.
+- Bump up default size limit for `Accept-Language` and `User-Agent` to 2048
+  bytes.
 
 ## 5.0.0
 
