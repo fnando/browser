@@ -62,8 +62,8 @@ module Browser
     attr_accessor :accept_language_size_limit
   end
 
-  self.user_agent_size_limit = 512
-  self.accept_language_size_limit = 256
+  self.user_agent_size_limit = 2048
+  self.accept_language_size_limit = 2048
 
   # Hold the list of browser matchers.
   # Order is important.

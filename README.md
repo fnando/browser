@@ -353,16 +353,16 @@ end
 
 ### Restrictions
 
-- User agent has a size limit of 512 bytes. This can be customized through
+- User agent has a size limit of 2048 bytes. This can be customized through
   `Browser.user_agent_size_limit=(size)`.
-- Accept-Language has a size limit of 256 bytes. This can be customized through
+- Accept-Language has a size limit of 2048 bytes. This can be customized through
   `Browser.accept_language_size_limit=(size)`.
 
 If size is not respected, then `Browser::Error` is raised.
 
 ```ruby
-Browser.user_agent_size_limit = 1024
-Browser.accept_language_size_limit = 150
+Browser.user_agent_size_limit = 4096
+Browser.accept_language_size_limit = 4096
 ```
 
 ## Development

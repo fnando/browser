@@ -267,7 +267,7 @@ module Browser
 
       raise Error,
             "#{subject} cannot be larger than #{size_limit} bytes; " \
-            "actual size is #{actual_bytesize}"
+            "actual size is #{actual_bytesize} bytes"
     end
   end
 end
