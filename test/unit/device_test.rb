@@ -258,4 +258,31 @@ class DeviceTest < Minitest::Test
       assert_equal name, device.name
     end
   end
+
+  test "detect samsung devices" do
+    device = Browser::Device.new(Browser["SAMSUNG_SM-G975F"])
+
+    assert device.samsung?
+    assert_equal :samsung, device.id
+    assert_equal "Samsung Galaxy S10+", device.name
+  end
+
+  test "detect generic samsung devices" do
+    device = Browser::Device.new(Browser["SAMSUNG_SM-FAKE"])
+
+    assert device.samsung?
+    assert_equal :samsung, device.id
+    assert_equal "Samsung SM-0000", device.name
+  end
+
+  {
+    "SAMSUNG_SM-G975F" => "Samsung Galaxy S10+",
+    "SAMSUNG_SM-G960F" => "Samsung Galaxy S9",
+    "SAMSUNG_SM-F700F" => "Samsung Galaxy Z Flip"
+  }.each do |key, name|
+    test "detect device name of #{key} as #{name}" do
+      device = Browser::Device.new(Browser[key])
+      assert_equal name, device.name
+    end
+  end
 end

@@ -20,6 +20,7 @@ require_relative "device/switch"
 require_relative "device/tv"
 require_relative "device/xbox_one"
 require_relative "device/xbox_360"
+require_relative "device/samsung"
 
 module Browser
   class Device
@@ -29,6 +30,7 @@ module Browser
     # Order is important.
     def self.matchers
       @matchers ||= [
+        Samsung,
         XboxOne,
         Xbox360,
         Surface,
@@ -189,6 +191,11 @@ module Browser
     # Detect if browser is console (currently Xbox, PlayStation, or Nintendo).
     def console?
       xbox? || playstation? || nintendo?
+    end
+
+    # Detect if device is a Samsung.
+    def samsung?
+      id == :samsung
     end
 
     # Regex taken from http://detectmobilebrowsers.com

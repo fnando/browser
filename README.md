@@ -90,6 +90,7 @@ browser.device.tv?
 browser.device.vita?
 browser.device.wii?
 browser.device.wiiu?
+browser.device.samsung?
 browser.device.switch?
 browser.device.xbox?
 browser.device.xbox_360?
