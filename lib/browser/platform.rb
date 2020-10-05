@@ -13,6 +13,7 @@ require_relative "platform/android"
 require_relative "platform/unknown"
 require_relative "platform/chrome_os"
 require_relative "platform/adobe_air"
+require_relative "platform/kai_os"
 
 module Browser
   class Platform
@@ -32,6 +33,7 @@ module Browser
         BlackBerry,
         IOS,
         Mac,
+        KaiOS,
         FirefoxOS,
         Windows,
         Linux,
@@ -79,6 +81,10 @@ module Browser
 
     def firefox_os?
       id == :firefox_os
+    end
+
+    def kai_os?
+      id == :kai_os
     end
 
     def ios?(expected_version = nil)
