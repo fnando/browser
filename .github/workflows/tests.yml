@@ -28,11 +28,9 @@ jobs:
         with:
           path: vendor/bundle
           key: >
-            ${{ runner.os }}-${{ matrix.ruby }}-gems-${{
-            hashFiles('**/${{ matrix.gemfile }}') }}
+            ${{ runner.os }}-${{ matrix.ruby }}-gems-${{ hashFiles(matrix.gemfile) }}
           restore-keys: >
-            ${{ runner.os }}-${{ matrix.ruby }}-gems-${{
-            hashFiles('**/${{ matrix.gemfile }}') }}
+            ${{ runner.os }}-${{ matrix.ruby }}-gems-${{ hashFiles(matrix.gemfile) }}
 
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
