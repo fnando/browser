@@ -130,6 +130,7 @@ browser.platform.windows_wow64?
 browser.platform.windows_x64?
 browser.platform.windows_x64_inclusive?
 browser.platform.windows_xp?
+browser.platform.kai_os?
 ```
 
 ### Aliases

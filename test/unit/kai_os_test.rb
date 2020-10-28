@@ -13,6 +13,7 @@ class KaiOSTest < Minitest::Test
     assert browser.platform.kai_os?
     assert_equal "KaiOS", browser.platform.name
     assert_equal "2.5", browser.platform.version
+    refute browser.platform.android?
   end
 
   test "detects KaiOS with Android string in user-agent " do
@@ -25,5 +26,6 @@ class KaiOSTest < Minitest::Test
     assert browser.platform.kai_os?
     assert_equal "KaiOS", browser.platform.name
     assert_equal "2.5", browser.platform.version
+    refute browser.platform.android?
   end
 end
