@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+  schedule:
+    - cron: "0 10 * * *"
+
 jobs:
   build:
     name: Tests with Ruby ${{ matrix.ruby }} and ${{ matrix.gemfile }}
