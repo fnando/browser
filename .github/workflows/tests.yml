@@ -10,7 +10,7 @@ on:
 
 jobs:
   build:
-    name: Tests with Ruby ${{ matrix.ruby }}
+    name: Tests with Ruby ${{ matrix.ruby }} and ${{ matrix.gemfile }}
     runs-on: "ubuntu-latest"
     strategy:
       fail-fast: false
@@ -29,10 +29,10 @@ jobs:
           path: vendor/bundle
           key: >
             ${{ runner.os }}-${{ matrix.ruby }}-gems-${{
-            hashFiles('**/${{matrix.gemfile}}') }}
+            hashFiles('**/${{ matrix.gemfile }}') }}
           restore-keys: >
             ${{ runner.os }}-${{ matrix.ruby }}-gems-${{
-            hashFiles('**/${{matrix.gemfile}}') }}
+            hashFiles('**/${{ matrix.gemfile }}') }}
 
       - name: Set up Ruby
         uses: actions/setup-ruby@v1
@@ -42,7 +42,7 @@ jobs:
       - name: Install gem dependencies
         env:
           RAILS_ENV: test
-          BUNDLE_GEMFILE: ${{matrix.gemfile}}
+          BUNDLE_GEMFILE: ${{ matrix.gemfile }}
         run: |
           gem install bundler
           bundle config path vendor/bundle
@@ -51,6 +51,6 @@ jobs:
       - name: Run Tests
         env:
           RAILS_ENV: test
-          BUNDLE_GEMFILE: ${{matrix.gemfile}}
+          BUNDLE_GEMFILE: ${{ matrix.gemfile }}
         run: |
           bundle exec rake
