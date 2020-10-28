@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add KaiOS detection.
+
 ## 5.1.0
 
 - Add Samsung device detection.

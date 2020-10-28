@@ -4,7 +4,7 @@ module Browser
   class Platform
     class Android < Base
       def match?
-        ua =~ /Android/
+        ua =~ /Android/ && ua !~ /KAIOS/
       end
 
       def name
