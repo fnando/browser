@@ -1,6 +1,6 @@
 # Browser
 
-[![Travis-CI](https://travis-ci.org/fnando/browser.svg)](https://travis-ci.org/fnando/browser)
+[![Tests](https://github.com/fnando/browser/workflows/Tests/badge.svg)](https://github.com/fnando/browser)
 [![Code Climate](https://codeclimate.com/github/fnando/browser/badges/gpa.svg)](https://codeclimate.com/github/fnando/browser)
 [![Gem](https://img.shields.io/gem/v/browser.svg)](https://rubygems.org/gems/browser)
 [![Gem](https://img.shields.io/gem/dt/browser.svg)](https://rubygems.org/gems/browser)
