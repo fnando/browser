@@ -58,8 +58,7 @@ module Browser
   end
 
   class << self
-    attr_accessor :user_agent_size_limit
-    attr_accessor :accept_language_size_limit
+    attr_accessor :user_agent_size_limit, :accept_language_size_limit
   end
 
   self.user_agent_size_limit = 2048
