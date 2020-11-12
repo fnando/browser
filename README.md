@@ -20,6 +20,10 @@ require "browser"
 
 browser = Browser.new("Some User Agent", accept_language: "en-us")
 
+# if using Rack based apps (.e.g Rails, Sinatra), add this to your controller:
+
+browser = Browser.new(request.user_agent, accept_language: "en-us")
+
 # General info
 browser.bot?
 browser.chrome?
