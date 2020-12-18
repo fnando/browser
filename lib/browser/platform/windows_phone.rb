@@ -16,7 +16,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Windows Phone/
+        ua.include?("Windows Phone")
       end
     end
   end

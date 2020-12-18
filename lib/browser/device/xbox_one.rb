@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Xbox One/i
+        ua.match?(/Xbox One/i)
       end
     end
   end

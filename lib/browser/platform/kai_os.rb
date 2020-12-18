@@ -16,7 +16,7 @@ module Browser
       end
 
       def match?
-        ua =~ /KAIOS/
+        ua.include?("KAIOS")
       end
     end
   end

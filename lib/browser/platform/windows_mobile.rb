@@ -16,7 +16,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Windows CE/
+        ua.include?("Windows CE")
       end
     end
   end

@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /iPod/
+        ua.include?("iPod")
       end
     end
   end

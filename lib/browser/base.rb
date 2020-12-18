@@ -106,19 +106,20 @@ module Browser
 
     # Detect if browser is WebKit-based.
     def webkit?(expected_version = nil)
-      ua =~ /AppleWebKit/i &&
+      ua.match?(/AppleWebKit/i) &&
         (!edge? || Edge.new(ua).chrome_based?) &&
         detect_version?(webkit_full_version, expected_version)
     end
 
     # Detect if browser is QuickTime
     def quicktime?(expected_version = nil)
-      ua =~ /QuickTime/i && detect_version?(full_version, expected_version)
+      ua.match?(/QuickTime/i) && detect_version?(full_version, expected_version)
     end
 
     # Detect if browser is Apple CoreMedia.
     def core_media?(expected_version = nil)
-      ua =~ /CoreMedia/ && detect_version?(full_version, expected_version)
+      ua.include?("CoreMedia") && detect_version?(full_version,
+                                                  expected_version)
     end
 
     # Detect if browser is PhantomJS
@@ -133,7 +134,7 @@ module Browser
     end
 
     def safari_webapp_mode?
-      (device.ipad? || device.iphone?) && ua =~ /AppleWebKit/
+      (device.ipad? || device.iphone?) && ua.include?("AppleWebKit")
     end
 
     # Detect if browser is Firefox.
@@ -191,17 +192,20 @@ module Browser
 
     # Detect if browser is Opera Mini.
     def opera_mini?(expected_version = nil)
-      ua =~ /Opera Mini/ && detect_version?(full_version, expected_version)
+      ua.include?("Opera Mini") && detect_version?(full_version,
+                                                   expected_version)
     end
 
     # Detect if browser is DuckDuckGo.
     def duck_duck_go?(expected_version = nil)
-      ua =~ /DuckDuckGo/ && detect_version?(full_version, expected_version)
+      ua.include?("DuckDuckGo") && detect_version?(full_version,
+                                                   expected_version)
     end
 
     # Detect if browser is Samsung.
     def samsung_browser?(expected_version = nil)
-      ua =~ /SamsungBrowser/ && detect_version?(full_version, expected_version)
+      ua.include?("SamsungBrowser") && detect_version?(full_version,
+                                                       expected_version)
     end
 
     # Detect if browser is Huawei.
@@ -234,7 +238,7 @@ module Browser
 
     # Detect if browser is Google Search App
     def google_search_app?(expected_version = nil)
-      ua =~ /GSA/ && detect_version?(full_version, expected_version)
+      ua.include?("GSA") && detect_version?(full_version, expected_version)
     end
 
     def webkit_full_version

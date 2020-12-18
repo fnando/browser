@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ %r{(Opera|OPR/)}
+      ua.match?(%r{(Opera|OPR/)})
     end
   end
 end

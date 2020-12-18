@@ -86,7 +86,7 @@ class BotsTest < Minitest::Test
   end
 
   test "adds custom bot matcher" do
-    Browser::Bot.matchers << ->(ua, _) { ua =~ /some-script/ }
+    Browser::Bot.matchers << ->(ua, _) { ua.match?(/some-script/) }
     browser = Browser.new("some-script")
 
     assert browser.bot?

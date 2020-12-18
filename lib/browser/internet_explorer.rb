@@ -52,11 +52,11 @@ module Browser
     end
 
     private def msie?
-      ua =~ /MSIE/ && ua !~ /Opera/
+      ua.include?("MSIE") && !ua.include?("Opera")
     end
 
     private def modern_ie?
-      ua =~ %r{Trident/.*?; rv:(.*?)}
+      ua.match?(%r{Trident/.*?; rv:(.*?)})
     end
   end
 end

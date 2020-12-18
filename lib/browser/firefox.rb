@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /Firefox|FxiOS/
+      ua.match?(/Firefox|FxiOS/)
     end
   end
 end

@@ -5,7 +5,7 @@ require "test_helper"
 class DeviceTest < Minitest::Test
   class CustomDevice < Browser::Device::Base
     def match?
-      ua =~ /Custom/
+      ua.include?("Custom")
     end
 
     def id

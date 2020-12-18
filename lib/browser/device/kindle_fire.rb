@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Kindle Fire|KFTT/
+        ua.match?(/Kindle Fire|KFTT/)
       end
     end
   end

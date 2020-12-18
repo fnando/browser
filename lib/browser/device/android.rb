@@ -13,7 +13,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Android/
+        ua.include?("Android")
       end
     end
   end

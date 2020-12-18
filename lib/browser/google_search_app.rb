@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /GSA/
+      ua.include?("GSA")
     end
   end
 end

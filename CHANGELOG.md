@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Add KaiOS detection.
+- Replace `String#=~` with `String#match?` and other optimizations.
 
 ## 5.1.0
 

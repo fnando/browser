@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /HuaweiBrowser/i
+      ua.match?(/HuaweiBrowser/i)
     end
   end
 end

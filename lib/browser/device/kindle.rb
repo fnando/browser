@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Kindle/
+        ua.include?("Kindle")
       end
     end
   end

@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /PlayBook.*?RIM Tablet/
+        ua.match?(/PlayBook.*?RIM Tablet/)
       end
     end
   end

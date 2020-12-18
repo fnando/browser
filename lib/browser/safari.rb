@@ -18,8 +18,8 @@ module Browser
     end
 
     def match?
-      ua =~ /Safari/ &&
-        ua !~ /PhantomJS|FxiOS/ &&
+      ua.include?("Safari") &&
+        !ua.match?(/PhantomJS|FxiOS/) &&
         !edge? &&
         !chrome? &&
         !opera? &&

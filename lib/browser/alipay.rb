@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /AlipayClient/i
+      ua.match?(/AlipayClient/i)
     end
   end
 end

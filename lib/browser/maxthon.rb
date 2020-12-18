@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /Maxthon/i
+      ua.match?(/Maxthon/i)
     end
   end
 end

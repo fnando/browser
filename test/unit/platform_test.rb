@@ -5,7 +5,7 @@ require "test_helper"
 class PlatformTest < Minitest::Test
   class CustomPlatform < Browser::Platform::Base
     def match?
-      ua =~ /Custom/
+      ua.include?("Custom")
     end
 
     def id

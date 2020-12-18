@@ -18,7 +18,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Mac/
+        ua.include?("Mac")
       end
     end
   end

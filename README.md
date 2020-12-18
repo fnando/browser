@@ -305,7 +305,7 @@ To add custom matchers, you can add a callable object to
 `externalhit` substring on it. The bot name will always be `General Bot`.
 
 ```ruby
-Browser::Bot.matchers << ->(ua, _browser) { ua =~ /externalhit/i }
+Browser::Bot.matchers << ->(ua, _browser) { ua.match?(/externalhit/i) }
 ```
 
 To clear all matchers, including the ones that are bundled, use

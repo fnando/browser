@@ -17,7 +17,7 @@ module Browser
     end
 
     def match?
-      ua =~ /FBAV|FBAN/
+      ua.match?(/FBAV|FBAN/)
     end
   end
 end

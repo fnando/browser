@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /PhantomJS/
+      ua.include?("PhantomJS")
     end
   end
 end

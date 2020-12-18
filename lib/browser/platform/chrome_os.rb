@@ -4,7 +4,7 @@ module Browser
   class Platform
     class ChromeOS < Base
       def match?
-        ua =~ /CrOS/
+        ua.include?("CrOS")
       end
 
       def name

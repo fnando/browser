@@ -32,7 +32,7 @@ module Browser
       end
 
       def match?
-        ua =~ MATCHER
+        ua.match?(MATCHER)
       end
 
       def device

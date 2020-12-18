@@ -18,7 +18,7 @@ module Browser
     # SogouMobileBrowser for mobile device
     # SE for desktop device
     def match?
-      ua =~ /SogouMobileBrowser/i || ua =~ / SE /
+      ua.match?(/SogouMobileBrowser/i) || ua.match?(/\bSE\b/)
     end
   end
 end

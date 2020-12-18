@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /Snapchat/
+      ua.include?("Snapchat")
     end
   end
 end

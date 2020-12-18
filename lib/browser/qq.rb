@@ -19,7 +19,7 @@ module Browser
     end
 
     def match?
-      ua =~ %r{QQ/|QQBrowser}i
+      ua.match?(%r{QQ/|QQBrowser}i)
     end
   end
 end

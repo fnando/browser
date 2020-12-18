@@ -20,8 +20,8 @@ module Browser
     end
 
     def match?
-      ua =~ /Chrome|CriOS/ &&
-        ua !~ /PhantomJS|FxiOS|ArchiveBot/ &&
+      ua.match?(/Chrome|CriOS/) &&
+        !ua.match?(/PhantomJS|FxiOS|ArchiveBot/) &&
         !opera? &&
         !edge? &&
         !duck_duck_go? &&

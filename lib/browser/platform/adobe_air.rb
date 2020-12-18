@@ -4,7 +4,7 @@ module Browser
   class Platform
     class AdobeAir < Base
       def match?
-        ua =~ /AdobeAIR/
+        ua.include?("AdobeAIR")
       end
 
       def version

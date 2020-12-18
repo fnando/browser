@@ -16,7 +16,7 @@ module Browser
       end
 
       def match?
-        ua !~ /(Android|Linux|BlackBerry|Windows|Mac)/ && ua =~ /Firefox/
+        ua !~ /(Android|Linux|BlackBerry|Windows|Mac)/ && ua.include?("Firefox")
       end
     end
   end
