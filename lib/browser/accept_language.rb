@@ -55,7 +55,7 @@ module Browser
 
     private def quality_value
       qvalue = part[/;q=([\d.]+)/, 1]
-      qvalue = qvalue =~ /\A0\.0?\z/ ? "0.0" : qvalue
+      qvalue = /\A0\.0?\z/.match?(qvalue) ? "0.0" : qvalue
       qvalue = qvalue.gsub(/\.+/, ".") if qvalue
       qvalue
     end
