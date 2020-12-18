@@ -221,6 +221,11 @@ class DeviceTest < Minitest::Test
     end
   end
 
+  test "not detect Unkown as mobile" do
+    device = Browser::Device.new("Unknown")
+    assert_equal false, device.mobile?
+  end
+
   %w[
     PLAYBOOK
     IPAD
