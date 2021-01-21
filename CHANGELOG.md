@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 5.3.0
 
 - Bump up minimum required ruby version to 2.5.0. We're now relying on
   `String#match?`, which was introduced by ruby-2.4, but given that ruby's
