@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Bump up minimum required ruby version to 2.5.0. We're now relying on
+  `String#match?`, which was introduced by ruby-2.4, but given that ruby's
+  stable version is >= 2.5, seems reasonable.
+
 ## 5.2.0
 
 - Add KaiOS detection.
