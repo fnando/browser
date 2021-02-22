@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Remove Stripe webhooks from bot list.
+
 ## 5.3.0
 
 - Bump up minimum required ruby version to 2.5.0. We're now relying on
