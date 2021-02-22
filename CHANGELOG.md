@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 5.3.1
 
 - Remove Stripe webhooks from bot list.
 
