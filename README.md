@@ -53,7 +53,6 @@ browser.yandex?
 browser.wechat?
 browser.qq?
 browser.weibo?
-browser.yandex?
 browser.sputnik?
 browser.sougou_browser?
 
