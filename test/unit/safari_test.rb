@@ -66,6 +66,30 @@ class SafariTest < Minitest::Test
     assert_equal "9.0.2", browser.full_version
   end
 
+  test "reject other iOS and non-Safari browsers" do
+    %w[
+      ALIPAY_IOS
+      CHROME
+      DUCKDUCKGO_BROWSER_IOS
+      FIREFOX_IOS
+      GOOGLE_SEARCH_APP_IPHONE
+      HUAWEI_BROWSER
+      MAXTHON
+      MIUI_BROWSER
+      MS_EDGE
+      OPERA
+      PHANTOM_JS
+      QQ_BROWSER_IOS
+      SAMSUNG_BROWSER
+      SOUGOU_BROWSER
+      SPUTNIK
+      YANDEX_BROWSER_IOS
+    ].each do |user_agent|
+      browser = Browser.new(Browser[user_agent])
+      refute browser.safari?
+    end
+  end
+
   test "detect web app mode" do
     browser = Browser.new(Browser["SAFARI_IPHONE_WEBAPP_MODE"])
 
