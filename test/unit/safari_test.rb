@@ -83,6 +83,7 @@ class SafariTest < Minitest::Test
       SAMSUNG_BROWSER
       SOUGOU_BROWSER
       SPUTNIK
+      UC_BROWSER
       YANDEX_BROWSER_IOS
     ].each do |user_agent|
       browser = Browser.new(Browser[user_agent])
