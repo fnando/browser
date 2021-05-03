@@ -1,5 +1,8 @@
 # Changelog
 
+## 5.3.2
+- Add PetalBot to bot list.
+
 ## 5.3.1
 
 - Remove Stripe webhooks from bot list.
