@@ -241,6 +241,10 @@ module Browser
       ua.include?("GSA") && detect_version?(full_version, expected_version)
     end
 
+    def apple_mail?(expected_version = nil)
+      AppleMail.new(ua).match? && detect_version?(full_version, expected_version)
+    end
+
     def webkit_full_version
       ua[%r{AppleWebKit/([\d.]+)}, 1] || "0.0"
     end
