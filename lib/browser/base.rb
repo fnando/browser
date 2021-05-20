@@ -273,5 +273,9 @@ module Browser
             "#{subject} cannot be larger than #{size_limit} bytes; " \
             "actual size is #{actual_bytesize} bytes"
     end
+
+    def yahoo_mobile_app?(expected_version = nil)
+      ua.include?("YJApp") && detect_version?(full_version, expected_version)
+    end
   end
 end
