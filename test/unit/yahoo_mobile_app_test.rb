@@ -7,7 +7,7 @@ class YahooMobileAppTest < Minitest::Test
     browser = Browser.new(Browser["YAHOO_MOBILE_APP"])
 
     assert browser.webkit?
-    assert browser.yahoo_app?
+    assert browser.yahoo_mobile_app?
     assert_equal "4", browser.version
     assert_equal :yahoo_app, browser.id
     assert_equal "4.38.0", browser.full_version
@@ -18,6 +18,6 @@ class YahooMobileAppTest < Minitest::Test
 
   test "detects version by range" do
     browser = Browser.new(Browser["YAHOO_MOBILE_APP"])
-    assert browser.samsung_browser?(%w[>=4 <5])
+    assert browser.yahoo_mobile_app?(%w[>=4 <5])
   end
 end
