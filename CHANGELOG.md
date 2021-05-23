@@ -1,5 +1,9 @@
 # Changelog
 
+# 5.4.0
+
+- Add Apple Mail detection
+
 ## 5.3.1
 
 - Remove Stripe webhooks from bot list.
