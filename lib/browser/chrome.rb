@@ -33,7 +33,8 @@ module Browser
         !maxthon? &&
         !qq? &&
         !sougou_browser? &&
-        !google_search_app?
+        !google_search_app? &&
+        !yahoo_mobile_app?
     end
   end
 end

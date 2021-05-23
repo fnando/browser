@@ -37,6 +37,7 @@ require_relative "miui_browser"
 require_relative "maxthon"
 require_relative "sougou_browser"
 require_relative "google_search_app"
+require_relative "yahoo_mobile_app"
 
 require_relative "bot"
 require_relative "bot/empty_user_agent_matcher"
@@ -94,6 +95,7 @@ module Browser
       Maxthon,              # must be placed before Chrome and Safari
       SougouBrowser,        # must be placed before Chrome and Safari
       GoogleSearchApp,      # must be placed before Chrome and Safari
+      YahooMobileApp,       # must be placed before Chrome and Safari
       Chrome,
       Safari,
       Unknown
