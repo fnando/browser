@@ -27,6 +27,7 @@ module Browser
         !huawei_browser? &&
         !miui_browser? &&
         !duck_duck_go? &&
+        !uc_browser? &&
         !yandex? &&
         !sputnik? &&
         !maxthon? &&
