@@ -93,6 +93,7 @@ browser.device.switch?
 browser.device.xbox?
 browser.device.xbox_360?
 browser.device.xbox_one?
+browser.device.desktop?
 
 # Get platform info
 browser.platform
