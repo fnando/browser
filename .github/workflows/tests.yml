@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: ["3.0.x", "2.7.x", "2.6.x", "2.5.x"]
+        ruby: ["3.0.x", "2.7.x", "2.6.x", "2.5.x", "truffleruby-head"]
         gemfile:
           - Gemfile
           - gemfiles/rails6_1.gemfile
