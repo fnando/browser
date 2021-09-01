@@ -18,7 +18,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: ["3.0.x", "2.7.x", "2.6.x", "2.5.x"]
+        ruby: ['3.0', '2.7', '2.6', '2.5', truffleruby-head]
         gemfile:
           - Gemfile
           - gemfiles/rails6_1.gemfile
@@ -36,7 +36,7 @@ jobs:
             ${{ runner.os }}-${{ matrix.ruby }}-gems-${{ hashFiles(matrix.gemfile) }}
 
       - name: Set up Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
 
