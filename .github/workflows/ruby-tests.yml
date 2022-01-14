@@ -1,48 +1,48 @@
-name: Tests
+---
+name: ruby-tests
 
 on:
-  pull_request:
-    branches:
-      - main
+  pull_request_target:
   push:
     branches:
       - main
-
-  schedule:
-    - cron: "0 10 * * *"
+  workflow_dispatch:
+    inputs: {}
 
 jobs:
   build:
     name: Tests with Ruby ${{ matrix.ruby }} and ${{ matrix.gemfile }}
     runs-on: "ubuntu-latest"
+    if: |
+      github.actor == 'dependabot[bot]' && github.event_name == 'pull_request_target' ||
+      github.actor != 'dependabot[bot]'
     strategy:
       fail-fast: false
       matrix:
-        ruby: ["3.0.x", "2.7.x", "2.6.x", "2.5.x"]
+        ruby: ["2.7", "3.0", "3.1"]
         gemfile:
           - Gemfile
-          - gemfiles/rails6_1.gemfile
-          - gemfiles/rails6_0.gemfile
+          - gemfiles/7_0.gemfile
+          - gemfiles/6_1.gemfile
+          - gemfiles/6_0.gemfile
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2.4.0
 
       - uses: actions/cache@v2
         with:
           path: vendor/bundle
           key: >
-            ${{ runner.os }}-${{ matrix.ruby }}-gems-${{ hashFiles(matrix.gemfile) }}
-          restore-keys: >
-            ${{ runner.os }}-${{ matrix.ruby }}-gems-${{ hashFiles(matrix.gemfile) }}
+            ${{ runner.os }}-${{ matrix.ruby }}-gems-${{
+            hashFiles(matrix.gemfile) }}
 
       - name: Set up Ruby
-        uses: actions/setup-ruby@v1
+        uses: ruby/setup-ruby@v1
         with:
           ruby-version: ${{ matrix.ruby }}
 
       - name: Install gem dependencies
         env:
-          RAILS_ENV: test
           BUNDLE_GEMFILE: ${{ matrix.gemfile }}
         run: |
           gem install bundler
@@ -51,7 +51,8 @@ jobs:
 
       - name: Run Tests
         env:
-          RAILS_ENV: test
+          PGHOST: localhost
+          PGUSER: postgres
           BUNDLE_GEMFILE: ${{ matrix.gemfile }}
         run: |
           bundle exec rake

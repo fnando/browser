@@ -14,7 +14,7 @@ require "yaml"
 module Minitest
   class Test
     setup do
-      Browser::Bot.instance_variable_set("@detect_empty_ua", false)
+      Browser::Bot.instance_variable_set(:@detect_empty_ua, false)
     end
 
     def assert_deprecated(message, file, line, &block)

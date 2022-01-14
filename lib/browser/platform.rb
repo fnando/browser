@@ -138,7 +138,7 @@ module Browser
     def android_app?
       android? && ua.match?(/\bwv\b/)
     end
-    alias_method :android_webview?, :android_app?
+    alias android_webview? android_app?
 
     # http://msdn.microsoft.com/fr-FR/library/ms537503.aspx#PltToken
     def windows_xp?

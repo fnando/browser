@@ -96,7 +96,7 @@ module Browser
     def ipod_touch?
       id == :ipod_touch
     end
-    alias_method :ipod?, :ipod_touch?
+    alias ipod? ipod_touch?
 
     def iphone?
       id == :iphone
@@ -105,12 +105,12 @@ module Browser
     def ps3?
       id == :ps3
     end
-    alias_method :playstation3?, :ps3?
+    alias playstation3? ps3?
 
     def ps4?
       id == :ps4
     end
-    alias_method :playstation4?, :ps4?
+    alias playstation4? ps4?
 
     def psp?
       id == :psp
@@ -119,8 +119,8 @@ module Browser
     def playstation_vita?
       id == :psvita
     end
-    alias_method :vita?, :playstation_vita?
-    alias_method :psp_vita?, :playstation_vita?
+    alias vita? playstation_vita?
+    alias psp_vita? playstation_vita?
 
     def kindle?
       id == :kindle || kindle_fire?
@@ -133,22 +133,22 @@ module Browser
     def nintendo_wii?
       id == :wii
     end
-    alias_method :wii?, :nintendo_wii?
+    alias wii? nintendo_wii?
 
     def nintendo_wiiu?
       id == :wiiu
     end
-    alias_method :wiiu?, :nintendo_wiiu?
+    alias wiiu? nintendo_wiiu?
 
     def nintendo_switch?
       id == :switch
     end
-    alias_method :switch?, :nintendo_switch?
+    alias switch? nintendo_switch?
 
     def blackberry_playbook?
       id == :playbook
     end
-    alias_method :playbook?, :blackberry_playbook?
+    alias playbook? blackberry_playbook?
 
     def surface?
       id == :surface

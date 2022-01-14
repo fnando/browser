@@ -26,7 +26,7 @@ module Browser
       end
     end
 
-    alias_method :to_a, :meta
+    alias to_a meta
 
     # Return meta representation as string.
     def to_s
@@ -161,7 +161,7 @@ module Browser
     def yandex?(expected_version = nil)
       Yandex.new(ua).match? && detect_version?(full_version, expected_version)
     end
-    alias_method :yandex_browser?, :yandex?
+    alias yandex_browser? yandex?
 
     # Detect if browser is UCBrowser.
     def uc_browser?(expected_version = nil)
@@ -180,7 +180,7 @@ module Browser
         detect_version?(full_version, expected_version)
     end
 
-    alias_method :wechat?, :micro_messenger?
+    alias wechat? micro_messenger?
 
     def weibo?(expected_version = nil)
       Weibo.new(ua).match? && detect_version?(full_version, expected_version)
