@@ -12,6 +12,7 @@ class ChromeTest < Minitest::Test
     assert browser.webkit?
     assert_equal "5.0.375.99", browser.full_version
     assert_equal "5", browser.version
+    assert browser.chromium_based?
   end
 
   test "detects mobile chrome" do

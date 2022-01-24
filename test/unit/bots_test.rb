@@ -4,13 +4,13 @@ require "test_helper"
 
 class BotsTest < Minitest::Test
   Browser.bot_user_agents.each do |key, ua|
-    test "detect #{key} as bot" do
+    test "detects #{key} as bot" do
       browser = Browser.new(ua)
       assert browser.bot?
     end
   end
 
-  test "don't detect as bot" do
+  test "does not detect as bot" do
     browser = Browser.new(Browser["CHROME"])
     refute browser.bot?
   end
@@ -55,7 +55,7 @@ class BotsTest < Minitest::Test
     refute browser.safari?
   end
 
-  test "custom android user agent (#144)" do
+  test "handles custom android user agent (#144)" do
     browser = Browser.new(Browser["CUSTOM_APP"])
 
     assert browser.platform.android?

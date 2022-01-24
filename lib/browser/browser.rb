@@ -101,8 +101,9 @@ module Browser
   end
 
   def self.new(user_agent, **kwargs)
-    matchers
-      .map {|klass| klass.new(user_agent || EMPTY_STRING, **kwargs) }
-      .find(&:match?)
+    matchers.each do |matcher_class|
+      matcher = matcher_class.new(user_agent || EMPTY_STRING, **kwargs)
+      return matcher if matcher.match?
+    end
   end
 end

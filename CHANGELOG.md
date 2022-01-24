@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Add `Browser::Base#chromium_based?`.
+- Change how browser detection works to avoid re-instantiating classes.
+
 ## 5.3.1
 
 - Remove Stripe webhooks from bot list.

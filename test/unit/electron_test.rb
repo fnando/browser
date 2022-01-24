@@ -3,7 +3,7 @@
 require "test_helper"
 
 class ElectronTest < Minitest::Test
-  test "detect electron" do
+  test "detects electron" do
     browser = Browser.new(Browser["ELECTRON"])
 
     assert_equal "Electron", browser.name
