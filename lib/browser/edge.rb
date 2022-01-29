@@ -18,7 +18,7 @@ module Browser
       ua.match?(%r{((?:Edge|Edg|EdgiOS|EdgA)/[\d.]+|Trident/8)})
     end
 
-    def chrome_based?
+    def chromium_based?
       match? && ua.match?(/\bEdg\b/)
     end
   end

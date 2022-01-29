@@ -19,6 +19,10 @@ module Browser
         "0.0"
     end
 
+    def chromium_based?
+      true
+    end
+
     def match?
       ua.match?(/Chrome|CriOS/) &&
         !ua.match?(/PhantomJS|FxiOS|ArchiveBot/) &&

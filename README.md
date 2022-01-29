@@ -22,6 +22,7 @@ browser = Browser.new("Some User Agent", accept_language: "en-us")
 # General info
 browser.bot?
 browser.chrome?
+browser.chromium_based?
 browser.core_media?
 browser.duck_duck_go?
 browser.edge?                # Newest MS browser

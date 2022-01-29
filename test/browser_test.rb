@@ -8,7 +8,7 @@ class BrowserTest < Minitest::Test
     assert_equal "Safari", browser.ua
   end
 
-  test "don't fail with nil user agent" do
+  test "does not fail with nil user agent" do
     browser = Browser.new(nil)
     refute browser.known?
   end
@@ -25,7 +25,7 @@ class BrowserTest < Minitest::Test
     Safari
     UCBrowser
   ].each do |ua|
-    test "don't fail when have no version info (#{ua})" do
+    test "does not fail when have no version info (#{ua})" do
       browser = Browser.new(ua)
       assert_equal "0", browser.version
       assert_equal "0.0", browser.full_version

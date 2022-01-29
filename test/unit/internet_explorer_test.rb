@@ -291,13 +291,13 @@ class IeTest < Minitest::Test
     assert meta.include?("windows")
   end
 
-  test "don't detect as two different versions" do
+  test "does not detect as two different versions" do
     browser = Browser.new(Browser["IE8"])
     assert browser.ie?(8)
     refute browser.ie?(7)
   end
 
-  test "more complex versioning check" do
+  test "handles more complex versioning check" do
     browser = Browser.new(Browser["IE8"])
     assert browser.ie?(["> 7", "< 9"])
   end
