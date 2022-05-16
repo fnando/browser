@@ -23,7 +23,7 @@ require_relative "micro_messenger"
 require_relative "weibo"
 require_relative "qq"
 require_relative "alipay"
-require_relative "electron"
+require_relative "electron_browser"
 require_relative "facebook"
 require_relative "otter"
 require_relative "instagram"
@@ -84,7 +84,7 @@ module Browser
       MicroMessenger,       # must be placed before QQ
       QQ,                   # must be placed before Chrome and Safari
       Alipay,               # must be placed before Chrome and Safari
-      Electron,             # must be placed before Chrome and Safari
+      ElectronBrowser,      # must be placed before Chrome and Safari
       Yandex,               # must be placed before Chrome and Safari
       Sputnik,              # must be placed before Chrome and Safari
       DuckDuckGo,           # must be placed before Chrome and Safari

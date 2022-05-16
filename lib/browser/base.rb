@@ -265,7 +265,7 @@ module Browser
 
     # Detect if the browser is Electron.
     def electron?(expected_version = nil)
-      instance_of?(Electron) && detect_version?(full_version, expected_version)
+      instance_of?(ElectronBrowser) && detect_version?(full_version, expected_version)
     end
 
     private def validate_size(subject, input)

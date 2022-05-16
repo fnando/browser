@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Browser
-  class Electron < Base
+  class ElectronBrowser < Base
     def id
       :electron
     end
