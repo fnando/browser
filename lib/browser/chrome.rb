@@ -33,6 +33,8 @@ module Browser
         !sputnik? &&
         !samsung_browser? &&
         !huawei_browser? &&
+        !wework_browser? &&
+        !ding_talk_browser? &&
         !miui_browser? &&
         !maxthon? &&
         !qq? &&
