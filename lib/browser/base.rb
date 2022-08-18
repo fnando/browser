@@ -214,6 +214,18 @@ module Browser
         detect_version?(full_version, expected_version)
     end
 
+    # 钉钉浏览器
+    def ding_talk_browser?(expected_version = nil)
+      instance_of?(DingTalkBrowser) &&
+        detect_version?(full_version, expected_version)
+    end
+
+    # 企业微信浏览器
+    def wework_browser?(expected_version = nil)
+      instance_of?(WeworkBrowser) &&
+        detect_version?(full_version, expected_version)
+    end
+
     # Detect if browser is Xiaomi Miui.
     def miui_browser?(expected_version = nil)
       instance_of?(MiuiBrowser) &&
