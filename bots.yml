@@ -125,6 +125,7 @@ knows.is: knows.is
 kojitsubot: Kojitsubot
 komodiabot: KomodiaBot
 kraken: kraken
+kube-probe: Kubernetes HTTP Probe
 laconica: Laconica
 lijit crawler: Lijit
 linkdexbot: Linkdex Bot
