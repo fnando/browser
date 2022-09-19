@@ -2,6 +2,7 @@
 
 ## Unreleased
 
+- (#533)[https://github.com/fnando/browser/pull/533] Add Kubernetes HTTP probe to bot list
 - Add `Browser::Base#chromium_based?`.
 - Change how browser detection works to avoid re-instantiating classes.
 
