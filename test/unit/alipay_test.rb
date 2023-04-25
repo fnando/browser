@@ -11,8 +11,8 @@ class AlipayTest < Minitest::Test
     assert_equal "Alipay", browser.name
     assert_equal "2.3.4", browser.full_version
 
-    refute browser.chrome?
-    refute browser.safari?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
   end
 
   test "detects alipay Android" do
@@ -23,12 +23,13 @@ class AlipayTest < Minitest::Test
     assert_equal "Alipay", browser.name
     assert_equal "9.0.1.073001", browser.full_version
 
-    refute browser.chrome?
-    refute browser.safari?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
   end
 
   test "detects version by range" do
     browser = Browser.new(Browser["ALIPAY_IOS"])
+
     assert browser.alipay?(%w[>=2 <3])
   end
 end

@@ -5,12 +5,14 @@ require "test_helper"
 class BrowserTest < Minitest::Test
   test "sets user agent while instantianting object" do
     browser = Browser.new("Safari")
+
     assert_equal "Safari", browser.ua
   end
 
   test "does not fail with nil user agent" do
     browser = Browser.new(nil)
-    refute browser.known?
+
+    refute_predicate browser, :known?
   end
 
   %w[
@@ -27,6 +29,7 @@ class BrowserTest < Minitest::Test
   ].each do |ua|
     test "does not fail when have no version info (#{ua})" do
       browser = Browser.new(ua)
+
       assert_equal "0", browser.version
       assert_equal "0.0", browser.full_version
     end
@@ -97,12 +100,14 @@ class BrowserTest < Minitest::Test
 
   test "returns a zero version" do
     browser = Browser.new("Bot")
+
     assert_equal "0.0", browser.full_version
     assert_equal "0", browser.version
   end
 
   test "ignores malformed strings when comparing versions" do
     browser = Browser.new("Chrome/65.0.3325.99.FreeBrowser.3.0.5")
+
     refute browser.chrome?(">=65")
   end
 
@@ -110,14 +115,15 @@ class BrowserTest < Minitest::Test
     browser = Browser.new("Unknown")
 
     assert browser.unknown?
-    refute browser.known?
+    refute_predicate browser, :known?
     assert_equal :unknown_browser, browser.id
     assert_equal "Unknown Browser", browser.name
   end
 
   test "returns empty language set for missing accept language" do
     browser = Browser.new("")
-    assert_equal [], browser.accept_language
+
+    assert_empty browser.accept_language
   end
 
   test "sets accept language while instantiating object" do
@@ -137,22 +143,26 @@ class BrowserTest < Minitest::Test
 
   test "removes duplicate items" do
     browser = Browser.new(Browser["SAFARI"])
+
     assert_equal ["safari"], (browser.meta.select {|item| item == "safari" })
   end
 
   test "detects meta aliased as to_a" do
     browser = Browser.new(Browser["SAFARI"])
+
     assert_equal browser.meta, browser.to_a
   end
 
   test "knows a supported browser" do
     browser = Browser.new("Chrome")
+
     assert browser.known?
   end
 
   test "does not know an unsupported browser" do
     browser = Browser.new("Fancy new browser")
-    refute browser.known?
+
+    refute_predicate browser, :known?
   end
 
   test "rejects user agent larger than 2048 bytes" do

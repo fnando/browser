@@ -12,11 +12,11 @@ class EdgeTest < ActionController::TestCase
     assert_equal "12", browser.version
     assert browser.platform.windows10?
     assert browser.edge?
-    refute browser.webkit?
-    refute browser.chrome?
-    refute browser.safari?
-    refute browser.device.mobile?
-    refute browser.chromium_based?
+    refute_predicate browser, :webkit?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
+    refute_predicate browser.device, :mobile?
+    refute_predicate browser, :chromium_based?
   end
 
   test "detects Microsoft Edge in compatibility view" do
@@ -30,11 +30,11 @@ class EdgeTest < ActionController::TestCase
     assert_equal "7", browser.msie_version
     assert browser.edge?
     assert browser.compatibility_view?
-    refute browser.webkit?
-    refute browser.chrome?
-    refute browser.safari?
-    refute browser.device.mobile?
-    refute browser.chromium_based?
+    refute_predicate browser, :webkit?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
+    refute_predicate browser.device, :mobile?
+    refute_predicate browser, :chromium_based?
   end
 
   test "detects Microsoft Edge Mobile" do
@@ -44,13 +44,13 @@ class EdgeTest < ActionController::TestCase
     assert_equal "Microsoft Edge", browser.name
     assert_equal "12.0", browser.full_version
     assert_equal "12", browser.version
-    refute browser.platform.windows10?
+    refute_predicate browser.platform, :windows10?
     assert browser.platform.windows_phone?
     assert browser.edge?
-    refute browser.webkit?
-    refute browser.chrome?
-    refute browser.safari?
-    refute browser.chromium_based?
+    refute_predicate browser, :webkit?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
+    refute_predicate browser, :chromium_based?
   end
 
   test "detects Microsoft Edge based on Chrome" do
@@ -62,11 +62,11 @@ class EdgeTest < ActionController::TestCase
     assert_equal "79", browser.version
     assert browser.platform.mac?
     assert browser.chromium_based?
-    refute browser.platform.windows?
+    refute_predicate browser.platform, :windows?
     assert browser.edge?
     assert browser.webkit?
-    refute browser.chrome?
-    refute browser.safari?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
   end
 
   test "detects Microsoft Edge Mobile on iOS" do
@@ -76,14 +76,14 @@ class EdgeTest < ActionController::TestCase
     assert_equal "Microsoft Edge", browser.name
     assert_equal "44.5.0.10", browser.full_version
     assert_equal "44", browser.version
-    refute browser.platform.windows10?
-    refute browser.platform.windows_phone?
+    refute_predicate browser.platform, :windows10?
+    refute_predicate browser.platform, :windows_phone?
     assert browser.platform.ios?
     assert browser.edge?
-    refute browser.webkit?
-    refute browser.chrome?
-    refute browser.safari?
-    refute browser.chromium_based?
+    refute_predicate browser, :webkit?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
+    refute_predicate browser, :chromium_based?
   end
 
   test "detects Microsoft Edge Mobile on Android" do
@@ -93,18 +93,19 @@ class EdgeTest < ActionController::TestCase
     assert_equal "Microsoft Edge", browser.name
     assert_equal "44.11.2.4122", browser.full_version
     assert_equal "44", browser.version
-    refute browser.platform.windows10?
-    refute browser.platform.windows_phone?
+    refute_predicate browser.platform, :windows10?
+    refute_predicate browser.platform, :windows_phone?
     assert browser.platform.android?
     assert browser.edge?
-    refute browser.webkit?
-    refute browser.chrome?
-    refute browser.safari?
-    refute browser.chromium_based?
+    refute_predicate browser, :webkit?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
+    refute_predicate browser, :chromium_based?
   end
 
   test "detects version by range" do
     browser = Browser.new(Browser["MS_EDGE_IOS"])
+
     assert browser.edge?(%w[>=43 <45])
   end
 end

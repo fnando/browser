@@ -10,7 +10,7 @@ class IosAppTest < Minitest::Test
   end
 
   test "does not detect as safari" do
-    refute browser.safari?
+    refute_predicate browser, :safari?
   end
 
   test "detects as webview" do

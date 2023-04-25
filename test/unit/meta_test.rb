@@ -5,7 +5,7 @@ require "test_helper"
 class MetaTest < Minitest::Test
   class CustomRule < Browser::Meta::Base
     def meta
-      "custom" if /Custom/.match?(browser.ua)
+      "custom" if browser.ua.include?("Custom")
     end
   end
 
@@ -13,19 +13,23 @@ class MetaTest < Minitest::Test
     Browser::Meta.rules.unshift(CustomRule)
 
     browser = Browser.new("Custom")
-    assert browser.meta.include?("custom")
+
+    assert_includes browser.meta, "custom"
 
     browser = Browser.new("Safari")
-    refute browser.meta.include?("custom")
+
+    refute_includes browser.meta, "custom"
 
     Browser::Meta.rules.shift
 
     browser = Browser.new("Custom")
-    refute browser.meta.include?("custom")
+
+    refute_includes browser.meta, "custom"
   end
 
   test "sets meta" do
     browser = Browser.new(Browser["CHROME"])
+
     assert_kind_of Array, browser.meta
   end
 
@@ -33,25 +37,25 @@ class MetaTest < Minitest::Test
     browser = Browser.new(Browser["CHROME"])
     meta = browser.to_s
 
-    assert meta.include?("chrome")
-    assert meta.include?("webkit")
-    assert meta.include?("mac")
+    assert_includes meta, "chrome"
+    assert_includes meta, "webkit"
+    assert_includes meta, "mac"
   end
 
   test "returns string representation for mobile" do
     browser = Browser.new(Browser["BLACKBERRY"])
     meta = browser.to_s
 
-    assert meta.include?("blackberry")
-    assert meta.include?("mobile")
+    assert_includes meta, "blackberry"
+    assert_includes meta, "mobile"
   end
 
   test "returns string representation for unknown platform/device/browser" do
     browser = Browser.new("Unknown")
     meta = browser.to_s
 
-    assert meta.include?("unknown_platform")
-    assert meta.include?("unknown_device")
-    assert meta.include?("unknown_browser")
+    assert_includes meta, "unknown_platform"
+    assert_includes meta, "unknown_device"
+    assert_includes meta, "unknown_browser"
   end
 end

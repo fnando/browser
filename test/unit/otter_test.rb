@@ -15,6 +15,7 @@ class OtterBrowserTest < Minitest::Test
 
   test "detects version by range" do
     browser = Browser.new(Browser["OTTER"])
+
     assert browser.otter?(%w[=0.9.91])
   end
 end

@@ -32,7 +32,8 @@ class AndroidAppTest < Minitest::Test
       ANDROID_NEXUS_PLAYER
       FIREFOX_ANDROID
     ].each do |android_type|
-      refute Browser.new(Browser[android_type]).platform.android_webview?
+      refute_predicate Browser.new(Browser[android_type]).platform,
+                       :android_webview?
     end
   end
 end

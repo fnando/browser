@@ -10,8 +10,8 @@ class QQTest < Minitest::Test
     assert_equal "QQ Browser", browser.name
     assert_equal :qq, browser.id
 
-    refute browser.chrome?
-    refute browser.safari?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
   end
 
   test "detects QQ browser for Android" do
@@ -21,8 +21,8 @@ class QQTest < Minitest::Test
     assert_equal "QQ Browser", browser.name
     assert_equal :qq, browser.id
 
-    refute browser.chrome?
-    refute browser.safari?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
   end
 
   test "detects QQ browser for Mac" do
@@ -32,8 +32,8 @@ class QQTest < Minitest::Test
     assert_equal "QQ Browser", browser.name
     assert_equal :qq, browser.id
 
-    refute browser.chrome?
-    refute browser.safari?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
   end
 
   test "detects QQ browser lite for Mac" do
@@ -43,7 +43,7 @@ class QQTest < Minitest::Test
     assert_equal "QQ Browser", browser.name
     assert_equal :qq, browser.id
 
-    refute browser.chrome?
-    refute browser.safari?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
   end
 end

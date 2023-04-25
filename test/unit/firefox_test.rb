@@ -45,6 +45,7 @@ class FirefoxTest < Minitest::Test
 
   test "detects version by range" do
     browser = Browser.new(Browser["FIREFOX"])
+
     assert browser.firefox?(%w[>=3 <4])
   end
 end

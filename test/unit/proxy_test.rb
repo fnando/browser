@@ -14,7 +14,7 @@ class ProxyTest < Minitest::Test
       browser = Browser.new(ua)
 
       assert browser.proxy?
-      assert browser.meta.include?("proxy")
+      assert_includes browser.meta, "proxy"
     end
   end
 end

@@ -6,31 +6,37 @@ class BotsTest < Minitest::Test
   Browser.bot_user_agents.each do |key, ua|
     test "detects #{key} as bot" do
       browser = Browser.new(ua)
+
       assert browser.bot?
     end
   end
 
   test "does not detect as bot" do
     browser = Browser.new(Browser["CHROME"])
-    refute browser.bot?
+
+    refute_predicate browser, :bot?
   end
 
   test "returns bot name" do
     browser = Browser.new(Browser["GOOGLE_BOT"])
+
     assert_equal "Google Bot", browser.bot.name
 
     browser = Browser.new(Browser["FACEBOOK_BOT"])
+
     assert_equal "Facebook Bot", browser.bot.name
   end
 
   test "returns nil for non-bots" do
     browser = Browser.new(Browser["CHROME"])
+
     assert_nil browser.bot.name
   end
 
   Browser.search_engine_user_agents.each do |key, ua|
     test "detects #{key} as search engine" do
       browser = Browser.new(ua)
+
       assert browser.bot.search_engine?
     end
   end
@@ -46,27 +52,29 @@ class BotsTest < Minitest::Test
     assert_equal "0", browser.version
     assert browser.ie?
     assert browser.bot?
-    refute browser.platform.windows10?
-    refute browser.platform.windows_phone?
-    refute browser.edge?
-    refute browser.device.mobile?
-    refute browser.webkit?
-    refute browser.chrome?
-    refute browser.safari?
+    refute_predicate browser.platform, :windows10?
+    refute_predicate browser.platform, :windows_phone?
+    refute_predicate browser, :edge?
+    refute_predicate browser.device, :mobile?
+    refute_predicate browser, :webkit?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
   end
 
   test "handles custom android user agent (#144)" do
     browser = Browser.new(Browser["CUSTOM_APP"])
 
     assert browser.platform.android?
-    refute browser.bot?
+    refute_predicate browser, :bot?
   end
 
   test "extends list in runtime" do
     browser = Browser.new("Faraday/0.9.2")
-    refute browser.bot?
+
+    refute_predicate browser, :bot?
 
     Browser::Bot.bots["faraday"] = "Faraday"
+
     assert browser.bot?
 
     Browser::Bot.bots.delete("faraday")

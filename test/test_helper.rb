@@ -22,6 +22,7 @@ module Minitest
     def assert_deprecated(message, file, line, &block)
       message = "#{message} (called from #{file}:#{line})"
       _out, err = capture_io(&block)
+
       assert_includes err, message
     end
   end
