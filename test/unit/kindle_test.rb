@@ -5,11 +5,13 @@ require "test_helper"
 class KindleTest < Minitest::Test
   test "detects kindle monochrome" do
     browser = Browser.new(Browser["KINDLE"])
+
     assert browser.webkit?
   end
 
   test "detects kindle fire" do
     browser = Browser.new(Browser["KINDLE_FIRE"])
+
     assert browser.webkit?
   end
 

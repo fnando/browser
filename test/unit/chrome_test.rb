@@ -8,7 +8,7 @@ class ChromeTest < Minitest::Test
 
     assert_equal "Chrome", browser.name
     assert browser.chrome?
-    refute browser.safari?
+    refute_predicate browser, :safari?
     assert browser.webkit?
     assert_equal "5.0.375.99", browser.full_version
     assert_equal "5", browser.version
@@ -20,7 +20,7 @@ class ChromeTest < Minitest::Test
 
     assert_equal "Chrome", browser.name
     assert browser.chrome?
-    refute browser.safari?
+    refute_predicate browser, :safari?
     assert browser.webkit?
     assert_equal "19.0.1084.60", browser.full_version
     assert_equal "19", browser.version
@@ -32,7 +32,7 @@ class ChromeTest < Minitest::Test
     assert_equal "Chrome", browser.name
     assert browser.chrome?
     assert browser.platform.android?
-    refute browser.safari?
+    refute_predicate browser, :safari?
     assert browser.webkit?
     assert_equal "28.0.1500.94", browser.full_version
     assert_equal "28", browser.version
@@ -40,6 +40,7 @@ class ChromeTest < Minitest::Test
 
   test "detects chrome os" do
     browser = Browser.new(Browser["CHROME_OS"])
+
     assert browser.platform.chrome_os?
   end
 
@@ -47,7 +48,7 @@ class ChromeTest < Minitest::Test
     browser = Browser.new(Browser["IE9_CHROME_FRAME"])
 
     assert browser.chrome?
-    refute browser.safari?
+    refute_predicate browser, :safari?
     assert browser.webkit?
     assert_equal "26.0.1410.43", browser.full_version
     assert_equal "26", browser.version
@@ -69,6 +70,7 @@ class ChromeTest < Minitest::Test
 
   test "detects version by range" do
     browser = Browser.new(Browser["CHROME"])
+
     assert browser.chrome?(%w[>=5 <6])
   end
 end

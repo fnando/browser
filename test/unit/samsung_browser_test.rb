@@ -12,12 +12,13 @@ class SamsungBrowserTest < Minitest::Test
     assert_equal :samsung_browser, browser.id
     assert_equal "11.1", browser.full_version
     assert_equal "Samsung Browser", browser.name
-    refute browser.chrome?
-    refute browser.safari?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
   end
 
   test "detects version by range" do
     browser = Browser.new(Browser["SAMSUNG_BROWSER"])
+
     assert browser.samsung_browser?(%w[>=11 <12])
   end
 end

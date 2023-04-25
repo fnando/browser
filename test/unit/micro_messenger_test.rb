@@ -15,6 +15,7 @@ class MicroMessengerTest < Minitest::Test
 
   test "detects version by range on iOS" do
     browser = Browser.new(Browser["MICRO_MESSENGER_IOS"])
+
     assert browser.wechat?(%w[>=7 <8])
   end
 
@@ -30,6 +31,7 @@ class MicroMessengerTest < Minitest::Test
 
   test "detects version by range on Android" do
     browser = Browser.new(Browser["MICRO_MESSENGER_ANDROID"])
+
     assert browser.wechat?(%w[>=7 <8])
   end
 end

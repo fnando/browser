@@ -13,6 +13,7 @@ class MiddlewareTest < Minitest::Test
 
   test "redirects with 302" do
     get "/", {}, "HTTP_USER_AGENT" => "MSIE 6", "HTTP_ACCEPT" => "text/html"
+
     assert_equal 302, last_response.status
   end
 

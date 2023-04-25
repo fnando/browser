@@ -75,7 +75,7 @@ class SafariTest < Minitest::Test
   test "rejects regular safari as web app mode" do
     browser = Browser.new(Browser["SAFARI9"])
 
-    refute browser.safari_webapp_mode?
+    refute_predicate browser, :safari_webapp_mode?
   end
 
   test "returns webkit version" do
@@ -86,16 +86,19 @@ class SafariTest < Minitest::Test
 
   test "detects webkit version by range" do
     browser = Browser.new(Browser["SAFARI9"])
+
     assert browser.webkit?(%w[>=601 <602])
   end
 
   test "detects safari version by range" do
     browser = Browser.new(Browser["SAFARI9"])
+
     assert browser.safari?(%w[>=9.0 <10])
   end
 
   test "does not detect as chromium" do
     browser = Browser.new(Browser["SAFARI9"])
-    refute browser.chromium_based?
+
+    refute_predicate browser, :chromium_based?
   end
 end

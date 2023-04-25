@@ -29,7 +29,7 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(8)
-    refute browser.compatibility_view?
+    refute_predicate browser, :compatibility_view?
     assert_equal "8.0", browser.full_version
     assert_equal "8", browser.version
   end
@@ -53,7 +53,7 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(9)
-    refute browser.compatibility_view?
+    refute_predicate browser, :compatibility_view?
     assert_equal "9.0", browser.full_version
     assert_equal "9", browser.version
   end
@@ -77,7 +77,7 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(10)
-    refute browser.compatibility_view?
+    refute_predicate browser, :compatibility_view?
     assert_equal "10.0", browser.full_version
     assert_equal "10", browser.version
   end
@@ -101,7 +101,7 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(11)
-    refute browser.compatibility_view?
+    refute_predicate browser, :compatibility_view?
     assert_equal "11.0", browser.full_version
     assert_equal "11", browser.version
   end
@@ -135,8 +135,8 @@ class IeTest < Minitest::Test
     assert_equal "Internet Explorer", browser.name
     assert browser.ie?
     assert browser.ie?(11)
-    refute browser.compatibility_view?
-    refute browser.platform.windows_rt?
+    refute_predicate browser, :compatibility_view?
+    refute_predicate browser.platform, :windows_rt?
     assert browser.platform.windows_touchscreen_desktop?
     assert browser.platform.windows8?
     assert_equal "11.0", browser.full_version
@@ -152,13 +152,13 @@ class IeTest < Minitest::Test
     assert_equal "0", browser.msie_version
     assert_equal "0.0", browser.full_version
     assert_equal "0", browser.version
-    refute browser.platform.windows10?
-    refute browser.platform.windows_phone?
-    refute browser.edge?
-    refute browser.device.mobile?
-    refute browser.webkit?
-    refute browser.chrome?
-    refute browser.safari?
+    refute_predicate browser.platform, :windows10?
+    refute_predicate browser.platform, :windows_phone?
+    refute_predicate browser, :edge?
+    refute_predicate browser.device, :mobile?
+    refute_predicate browser, :webkit?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
   end
 
   test "detects windows phone" do
@@ -167,7 +167,7 @@ class IeTest < Minitest::Test
     assert browser.ie?
     assert_equal "7", browser.version
     assert browser.platform.windows_phone?
-    refute browser.platform.windows_mobile?
+    refute_predicate browser.platform, :windows_mobile?
   end
 
   test "detects windows phone 8" do
@@ -176,7 +176,7 @@ class IeTest < Minitest::Test
     assert browser.ie?
     assert_equal "10", browser.version
     assert browser.platform.windows_phone?
-    refute browser.platform.windows_mobile?
+    refute_predicate browser.platform, :windows_mobile?
   end
 
   test "detects windows phone 8.1" do
@@ -188,7 +188,7 @@ class IeTest < Minitest::Test
     assert_equal "11", browser.version
     assert_equal "11.0", browser.full_version
     assert browser.platform.windows_phone?
-    refute browser.platform.windows_mobile?
+    refute_predicate browser.platform, :windows_mobile?
   end
 
   test "detects windows mobile (windows phone 8)" do
@@ -197,25 +197,28 @@ class IeTest < Minitest::Test
     assert browser.ie?
     assert_equal "10", browser.version
     assert browser.platform.windows_phone?
-    refute browser.platform.windows_mobile?
+    refute_predicate browser.platform, :windows_mobile?
   end
 
   test "detects windows x64" do
     browser = Browser.new(Browser["IE10_X64_WINX64"])
+
     assert browser.platform.windows_x64?
-    refute browser.platform.windows_wow64?
+    refute_predicate browser.platform, :windows_wow64?
     assert browser.platform.windows_x64_inclusive?
   end
 
   test "detects windows wow64" do
     browser = Browser.new(Browser["WINDOWS_WOW64"])
-    refute browser.platform.windows_x64?
+
+    refute_predicate browser.platform, :windows_x64?
     assert browser.platform.windows_wow64?
     assert browser.platform.windows_x64_inclusive?
   end
 
   test "detects windows platform" do
     browser = Browser.new("Windows")
+
     assert_equal :windows, browser.platform.id
     assert browser.platform.windows?
   end
@@ -246,7 +249,7 @@ class IeTest < Minitest::Test
 
     assert browser.platform.windows?
     assert browser.platform.windows8?
-    refute browser.platform.windows8_1?
+    refute_predicate browser.platform, :windows8_1?
   end
 
   test "detects windows8.1" do
@@ -261,44 +264,46 @@ class IeTest < Minitest::Test
     browser = Browser.new(Browser["IE6"])
     meta = browser.meta
 
-    assert meta.include?("ie")
-    assert meta.include?("ie6")
-    assert meta.include?("oldie")
-    assert meta.include?("lt-ie8")
-    assert meta.include?("lt-ie9")
-    assert meta.include?("windows")
+    assert_includes meta, "ie"
+    assert_includes meta, "ie6"
+    assert_includes meta, "oldie"
+    assert_includes meta, "lt-ie8"
+    assert_includes meta, "lt-ie9"
+    assert_includes meta, "windows"
   end
 
   test "returns string representation for ie7" do
     browser = Browser.new(Browser["IE7"])
     meta = browser.meta
 
-    assert meta.include?("ie")
-    assert meta.include?("ie7")
-    assert meta.include?("oldie")
-    assert meta.include?("lt-ie8")
-    assert meta.include?("lt-ie9")
-    assert meta.include?("windows")
+    assert_includes meta, "ie"
+    assert_includes meta, "ie7"
+    assert_includes meta, "oldie"
+    assert_includes meta, "lt-ie8"
+    assert_includes meta, "lt-ie9"
+    assert_includes meta, "windows"
   end
 
   test "returns string representation for ie8" do
     browser = Browser.new(Browser["IE8"])
     meta = browser.meta
 
-    assert meta.include?("ie")
-    assert meta.include?("ie8")
-    assert meta.include?("lt-ie9")
-    assert meta.include?("windows")
+    assert_includes meta, "ie"
+    assert_includes meta, "ie8"
+    assert_includes meta, "lt-ie9"
+    assert_includes meta, "windows"
   end
 
   test "does not detect as two different versions" do
     browser = Browser.new(Browser["IE8"])
+
     assert browser.ie?(8)
     refute browser.ie?(7)
   end
 
   test "handles more complex versioning check" do
     browser = Browser.new(Browser["IE8"])
+
     assert browser.ie?(["> 7", "< 9"])
   end
 end

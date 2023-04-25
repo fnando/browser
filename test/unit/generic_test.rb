@@ -13,12 +13,12 @@ class GenericTest < Minitest::Test
   test "returns default compatibility view" do
     browser = Browser.new("")
 
-    refute browser.compatibility_view?
+    refute_predicate browser, :compatibility_view?
   end
 
   test "returns default safari web app mode" do
     browser = Browser.new("")
 
-    refute browser.safari_webapp_mode?
+    refute_predicate browser, :safari_webapp_mode?
   end
 end

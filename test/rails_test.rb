@@ -26,7 +26,7 @@ class RailsTest < Minitest::Test
                           "HTTP_ACCEPT_LANGUAGE" => "en-US;q=0.8"
 
     assert_equal 200, last_response.status
-    assert_equal true, JSON.parse(last_response.body)["isBot"]
+    assert JSON.parse(last_response.body)["isBot"]
     assert_equal "en-US", JSON.parse(last_response.body)["acceptLanguages"][0]
   end
 end

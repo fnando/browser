@@ -13,8 +13,8 @@ class GoogleSearchAppTest < Minitest::Test
     assert_equal "11", browser.version
     assert_equal "11.6.8.21", browser.full_version
     assert_equal "Google Search App", browser.name
-    refute browser.chrome?
-    refute browser.safari?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
   end
 
   test "detects Google Search App (iPad)" do
@@ -28,8 +28,8 @@ class GoogleSearchAppTest < Minitest::Test
     assert_equal "102", browser.version
     assert_equal "102.0.304944559", browser.full_version
     assert_equal "Google Search App", browser.name
-    refute browser.chrome?
-    refute browser.safari?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
   end
 
   test "detects Google Search App (iPhone)" do
@@ -43,12 +43,13 @@ class GoogleSearchAppTest < Minitest::Test
     assert_equal "105", browser.version
     assert_equal "105.0.307913796", browser.full_version
     assert_equal "Google Search App", browser.name
-    refute browser.chrome?
-    refute browser.safari?
+    refute_predicate browser, :chrome?
+    refute_predicate browser, :safari?
   end
 
   test "detects version by range (iPad)" do
     browser = Browser.new(Browser["GOOGLE_SEARCH_APP_IPAD"])
+
     assert browser.google_search_app?(%w[>=102 <103])
   end
 end

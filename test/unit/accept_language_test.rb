@@ -18,68 +18,81 @@ class AcceptLanguageTest < Minitest::Test
 
   test "returns full language" do
     language = Browser::AcceptLanguage.new("en-GB")
+
     assert_equal "en-GB", language.full
   end
 
   test "returns language name" do
     language = Browser::AcceptLanguage.new("en-GB")
+
     assert_equal "English/United Kingdom", language.name
 
     language = Browser::AcceptLanguage.new("en")
+
     assert_equal "English", language.name
   end
 
   test "returns nil for unknown languages" do
     language = Browser::AcceptLanguage.new("unknown")
+
     assert_nil language.name
   end
 
   test "returns code" do
     language = Browser::AcceptLanguage.new("en-GB")
+
     assert_equal "en", language.code
   end
 
   test "returns formatted code" do
     %w[EN-GB En-GB eN-GB].each do |locale|
       language = Browser::AcceptLanguage.new(locale)
+
       assert_equal "en", language.code
     end
   end
 
   test "returns region" do
     language = Browser::AcceptLanguage.new("en-GB")
+
     assert_equal "GB", language.region
   end
 
   test "returns formatted region" do
     %w[en-gb en-Gb en-gB].each do |locale|
       language = Browser::AcceptLanguage.new(locale)
+
       assert_equal "GB", language.region
     end
   end
 
   test "returns nil for language without region" do
     language = Browser::AcceptLanguage.new("en")
+
     assert_nil language.region
   end
 
   test "parses language with quality" do
     language = Browser::AcceptLanguage.new("en-GB;q=0.8")
+
     assert_language language, code: "en", region: "GB", quality: 0.8
   end
 
   test "parses language without quality" do
     language = Browser::AcceptLanguage.new("en-GB")
+
     assert_language language, code: "en", region: "GB", quality: 1.0
   end
 
   test "parses language without region" do
     language = Browser::AcceptLanguage.new("en")
+
     assert_language language, code: "en", region: nil, quality: 1.0
   end
 
   test "ignores multi-part region" do
     language = Browser::AcceptLanguage.new("az-AZ-Cyrl")
+
     assert_language language, code: "az", region: "AZ", quality: 1.0
   end
 
@@ -161,6 +174,6 @@ class AcceptLanguageTest < Minitest::Test
   test "sets default quality value for invalid strings" do
     result = Browser::AcceptLanguage.parse(";q=0.0.0.0")
 
-    assert_equal 0.1, result[0].quality
+    assert_in_delta(0.1, result[0].quality)
   end
 end

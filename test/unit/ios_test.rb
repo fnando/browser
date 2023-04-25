@@ -10,7 +10,7 @@ class IosTest < Minitest::Test
     assert browser.safari?
     assert browser.webkit?
     assert browser.platform.ios?
-    refute browser.platform.mac?
+    refute_predicate browser.platform, :mac?
     assert_equal "3.0", browser.full_version
     assert_equal "3", browser.version
   end
@@ -27,11 +27,13 @@ class IosTest < Minitest::Test
 
   test "detects safari in webapp mode" do
     browser = Browser.new(Browser["SAFARI_IPAD_WEBAPP_MODE"])
-    refute browser.safari?
+
+    refute_predicate browser, :safari?
     assert browser.platform.ios_webview?
 
     browser = Browser.new(Browser["SAFARI_IPHONE_WEBAPP_MODE"])
-    refute browser.safari?
+
+    refute_predicate browser, :safari?
     assert browser.platform.ios_webview?
   end
 
@@ -42,8 +44,8 @@ class IosTest < Minitest::Test
     assert browser.safari?
     assert browser.webkit?
     assert browser.platform.ios?
-    refute browser.device.tablet?
-    refute browser.platform.mac?
+    refute_predicate browser.device, :tablet?
+    refute_predicate browser.platform, :mac?
     assert_equal "3.0", browser.full_version
     assert_equal "3", browser.version
   end
@@ -55,62 +57,70 @@ class IosTest < Minitest::Test
     assert browser.safari?
     assert browser.webkit?
     assert browser.platform.ios?
-    refute browser.platform.mac?
+    refute_predicate browser.platform, :mac?
     assert_equal "4.0.4", browser.full_version
     assert_equal "4", browser.version
   end
 
   test "detects ios4" do
     browser = Browser.new(Browser["IOS4"])
+
     assert browser.platform.ios?
     assert browser.platform.ios?(4)
-    refute browser.platform.mac?
+    refute_predicate browser.platform, :mac?
   end
 
   test "detects ios5" do
     browser = Browser.new(Browser["IOS5"])
+
     assert browser.platform.ios?
     assert browser.platform.ios?(5)
-    refute browser.platform.mac?
+    refute_predicate browser.platform, :mac?
   end
 
   test "detects ios6" do
     browser = Browser.new(Browser["IOS6"])
+
     assert browser.platform.ios?
     assert browser.platform.ios?(6)
-    refute browser.platform.mac?
+    refute_predicate browser.platform, :mac?
   end
 
   test "detects ios7" do
     browser = Browser.new(Browser["IOS7"])
+
     assert browser.platform.ios?
     assert browser.platform.ios?(7)
-    refute browser.platform.mac?
+    refute_predicate browser.platform, :mac?
   end
 
   test "detects ios8" do
     browser = Browser.new(Browser["IOS8"])
+
     assert browser.platform.ios?
     assert browser.platform.ios?(8)
-    refute browser.platform.mac?
+    refute_predicate browser.platform, :mac?
   end
 
   test "detects ios9" do
     browser = Browser.new(Browser["IOS9"])
+
     assert browser.platform.ios?
     assert browser.platform.ios?(9)
-    refute browser.platform.mac?
+    refute_predicate browser.platform, :mac?
   end
 
   test "detects ios12" do
     browser = Browser.new(Browser["IOS12"])
+
     assert browser.platform.ios?
     assert browser.platform.ios?(12)
-    refute browser.platform.mac?
+    refute_predicate browser.platform, :mac?
   end
 
   test "does not detect as two different versions" do
     browser = Browser.new(Browser["IOS8"])
+
     assert browser.platform.ios?(8)
     refute browser.platform.ios?(7)
   end
@@ -119,22 +129,22 @@ class IosTest < Minitest::Test
     browser = Browser.new(Browser["IPHONE"])
     meta = browser.to_s
 
-    assert meta.include?("webkit")
-    assert meta.include?("ios")
-    assert meta.include?("safari")
-    assert meta.include?("safari3")
-    assert meta.include?("mobile")
-    refute meta.include?("tablet")
+    assert_includes meta, "webkit"
+    assert_includes meta, "ios"
+    assert_includes meta, "safari"
+    assert_includes meta, "safari3"
+    assert_includes meta, "mobile"
+    refute_includes meta, "tablet"
   end
 
   test "returns string representation for ipad" do
     browser = Browser.new(Browser["IPAD"])
     meta = browser.to_s
 
-    assert meta.include?("webkit")
-    assert meta.include?("ios")
-    assert meta.include?("safari")
-    assert meta.include?("tablet")
-    refute meta.include?("mobile")
+    assert_includes meta, "webkit"
+    assert_includes meta, "ios"
+    assert_includes meta, "safari"
+    assert_includes meta, "tablet"
+    refute_includes meta, "mobile"
   end
 end

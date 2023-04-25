@@ -23,6 +23,7 @@ class WeiboTest < Minitest::Test
 
   test "detects version by range" do
     browser = Browser.new(Browser["WEIBO_IOS"])
+
     assert browser.weibo?(%w[>=5 <6])
   end
 end

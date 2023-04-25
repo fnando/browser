@@ -7,7 +7,7 @@ class BlackberryTest < Minitest::Test
     browser = Browser.new(Browser["BLACKBERRY"])
 
     assert_equal "BlackBerry", browser.name
-    refute browser.device.tablet?
+    refute_predicate browser.device, :tablet?
     assert browser.device.mobile?
     assert_equal "4.1.0", browser.full_version
     assert_equal "4", browser.version
@@ -25,7 +25,7 @@ class BlackberryTest < Minitest::Test
     browser = Browser.new(Browser["BLACKBERRY5"])
 
     assert_equal "BlackBerry", browser.name
-    refute browser.device.tablet?
+    refute_predicate browser.device, :tablet?
     assert browser.device.mobile?
     assert_equal "5.0.0.93", browser.full_version
     assert_equal "5", browser.version
@@ -35,7 +35,7 @@ class BlackberryTest < Minitest::Test
     browser = Browser.new(Browser["BLACKBERRY6"])
 
     assert_equal "BlackBerry", browser.name
-    refute browser.device.tablet?
+    refute_predicate browser.device, :tablet?
     assert browser.device.mobile?
     assert_equal "6.0.0.141", browser.full_version
     assert_equal "6", browser.version
@@ -45,7 +45,7 @@ class BlackberryTest < Minitest::Test
     browser = Browser.new(Browser["BLACKBERRY7"])
 
     assert_equal "BlackBerry", browser.name
-    refute browser.device.tablet?
+    refute_predicate browser.device, :tablet?
     assert browser.device.mobile?
     assert_equal "7.0.0.1", browser.full_version
     assert_equal "7", browser.version
@@ -55,7 +55,7 @@ class BlackberryTest < Minitest::Test
     browser = Browser.new(Browser["BLACKBERRY10"])
 
     assert_equal "BlackBerry", browser.name
-    refute browser.device.tablet?
+    refute_predicate browser.device, :tablet?
     assert browser.device.mobile?
     assert_equal "10.0.9.1675", browser.full_version
     assert_equal "10", browser.version
@@ -64,9 +64,9 @@ class BlackberryTest < Minitest::Test
   test "detects blackberry playbook tablet" do
     browser = Browser.new(Browser["PLAYBOOK"])
 
-    refute browser.platform.android?
+    refute_predicate browser.platform, :android?
     assert browser.device.tablet?
-    refute browser.device.mobile?
+    refute_predicate browser.device, :mobile?
 
     assert_equal "7.2.1.0", browser.full_version
     assert_equal "7", browser.version
@@ -74,6 +74,7 @@ class BlackberryTest < Minitest::Test
 
   test "does not detect as two different versions" do
     browser = Browser.new(Browser["BLACKBERRY10"])
+
     assert browser.platform.blackberry?("~> 10.0")
     refute browser.platform.blackberry?("~> 7.0")
   end
