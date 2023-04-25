@@ -15,6 +15,16 @@ class BotsTest < Minitest::Test
     refute browser.bot?
   end
 
+  test "does not detect an exception bot" do
+    browser = Browser.new("pinterest/ios")
+    refute browser.bot?
+  end
+
+  test "does not detect an exception bot from app yml file" do
+    browser = Browser.new("app-bot-exception")
+    refute browser.bot?
+  end
+
   test "returns bot name" do
     browser = Browser.new(Browser["GOOGLE_BOT"])
     assert_equal "Google Bot", browser.bot.name

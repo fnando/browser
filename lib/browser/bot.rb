@@ -3,6 +3,7 @@
 module Browser
   class Bot
     GENERIC_NAME = "Generic Bot"
+    BOT_EXCEPTION_FILE = "bot_exceptions.yml"
 
     def self.matchers
       @matchers ||= default_matchers
@@ -16,8 +17,10 @@ module Browser
       ]
     end
 
-    def self.load_yaml(path)
-      YAML.load_file(Browser.root.join(path))
+    def self.load_yaml(path, base_path: Browser.root)
+      return unless base_path.join(path).exist?
+
+      YAML.load_file(base_path.join(path))
     end
 
     def self.bots
@@ -25,7 +28,13 @@ module Browser
     end
 
     def self.bot_exceptions
-      @bot_exceptions ||= load_yaml("bot_exceptions.yml")
+      @bot_exceptions ||= begin
+        exceptions = load_yaml(BOT_EXCEPTION_FILE)
+        app_exceptions = load_yaml(BOT_EXCEPTION_FILE,
+                                   base_path: Browser.app_path) || []
+
+        exceptions + app_exceptions
+      end
     end
 
     def self.search_engines

@@ -21,6 +21,10 @@ module Browser
     )
   end
 
+  def self.app_path
+    @app_path ||= Pathname.new(Browser.root.join("test"))
+  end
+
   def self.[](key)
     user_agents.fetch(key)
   end

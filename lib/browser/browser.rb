@@ -57,6 +57,10 @@ module Browser
     @root ||= Pathname.new(File.expand_path("../..", __dir__))
   end
 
+  def self.app_path
+    @app_path ||= Pathname.new(File.expand_path(".", __dir__))
+  end
+
   class << self
     attr_accessor :user_agent_size_limit, :accept_language_size_limit
   end
