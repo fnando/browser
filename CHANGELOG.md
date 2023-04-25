@@ -1,9 +1,10 @@
 # Changelog
 
-## Unreleased
+## 5.4.0
 
 - Add `Browser::Base#chromium_based?`.
 - Change how browser detection works to avoid re-instantiating classes.
+- Allow external bot exceptions files.
 
 ## 5.3.1
 
