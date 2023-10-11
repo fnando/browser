@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua.match?(/Kindle Fire|KFTT/)
+        ua.match?(%r{Kindle Fire|; [^;)]+ Build/.*\bSilk/[0-9._-]+\b})
       end
     end
   end
