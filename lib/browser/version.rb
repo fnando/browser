@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
 module Browser
-  VERSION = "4.2.0"
+  VERSION = "5.3.1"
 end

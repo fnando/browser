@@ -18,10 +18,11 @@ module Browser
     end
 
     def match?
-      ua =~ /Safari/ &&
-        ua !~ /PhantomJS|FxiOS/ &&
+      ua.include?("Safari") &&
+        !ua.match?(/PhantomJS|FxiOS/) &&
         !edge? &&
         !chrome? &&
+        !opera? &&
         !samsung_browser? &&
         !huawei_browser? &&
         !miui_browser? &&
@@ -30,6 +31,9 @@ module Browser
         !sputnik? &&
         !maxthon? &&
         !mail_master? &&
+        !qq? &&
+        !alipay? &&
+        !sougou_browser? &&
         !google_search_app?
     end
   end

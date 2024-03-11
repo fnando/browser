@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /S40OviBrowser/
+      ua.include?("S40OviBrowser")
     end
   end
 end

@@ -2,19 +2,56 @@
 
 ## Unreleased
 
-- Rename `Browser::Platform#other?` to `Browser::Platform#unknown?`
-- Unknown platforms now return `:unknown_platform` as the id
-- Unknown devices now return `:unknown_device` as the id
-- Unknown browsers now return `:unknown_browser` as the id
-- All the changes above affect how `browser.meta` is composed
-- Add method `Browser::Base#unknown?`
-- Fix issue with `Browser::Base#safari?` matching full version
-- Add Maxthon detection
-- Add Google Search App detection
-- Add Huawei Browser detection
+- Add `Browser::Base#chromium_based?`.
+- Change how browser detection works to avoid re-instantiating classes.
+
+## 5.3.1
+
+- Remove Stripe webhooks from bot list.
+
+## 5.3.0
+
+- Bump up minimum required ruby version to 2.5.0. We're now relying on
+  `String#match?`, which was introduced by ruby-2.4, but given that ruby's
+  stable version is >= 2.5, seems reasonable.
+
+## 5.2.0
+
+- Add KaiOS detection.
+- Replace `String#=~` with `String#match?` and other optimizations.
+
+## 5.1.0
+
+- Add Samsung device detection.
+- Delay parsing `Accept-Language` until `Browser::Base#accept_language` is
+  called for the first time.
+- Bump up default size limit for `Accept-Language` and `User-Agent` to 2048
+  bytes.
+
+## 5.0.0
+
+- Rename `Browser::Platform#other?` to `Browser::Platform#unknown?`.
+- Unknown platforms now return `:unknown_platform` as the id.
+- Unknown devices now return `:unknown_device` as the id.
+- Unknown browsers now return `:unknown_browser` as the id.
+- All the changes above affect how `browser.meta` is composed.
+- Add method `Browser::Base#unknown?`.
+- Fix issue with `Browser::Base#safari?` matching full version.
+- Add Maxthon detection.
+- Add Google Search App detection.
+- Add Huawei Browser detection.
 - Fix Duck Duck Go browser that was being recognized as a bot.
 - Add Miui Browser detection
 - Add Mail Master mail app for iOS & Android detection
+- Add Miui Browser detection.
+- Add `Browser::Base#qq?`.
+- Fix QQ detection.
+- Fix Alipay detection.
+- Add Sougou Browser detection.
+- User agent has a size limit of 512 bytes. This can be customized through
+  `Browser.user_agent_size_limit`.
+- Accept-Language has a size limit of 256 bytes. This can be customized through
+  `Browser.accept_language_size_limit`.
 
 ## 4.2.0
 

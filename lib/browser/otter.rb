@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /Otter/
+      ua.include?("Otter")
     end
   end
 end

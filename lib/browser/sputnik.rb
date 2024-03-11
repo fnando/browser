@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /SputnikBrowser/
+      ua.include?("SputnikBrowser")
     end
   end
 end

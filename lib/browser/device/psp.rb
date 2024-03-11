@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /PlayStation Portable/
+        ua.include?("PlayStation Portable")
       end
     end
   end

@@ -19,9 +19,13 @@ module Browser
         "0.0"
     end
 
+    def chromium_based?
+      true
+    end
+
     def match?
-      ua =~ /Chrome|CriOS/ &&
-        ua !~ /PhantomJS|FxiOS|ArchiveBot/ &&
+      ua.match?(/Chrome|CriOS/) &&
+        !ua.match?(/PhantomJS|FxiOS|ArchiveBot/) &&
         !opera? &&
         !edge? &&
         !duck_duck_go? &&
@@ -32,6 +36,8 @@ module Browser
         !miui_browser? &&
         !maxthon? &&
         !mail_master? &&
+        !qq? &&
+        !sougou_browser? &&
         !google_search_app?
     end
   end

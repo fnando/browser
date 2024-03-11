@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /Instagram/
+      ua.include?("Instagram")
     end
   end
 end

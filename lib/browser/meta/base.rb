@@ -37,7 +37,7 @@ module Browser
       end
 
       def to_a
-        meta.to_s.squeeze(" ").split(" ")
+        meta.to_s.squeeze(" ").split
       end
     end
   end

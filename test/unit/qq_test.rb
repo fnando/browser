@@ -9,6 +9,9 @@ class QQTest < Minitest::Test
     assert_equal "6.3.3.432", browser.full_version
     assert_equal "QQ Browser", browser.name
     assert_equal :qq, browser.id
+
+    refute browser.chrome?
+    refute browser.safari?
   end
 
   test "detects QQ browser for Android" do
@@ -17,6 +20,9 @@ class QQTest < Minitest::Test
     assert_equal "6.2", browser.full_version
     assert_equal "QQ Browser", browser.name
     assert_equal :qq, browser.id
+
+    refute browser.chrome?
+    refute browser.safari?
   end
 
   test "detects QQ browser for Mac" do
@@ -25,6 +31,9 @@ class QQTest < Minitest::Test
     assert_equal "4.2.4753.400", browser.full_version
     assert_equal "QQ Browser", browser.name
     assert_equal :qq, browser.id
+
+    refute browser.chrome?
+    refute browser.safari?
   end
 
   test "detects QQ browser lite for Mac" do
@@ -33,5 +42,8 @@ class QQTest < Minitest::Test
     assert_equal "1.0.4", browser.full_version
     assert_equal "QQ Browser", browser.name
     assert_equal :qq, browser.id
+
+    refute browser.chrome?
+    refute browser.safari?
   end
 end

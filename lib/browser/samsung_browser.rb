@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /SamsungBrowser/
+      ua.include?("SamsungBrowser")
     end
   end
 end

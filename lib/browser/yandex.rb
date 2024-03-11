@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /YaBrowser/
+      ua.include?("YaBrowser")
     end
   end
 end

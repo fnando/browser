@@ -16,6 +16,7 @@ class EdgeTest < ActionController::TestCase
     refute browser.chrome?
     refute browser.safari?
     refute browser.device.mobile?
+    refute browser.chromium_based?
   end
 
   test "detects Microsoft Edge in compatibility view" do
@@ -33,6 +34,7 @@ class EdgeTest < ActionController::TestCase
     refute browser.chrome?
     refute browser.safari?
     refute browser.device.mobile?
+    refute browser.chromium_based?
   end
 
   test "detects Microsoft Edge Mobile" do
@@ -48,6 +50,7 @@ class EdgeTest < ActionController::TestCase
     refute browser.webkit?
     refute browser.chrome?
     refute browser.safari?
+    refute browser.chromium_based?
   end
 
   test "detects Microsoft Edge based on Chrome" do
@@ -58,6 +61,7 @@ class EdgeTest < ActionController::TestCase
     assert_equal "79.0.309.18", browser.full_version
     assert_equal "79", browser.version
     assert browser.platform.mac?
+    assert browser.chromium_based?
     refute browser.platform.windows?
     assert browser.edge?
     assert browser.webkit?
@@ -79,6 +83,7 @@ class EdgeTest < ActionController::TestCase
     refute browser.webkit?
     refute browser.chrome?
     refute browser.safari?
+    refute browser.chromium_based?
   end
 
   test "detects Microsoft Edge Mobile on Android" do
@@ -95,6 +100,7 @@ class EdgeTest < ActionController::TestCase
     refute browser.webkit?
     refute browser.chrome?
     refute browser.safari?
+    refute browser.chromium_based?
   end
 
   test "detects version by range" do

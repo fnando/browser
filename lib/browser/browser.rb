@@ -35,7 +35,7 @@ require_relative "samsung_browser"
 require_relative "huawei_browser"
 require_relative "miui_browser"
 require_relative "maxthon"
-require_relative "mail_master"
+require_relative "sougou_browser"
 require_relative "google_search_app"
 
 require_relative "bot"
@@ -51,9 +51,18 @@ require_relative "meta"
 module Browser
   EMPTY_STRING = ""
 
+  Error = Class.new(StandardError)
+
   def self.root
     @root ||= Pathname.new(File.expand_path("../..", __dir__))
   end
+
+  class << self
+    attr_accessor :user_agent_size_limit, :accept_language_size_limit
+  end
+
+  self.user_agent_size_limit = 2048
+  self.accept_language_size_limit = 2048
 
   # Hold the list of browser matchers.
   # Order is important.
@@ -84,6 +93,7 @@ module Browser
       MiuiBrowser,          # must be placed before Chrome and Safari
       Maxthon,              # must be placed before Chrome and Safari
       MailMaster,           # must be placed before Chrome and Safari
+      SougouBrowser,        # must be placed before Chrome and Safari
       GoogleSearchApp,      # must be placed before Chrome and Safari
       Chrome,
       Safari,
@@ -92,8 +102,9 @@ module Browser
   end
 
   def self.new(user_agent, **kwargs)
-    matchers
-      .map {|klass| klass.new(user_agent || EMPTY_STRING, **kwargs) }
-      .find(&:match?)
+    matchers.each do |matcher_class|
+      matcher = matcher_class.new(user_agent || EMPTY_STRING, **kwargs)
+      return matcher if matcher.match?
+    end
   end
 end

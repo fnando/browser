@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /MicroMessenger/i
+      ua.match?(/MicroMessenger/i)
     end
   end
 end

@@ -4,7 +4,7 @@ module Browser
   class Platform
     class BlackBerry < Base
       def match?
-        ua =~ /BB10|BlackBerry/
+        ua.match?(/BB10|BlackBerry/)
       end
 
       def name

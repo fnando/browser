@@ -1,7 +1,9 @@
 # frozen_string_literal: true
 
 require "simplecov"
-SimpleCov.start
+SimpleCov.start do
+  add_filter %r{/test/}
+end
 
 ENV["BUNDLE_GEMFILE"] ||= File.expand_path("../Gemfile", __dir__)
 require "bundler/setup"
@@ -14,7 +16,7 @@ require "yaml"
 module Minitest
   class Test
     setup do
-      Browser::Bot.instance_variable_set("@detect_empty_ua", false)
+      Browser::Bot.instance_variable_set(:@detect_empty_ua, false)
     end
 
     def assert_deprecated(message, file, line, &block)

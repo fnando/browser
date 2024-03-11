@@ -16,7 +16,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Linux/
+        ua.include?("Linux")
       end
     end
   end

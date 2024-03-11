@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /MiuiBrowser/
+      ua.include?("MiuiBrowser")
     end
   end
 end

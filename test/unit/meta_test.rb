@@ -5,11 +5,11 @@ require "test_helper"
 class MetaTest < Minitest::Test
   class CustomRule < Browser::Meta::Base
     def meta
-      "custom" if browser.ua =~ /Custom/
+      "custom" if /Custom/.match?(browser.ua)
     end
   end
 
-  test "extend rules" do
+  test "extends rules" do
     Browser::Meta.rules.unshift(CustomRule)
 
     browser = Browser.new("Custom")

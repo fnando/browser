@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Playstation Vita/
+        ua.match?("Playstation Vita")
       end
     end
   end

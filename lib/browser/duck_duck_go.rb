@@ -16,7 +16,7 @@ module Browser
     end
 
     def match?
-      ua =~ /DuckDuckGo/
+      ua.include?("DuckDuckGo")
     end
   end
 end

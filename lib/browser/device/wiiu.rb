@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Nintendo WiiU/i
+        ua.match?(/Nintendo WiiU/i)
       end
     end
   end

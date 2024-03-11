@@ -8,7 +8,7 @@ class BrowserTest < Minitest::Test
     assert_equal "Safari", browser.ua
   end
 
-  test "don't fail with nil user agent" do
+  test "does not fail with nil user agent" do
     browser = Browser.new(nil)
     refute browser.known?
   end
@@ -25,7 +25,7 @@ class BrowserTest < Minitest::Test
     Safari
     UCBrowser
   ].each do |ua|
-    test "don't fail when have no version info (#{ua})" do
+    test "does not fail when have no version info (#{ua})" do
       browser = Browser.new(ua)
       assert_equal "0", browser.version
       assert_equal "0.0", browser.full_version
@@ -153,5 +153,37 @@ class BrowserTest < Minitest::Test
   test "does not know an unsupported browser" do
     browser = Browser.new("Fancy new browser")
     refute browser.known?
+  end
+
+  test "rejects user agent larger than 2048 bytes" do
+    message = "user_agent cannot be larger than 2048 bytes; actual size is " \
+              "2049 bytes"
+
+    error =
+      begin
+        Browser.new("a" * 2049)
+        nil
+      rescue Browser::Error => error
+        error
+      end
+
+    refute_nil error
+    assert_equal message, error.message
+  end
+
+  test "rejects accept language larger than 2048 bytes" do
+    message = "accept_language cannot be larger than 2048 bytes; actual size " \
+              "is 2049 bytes"
+
+    error =
+      begin
+        Browser.new("Chrome", accept_language: "a" * 2049).accept_language
+        nil
+      rescue Browser::Error => error
+        error
+      end
+
+    refute_nil error
+    assert_equal message, error.message
   end
 end

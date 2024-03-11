@@ -80,7 +80,6 @@ SITECHECK: "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.0) SiteCheck-sitecra
 SKYPE: "Mozilla/5.0 (Windows NT 6.1; WOW64) SkypeUriPreview Preview/0.5"
 SOCIALRANKIO: SocialRankIOBot; http://socialrank.io/about
 SQUIDER: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.110 Safari/537.36 Squider/0.01"
-STRIPE: "Stripe/1.0 (+https://stripe.com/docs/webhooks)"
 SWIFTYPE: "Swiftbot"
 TANGIBLEEBOT: "TangibleeBot"
 TEERAID: "Mozilla/5.0 (compatible; TeeRaidBot; +https://teeraid.com/bot/)"

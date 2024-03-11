@@ -5,7 +5,7 @@ require "test_helper"
 class DeviceTest < Minitest::Test
   class CustomDevice < Browser::Device::Base
     def match?
-      ua =~ /Custom/
+      ua.include?("Custom")
     end
 
     def id
@@ -13,7 +13,7 @@ class DeviceTest < Minitest::Test
     end
   end
 
-  test "extend matchers" do
+  test "extends matchers" do
     Browser::Device.matchers.unshift(CustomDevice)
     device = Browser::Device.new("Custom")
     assert_equal :custom, device.id
@@ -23,28 +23,28 @@ class DeviceTest < Minitest::Test
     assert_equal :unknown_device, device.id
   end
 
-  test "detect generic device" do
+  test "detects generic device" do
     device = Browser::Device.new("")
 
     assert device.unknown?
     assert_equal :unknown_device, device.id
   end
 
-  test "detect ipad" do
+  test "detects ipad" do
     device = Browser::Device.new(Browser["IOS9"])
     assert device.ipad?
     assert_equal :ipad, device.id
     assert_equal "iPad", device.name
   end
 
-  test "detect old ipad" do
+  test "detects old ipad" do
     device = Browser::Device.new(Browser["IOS3"])
     assert device.ipad?
     assert_equal :ipad, device.id
     assert_equal "iPad", device.name
   end
 
-  test "detect ipod" do
+  test "detects ipod" do
     device = Browser::Device.new(Browser["IPOD"])
     assert device.ipod_touch?
     assert device.ipod?
@@ -52,14 +52,14 @@ class DeviceTest < Minitest::Test
     assert_equal "iPod Touch", device.name
   end
 
-  test "detect iphone" do
+  test "detects iphone" do
     device = Browser::Device.new(Browser["IOS8"])
     assert device.iphone?
     assert_equal :iphone, device.id
     assert_equal "iPhone", device.name
   end
 
-  test "detect ps3" do
+  test "detects ps3" do
     device = Browser::Device.new(Browser["PLAYSTATION3"])
     assert device.ps3?
     assert device.playstation3?
@@ -68,7 +68,7 @@ class DeviceTest < Minitest::Test
     assert_equal "PlayStation 3", device.name
   end
 
-  test "detect ps4" do
+  test "detects ps4" do
     device = Browser::Device.new(Browser["PLAYSTATION4"])
     assert device.ps4?
     assert device.playstation4?
@@ -99,14 +99,14 @@ class DeviceTest < Minitest::Test
     assert_equal "Xbox One", device.name
   end
 
-  test "detect psp" do
+  test "detects psp" do
     device = Browser::Device.new(Browser["PSP"])
     assert device.psp?
     assert_equal :psp, device.id
     assert_equal "PlayStation Portable", device.name
   end
 
-  test "detect psvita" do
+  test "detects psvita" do
     device = Browser::Device.new(Browser["PSP_VITA"])
     assert device.playstation_vita?
     assert device.vita?
@@ -114,7 +114,7 @@ class DeviceTest < Minitest::Test
     assert_equal "PlayStation Vita", device.name
   end
 
-  test "detect kindle" do
+  test "detects kindle" do
     device = Browser::Device.new(Browser["KINDLE"])
     assert device.kindle?
     assert_equal :kindle, device.id
@@ -127,7 +127,7 @@ class DeviceTest < Minitest::Test
     KINDLE_FIRE_HD
     KINDLE_FIRE_HD_MOBILE
   ].each do |key|
-    test "detect #{key} as kindle fire" do
+    test "detects #{key} as kindle fire" do
       device = Browser::Device.new(Browser[key])
 
       assert device.kindle?
@@ -137,7 +137,7 @@ class DeviceTest < Minitest::Test
     end
   end
 
-  test "detect wii" do
+  test "detects wii" do
     device = Browser::Device.new(Browser["NINTENDO_WII"])
     assert device.nintendo_wii?
     assert device.console?
@@ -147,7 +147,7 @@ class DeviceTest < Minitest::Test
     assert_equal "Nintendo Wii", device.name
   end
 
-  test "detect wiiu" do
+  test "detects wiiu" do
     device = Browser::Device.new(Browser["NINTENDO_WIIU"])
     assert device.nintendo_wiiu?
     assert device.wiiu?
@@ -157,7 +157,7 @@ class DeviceTest < Minitest::Test
     assert_equal "Nintendo WiiU", device.name
   end
 
-  test "detect switch" do
+  test "detects switch" do
     device = Browser::Device.new(Browser["NINTENDO_SWITCH"])
     assert device.nintendo_switch?
     assert device.switch?
@@ -167,7 +167,7 @@ class DeviceTest < Minitest::Test
     assert_equal "Nintendo Switch", device.name
   end
 
-  test "detect blackberry playbook" do
+  test "detects blackberry playbook" do
     device = Browser::Device.new(Browser["PLAYBOOK"])
     assert device.playbook?
     assert device.blackberry_playbook?
@@ -175,21 +175,21 @@ class DeviceTest < Minitest::Test
     assert_equal "BlackBerry Playbook", device.name
   end
 
-  test "detect surface" do
+  test "detects surface" do
     device = Browser::Device.new(Browser["SURFACE"])
     assert device.surface?
     assert_equal :surface, device.id
     assert_equal "Microsoft Surface", device.name
   end
 
-  test "detect tv" do
+  test "detects tv" do
     device = Browser::Device.new(Browser["SMART_TV"])
     assert device.tv?
     assert_equal :tv, device.id
     assert_equal "TV", device.name
   end
 
-  test "detect unknown device" do
+  test "detects unknown device" do
     device = Browser::Device.new("")
 
     assert device.unknown?
@@ -214,7 +214,7 @@ class DeviceTest < Minitest::Test
     OPERA_MOBI
     KINDLE_FIRE_HD_MOBILE
   ].each do |key|
-    test "detect #{key} as mobile" do
+    test "detects #{key} as mobile" do
       device = Browser::Device.new(Browser[key])
       assert device.mobile?
       refute device.tablet?
@@ -232,7 +232,7 @@ class DeviceTest < Minitest::Test
     FIREFOX_TABLET
     NEXUS7
   ].each do |key|
-    test "detect #{key} as tablet" do
+    test "detects #{key} as tablet" do
       device = Browser::Device.new(Browser[key])
       assert device.tablet?
       refute device.mobile?
@@ -253,7 +253,34 @@ class DeviceTest < Minitest::Test
     "CUSTOM_APP" => "HTC Ruby",
     "NOOK" => "NOOK BNTV250A"
   }.each do |key, name|
-    test "detect device name of #{key} as #{name}" do
+    test "detects device name of #{key} as #{name}" do
+      device = Browser::Device.new(Browser[key])
+      assert_equal name, device.name
+    end
+  end
+
+  test "detects samsung devices" do
+    device = Browser::Device.new(Browser["SAMSUNG_SM-G975F"])
+
+    assert device.samsung?
+    assert_equal :samsung, device.id
+    assert_equal "Samsung Galaxy S10+", device.name
+  end
+
+  test "detects generic samsung devices" do
+    device = Browser::Device.new(Browser["SAMSUNG_SM-FAKE"])
+
+    assert device.samsung?
+    assert_equal :samsung, device.id
+    assert_equal "Samsung SM-0000", device.name
+  end
+
+  {
+    "SAMSUNG_SM-G975F" => "Samsung Galaxy S10+",
+    "SAMSUNG_SM-G960F" => "Samsung Galaxy S9",
+    "SAMSUNG_SM-F700F" => "Samsung Galaxy Z Flip"
+  }.each do |key, name|
+    test "detects device name of #{key} as #{name}" do
       device = Browser::Device.new(Browser[key])
       assert_equal name, device.name
     end

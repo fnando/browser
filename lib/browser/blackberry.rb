@@ -17,7 +17,7 @@ module Browser
     end
 
     def match?
-      ua =~ /BlackBerry|BB10/
+      ua.match?(/BlackBerry|BB10/)
     end
   end
 end

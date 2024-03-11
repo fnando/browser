@@ -12,7 +12,7 @@ module Browser
       end
 
       def match?
-        ua =~ /PLAYSTATION 4/i
+        ua.match?(/PLAYSTATION 4/i)
       end
     end
   end

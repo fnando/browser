@@ -16,7 +16,7 @@ module Browser
     end
 
     def match?
-      ua =~ /Electron/
+      ua.include?("Electron")
     end
   end
 end

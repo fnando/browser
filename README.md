@@ -1,8 +1,6 @@
 # Browser
 
-[![Travis-CI](https://travis-ci.org/fnando/browser.svg)](https://travis-ci.org/fnando/browser)
-[![Code Climate](https://codeclimate.com/github/fnando/browser/badges/gpa.svg)](https://codeclimate.com/github/fnando/browser)
-[![Test Coverage](https://codeclimate.com/github/fnando/browser/badges/coverage.svg)](https://codeclimate.com/github/fnando/browser/coverage)
+[![Tests](https://github.com/fnando/browser/workflows/ruby-tests/badge.svg)](https://github.com/fnando/browser)
 [![Gem](https://img.shields.io/gem/v/browser.svg)](https://rubygems.org/gems/browser)
 [![Gem](https://img.shields.io/gem/dt/browser.svg)](https://rubygems.org/gems/browser)
 
@@ -24,6 +22,7 @@ browser = Browser.new("Some User Agent", accept_language: "en-us")
 # General info
 browser.bot?
 browser.chrome?
+browser.chromium_based?
 browser.core_media?
 browser.duck_duck_go?
 browser.edge?                # Newest MS browser
@@ -52,9 +51,10 @@ browser.webkit?
 browser.webkit_full_version
 browser.yandex?
 browser.wechat?
+browser.qq?
 browser.weibo?
-browser.yandex?
 browser.sputnik?
+browser.sougou_browser?
 
 # Get bot info
 browser.bot.name
@@ -88,6 +88,7 @@ browser.device.tv?
 browser.device.vita?
 browser.device.wii?
 browser.device.wiiu?
+browser.device.samsung?
 browser.device.switch?
 browser.device.xbox?
 browser.device.xbox_360?
@@ -128,6 +129,7 @@ browser.platform.windows_wow64?
 browser.platform.windows_x64?
 browser.platform.windows_x64_inclusive?
 browser.platform.windows_xp?
+browser.platform.kai_os?
 ```
 
 ### Aliases
@@ -302,7 +304,7 @@ To add custom matchers, you can add a callable object to
 `externalhit` substring on it. The bot name will always be `General Bot`.
 
 ```ruby
-Browser::Bot.matchers << ->(ua, _browser) { ua =~ /externalhit/i }
+Browser::Bot.matchers << ->(ua, _browser) { ua.match?(/externalhit/i) }
 ```
 
 To clear all matchers, including the ones that are bundled, use
@@ -346,6 +348,20 @@ can do so with `request`.
 Rails.configuration.middleware.use Browser::Middleware do
   redirect_to upgrade_path if browser.ie? && request.env["PATH_INFO"] != "/exclude_me"
 end
+```
+
+### Restrictions
+
+- User agent has a size limit of 2048 bytes. This can be customized through
+  `Browser.user_agent_size_limit=(size)`.
+- Accept-Language has a size limit of 2048 bytes. This can be customized through
+  `Browser.accept_language_size_limit=(size)`.
+
+If size is not respected, then `Browser::Error` is raised.
+
+```ruby
+Browser.user_agent_size_limit = 4096
+Browser.accept_language_size_limit = 4096
 ```
 
 ## Development

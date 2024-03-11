@@ -16,7 +16,7 @@ module Browser
       end
 
       def match?
-        ua =~ /Windows/
+        ua.include?("Windows")
       end
     end
   end

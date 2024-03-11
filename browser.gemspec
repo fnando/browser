@@ -12,9 +12,10 @@ Gem::Specification.new do |s|
   s.summary               = "Do some browser detection with Ruby."
   s.description           = s.summary
   s.license               = "MIT"
+  s.required_ruby_version = ">= 2.5.0"
 
-  s.metadata["changelog_uri"] = "https://github.com/fnando/browser/blob/master/CHANGELOG.md"
-  
+  s.metadata["changelog_uri"] = "https://github.com/fnando/browser/blob/main/CHANGELOG.md"
+
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.executables   = `git ls-files -- exe/*`
@@ -31,6 +32,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency "rails"
   s.add_development_dependency "rake"
   s.add_development_dependency "rubocop"
-  s.add_development_dependency "rubocop-fnando", "~> 0.0.3"
+  s.add_development_dependency "rubocop-fnando"
   s.add_development_dependency "simplecov"
 end

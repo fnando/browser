@@ -15,7 +15,7 @@ module Browser
     end
 
     def match?
-      ua =~ /__weibo__/i
+      ua.match?(/__weibo__/i)
     end
   end
 end

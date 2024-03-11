@@ -13,6 +13,7 @@ require_relative "platform/android"
 require_relative "platform/unknown"
 require_relative "platform/chrome_os"
 require_relative "platform/adobe_air"
+require_relative "platform/kai_os"
 
 module Browser
   class Platform
@@ -32,6 +33,7 @@ module Browser
         BlackBerry,
         IOS,
         Mac,
+        KaiOS,
         FirefoxOS,
         Windows,
         Linux,
@@ -79,6 +81,10 @@ module Browser
 
     def firefox_os?
       id == :firefox_os
+    end
+
+    def kai_os?
+      id == :kai_os
     end
 
     def ios?(expected_version = nil)
@@ -130,46 +136,46 @@ module Browser
     # Detect if in an Android app webview (Lollipop and newer)
     # https://developer.chrome.com/multidevice/user-agent#webview_user_agent
     def android_app?
-      android? && ua =~ /\bwv\b/
+      android? && ua.match?(/\bwv\b/)
     end
-    alias_method :android_webview?, :android_app?
+    alias android_webview? android_app?
 
     # http://msdn.microsoft.com/fr-FR/library/ms537503.aspx#PltToken
     def windows_xp?
-      windows? && ua =~ /Windows NT 5\.[12]/
+      windows? && ua.match?(/Windows NT 5\.[12]/)
     end
 
     def windows_vista?
-      windows? && ua =~ /Windows NT 6\.0/
+      windows? && ua.include?("Windows NT 6.0")
     end
 
     def windows7?
-      windows? && ua =~ /Windows NT 6\.1/
+      windows? && ua.include?("Windows NT 6.1")
     end
 
     def windows8?
-      windows? && ua =~ /Windows NT 6\.[2-3]/
+      windows? && ua.match?(/Windows NT 6\.[2-3]/)
     end
 
     def windows8_1?
-      windows? && ua =~ /Windows NT 6\.3/
+      windows? && ua.include?("Windows NT 6.3")
     end
 
     def windows10?
-      windows? && ua =~ /Windows NT 10/
+      windows? && ua.include?("Windows NT 10")
     end
 
     def windows_rt?
-      windows8? && ua =~ /ARM/
+      windows8? && ua.include?("ARM")
     end
 
     # Detect if current platform is Windows in 64-bit architecture.
     def windows_x64?
-      windows? && ua =~ /(Win64|x64|Windows NT 5\.2)/
+      windows? && ua.match?(/(Win64|x64|Windows NT 5\.2)/)
     end
 
     def windows_wow64?
-      windows? && ua =~ /WOW64/i
+      windows? && ua.match?(/WOW64/i)
     end
 
     def windows_x64_inclusive?
@@ -177,7 +183,7 @@ module Browser
     end
 
     def windows_touchscreen_desktop?
-      windows? && ua =~ /Touch/
+      windows? && ua.include?("Touch")
     end
 
     private :subject
