@@ -1,9 +1,10 @@
 # Changelog
 
-## Unreleased
+## 6.0.0
 
 - Add `Browser::Base#chromium_based?`.
 - Change how browser detection works to avoid re-instantiating classes.
+- Bump up minimum required ruby version to 3.2.0.
 
 ## 5.3.1
 
