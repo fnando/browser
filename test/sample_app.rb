@@ -9,7 +9,7 @@ class PagesController < ActionController::Base
   end
 end
 
-class PotsController < ActionController::API
+class BotsController < ActionController::API
   def index
     render json: {
       isBot: browser.bot?,
@@ -42,7 +42,7 @@ class SampleApp < Rails::Application
 
     get "/home", to: "pages#home"
 
-    get "/api/pages", to: "pots#index"
+    get "/api/pages", to: "bots#index"
   end
 
   config.middleware.use Browser::Middleware do
