@@ -23,7 +23,7 @@ jobs:
         gemfile:
           - Gemfile
           - gemfiles/7_1.gemfile
-          - gemfiles/6_1.gemfile
+          - gemfiles/7_0.gemfile
 
     steps:
       - uses: actions/checkout@v2.4.0
