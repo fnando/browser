@@ -432,7 +432,7 @@ information.
 
 ## Maintainer
 
-- Nando Vieira - http://nandovieira.com
+- Nando Vieira - https://nandovieira.com
 
 ## Contributors
 

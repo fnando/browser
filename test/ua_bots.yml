@@ -1,9 +1,12 @@
 ---
 ADLXBOT: "Mozilla/5.0 (compatible; adidxbot/2.0; +http://www.bing.com/bingbot.htm)"
 ADS_TXT_CRAWLER: "AdsTxtCrawler/1.0"
+AMAZONBOT: Amazonbot
 ANDERSPINK: "Mozilla/5.0 (compatible; AndersPinkBot/1.0; +http://anderspink.com/bot.html)"
+ANTHROPIC_AI: anthropic-ai
 APIS_GOOGLE: "APIs-Google; (+https://developers.google.com/webmasters/APIs-Google.html)"
 APPLE_BOT: "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Applebot/0.1)"
+APPLEBOT: Applebot
 ARCHIVEBOT: "ArchiveTeam ArchiveBot/20190617.01 (wpull 2.0.3) and not Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36"
 ASK: "Mozilla/2.0 (compatible; Ask Jeeves/Teoma; +http://sp.ask.com/docs/about/tech_crawling.html)"
 AWS_ELB: ELB-HealthChecker/1.0
@@ -13,25 +16,34 @@ BINGBOT: "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm
 BINGPREVIEW: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b"
 BUBING: "BUbiNG (+http://law.di.unimi.it/BUbiNG.html)"
 BUZZBOT: "Buzzbot/1.0 (Buzzbot; http://www.buzzstream.com; buzzbot@buzzstream.com)"
+BYTESPIDER: Bytespider
+CCBOT: CCBot
+CHATGPT_USER: ChatGPT-User
 CHROME_LIGHTHOUSE: "Mozilla/5.0 (Linux; Android 6.0.1; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/74.0.3694.0 Mobile Safari/537.36 Chrome-Lighthouse"
 CIPACRAWLER: "CipaCrawler/3.0 (info@domaincrawler.com; http://www.domaincrawler.com/www.example.com)"
+CLAUDE_WEB: Claude-Web
+CLAUDEBOT: ClaudeBot
 CLOUDFLARE: "Mozilla/5.0 (compatible; CloudFlare-AlwaysOnline/1.0; +http://www.cloudflare.com/always-online) AppleWebKit/534.34"
+COHERE-AI: cohere-ai
 COMMONCRAWL: "CCBot/2.0 (http://commoncrawl.org/faq/)"
 COMODO_SSL_CHECKER: "COMODO SSL Checker"
 COPYPANTS: "Mozilla/5.0 (compatible; BotPants/1.0; Linux; +info@copypants.com) KHTML/3.5.5 (like Gecko)"
 DATAFEEDWATCH: "Datafeedwatch/2.1.x"
 DATANYZE: "Mozilla/5.0 (X11; Datanyze; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/65.0.3325.181 Safari/537.36"
 DAUMOA: "Mozilla/5.0 (compatible; MSIE or Firefox mutant; not on Windows server;) Daumoa 4.0"
+DIFFBOT: Diffbot
 DOMAINAREANIMATOR: "Domain Re-Animator Bot (http://domainreanimator.com) - support@domainreanimator.com"
 DOT_BOT: "Mozilla/5.0 (compatible; DotBot/1.1; http://www.opensiteexplorer.org/dotbot, help@moz.com)"
 DUCKDUCKGO: "DuckDuckBot/1.0; (+http://duckduckgo.com/duckduckbot.html)"
 EZPUBLISH: "eZ Publish Link Validator"
 FACEBOOK_BOT: "facebookexternalhit/1.1 (+http://www.facebook.com/externalhit_uatext.php)"
+FACEBOOKBOT: FacebookBot
 FYREBOT: "Fyrebot/1.0"
 GARLIK: "GarlikCrawler/1.2 (http://garlik.com/, crawler@garlik.com)"
 GERMCRAWLER: "GermCrawler"
 GO_1.1_PACKAGE_HTTP: "Go 1.1 package http"
 GO_HTTP_CLIENT: "Go-http-client"
+GOOGLE-EXTENDED: Google-Extended
 GOOGLE_BOT: "Mozilla/5.0 (compatible; Googlebot/2.1; +http://www.google.com/bot.html)"
 GOOGLE_IMAGE_PROXY: "Mozilla/5.0 (Windows NT 5.1; rv:11.0) Gecko Firefox/11.0 (via ggpht.com GoogleImageProxy)"
 GOOGLE_PAGE_SPEED_INSIGHTS: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.4 (KHTML, like Gecko; Google Page Speed Insights) Chrome/22.0.1229 Safari/537.4"
@@ -40,6 +52,7 @@ GOOGLE_SITE_VERIFICATION: Mozilla/5.0 (compatible; Google-Site-Verification/1.0)
 GOOGLE_STACKDRIVER_UPTIME_CHECKS: "GoogleStackdriverMonitoring-UptimeChecks"
 GOOGLE_STRUCTURED_DATA_TESTING_TOOL2: "Mozilla/5.0 (compatible; Google-Structured-Data-Testing-Tool +http://developers.google.com/structured-data/testing-tool/)"
 GOOGLE_STRUCTURED_DATA_TESTING_TOOL: "Mozilla/5.0 (compatible; X11; Linux x86_64; Google-StructuredDataTestingTool; +http://www.google.com/webmasters/tools/richsnippets)"
+GPTBOT: GPTBot
 GRAPESHOT: "Mozilla/5.0 (compatible; GrapeshotCrawler/2.0; +http://www.grapeshot.co.uk/crawler.php)"
 HTTRACK: "Mozilla/4.5 (compatible; HTTrack 3.0x; Windows 98)"
 IMPLISENSEBOT: "ImplisenseBot 1.0"
@@ -61,7 +74,9 @@ MSNBOT_MEDIA: "msnbot-media/1.1 (+http://search.msn.com/msnbot.htm)"
 NETCRAFT2: Netcraft SSL Server Survey - contact info@netcraft.com
 NETCRAFT: Mozilla/5.0 (compatible; NetcraftSurveyAgent/1.0; +info@netcraft.com)
 NEWRELICPINGER: NewRelicPinger/1.0 (12345)
+OMGILI: omgili
 PAESSLER: Mozilla/5.0 (compatible; PRTG Network Monitor (www.paessler.com); Windows)
+PERPLEXITYBOT: PerplexityBot
 PR-CY_RU: Mozilla/5.0 (compatible; PR-CY.RU; + https://a.pr-cy.ru)
 PRIVACYAWAREBOT: "Mozilla/5.0 (compatible; PrivacyAwareBot/1.1; +http://www.privacyaware.org)"
 PROXIMIC: "Mozilla/5.0 (compatible; proximic; +http://www.proximic.com/info/spider.php)"
@@ -98,6 +113,7 @@ YAHOO_SLURP: "Mozilla/5.0 (compatible; Yahoo! Slurp; http://help.yahoo.com/help/
 YANDEX_DIRECT: "Mozilla/5.0 (compatible; YandexDirect/3.0; +http://yandex.com/bots)"
 YANDEX_METRIKA: "Mozilla/5.0 (compatible; YandexMetrika/3.0; +http://yandex.com/bots)"
 YANGA: "Yanga WorldSearch Bot v1.1/beta (http://www.yanga.co.uk/)"
+YOUBOT: YouBot
 ZABBIX: "Zabbix"
 ZOOMBOT: "ZoomBot (Linkbot 1.0 http://suite.seozoom.it/bot.html)"
 ZOOMINFOBOT: "ZoominfoBot (zoominfobot at zoominfo dot com)"

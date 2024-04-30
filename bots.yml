@@ -291,7 +291,28 @@ zoombot: ZoomBot
 zoominfobot: ZoominfoBot
 zyborg: Zyborg
 
+# AI Crawlers
+# https://darkvisitors.com
+amazonbot: Amazon
+anthropic-ai: Anthropic-AI
+applebot: Apple
+bytespider: TikTok
+ccbot: Common Crawl
+chatgpt-user: ChatGPT
+claude-web: Anthropic-AI
+cohere-ai: Cohere
+diffbot: Diffbot
+facebookbot: Facebook
+google-extended: Google
+googleother: Google
+gptbot: ChatGPT
+omgili: Webz.io
+perplexitybot: Perplexity
+webz.io: Webz.io
+youbot: You.com
+
 # Generic lib user agents go here.
+httpie: HTTPie
 eventmachine httpclient: Ruby http library
 go 1.1 package http: Go 1.1 package http
 htmlparser: HTMLParser

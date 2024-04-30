@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Add more bots (mostly related to AI crawlers)
+
 ## 6.0.0
 
 - Add `Browser::Base#chromium_based?`.
