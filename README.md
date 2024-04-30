@@ -322,6 +322,14 @@ Browser::Bot.matchers.delete(Browser::Bot::KeywordMatcher)
 Browser::Bot.matchers.delete(Browser::Bot::EmptyUserAgentMatcher)
 ```
 
+To extend the bot list, you can manipulate the methods below:
+
+```ruby
+Browser::Bot.bots.merge!(new_bots_hash)
+Browser::Bot.bot_exceptions += new_exceptions
+Browser::Bot.search_engines.merge!(new_search_engines_hash)
+```
+
 ### Middleware
 
 You can use the `Browser::Middleware` to redirect user agents.
