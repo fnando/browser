@@ -8,7 +8,7 @@ class SnapchatTest < Minitest::Test
 
     assert_equal "Snapchat", browser.name
     assert browser.snapchat?
-    assert :snapchat, browser.id
+    assert_equal :snapchat, browser.id
     assert_equal "10.69.5.72", browser.full_version
     assert_equal "10", browser.version
   end
@@ -18,7 +18,7 @@ class SnapchatTest < Minitest::Test
 
     assert_equal "Snapchat", browser.name
     assert browser.snapchat?
-    assert :snapchat, browser.id
+    assert_equal :snapchat, browser.id
     assert_equal "10.70.0.0", browser.full_version
     assert_equal "10", browser.version
   end
@@ -28,7 +28,7 @@ class SnapchatTest < Minitest::Test
 
     assert_equal "Snapchat", browser.name
     assert browser.snapchat?
-    assert :snapchat, browser.id
+    assert_equal :snapchat, browser.id
     assert_equal "10.70.0.0", browser.full_version
     assert_equal "10", browser.version
   end

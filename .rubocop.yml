@@ -16,3 +16,6 @@ AllCops:
 
 Naming/VariableNumber:
   Enabled: false
+
+Minitest/EmptyLineBeforeAssertionMethods:
+  Enabled: false

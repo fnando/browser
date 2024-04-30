@@ -119,22 +119,22 @@ class IosTest < Minitest::Test
     browser = Browser.new(Browser["IPHONE"])
     meta = browser.to_s
 
-    assert meta.include?("webkit")
-    assert meta.include?("ios")
-    assert meta.include?("safari")
-    assert meta.include?("safari3")
-    assert meta.include?("mobile")
-    refute meta.include?("tablet")
+    assert_includes meta, "webkit"
+    assert_includes meta, "ios"
+    assert_includes meta, "safari"
+    assert_includes meta, "safari3"
+    assert_includes meta, "mobile"
+    refute_includes meta, "tablet"
   end
 
   test "returns string representation for ipad" do
     browser = Browser.new(Browser["IPAD"])
     meta = browser.to_s
 
-    assert meta.include?("webkit")
-    assert meta.include?("ios")
-    assert meta.include?("safari")
-    assert meta.include?("tablet")
-    refute meta.include?("mobile")
+    assert_includes meta, "webkit"
+    assert_includes meta, "ios"
+    assert_includes meta, "safari"
+    assert_includes meta, "tablet"
+    refute_includes meta, "mobile"
   end
 end

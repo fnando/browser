@@ -161,6 +161,6 @@ class AcceptLanguageTest < Minitest::Test
   test "sets default quality value for invalid strings" do
     result = Browser::AcceptLanguage.parse(";q=0.0.0.0")
 
-    assert_equal 0.1, result[0].quality
+    assert_equal 0.1, result[0].quality # rubocop:disable Minitest/AssertInDelta
   end
 end

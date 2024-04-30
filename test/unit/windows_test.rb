@@ -8,7 +8,7 @@ class WindowsTest < Minitest::Test
     assert browser.platform.windows_x64?
     refute browser.platform.windows_wow64?
     assert browser.platform.windows_x64_inclusive?
-    assert_equal browser.platform.version, "6.2"
+    assert_equal "6.2", browser.platform.version
   end
 
   test "detects windows wow64" do
@@ -16,14 +16,14 @@ class WindowsTest < Minitest::Test
     refute browser.platform.windows_x64?
     assert browser.platform.windows_wow64?
     assert browser.platform.windows_x64_inclusive?
-    assert_equal browser.platform.version, "6.3"
+    assert_equal "6.3", browser.platform.version
   end
 
   test "detects windows_2000" do
     browser = Browser.new(Browser["WINDOWS_2000"])
 
     assert browser.platform.windows?
-    assert_equal browser.platform.version, "5.0"
+    assert_equal "5.0", browser.platform.version
     assert browser.platform.windows?(["=5.0"])
   end
 
@@ -31,7 +31,7 @@ class WindowsTest < Minitest::Test
     browser = Browser.new(Browser["WINDOWS_2000_SP1"])
 
     assert browser.platform.windows?
-    assert_equal browser.platform.version, "5.01"
+    assert_equal "5.01", browser.platform.version
     assert browser.platform.windows?(["=5.01"])
   end
 
@@ -40,7 +40,7 @@ class WindowsTest < Minitest::Test
 
     assert browser.platform.windows?
     assert browser.platform.windows_xp?
-    assert_equal browser.platform.version, "5.1"
+    assert_equal "5.1", browser.platform.version
     assert browser.platform.windows?(["=5.1"])
   end
 
@@ -50,7 +50,7 @@ class WindowsTest < Minitest::Test
     assert browser.platform.windows?
     assert browser.platform.windows_xp?
     assert browser.platform.windows_x64?
-    assert_equal browser.platform.version, "5.2"
+    assert_equal "5.2", browser.platform.version
     assert browser.platform.windows?(["=5.2"])
   end
 
@@ -59,7 +59,7 @@ class WindowsTest < Minitest::Test
 
     assert browser.platform.windows?
     assert browser.platform.windows_vista?
-    assert_equal browser.platform.version, "6.0"
+    assert_equal "6.0", browser.platform.version
     assert browser.platform.windows?(["=6.0"])
   end
 
@@ -68,7 +68,7 @@ class WindowsTest < Minitest::Test
 
     assert browser.platform.windows?
     assert browser.platform.windows7?
-    assert_equal browser.platform.version, "6.1"
+    assert_equal "6.1", browser.platform.version
     assert browser.platform.windows?(["=6.1"])
   end
 
@@ -78,7 +78,7 @@ class WindowsTest < Minitest::Test
     assert browser.platform.windows?
     assert browser.platform.windows8?
     refute browser.platform.windows8_1?
-    assert_equal browser.platform.version, "6.2"
+    assert_equal "6.2", browser.platform.version
     assert browser.platform.windows?(["=6.2"])
   end
 
@@ -88,7 +88,7 @@ class WindowsTest < Minitest::Test
     assert browser.platform.windows?
     assert browser.platform.windows8?
     assert browser.platform.windows8_1?
-    assert_equal browser.platform.version, "6.3"
+    assert_equal "6.3", browser.platform.version
     assert browser.platform.windows?(["=6.3"])
   end
 
@@ -97,7 +97,7 @@ class WindowsTest < Minitest::Test
 
     assert browser.platform.windows?
     assert browser.platform.windows10?
-    assert_equal browser.platform.version, "10.0"
+    assert_equal "10.0", browser.platform.version
     assert browser.platform.windows?(["=10.0"])
   end
 

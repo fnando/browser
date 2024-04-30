@@ -270,7 +270,7 @@ module Browser
 
     private def validate_size(subject, input)
       actual_bytesize = input.bytesize
-      size_limit = Browser.public_send("#{subject}_size_limit")
+      size_limit = Browser.public_send(:"#{subject}_size_limit")
 
       return if actual_bytesize < size_limit
 

@@ -117,7 +117,7 @@ class BrowserTest < Minitest::Test
 
   test "returns empty language set for missing accept language" do
     browser = Browser.new("")
-    assert_equal [], browser.accept_language
+    assert_empty browser.accept_language
   end
 
   test "sets accept language while instantiating object" do

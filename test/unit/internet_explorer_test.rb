@@ -261,34 +261,34 @@ class IeTest < Minitest::Test
     browser = Browser.new(Browser["IE6"])
     meta = browser.meta
 
-    assert meta.include?("ie")
-    assert meta.include?("ie6")
-    assert meta.include?("oldie")
-    assert meta.include?("lt-ie8")
-    assert meta.include?("lt-ie9")
-    assert meta.include?("windows")
+    assert_includes meta, "ie"
+    assert_includes meta, "ie6"
+    assert_includes meta, "oldie"
+    assert_includes meta, "lt-ie8"
+    assert_includes meta, "lt-ie9"
+    assert_includes meta, "windows"
   end
 
   test "returns string representation for ie7" do
     browser = Browser.new(Browser["IE7"])
     meta = browser.meta
 
-    assert meta.include?("ie")
-    assert meta.include?("ie7")
-    assert meta.include?("oldie")
-    assert meta.include?("lt-ie8")
-    assert meta.include?("lt-ie9")
-    assert meta.include?("windows")
+    assert_includes meta, "ie"
+    assert_includes meta, "ie7"
+    assert_includes meta, "oldie"
+    assert_includes meta, "lt-ie8"
+    assert_includes meta, "lt-ie9"
+    assert_includes meta, "windows"
   end
 
   test "returns string representation for ie8" do
     browser = Browser.new(Browser["IE8"])
     meta = browser.meta
 
-    assert meta.include?("ie")
-    assert meta.include?("ie8")
-    assert meta.include?("lt-ie9")
-    assert meta.include?("windows")
+    assert_includes meta, "ie"
+    assert_includes meta, "ie8"
+    assert_includes meta, "lt-ie9"
+    assert_includes meta, "windows"
   end
 
   test "does not detect as two different versions" do

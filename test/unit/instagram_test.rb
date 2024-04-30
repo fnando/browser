@@ -8,7 +8,7 @@ class InstagramTest < Minitest::Test
 
     assert_equal "Instagram", browser.name
     assert browser.instagram?
-    assert :instagram, browser.id
+    assert_equal :instagram, browser.id
     assert_equal "41.0.0.14.90", browser.full_version
     assert_equal "41", browser.version
   end
@@ -18,7 +18,7 @@ class InstagramTest < Minitest::Test
 
     assert_equal "Instagram", browser.name
     assert browser.instagram?
-    assert :instagram, browser.id
+    assert_equal :instagram, browser.id
     assert_equal "182257141", browser.full_version
     assert_equal "182257141", browser.version
   end
