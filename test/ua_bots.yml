@@ -16,6 +16,7 @@ BINGBOT: "Mozilla/5.0 (compatible; bingbot/2.0; +http://www.bing.com/bingbot.htm
 BINGPREVIEW: "Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/534+ (KHTML, like Gecko) BingPreview/1.0b"
 BUBING: "BUbiNG (+http://law.di.unimi.it/BUbiNG.html)"
 BUZZBOT: "Buzzbot/1.0 (Buzzbot; http://www.buzzstream.com; buzzbot@buzzstream.com)"
+BOTIFY: "botify-bot Mozilla/5.0 (Windows NTROMAIN 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.2661.87 Safari/537.36"
 BYTESPIDER: Bytespider
 CCBOT: CCBot
 CHATGPT_USER: ChatGPT-User

@@ -3,6 +3,7 @@
 ## Unreleased
 
 - Add more bots (mostly related to AI crawlers)
+- Add botify bot
 
 ## 6.0.0
 
