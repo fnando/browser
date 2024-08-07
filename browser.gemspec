@@ -17,7 +17,7 @@ Gem::Specification.new do |s|
   s.metadata["rubygems_mfa_required"] = "true"
   s.metadata["changelog_uri"] = "https://github.com/fnando/browser/blob/main/CHANGELOG.md"
 
-  s.files         = `git ls-files`.split("\n")
+  s.files         = `git ls-files`.split("\n").reject {|f| f.start_with? ('test/') }
   s.executables   = `git ls-files -- exe/*`
                     .split("\n")
                     .map {|f| File.basename(f) }
