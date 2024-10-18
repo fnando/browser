@@ -16,6 +16,7 @@ apachebench: ApacheBench (ab)
 apis-google: APIs-Google
 appengine-google: Google App Engine
 applebot: Apple Bot
+appsignal: AppSignal Bot
 archive.org_bot: Internet Archive (archive.org)
 archiveteam archivebot: ArchiveTeam ArchiveBot
 ask jeeves: Ask Jeeves
@@ -38,6 +39,7 @@ buzzbot: Buzzbot
 buzztalk: buzztalk
 catchbot: CatchBot (catchbot.com)
 check_http: Nagios monitor
+checkly: Checkly
 chrome-lighthouse: Chrome-Lighthouse
 cipacrawler: CipaCrawler
 cliqzbot: Cliqzbot

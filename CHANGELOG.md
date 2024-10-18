@@ -3,6 +3,8 @@
 ## Unreleased
 
 - Add more bots (mostly related to AI crawlers)
+- Add AppSignal bot
+- Add Checkly bot
 
 ## 6.0.0
 
