@@ -34,6 +34,8 @@ require_relative "duck_duck_go"
 require_relative "samsung_browser"
 require_relative "huawei_browser"
 require_relative "miui_browser"
+require_relative "wework_browser"
+require_relative "ding_talk_browser"
 require_relative "maxthon"
 require_relative "sougou_browser"
 require_relative "google_search_app"
@@ -82,6 +84,8 @@ module Browser
       Snapchat,             # must be placed before Chrome and Safari
       Weibo,                # must be placed before Chrome and Safari
       MicroMessenger,       # must be placed before QQ
+      WeworkBrowser,
+      DingTalkBrowser,
       QQ,                   # must be placed before Chrome and Safari
       Alipay,               # must be placed before Chrome and Safari
       Electron,             # must be placed before Chrome and Safari

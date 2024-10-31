@@ -25,6 +25,8 @@ module Browser
         !opera? &&
         !samsung_browser? &&
         !huawei_browser? &&
+        !wework_browser? &&
+        !ding_talk_browser? &&
         !miui_browser? &&
         !duck_duck_go? &&
         !yandex? &&
