@@ -26,6 +26,12 @@ class ChromeTest < Minitest::Test
     assert_equal "19", browser.version
   end
 
+  test "detects chrome in desktop mode" do
+    browser = Browser.new(Browser["CHROME_REQUEST_DESKTOP_SITE"])
+    assert browser.chromium_based?
+    assert browser.chrome?
+  end
+
   test "detects samsung chrome" do
     browser = Browser.new(Browser["SAMSUNG_CHROME"])
 
