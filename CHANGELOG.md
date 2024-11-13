@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 6.1.0
 
 - Add more bots (mostly related to AI crawlers)
 - Add AppSignal bot
