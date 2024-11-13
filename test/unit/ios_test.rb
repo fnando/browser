@@ -25,6 +25,12 @@ class IosTest < Minitest::Test
     assert_equal "5", browser.version
   end
 
+  test "detects chrome in desktop mode" do
+    browser = Browser.new(Browser["CHROME_REQUEST_DESKTOP_SITE"])
+    assert browser.platform.ios?
+    assert browser.device.mobile?
+  end
+
   test "detects safari in webapp mode" do
     browser = Browser.new(Browser["SAFARI_IPAD_WEBAPP_MODE"])
     refute browser.safari?
