@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 6.2.0
 
 - Add `Browser::Base#epiphany?`.
 - Don't ever match linux-based browsers as Safari.
