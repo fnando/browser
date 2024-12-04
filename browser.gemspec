@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.summary               = "Do some browser detection with Ruby."
   s.description           = s.summary
   s.license               = "MIT"
-  s.required_ruby_version = ">= 3.2.0"
+  s.required_ruby_version = ">= 2.7.0"
 
   s.metadata["rubygems_mfa_required"] = "true"
   s.metadata["changelog_uri"] = "https://github.com/fnando/browser/blob/main/CHANGELOG.md"
