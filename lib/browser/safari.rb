@@ -19,6 +19,7 @@ module Browser
 
     def match?
       ua.include?("Safari") &&
+        !platform.linux? &&
         !ua.match?(/PhantomJS|FxiOS/) &&
         !edge? &&
         !chrome? &&

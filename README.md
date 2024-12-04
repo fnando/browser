@@ -55,6 +55,7 @@ browser.qq?
 browser.weibo?
 browser.sputnik?
 browser.sougou_browser?
+browser.epiphany?
 
 # Get bot info
 browser.bot.name

@@ -268,6 +268,11 @@ module Browser
       instance_of?(Electron) && detect_version?(full_version, expected_version)
     end
 
+    # Detect if the browser is Epiphany.
+    def epiphany?(expected_version = nil)
+      instance_of?(Epiphany) && detect_version?(full_version, expected_version)
+    end
+
     private def validate_size(subject, input)
       actual_bytesize = input.bytesize
       size_limit = Browser.public_send(:"#{subject}_size_limit")
