@@ -37,6 +37,7 @@ require_relative "miui_browser"
 require_relative "maxthon"
 require_relative "sougou_browser"
 require_relative "google_search_app"
+require_relative "epiphany"
 
 require_relative "bot"
 require_relative "bot/empty_user_agent_matcher"
@@ -77,23 +78,26 @@ module Browser
       InternetExplorer,
       Firefox,
       Otter,
-      Facebook,             # must be placed before Chrome and Safari
-      Instagram,            # must be placed before Chrome and Safari
-      Snapchat,             # must be placed before Chrome and Safari
-      Weibo,                # must be placed before Chrome and Safari
-      MicroMessenger,       # must be placed before QQ
-      QQ,                   # must be placed before Chrome and Safari
-      Alipay,               # must be placed before Chrome and Safari
-      Electron,             # must be placed before Chrome and Safari
-      Yandex,               # must be placed before Chrome and Safari
-      Sputnik,              # must be placed before Chrome and Safari
-      DuckDuckGo,           # must be placed before Chrome and Safari
-      SamsungBrowser,       # must be placed before Chrome and Safari
-      HuaweiBrowser,        # must be placed before Chrome and Safari
-      MiuiBrowser,          # must be placed before Chrome and Safari
-      Maxthon,              # must be placed before Chrome and Safari
-      SougouBrowser,        # must be placed before Chrome and Safari
-      GoogleSearchApp,      # must be placed before Chrome and Safari
+      Epiphany,
+      Facebook,
+      Instagram,
+      Snapchat,
+      Weibo,
+      MicroMessenger, # must be placed before QQ
+      QQ,
+      Alipay,
+      Electron,
+      Yandex,
+      Sputnik,
+      DuckDuckGo,
+      SamsungBrowser,
+      HuaweiBrowser,
+      MiuiBrowser,
+      Maxthon,
+      SougouBrowser,
+      GoogleSearchApp,
+
+      # Must be last
       Chrome,
       Safari,
       Unknown

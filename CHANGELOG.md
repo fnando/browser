@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Add `Browser::Base#epiphany?`.
+- Don't ever match linux-based browsers as Safari.
+
 ## 6.1.0
 
 - Add more bots (mostly related to AI crawlers)
