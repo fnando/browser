@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
   s.metadata["changelog_uri"] = "https://github.com/fnando/browser/blob/main/CHANGELOG.md"
   s.metadata["funding_uri"] = "https://github.com/sponsors/fnando"
 
-  s.files         = `git ls-files`.split("\n")
+  s.files         = `git ls-files`.split("\n").reject {|f| f.start_with? ('test/') }
   s.executables   = `git ls-files -- exe/*`
                     .split("\n")
                     .map {|f| File.basename(f) }
