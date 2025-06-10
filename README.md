@@ -150,11 +150,11 @@ browser.mobile? #=> false
 ### What's being detected?
 
 - For a list of platform detections, check
-  [lib/browser/platform.rb](https://github.com/fnando/browser/blob/master/lib/browser/platform.rb)
+  [lib/browser/platform.rb](https://github.com/fnando/browser/blob/main/lib/browser/platform.rb)
 - For a list of device detections, check
-  [lib/browser/device.rb](https://github.com/fnando/browser/blob/master/lib/browser/device.rb)
+  [lib/browser/device.rb](https://github.com/fnando/browser/blob/main/lib/browser/device.rb)
 - For a list of bot detections, check
-  [bots.yml](https://github.com/fnando/browser/blob/master/bots.yml)
+  [bots.yml](https://github.com/fnando/browser/blob/main/bots.yml)
 
 ### Detecting modern browsers
 
@@ -298,7 +298,7 @@ following requirements will be considered a bot.
 - Empty user agent string
 - User agent that matches `/crawl|fetch|search|monitoring|spider|bot/`
 - Any known bot listed under
-  [bots.yml](https://github.com/fnando/browser/blob/master/bots.yml)
+  [bots.yml](https://github.com/fnando/browser/blob/main/bots.yml)
 
 To add custom matchers, you can add a callable object to
 `Browser::Bot.matchers`. The following example matches everything that has a
