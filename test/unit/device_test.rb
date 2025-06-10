@@ -218,6 +218,7 @@ class DeviceTest < Minitest::Test
       device = Browser::Device.new(Browser[key])
       assert device.mobile?
       refute device.tablet?
+      refute device.desktop?
     end
   end
 
@@ -236,6 +237,7 @@ class DeviceTest < Minitest::Test
       device = Browser::Device.new(Browser[key])
       assert device.tablet?
       refute device.mobile?
+      refute device.desktop?
     end
   end
 

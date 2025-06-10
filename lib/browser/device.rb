@@ -85,6 +85,10 @@ module Browser
       detect_mobile? && !tablet?
     end
 
+    def desktop?
+      !detect_mobile? && !tablet?
+    end
+
     def ipad?
       id == :ipad
     end
