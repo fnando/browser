@@ -21,7 +21,7 @@ task :rubocop do
       --display-style-guide
       --display-cop-names
       --extra-details
-      --auto-correct
+      --autocorrect
     ]
   end
 end

@@ -24,6 +24,7 @@ module Browser
     def self.included(target)
       target.class_eval do
         extend Forwardable
+
         def_delegators :platform, *PLATFORM_ALIASES
         def_delegators :device, *DEVICE_ALIASES
       end
