@@ -3,9 +3,9 @@
 module Browser
   class Platform
     class IOS < Base
-      MATCHER = /(iPhone|iPad|iPod|CriOS)/.freeze
+      MATCHER = /(iPhone|iPad|iPod|CriOS)/
       VERSION_MATCHER =
-        /OS (?<major>\d+)_(?<minor>\d+)_?(?<patch>\d+)?/.freeze
+        /OS (?<major>\d+)_(?<minor>\d+)_?(?<patch>\d+)?/
 
       def version
         matches = VERSION_MATCHER.match(ua)

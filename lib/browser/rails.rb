@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require "rails/railtie"
+require "rails"
 require_relative "action_controller"
 require_relative "middleware/context/additions"
 

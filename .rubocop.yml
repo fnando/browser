@@ -3,7 +3,7 @@ inherit_gem:
   rubocop-fnando: .rubocop.yml
 
 AllCops:
-  TargetRubyVersion: 2.5
+  TargetRubyVersion: 3.3
   NewCops: enable
   Exclude:
     - bin/**/*

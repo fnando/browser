@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Bump up minimum required ruby version to 3.3.0.
+
 ## 6.2.0
 
 - Add `Browser::Base#epiphany?`.

@@ -137,7 +137,7 @@ class BrowserTest < Minitest::Test
 
   test "removes duplicate items" do
     browser = Browser.new(Browser["SAFARI"])
-    assert_equal ["safari"], (browser.meta.select {|item| item == "safari" })
+    assert_equal(["safari"], browser.meta.select {|item| item == "safari" })
   end
 
   test "detects meta aliased as to_a" do

@@ -3,7 +3,7 @@
 module Browser
   class Device
     class Samsung < Base
-      REGEX = /\(Linux.*?; Android.*?; (SAMSUNG )?(SM-[A-Z0-9]+).*?\)/i.freeze
+      REGEX = /\(Linux.*?; Android.*?; (SAMSUNG )?(SM-[A-Z0-9]+).*?\)/i
 
       def self.names
         @names ||= YAML.load_file(Browser.root.join("samsung.yml").to_s)

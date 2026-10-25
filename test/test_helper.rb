@@ -20,9 +20,9 @@ module Minitest
       Browser::Bot.instance_variable_set(:@detect_empty_ua, false)
     end
 
-    def assert_deprecated(message, file, line, &block)
+    def assert_deprecated(message, file, line, &)
       message = "#{message} (called from #{file}:#{line})"
-      _out, err = capture_io(&block)
+      _out, err = capture_io(&)
       assert_includes err, message
     end
   end
