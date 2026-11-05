@@ -93,6 +93,20 @@ class BotsTest < Minitest::Test
     assert_equal "Generic Bot", browser.bot.name
   end
 
+  test "passes the detected browser to custom bot matchers" do
+    matched_browsers = []
+    Browser::Bot.matchers << lambda {|_ua, browser|
+      matched_browsers << browser
+      false
+    }
+    browser = Browser.new(Browser["CHROME"])
+
+    refute browser.bot?
+    assert_same browser, matched_browsers.last
+  ensure
+    Browser::Bot.matchers.pop
+  end
+
   %w[
     content-fetcher
     content-crawler

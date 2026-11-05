@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Reuse the detected browser for bot detection instead of parsing the user agent
+  twice. Custom bot matchers now receive that browser instead of a
+  `Browser::Unknown` built from the downcased user agent.
+
 ## 6.2.0
 
 - Add `Browser::Base#epiphany?`.

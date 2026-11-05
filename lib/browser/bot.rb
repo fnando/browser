@@ -40,9 +40,9 @@ module Browser
 
     attr_reader :ua, :browser
 
-    def initialize(ua)
+    def initialize(ua, browser: nil)
       @ua = ua.downcase.strip
-      @browser = Browser.new(@ua)
+      @browser = browser || Browser.new(@ua)
     end
 
     def bot?

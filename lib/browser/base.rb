@@ -7,7 +7,7 @@ module Browser
     attr_reader :ua
 
     def initialize(ua, accept_language: nil)
-      validate_size(:user_agent, ua.to_s)
+      validate_size(:user_agent, ua.to_s, Browser.user_agent_size_limit)
 
       @ua = ua
       @accept_language_raw = accept_language.to_s
@@ -21,7 +21,11 @@ module Browser
     # Return an array with all preferred languages that this browser accepts.
     def accept_language
       @accept_language ||= begin
-        validate_size(:accept_language, @accept_language_raw)
+        validate_size(
+          :accept_language,
+          @accept_language_raw,
+          Browser.accept_language_size_limit
+        )
         AcceptLanguage.parse(@accept_language_raw)
       end
     end
@@ -44,7 +48,7 @@ module Browser
 
     # Return the bot info.
     def bot
-      @bot ||= Bot.new(ua)
+      @bot ||= Bot.new(ua, browser: self)
     end
 
     # Detect if current user agent is from a bot.
@@ -273,9 +277,8 @@ module Browser
       instance_of?(Epiphany) && detect_version?(full_version, expected_version)
     end
 
-    private def validate_size(subject, input)
+    private def validate_size(subject, input, size_limit)
       actual_bytesize = input.bytesize
-      size_limit = Browser.public_send(:"#{subject}_size_limit")
 
       return if actual_bytesize < size_limit
 
